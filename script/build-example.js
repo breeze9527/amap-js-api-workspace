@@ -4,8 +4,8 @@ const CWD = process.cwd();
 
 const SRC_DIR = path.join(CWD, './test');
 const DIST_DIR = path.join(CWD, './dist');
-const VIEW_TEMPLATE = fs.readFileSync(path.join(CWD, './template.html'), { encoding: 'utf8' });
-const INDEX_TEMPLATE = fs.readFileSync(path.join(CWD, './index.html'), { encoding: 'utf8' });
+const VIEW_TEMPLATE = fs.readFileSync(path.join(SRC_DIR, './template.html'), { encoding: 'utf8' });
+const INDEX_TEMPLATE = fs.readFileSync(path.join(SRC_DIR, './index.html'), { encoding: 'utf8' });
 
 fs.readdir(DIST_DIR, (err, dirs) => {
     if (err) {
@@ -29,4 +29,3 @@ fs.readdir(DIST_DIR, (err, dirs) => {
     indexContent += '</ul>\n'
     fs.writeFile(path.join(DIST_DIR, 'index.html'), INDEX_TEMPLATE.replace('%BODY%', indexContent), () => { });
 });
-
