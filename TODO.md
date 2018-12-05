@@ -3,17 +3,20 @@
 <!--
     definition
     example
-    test
+    definition test
 -->
 
 - [ ] [基础类](https://lbs.amap.com/api/javascript-api/reference/core)
-    - [ ] Pixel
-    - [ ] Size
-    - [ ] LngLat
-    - [ ] Bounds
+    - [x] Pixel
+    - [x] Size
+    - [x] LngLat
+    - [x] Bounds
+    - [ ] definition test
+    - [ ] example
 - [ ] [地图](https://lbs.amap.com/api/javascript-api/reference/map)
     - [ ] Map
-        - [ ] class
+        - [x] class
+        - [ ] definition test
         - [ ] event
     - [ ] View2D
     - [ ] ArrayBounds
