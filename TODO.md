@@ -2,7 +2,6 @@
 
 <!--
     definition
-    example
     definition test
 -->
 
@@ -12,10 +11,9 @@
     - [x] LngLat
     - [x] Bounds
     - [ ] definition test
-    - [ ] example
 - [ ] [地图](https://lbs.amap.com/api/javascript-api/reference/map)
     - [ ] Map
-        - [x] class
+        - [x] definition
         - [ ] definition test
         - [ ] event
     - [ ] View2D
@@ -34,15 +32,16 @@
     - [ ] EventListener
     - [ ] MapsEvent
 - [ ] [图层](https://lbs.amap.com/api/javascript-api/reference/layer)
-    - [ ] TileLayer
-    - [ ] TileLayer.Satellite
-    - [ ] TileLayer.RoadNet
-    - [ ] TileLayer.Traffic
-    - [ ] Buildings
-    - [ ] MassMarks
-    - [ ] Heatmap
-    - [ ] LayerGroup
+    - [x] TileLayer
+    - [x] TileLayer.Satellite
+    - [x] TileLayer.RoadNet
+    - [x] TileLayer.Traffic
+    - [x] Buildings
+    - [x] MassMarks
+    - [x] Heatmap
+    - [x] LayerGroup
     - [ ] event
+    - [ ] definition test
 - [ ] [自建图层](https://lbs.amap.com/api/javascript-api/reference/self-own-layers)
     - [ ] TileLayer.Flexible
     - [ ] ImageLayer
