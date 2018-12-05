@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "outDir": "./dist",
+        "typeRoots": [
+            "./typings"
+        ],
+        "target": "esnext",
+        "noEmitOnError": true
+    }
+}

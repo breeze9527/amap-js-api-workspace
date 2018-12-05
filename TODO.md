@@ -1,0 +1,128 @@
+# AMap type definitions
+
+<!--
+    definition
+    example
+    test
+-->
+
+- [ ] [基础类](https://lbs.amap.com/api/javascript-api/reference/core)
+    - [ ] Pixel
+    - [ ] Size
+    - [ ] LngLat
+    - [ ] Bounds
+- [ ] [地图](https://lbs.amap.com/api/javascript-api/reference/map)
+    - [ ] Map
+        - [ ] class
+        - [ ] event
+    - [ ] View2D
+    - [ ] ArrayBounds
+- [ ] [3D地图](https://lbs.amap.com/api/javascript-api/reference/maps-3d)
+    - [ ] Map
+    - [ ] Lights.AmbientLight
+    - [ ] Lights.DirectionLight
+    - [ ] Object3DLayer
+    - [ ] Object3D.Mesh
+    - [ ] Object3D.MeshLine
+    - [ ] Object3D.MeshAcceptLight
+    - [ ] Object3D.Prism
+- [ ] [事件](https://lbs.amap.com/api/javascript-api/reference/event)
+    - [ ] event
+    - [ ] EventListener
+    - [ ] MapsEvent
+- [ ] [图层](https://lbs.amap.com/api/javascript-api/reference/layer)
+    - [ ] TileLayer
+    - [ ] TileLayer.Satellite
+    - [ ] TileLayer.RoadNet
+    - [ ] TileLayer.Traffic
+    - [ ] Buildings
+    - [ ] MassMarks
+    - [ ] Heatmap
+    - [ ] LayerGroup
+    - [ ] event
+- [ ] [自建图层](https://lbs.amap.com/api/javascript-api/reference/self-own-layers)
+    - [ ] TileLayer.Flexible
+    - [ ] ImageLayer
+    - [ ] CanvasLayer
+    - [ ] VideoLayer
+    - [ ] CustomLayer
+- [ ] [WMS/WMTS](https://lbs.amap.com/api/javascript-api/reference/wms)
+    - [ ] TileLayer.WMS
+    - [ ] TileLayer.WMTS
+- [ ] [覆盖物](https://lbs.amap.com/api/javascript-api/reference/overlay)
+    - [ ] Marker
+    - [ ] MarkerShape
+    - [ ] Icon
+    - [ ] ElasticMarker
+    - [ ] ElasticMarker
+    - [ ] Text
+    - [ ] Polyline
+    - [ ] Polygon
+    - [ ] BezierCurve
+    - [ ] Circle
+    - [ ] CircleMarker
+    - [ ] Ellipse
+    - [ ] Rectangle
+    - [ ] OverlayGroup
+    - [ ] GeoJSON
+    - [ ] GroundImage
+    - [ ] ContextMenu
+    - [ ] event
+- [ ] [信息窗体](https://lbs.amap.com/api/javascript-api/reference/infowindow)
+    - [ ] InfoWindow
+    - [ ] AdvancedInfoWindow
+- [ ] [坐标与地址](https://lbs.amap.com/api/javascript-api/reference/lnglat-to-address)
+    - [ ] Geocoder
+    - [ ] convertFrom
+- [ ] [搜索服务](https://lbs.amap.com/api/javascript-api/reference/search)
+    - [ ] Autocomplete
+    - [ ] PlaceSearch
+    - [ ] PlaceSearchLayer
+    - [ ] DistrictSearch
+    - [ ] LineSearch
+    - [ ] StationSearch
+    - [ ] events
+- [ ] [路径规划](https://lbs.amap.com/api/javascript-api/reference/route-search)
+    - [ ] Driving
+    - [ ] TruckDriving
+    - [ ] Transfer
+    - [ ] Walking
+    - [ ] Riding
+    - [ ] DragRoute
+    - [ ] ArrivalRang
+- [ ] [轨迹纠偏](https://lbs.amap.com/api/javascript-api/reference/grasproad)
+    - [ ] GraspRoad
+- [ ] [室内地图](https://lbs.amap.com/api/javascript-api/reference/indoormap)
+    - [ ] IndoorMap
+- [ ] [地图控件](https://lbs.amap.com/api/javascript-api/reference/map-control)
+    - [ ] ControlBar
+    - [ ] MapType
+    - [ ] OverView
+    - [ ] Scale
+    - [ ] ToolBar
+- [ ] [定位](https://lbs.amap.com/api/javascript-api/reference/location)
+    - [ ] Geolocation
+    - [ ] CitySearch
+    - [ ] events
+- [ ] [数学计算库](https://lbs.amap.com/api/javascript-api/reference/math)
+    - [ ] GeometryUtil
+- [ ] [基础库](https://lbs.amap.com/api/javascript-api/reference/util)
+    - [ ] DomUtil
+    - [ ] Util
+    - [ ] BrowserUtil
+- [ ] [工具类](https://lbs.amap.com/api/javascript-api/reference/plugin)
+    - [ ] MouseTool
+    - [ ] CircleEditor
+    - [ ] PolyEditor
+    - [ ] BezierCuverEditor
+    - [ ] EllipseEditor
+    - [ ] RectangleEditor
+    - [ ] Hotspot
+    - [ ] MarkerClusterer
+    - [ ] RangingTool
+- [ ] [云图](https://lbs.amap.com/api/javascript-api/reference/cloudlayer)
+    - [ ] CloudDataLayer
+    - [ ] CloudDataSearch
+- [ ] [其他服务](https://lbs.amap.com/api/javascript-api/reference/search_plugin)
+    - [ ] RoadInfoSearch
+    - [ ] Weather

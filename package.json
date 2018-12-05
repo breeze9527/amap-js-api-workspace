@@ -1,0 +1,15 @@
+{
+  "name": "amap",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^10.12.11",
+    "typescript": "^3.2.1"
+  },
+  "scripts": {
+    "clean": "rm -rf ./dist",
+    "build": "tsc --project ./tsconfig.json",
+    "example": "yarn build & node script/build-example"
+  }
+}

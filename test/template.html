@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Test page %TITLE%</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html,body{
+            padding: 0;
+            margin: 0;
+        }
+        #map {
+            width: 800px;
+            height: 600px;
+            margin: 20px auto;
+        }
+    </style>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.11&key=56818df3b7aa2992b250955987760108"></script>
+</head>
+
+<body>
+    <div id="map"></div>
+    %EXTRA_HTML_REPLACE%
+    <script>
+        function test(name, value) {
+            console.log(`[Test ${name}]:\t `, value);
+        }
+
+        function testLayer(layer) {
+            let name = layer.CLASS_NAME.replace(/^[^.]+\./, '');
+            test(`${name}#getContainer`, layer.getContainer());
+            test(`${name}#getZooms`, layer.getZooms());
+            test(`${name}#setOpacity`, layer.setOpacity(0.9));
+            test(`${name}#getOpacity`, layer.getOpacity());
+            test(`${name}#hide`, layer.hide());
+            test(`${name}#show`, layer.show());
+            test(`${name}#setMap`, layer.setMap());
+            test(`${name}#setMap(map)`, layer.setMap(map));
+            test(`${name}#getMap`, layer.getMap(map));
+            test(`${name}#setzIndex`, layer.setzIndex());
+            test(`${name}#setzIndex(zIndex)`, layer.setzIndex(10));
+            test(`${name}#getzIndex`, layer.getzIndex());
+        }
+    </script>
+    <script type="text/javascript" src="./main.js"></script>
+</body>
+
+</html>
