@@ -11,6 +11,10 @@
     - [x] LngLat
     - [x] Bounds
     - [ ] definition test
+        - [ ] Pixel
+        - [ ] Size
+        - [ ] LngLat
+        - [x] Bounds
 - [ ] [地图](https://lbs.amap.com/api/javascript-api/reference/map)
     - [ ] Map
         - [x] definition
