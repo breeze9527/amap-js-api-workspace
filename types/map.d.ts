@@ -1,8 +1,8 @@
 declare namespace AMap {
-    type Lang = 'zh_cn' | 'en' | 'zh_en'
+    type Lang = 'zh_cn' | 'en' | 'zh_en';
     type Feature = 'bg' | 'point' | 'road' | 'building';
     type LocationValue = LngLat | [number, number];
-    export interface MapOptions {
+    interface MapOptions {
         // view: View2D; // TODO
         // layers: any[]; // TODO
         zoom?: number;
@@ -57,7 +57,7 @@ declare namespace AMap {
         // scale: number;
         // detectRetina: number;
     }
-    export interface MapStatus {
+    interface MapStatus {
         animateEnable: boolean;
         doubleClickZoom: boolean;
         dragEnable: boolean;
@@ -70,7 +70,7 @@ declare namespace AMap {
         touchZoom: boolean;
         zoomEnable: boolean;
     }
-    export class Map {
+    class Map {
         constructor(container: string | HTMLElement, opts?: MapOptions);
         poiOnAMAP(obj: { id: string; location: LocationValue; }): void; // TODO: more test
         detailOnAMAP(obj: { id: string; location: LocationValue; }): void; // TODO: more test
@@ -82,7 +82,7 @@ declare namespace AMap {
             city: string;
             citycode: string;
             district: string;
-            province: string | []; // province is empty array when getCity fail
+            province: string | never[]; // province is empty array when getCity fail
         }) => void): void;
         getBounds(): Bounds;
         getLabelzIndex(): number;
@@ -108,11 +108,11 @@ declare namespace AMap {
         clearLimitBounds(): void;
         setLang(lang: Lang): void;
         setRotation(rotation: number): void;
-        setStatus(status: MapStatus): void // TODO
+        setStatus(status: MapStatus): void; // TODO
         setDefaultCursor(cursor: string): void;
         zoomIn(): void;
         zoomOut(): void;
-        panTo(position: LocationValue): void; //TODO
+        panTo(position: LocationValue): void; // TODO
         panBy(x: number, y: number): void;
         setFitView(overlayList?: any[]): void; // TODO
         clearMap(): void;

@@ -1,5 +1,5 @@
 declare namespace AMap {
-    export class Bounds {
+    class Bounds {
         constructor(southWest: LngLat, northEast: LngLat);
         contains(point: LngLat): boolean; // TODO
         getCenter(): LngLat;

@@ -1,5 +1,5 @@
 declare namespace AMap {
-    export class Pixel {
+    class Pixel {
         constructor(x: number, y: number);
         getX(): number;
         getY(): number;

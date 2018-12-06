@@ -5,12 +5,14 @@
   "license": "MIT",
   "dependencies": {
     "@types/node": "^10.12.11",
+    "dtslint": "^0.3.0",
     "typescript": "^3.2.1"
   },
   "types": "types",
   "scripts": {
     "clean": "rm -rf ./dist",
     "build": "tsc --project ./tsconfig.json",
-    "example": "yarn build & node script/build-example"
+    "example": "yarn build & node script/build-example",
+    "lint": "dtslint types"
   }
 }

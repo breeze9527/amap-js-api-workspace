@@ -1,5 +1,5 @@
 declare namespace AMap {
-    export interface MapEvent {
+    interface MapEvent {
         lnglat: LngLat;
         pixel: Pixel;
         type: string; // TODO

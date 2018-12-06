@@ -85,7 +85,7 @@ declare namespace AMap {
             heightBezier?: number[];
             gridSize?: number;
             drawGridLine?: boolean;
-        }
+        };
     }
     interface HeatmapData {
         lng: number;
@@ -99,7 +99,7 @@ declare namespace AMap {
         max?: number;
         data: string;
         dataParser?(data: any): HeatmapData[];
-    }
+    };
     class Heatmap {
         constructor(map?: Map, opts?: HeatmapOptions);
         setMap(map?: number): void;

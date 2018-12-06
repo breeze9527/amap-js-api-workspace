@@ -1,14 +1,11 @@
 {
     "compilerOptions": {
+        "lib": ["es6", "dom"],
         "strict": true,
         "outDir": "./dist",
-        "typeRoots": [
-            "./typings"
-        ],
-        "target": "esnext",
         "noEmitOnError": true
     },
-    "files": [
-        "./types/AMap/index.d.ts"
+    "exclude": [
+        "./types/test/**/*.ts"
     ]
 }

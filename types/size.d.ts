@@ -1,5 +1,5 @@
 declare namespace AMap {
-    export class Size {
+    class Size {
         constructor(width: number, height: number);
         getWidth(): number;
         getHeight(): number;

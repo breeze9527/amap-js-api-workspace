@@ -1,5 +1,5 @@
 declare namespace AMap {
-    export class LngLat {
+    class LngLat {
         constructor(lng: number, lat: number, noAutofix?: boolean);
         offset(x: number, s: number): LngLat;
         distance(lnglat: LngLat | LngLat[]): number;
