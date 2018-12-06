@@ -7,5 +7,11 @@ declare namespace AMap {
         getLat(): number;
         equals(lnglat: LngLat): boolean;
         toString(): string;
+
+        // internal
+        add(lnglat: LngLat, noAutofix?: boolean): LngLat;
+        subtract(lnglat: LngLat, noAutofix?: boolean): LngLat;
+        divideBy(num: number, noAutofix?: boolean): LngLat;
+        multiplyBy(num: number, noAutofix?: boolean): LngLat;
     }
 }
