@@ -4,5 +4,7 @@ declare namespace AMap {
         getWidth(): number;
         getHeight(): number;
         toString(): string;
+        // internal
+        contains(size: { x: number; y: number }): boolean;
     }
 }
