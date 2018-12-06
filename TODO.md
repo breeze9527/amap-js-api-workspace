@@ -11,7 +11,7 @@
     - [x] LngLat
     - [x] Bounds
     - [ ] definition test
-        - [ ] Pixel
+        - [x] Pixel
         - [x] Size
         - [ ] LngLat
         - [x] Bounds
