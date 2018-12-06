@@ -12,7 +12,7 @@
   "scripts": {
     "clean": "rm -rf ./dist",
     "build": "tsc --project ./tsconfig.json",
-    "example": "yarn build & node script/build-example",
+    "pg": "yarn build & node script/build-playground",
     "lint": "dtslint types"
   }
 }
