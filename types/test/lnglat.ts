@@ -1,5 +1,5 @@
-const lnglat = new AMap.LngLat(114, 22);
-const lnglat2 = new AMap.LngLat(113, 21);
+var lnglat = new AMap.LngLat(114, 22);
+var lnglat2 = new AMap.LngLat(113, 21);
 
 // $ExpectType LngLat
 lnglat.offset(1, 2);

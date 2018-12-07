@@ -1,10 +1,44 @@
+/// <reference path="util.d.ts" />
+
+type MapsEventName =
+    'click' |
+    'dblclick' |
+    'mousemove' |
+    'mousewheel' |
+    'mouseover' |
+    'mouseout' |
+    'mouseup' |
+    'mousedown' |
+    'rightclick' |
+    'touchstart' |
+    'touchmove' |
+    'touchend';
+
+type HotspotEventName =
+    'hotspotclick' |
+    'hotspotover' |
+    'hotspotout';
+
+type PureEventName =
+    'complete' |
+    'mapmove' |
+    'movestart' |
+    'moveend' |
+    'zoomchange' |
+    'zoomstart' |
+    'zoomend' |
+    'dragstart' |
+    'dragging' |
+    'dragend' |
+    'resize';
+
 declare namespace AMap {
     type Lang = 'zh_cn' | 'en' | 'zh_en';
     type Feature = 'bg' | 'point' | 'road' | 'building';
     type LocationValue = LngLat | [number, number];
     interface MapOptions {
-        // view: View2D; // TODO
-        // layers: any[]; // TODO
+        view?: View2D;
+        layers?: Layer[];
         zoom?: number;
         center?: LocationValue;
         labelzIndex?: number;
@@ -14,11 +48,11 @@ declare namespace AMap {
         crs?: 'EPSG3857' | 'EPSG3395' | 'EPSG4326';
         animateEnable?: boolean;
         isHotspot?: boolean;
-        // defaultLayer: TileLayer; // TODO
+        defaultLayer?: TileLayer;
         rotateEnable?: boolean;
         resizeEnable?: boolean;
         showIndoorMap?: boolean;
-        indoorMap?: any; // TODO;
+        // indoorMap?: IndoorMap; // TODO;
         expandZoomRange?: boolean;
         dragEnable?: boolean;
         zoomEnable?: boolean;
@@ -29,10 +63,10 @@ declare namespace AMap {
         touchZoom?: boolean;
         touchZoomCenter?: number;
         mapStyle?: string;
-        features?: Feature[] | string;
+        features?: Feature[] | 'all' | Feature;
         showBuildingBlock?: boolean;
         viewMode?: '2D' | '3D';
-        pitch?: number; // TODO : 俯仰角度，默认0，[0,83]，2D地图下无效 。（自V1.4.0开始支持）
+        pitch?: number;
         pitchEnable?: boolean;
         buildingAnimation?: boolean;
         skyColor?: string;
@@ -61,23 +95,25 @@ declare namespace AMap {
         animateEnable: boolean;
         doubleClickZoom: boolean;
         dragEnable: boolean;
-        isHotSpot: boolean;
+        isHotspot: boolean;
         jogEnable: boolean;
         keyboardEnable: boolean;
         pitchEnable: boolean;
         resizeEnable: boolean;
+        rotateEnable: boolean;
         scrollWheel: boolean;
         touchZoom: boolean;
         zoomEnable: boolean;
     }
-    class Map {
+
+    class Map implements EventEmitter {
         constructor(container: string | HTMLElement, opts?: MapOptions);
         poiOnAMAP(obj: { id: string; location: LocationValue; }): void; // TODO: more test
         detailOnAMAP(obj: { id: string; location: LocationValue; }): void; // TODO: more test
         getZoom(): number;
         // getLayers(): Layer[]; // TODO
         getCenter(): LngLat;
-        getContainer(): HTMLElement;
+        getContainer(): HTMLElement | null;
         getCity(callback: (cityData: {
             city: string;
             citycode: string;
@@ -93,28 +129,28 @@ declare namespace AMap {
         getStatus(): MapStatus;
         getDefaultCursor(): string;
         getResolution(point?: LocationValue): number;
-        getScale(dpi?: number): void;
+        getScale(dpi?: number): number;
         setZoom(level: number): void;
         setLabelzIndex(index: number): void;
         setLayers(layers: Layer[]): void; // TODO
         // add(overlay: Overlay[]): void; // TODO
         // remove(overlay: Overlay[]): void; // TODO
         // getAllOverlay(type?: 'marker' | 'circle' | 'polyline' | 'polygon'): Overlay[];
-        setCenter(center: LngLat): void; // TODO
+        setCenter(center: LocationValue): void; // TODO
         setZoomAndCenter(zoomLevel: number, center: LocationValue): void; // TODO
-        // setCity(city: string, callback: any ): void; // TODO
+        setCity(city: string, callback: (this: this, coord: [number, number], zoom: number) => void): void; // TODO
         setBounds(bound: Bounds): Bounds;
         setLimitBounds(bound: Bounds): void;
         clearLimitBounds(): void;
         setLang(lang: Lang): void;
         setRotation(rotation: number): void;
-        setStatus(status: MapStatus): void; // TODO
+        setStatus(status: Partial<MapStatus>): void; // TODO
         setDefaultCursor(cursor: string): void;
         zoomIn(): void;
         zoomOut(): void;
         panTo(position: LocationValue): void; // TODO
         panBy(x: number, y: number): void;
-        setFitView(overlayList?: any[]): void; // TODO
+        // setFitView(overlayList?: any[]): void; // TODO
         clearMap(): void;
         destroy(): void;
         plugin(name: string | string[], callback: () => void): this;
@@ -133,6 +169,88 @@ declare namespace AMap {
         // setDefaultLayer(layer: TileLayer): void; // TODO
         setPitch(pitch: number): void;
         getPitch(): number;
-        // on(eventName: EventName, handler) // TODO
+
+        // hotspot event
+        on<N extends HotspotEventName, C = this>(
+            eventName: N,
+            handler: (this: C, event: HotspotEvent<N>) => void,
+            context?: C,
+            once?: boolean,
+            unshift?: boolean
+        ): this;
+        // maps events
+        on<N extends MapsEventName, C = this>(
+            eventName: N,
+            handler: (this: C, event: MapsEvent<N, this>) => void,
+            context?: C,
+            once?: boolean,
+            unshift?: boolean
+        ): this;
+        // "pure" events
+        on<N extends PureEventName, C = this>(
+            eventName: N,
+            handler: (this: C, event: Event<N>) => void,
+            context?: C,
+            once?: boolean,
+            unshift?: boolean
+        ): this;
+        // custom event
+        on<N extends string, C = this, D = undefined>(
+            eventName: N,
+            // tslint:disable-next-line: no-unnecessary-generics
+            handler: (this: C, event: Event<N, D>) => void,
+            context?: C,
+            once?: boolean,
+            unshift?: boolean
+        ): this;
+
+        // hotspot event
+        off<N extends HotspotEventName, C = this>(
+            eventName: N,
+            handler: ((this: C, event: HotspotEvent<N>) => void) | 'mv',
+            context?: C
+        ): this;
+        // maps events
+        off<N extends MapsEventName, C = this>(
+            eventName: N,
+            handler: ((this: C, event: MapsEvent<N, this>) => void) | 'mv',
+            context?: C
+        ): this;
+        // "pure" events
+        off<N extends PureEventName, C = this>(
+            eventName: N,
+            handler: ((this: C, event: Event<N>) => void) | 'mv',
+            context?: C
+        ): this;
+        // custom event
+        off<N extends string, C = this, D = undefined>(
+            eventName: N,
+            // tslint:disable-next-line: no-unnecessary-generics
+            handler: ((this: C, event: Event<N, D>) => void) | 'mv',
+            context?: C
+        ): this;
+
+        // eventName suggestion
+        emit<N extends MapsEventName | HotspotEventName | PureEventName>(
+            eventName: N,
+            data: N extends MapsEventName ? Omit<MapsEvent<N, this>, 'type'>
+                : N extends HotspotEventName ? Omit<HotspotEvent<N>, 'type'>
+                : undefined
+        ): this;
+        // fallback
+        emit<N extends string>(
+            eventName: N,
+            data: N extends MapsEventName ? Omit<MapsEvent<N, this>, 'type'>
+                : N extends HotspotEventName ? Omit<HotspotEvent<N>, 'type'>
+                : N extends PureEventName ? never
+                : any
+        ): this;
     }
+    type HotspotEvent<N extends HotspotEventName> = Event<N, {
+        lnglat: LngLat;
+        name: string;
+        id: string;
+        // internal
+        isIndoorPOI: boolean;
+    }>;
 }

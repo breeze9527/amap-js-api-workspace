@@ -1,5 +1,5 @@
-const pixel = new AMap.Pixel(10, 20);
-const pixel2 = new AMap.Pixel(10, 20);
+var pixel = new AMap.Pixel(10, 20);
+var pixel2 = new AMap.Pixel(10, 20);
 
 // $ExpectType number
 pixel.getX();

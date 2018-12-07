@@ -12,10 +12,7 @@
     - [x] Bounds
 - [ ] [地图](https://lbs.amap.com/api/javascript-api/reference/map)
     - [ ] Map
-        - [x] definition
-        - [ ] definition test
-        - [ ] event
-    - [ ] View2D
+    - [x] View2D
     - [ ] ArrayBounds
 - [ ] [3D地图](https://lbs.amap.com/api/javascript-api/reference/maps-3d)
     - [ ] Map

@@ -8,6 +8,7 @@ var mapCenterTuple: [number, number] = [mapCenter.getLng(), mapCenter.getLat()];
 var mapCenterPixelPixel = map.lnglatToPixel(mapCenter);
 var mapStyle = map.getMapStyle();
 var mapPitch = map.getPitch();
+var tileLayer = new AMap.TileLayer();
 
 test('Map#getZoom', mapZoom);
 test('Map#getCenter', mapCenter);
@@ -32,8 +33,17 @@ test('Map#getScale(number)', map.getScale(96));
 
 test('Map#setZoom(level)', map.setZoom(1));
 test('Map#setlabelzIndex(number)', map.setLabelzIndex(9));
+test('Map#setlabelzIndex(number)', map.setLabelzIndex(9));
+
+test('Map#setLayers', map.setLayers([tileLayer]));
+
 test('Map#setCenter', map.setCenter(mapCenter));
+test('Map#setCenter', map.setCenter(mapCenterTuple));
 test('Map#setZoomAndCenter', map.setZoomAndCenter(13, mapCenter));
+test('Map#setCity', map.setCity('深圳', (coord, zoom) => {
+    test('Map#setCity$coord', coord);
+    test('Map#setCity$zoom', zoom);
+}));
 test('Map#setBounds', map.setBounds(bounds));
 test('Map#setLimitBounds', map.setLimitBounds(bounds));
 test('Map#clearLimitBounds', map.clearLimitBounds());
@@ -44,9 +54,18 @@ test('Map#setDefaultCursor', map.setDefaultCursor('default'));
 test('Map#zoomIn', map.zoomIn());
 test('Map#zoomOut', map.zoomOut());
 test('Map#panTo', map.panTo(mapCenter));
+test('Map#panTo', map.panTo(mapCenterTuple));
 test('Map#panBy', map.panBy(1, 1));
-test('Map#setFitView', map.setFitView());
+// test('Map#setFitView', map.setFitView());
 test('Map#clearMap', map.clearMap());
+
+setTimeout(() => {
+    // test('Map#destroy', map.destroy());
+}, 2000);
+
+test('Map#plugin', map.plugin('AMap.Heatmap', () => { }));
+test('Map#plugin', map.plugin(['AMap.Heatmap'], () => { }));
+
 // test('Map#addControl', map.addControl()); // TODO
 // test('Map#removeControl', map.removeControl()); // TODO
 test('Map#clearInfoWindow', map.clearInfoWindow());
@@ -74,3 +93,15 @@ test('Map#getFeatures', map.getFeatures());
 test('Map#setPitch', map.setPitch(mapPitch));
 test('Map#getPitch', mapPitch);
 // setFitView
+
+test('Map@complete', map.on('complete', event => {
+    test('Map@complete$event', event);
+}));
+
+test('Map@click', map.on('click', event => {
+    test('Map@click$event', event);
+}));
+
+test('Map@hotspotclick', map.on('hotspotclick', event => {
+    test('Map@click$hotspotclick', event);
+}));
