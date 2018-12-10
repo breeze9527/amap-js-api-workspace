@@ -13,7 +13,7 @@
 - [ ] [地图](https://lbs.amap.com/api/javascript-api/reference/map)
     - [ ] Map
     - [x] View2D
-    - [ ] ArrayBounds
+    - [x] ArrayBounds
 - [ ] [3D地图](https://lbs.amap.com/api/javascript-api/reference/maps-3d)
     - [ ] Map
     - [ ] Lights.AmbientLight
