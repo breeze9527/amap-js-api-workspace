@@ -10,9 +10,10 @@
   },
   "types": "types",
   "scripts": {
-    "clean": "rm -rf ./dist",
-    "build": "tsc --project ./tsconfig.json",
-    "pg": "yarn build & node script/build-playground",
+    "clean": "rm -rf ./dist ./types/index.d.ts",
+    "build:pg": "tsc --project ./tsconfig.json",
+    "pg": "yarn build:index & yarn build:pg & node script/build-playground",
+    "build:index": "node script/generate-index",
     "lint": "dtslint types"
   }
 }

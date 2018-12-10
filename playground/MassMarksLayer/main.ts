@@ -5,7 +5,7 @@ interface City {
 }
 
 declare var citys: City[];
-var style: AMap.MassMarkStyle[] = [
+var style: AMap.MassMarksStyle[] = [
     {
         url: 'https://a.amap.com/jsapi_demos/static/images/mass0.png',
         anchor: new AMap.Pixel(6, 6),
