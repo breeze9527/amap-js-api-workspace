@@ -49,6 +49,9 @@ var map2 = new AMap.Map(container, {
 // $ExpectType number
 map.getZoom();
 
+// $ExpectType Layer[]
+map.getLayers();
+
 // $ExpectType LngLat
 map.getCenter();
 
@@ -239,6 +242,9 @@ map.setFeatures(['bg']);
 
 // $ExpectType "bg" | "point" | "road" | "building" | Feature[] | "all"
 map.getFeatures();
+
+// $ExpectType void
+map.setDefaultLayer(tileLayer);
 
 // $ExpectType void
 map.setPitch(1);

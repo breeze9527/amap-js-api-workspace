@@ -111,7 +111,7 @@ declare namespace AMap {
         poiOnAMAP(obj: { id: string; location: LocationValue; }): void; // TODO: more test
         detailOnAMAP(obj: { id: string; location: LocationValue; }): void; // TODO: more test
         getZoom(): number;
-        // getLayers(): Layer[]; // TODO
+        getLayers(): Layer[];
         getCenter(): LngLat;
         getContainer(): HTMLElement | null;
         getCity(callback: (cityData: {
@@ -166,7 +166,7 @@ declare namespace AMap {
         getMapStyle(): string;
         setFeatures(feature: Feature | Feature[] | 'all'): void;
         getFeatures(): Feature | Feature[] | 'all';
-        // setDefaultLayer(layer: TileLayer): void; // TODO
+        setDefaultLayer(layer: TileLayer): void;
         setPitch(pitch: number): void;
         getPitch(): number;
 
