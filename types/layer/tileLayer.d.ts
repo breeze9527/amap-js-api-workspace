@@ -10,16 +10,16 @@ declare namespace AMap {
         detectRetina?: boolean;
     }
 
-    interface TrafficTileLayerOptions extends TileLayerOptions {
-        autoRefresh?: boolean;
-        interval?: number;
-    }
-
     class TileLayer extends Layer {
         constructor(options?: TileLayerOptions);
         getTiles(): string[];
         reload(): void;
         setTileUrl(url: string | ((x: number, y: number, level: number) => string)): void;
+    }
+
+    interface TrafficTileLayerOptions extends TileLayerOptions {
+        autoRefresh?: boolean;
+        interval?: number;
     }
 
     namespace TileLayer {

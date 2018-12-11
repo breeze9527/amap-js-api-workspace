@@ -1,10 +1,11 @@
 declare namespace AMap {
     interface BuildingsOptions extends LayerOptions {
         zooms?: [number, number];
-        zIndex?: number;
+        opacity?: number;
         heightFactor?: number;
-        // inner
         visible?: boolean;
+        zIndex?: number;
+        // inner
         merge?: boolean;
         sort?: boolean;
     }
@@ -20,7 +21,7 @@ declare namespace AMap {
         areas: BuildingStyleArea[];
     }
     class Buildings extends Layer {
-        constructor(opts: BuildingsOptions);
+        constructor(opts?: BuildingsOptions);
         setStyle(style: BuildingStyleSetting): void;
     }
 }

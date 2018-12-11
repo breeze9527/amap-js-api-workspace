@@ -4,9 +4,9 @@ declare namespace AMap {
         visible?: boolean;
         radius?: number;
         radiusUnit?: string;
-        gradient: object;
+        gradient?: { [key: string]: string };
         blur?: number;
-        opacity?: number;
+        opacity?: [number, number];
         zooms?: [number, number];
         zIndex?: number;
         renderOnZooming?: boolean;
@@ -22,24 +22,27 @@ declare namespace AMap {
         lat: number;
         count: number;
     }
-    type HeatmapDataSet = {
+    interface HeatmapDataSet {
         max?: number;
         data: HeatmapData[];
-    } | {
-        max?: number;
-        data: string;
-        dataParser?(data: any): HeatmapData[];
-    };
+    }
+
     class Heatmap {
-        constructor(map?: Map, opts?: HeatmapOptions);
-        setMap(map?: number): void;
-        setOptions(opts: HeatmapOptions): void;
-        addDataPoint(lng: number, lat: number, count: number): void;
-        setDataSet(dataset: HeatmapDataSet): void;
+        constructor(map: Map, opts?: HeatmapOptions);
+        setMap(map: Map): void;
+        setOptions(opts?: HeatmapOptions): void;
+        setDataSet(dataset: HeatmapDataSet | {
+            data: string;
+            dataParser?(data: any): HeatmapDataSet;
+        }): void;
+        addDataPoint(lng: number, lat: number, count?: number): void;
         hide(): void;
         show(): void;
-        getMap(): Map | undefined;
+        getMap(): Map;
         getOptions(): HeatmapOptions;
-        getDataSet(): HeatmapData[];
+        getDataSet(): HeatmapDataSet;
+        // internal
+        setzIndex(zIndex: number): void;
+        getzIndex(): number;
     }
 }

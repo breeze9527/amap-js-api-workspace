@@ -2,7 +2,7 @@ declare namespace AMap {
     interface LayerOptions {
         map?: Map;
     }
-    class Layer {
+    abstract class Layer {
         protected constructor(options?: LayerOptions);
         getContainer(): HTMLDivElement | undefined;
         getZooms(): [number, number];
@@ -10,9 +10,9 @@ declare namespace AMap {
         getOpacity(): number;
         show(): void;
         hide(): void;
-        setMap(map?: Map): void;
+        setMap(map?: Map | null): void;
         getMap(): Map | undefined;
-        setzIndex(index?: number): void;
+        setzIndex(index: number): void;
         getzIndex(): number;
     }
     // TODO event
