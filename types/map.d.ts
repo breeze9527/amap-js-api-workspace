@@ -1,5 +1,3 @@
-/// <reference path="util.d.ts" />
-
 type MapsEventName =
     'click' |
     'dblclick' |
@@ -20,7 +18,6 @@ type HotspotEventName =
     'hotspotout';
 
 type PureEventName =
-    'complete' |
     'mapmove' |
     'movestart' |
     'moveend' |
@@ -91,6 +88,7 @@ declare namespace AMap {
         // scale: number;
         // detectRetina: number;
     }
+
     interface MapStatus {
         animateEnable: boolean;
         doubleClickZoom: boolean;
@@ -106,7 +104,12 @@ declare namespace AMap {
         zoomEnable: boolean;
     }
 
-    class Map implements EventEmitter {
+    type MapEventMap =
+        { [N in MapsEventName]: MapsEvent<N> } &
+        { [N in HotspotEventName]: HotspotEvent<N> } &
+        { [N in PureEventName]: Event<N> };
+
+    class Map extends EventEmitter<MapEventMap> {
         constructor(container: string | HTMLElement, opts?: MapOptions);
         poiOnAMAP(obj: { id: string; location: LocationValue; }): void; // TODO: more test
         detailOnAMAP(obj: { id: string; location: LocationValue; }): void; // TODO: more test
@@ -159,7 +162,7 @@ declare namespace AMap {
         clearInfoWindow(): void;
         pixelToLngLat(pixel: Pixel, level?: number): LngLat;
         lnglatToPixel(lnglat: LocationValue, level?: number): Pixel;
-        containerToLngLat(pixel: Pixel, /* boolean, number */): LngLat;
+        containerToLngLat(pixel: Pixel): LngLat;
         lngLatToContainer(lnglat: LocationValue): Pixel;
         lnglatTocontainer(lnglat: LocationValue): Pixel;
         setMapStyle(style: string): void;
@@ -169,82 +172,6 @@ declare namespace AMap {
         setDefaultLayer(layer: TileLayer): void;
         setPitch(pitch: number): void;
         getPitch(): number;
-
-        // hotspot event
-        on<N extends HotspotEventName, C = this>(
-            eventName: N,
-            handler: (this: C, event: HotspotEvent<N>) => void,
-            context?: C,
-            once?: boolean,
-            unshift?: boolean
-        ): this;
-        // maps events
-        on<N extends MapsEventName, C = this>(
-            eventName: N,
-            handler: (this: C, event: MapsEvent<N, this>) => void,
-            context?: C,
-            once?: boolean,
-            unshift?: boolean
-        ): this;
-        // "pure" events
-        on<N extends PureEventName, C = this>(
-            eventName: N,
-            handler: (this: C, event: Event<N>) => void,
-            context?: C,
-            once?: boolean,
-            unshift?: boolean
-        ): this;
-        // custom event
-        on<N extends string, C = this, D = undefined>(
-            eventName: N,
-            // tslint:disable-next-line: no-unnecessary-generics
-            handler: (this: C, event: Event<N, D>) => void,
-            context?: C,
-            once?: boolean,
-            unshift?: boolean
-        ): this;
-
-        // hotspot event
-        off<N extends HotspotEventName, C = this>(
-            eventName: N,
-            handler: ((this: C, event: HotspotEvent<N>) => void) | 'mv',
-            context?: C
-        ): this;
-        // maps events
-        off<N extends MapsEventName, C = this>(
-            eventName: N,
-            handler: ((this: C, event: MapsEvent<N, this>) => void) | 'mv',
-            context?: C
-        ): this;
-        // "pure" events
-        off<N extends PureEventName, C = this>(
-            eventName: N,
-            handler: ((this: C, event: Event<N>) => void) | 'mv',
-            context?: C
-        ): this;
-        // custom event
-        off<N extends string, C = this, D = undefined>(
-            eventName: N,
-            // tslint:disable-next-line: no-unnecessary-generics
-            handler: ((this: C, event: Event<N, D>) => void) | 'mv',
-            context?: C
-        ): this;
-
-        // eventName suggestion
-        emit<N extends MapsEventName | HotspotEventName | PureEventName>(
-            eventName: N,
-            data: N extends MapsEventName ? Omit<MapsEvent<N, this>, 'type'>
-                : N extends HotspotEventName ? Omit<HotspotEvent<N>, 'type'>
-                : undefined
-        ): this;
-        // fallback
-        emit<N extends string>(
-            eventName: N,
-            data: N extends MapsEventName ? Omit<MapsEvent<N, this>, 'type'>
-                : N extends HotspotEventName ? Omit<HotspotEvent<N>, 'type'>
-                : N extends PureEventName ? never
-                : any
-        ): this;
     }
     type HotspotEvent<N extends HotspotEventName> = Event<N, {
         lnglat: LngLat;

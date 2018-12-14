@@ -36,8 +36,6 @@
     - [x] MassMarks
     - [x] Heatmap
     - [x] LayerGroup
-    - [ ] event
-    - [ ] definition test
 - [ ] [自建图层](https://lbs.amap.com/api/javascript-api/reference/self-own-layers)
     - [ ] TileLayer.Flexible
     - [ ] ImageLayer

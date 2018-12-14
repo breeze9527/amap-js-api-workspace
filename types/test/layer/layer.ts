@@ -32,3 +32,9 @@ layer.setzIndex(1);
 
 // $ExpectType number
 layer.getzIndex();
+
+layer.on('complete', () => { });
+
+layer.off('complete', () => { });
+
+layer.emit('complete');

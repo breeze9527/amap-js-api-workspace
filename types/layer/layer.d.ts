@@ -2,8 +2,7 @@ declare namespace AMap {
     interface LayerOptions {
         map?: Map;
     }
-    abstract class Layer {
-        protected constructor(options?: LayerOptions);
+    abstract class Layer extends EventEmitter {
         getContainer(): HTMLDivElement | undefined;
         getZooms(): [number, number];
         setOpacity(alpha: number): void;
@@ -15,5 +14,4 @@ declare namespace AMap {
         setzIndex(index: number): void;
         getzIndex(): number;
     }
-    // TODO event
 }

@@ -3,6 +3,7 @@ declare var tileLayer: AMap.TileLayer;
 declare var bounds: AMap.Bounds;
 declare var center: AMap.LngLat;
 declare var pixel: AMap.Pixel;
+
 // declare var indoorMap: AMap.IndoorMap
 
 // $ExpectType Map
@@ -251,7 +252,7 @@ map.setPitch(1);
 // $ExpectType number
 map.getPitch();
 
-declare function dblClickHandler(this: AMap.Map, event: AMap.MapsEvent<'dblclick', AMap.Map>): void;
+declare function dblClickHandler(this: AMap.Map, event: AMap.MapsEvent<'dblclick'>): void;
 
 // $ExpectType Map
 map.on('click', function (event) {
@@ -290,8 +291,8 @@ map.on('hotspotclick', event => {
     event.type;
 });
 // $ExpectType Map
-map.on<string, any, { test: string }>('custom', event => {
-    // $ExpectType string
+map.on('custom', (event: AMap.Event<'custom', { test: string }>) => {
+    // $ExpectType "custom"
     event.type;
     // $ExpectType string
     event.test;
@@ -313,9 +314,9 @@ map.emit('click', {
     pixel
 });
 // $ExpectError
-map.emit('complete', {});
+map.emit('click');
 // $ExpectType Map
-map.emit('complete', undefined);
+map.emit('complete');
 // $ExpectType Map
 map.emit('hotspotclick', {
     lnglat: center,
@@ -327,6 +328,10 @@ map.emit('hotspotclick', {
 map.emit('custom', {
     test: 1
 });
+// $ExpectType Map
+map.emit('custom', undefined);
+// $ExpectError
+map.emit('custom');
 
 // $ExpectType void
 map.destroy();
