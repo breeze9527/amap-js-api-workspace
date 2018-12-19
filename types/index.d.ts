@@ -14,6 +14,7 @@
 /// <reference path="layer/layerGroup.d.ts" />
 /// <reference path="layer/massMarks.d.ts" />
 /// <reference path="layer/tileLayer.d.ts" />
+/// <reference path="overlay/icon.d.ts" />
 /// <reference path="overlay/marker.d.ts" />
 /// <reference path="overlay/markerShape.d.ts" />
 /// <reference path="overlay/overlay.d.ts" />

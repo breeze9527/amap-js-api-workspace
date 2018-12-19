@@ -59,8 +59,8 @@ declare namespace AMap {
         getLabel(): MarkerLabel | undefined;
         getAngle(): number;
         setzIndex(index: number): void;
-        setIcon(content: string /* | Icon */): void; // TODO
-        getIcon(): string; // | Icon;
+        setIcon(content: string | Icon): void;
+        getIcon(): string | Icon | undefined;
         setDraggable(draggable: boolean): void;
         getDraggable(): boolean;
         setCursor(cursor: string): void;
@@ -85,8 +85,8 @@ declare namespace AMap {
         getTitle(): string | undefined;
         setTop(isTop: boolean): void;
         getTop(): boolean;
-        // setShadow(icon: Icon): void; // TODO
-        // getShadow(): Icon;
+        setShadow(icon?: Icon | string): void;
+        getShadow(): Icon | undefined | string;
         setShape(shape?: MarkerShape): void;
         getShape(): MarkerShape | undefined;
     }

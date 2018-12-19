@@ -2,12 +2,14 @@ testWrapper(() => {
     const map = new AMap.Map('map');
     const position = map.getCenter();
     const offset = new AMap.Pixel(10, 20);
-    const div = document.createElement('div');
-    div.style.cssText = 'height: 200px; width: 200px; background: red;'
     const markerShape = new AMap.MarkerShape({
         type: 'circle',
         coords: [0, 0, 100]
-    })
+    });
+    const icon = new AMap.Icon();
+
+    const div = document.createElement('div');
+    div.style.cssText = 'height: 200px; width: 200px; background: red;'
     div.innerText = 'test';
 
     test('new Marker', new AMap.Marker());
@@ -70,7 +72,8 @@ testWrapper(() => {
 
     test('Marker#setzIndex', marker.setzIndex(10));
 
-    test('Marker#setIcon', marker.setIcon('//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png'));
+    test('Marker#setIcon(string)', marker.setIcon('//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png'));
+    test('Marker#setIcon(Icon)', marker.setIcon(icon));
 
     test('Marker#getIcon', marker.getIcon());
 
@@ -115,6 +118,12 @@ testWrapper(() => {
     test('Marker#setTop', marker.setTop(true));
 
     test('Marker#getTop', marker.getTop());
+
+    test('Marker#setShadow', marker.setShadow());
+    test('Marker#setShadow', marker.setShadow('shadow url'));
+    test('Marker#setShadow', marker.setShadow(icon));
+
+    test('Marker#getShadow', marker.getShadow());
 
     test('Marker#getShape', marker.getShape());
 

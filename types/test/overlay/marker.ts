@@ -3,6 +3,7 @@ declare var lnglat: AMap.LngLat;
 declare var pixel: AMap.Pixel;
 declare var domEle: HTMLElement;
 declare var markerShape: AMap.MarkerShape;
+declare var icon: AMap.Icon;
 
 interface ExtraData {
     test: number;
@@ -32,7 +33,7 @@ var marker = new AMap.Marker<ExtraData>({
     // shadow
     title: '123',
     clickable: true,
-    // shape
+    shape: markerShape,
     extData: {
         test: 123
     }
@@ -101,8 +102,10 @@ marker.setzIndex(100);
 
 // $ExpectType void
 marker.setIcon('icon uri');
+// $ExpectType void
+marker.setIcon(icon);
 
-// $ExpectType string
+// $ExpectType string | Icon
 marker.getIcon();
 
 // $ExpectType void
@@ -161,6 +164,16 @@ marker.setTop(true);
 
 // $ExpectType boolean
 marker.getTop();
+
+// $ExpectType void
+marker.setShadow();
+// $ExpectType void
+marker.setShadow(icon);
+// $ExpectType void
+marker.setShadow('shadow url');
+
+// $ExpectType Icon | undefined | string
+marker.getShadow();
 
 // $ExpectType void
 marker.setShape();
