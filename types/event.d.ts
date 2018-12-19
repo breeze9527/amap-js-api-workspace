@@ -117,9 +117,9 @@ declare namespace AMap {
     }
 
     // events
-    type MapsEvent<N extends string = string> = Event<N, {
+    type MapsEvent<N extends string, T> = Event<N, {
         lnglat: LngLat;
         pixel: Pixel;
-        target: Map;
+        target: T;
     }>;
 }

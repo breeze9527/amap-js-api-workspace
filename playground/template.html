@@ -42,6 +42,25 @@
             test(`${name}#setzIndex(zIndex)`, layer.setzIndex(10));
             test(`${name}#getzIndex`, layer.getzIndex());
         }
+
+        function testOverlay(overlay, options) {
+            let name = overlay.CLASS_NAME.replace(/^[^.]+\./, '');
+            test(`${name}#getMap`, overlay.getMap());
+            test(`${name}#setExtData`, overlay.setExtData({test: 1}));
+            test(`${name}#getExtData`, overlay.getExtData());
+            test(`${name}#setHeight`, overlay.setHeight());
+            test(`${name}#setHeight(number)`, overlay.setHeight(100));
+            test(`${name}#getHeight`, overlay.getHeight());
+            test(`${name}#hide`, overlay.hide());
+            test(`${name}#show`, overlay.show());
+        }
+
+        function testWrapper(test) {
+            let member = test();
+            if (member) {
+                Object.assign(window, member);
+            }
+        }
     </script>
     <script type="text/javascript" src="./main.js"></script>
 </body>

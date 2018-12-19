@@ -105,14 +105,14 @@ declare namespace AMap {
     }
 
     type MapEventMap =
-        { [N in MapsEventName]: MapsEvent<N> } &
+        { [N in MapsEventName]: MapsEvent<N, Map> } &
         { [N in HotspotEventName]: HotspotEvent<N> } &
         { [N in PureEventName]: Event<N> };
 
     class Map extends EventEmitter<MapEventMap> {
         constructor(container: string | HTMLElement, opts?: MapOptions);
-        poiOnAMAP(obj: { id: string; location: LocationValue; }): void; // TODO: more test
-        detailOnAMAP(obj: { id: string; location: LocationValue; }): void; // TODO: more test
+        poiOnAMAP(obj: { id: string; location?: LocationValue; name?: string }): void;
+        detailOnAMAP(obj: { id: string; location?: LocationValue; name?: string }): void;
         getZoom(): number;
         getLayers(): Layer[];
         getCenter(): LngLat;
@@ -135,13 +135,13 @@ declare namespace AMap {
         getScale(dpi?: number): number;
         setZoom(level: number): void;
         setLabelzIndex(index: number): void;
-        setLayers(layers: Layer[]): void; // TODO
-        // add(overlay: Overlay[]): void; // TODO
-        // remove(overlay: Overlay[]): void; // TODO
-        // getAllOverlay(type?: 'marker' | 'circle' | 'polyline' | 'polygon'): Overlay[];
-        setCenter(center: LocationValue): void; // TODO
-        setZoomAndCenter(zoomLevel: number, center: LocationValue): void; // TODO
-        setCity(city: string, callback: (this: this, coord: [number, number], zoom: number) => void): void; // TODO
+        setLayers(layers: Layer[]): void;
+        add(overlay: Overlay | Overlay[]): void;
+        remove(overlay: Overlay | Overlay[]): void;
+        getAllOverlays(type?: 'marker' | 'circle' | 'polyline' | 'polygon'): Overlay[];
+        setCenter(center: LocationValue): void;
+        setZoomAndCenter(zoomLevel: number, center: LocationValue): void;
+        setCity(city: string, callback: (this: this, coord: [string, string], zoom: number) => void): void;
         setBounds(bound: Bounds): Bounds;
         setLimitBounds(bound: Bounds): void;
         clearLimitBounds(): void;
@@ -153,7 +153,12 @@ declare namespace AMap {
         zoomOut(): void;
         panTo(position: LocationValue): void; // TODO
         panBy(x: number, y: number): void;
-        // setFitView(overlayList?: any[]): void; // TODO
+        setFitView(
+            overlayList?: Overlay | Overlay[],
+            immediately?: boolean,
+            avoid?: [number, number, number, number],
+            maxZoom?: number
+        ): Bounds | false | undefined;
         clearMap(): void;
         destroy(): void;
         plugin(name: string | string[], callback: () => void): this;

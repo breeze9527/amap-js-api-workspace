@@ -11,7 +11,7 @@
     - [x] LngLat
     - [x] Bounds
 - [ ] [地图](https://lbs.amap.com/api/javascript-api/reference/map)
-    - [ ] Map
+    - [x] Map
     - [x] View2D
     - [x] ArrayBounds
 - [ ] [3D地图](https://lbs.amap.com/api/javascript-api/reference/maps-3d)
@@ -24,9 +24,9 @@
     - [ ] Object3D.MeshAcceptLight
     - [ ] Object3D.Prism
 - [ ] [事件](https://lbs.amap.com/api/javascript-api/reference/event)
-    - [ ] event
-    - [ ] EventListener
-    - [ ] MapsEvent
+    - [x] event
+    - [x] EventListener
+    - [x] MapsEvent
 - [ ] [图层](https://lbs.amap.com/api/javascript-api/reference/layer)
     - [x] TileLayer
     - [x] TileLayer.Satellite
@@ -46,7 +46,7 @@
     - [ ] TileLayer.WMS
     - [ ] TileLayer.WMTS
 - [ ] [覆盖物](https://lbs.amap.com/api/javascript-api/reference/overlay)
-    - [ ] Marker
+    - [x] Marker
     - [ ] MarkerShape
     - [ ] Icon
     - [ ] ElasticMarker
