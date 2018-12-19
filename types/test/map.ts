@@ -144,9 +144,9 @@ map.setZoomAndCenter(13, [1, 2]);
 
 // $ExpectType void
 map.setCity('city', (coord, zoom) => {
-    // $ExpectType number
+    // $ExpectType string
     coord[0];
-    // $ExpectType number
+    // $ExpectType string
     coord[1];
     // $ExpectType number
     zoom;

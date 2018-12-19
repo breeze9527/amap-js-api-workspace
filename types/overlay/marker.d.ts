@@ -35,7 +35,7 @@ declare namespace AMap {
         animation?: MarkerAnimationName;
         // shadow?: Icon // TODO
         title?: string;
-        // shape?: // MarkerShape
+        shape?: MarkerShape;
         label?: MarkerLabel;
 
         // internal
@@ -87,7 +87,7 @@ declare namespace AMap {
         getTop(): boolean;
         // setShadow(icon: Icon): void; // TODO
         // getShadow(): Icon;
-        // setShape(shape: MarkerShape): void;
-        // getShape(): MarkerShape;
+        setShape(shape?: MarkerShape): void;
+        getShape(): MarkerShape | undefined;
     }
 }

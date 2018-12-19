@@ -3,6 +3,11 @@ testWrapper(() => {
     const position = map.getCenter();
     const offset = new AMap.Pixel(10, 20);
     const div = document.createElement('div');
+    div.style.cssText = 'height: 200px; width: 200px; background: red;'
+    const markerShape = new AMap.MarkerShape({
+        type: 'circle',
+        coords: [0, 0, 100]
+    })
     div.innerText = 'test';
 
     test('new Marker', new AMap.Marker());
@@ -24,6 +29,7 @@ testWrapper(() => {
         autoRotation: true,
         animation: 'AMAP_ANIMATION_NONE',
         title: 'title',
+        shape: markerShape,
         label: {
             content: 'asdfb',
             offset
@@ -110,12 +116,17 @@ testWrapper(() => {
 
     test('Marker#getTop', marker.getTop());
 
+    test('Marker#getShape', marker.getShape());
+
+    test('Marker#setShape', marker.setShape(markerShape));
+
     test('Marker@click', marker.on('click', event => {
         test('Marker@click$event', event);
     }));
 
     return {
         map,
-        marker
+        marker,
+        markerShape
     };
 });

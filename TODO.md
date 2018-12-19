@@ -47,7 +47,7 @@
     - [ ] TileLayer.WMTS
 - [ ] [覆盖物](https://lbs.amap.com/api/javascript-api/reference/overlay)
     - [x] Marker
-    - [ ] MarkerShape
+    - [x] MarkerShape
     - [ ] Icon
     - [ ] ElasticMarker
     - [ ] ElasticMarker

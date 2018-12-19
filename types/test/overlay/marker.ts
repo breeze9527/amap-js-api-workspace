@@ -2,6 +2,7 @@ declare var map: AMap.Map;
 declare var lnglat: AMap.LngLat;
 declare var pixel: AMap.Pixel;
 declare var domEle: HTMLElement;
+declare var markerShape: AMap.MarkerShape;
 
 interface ExtraData {
     test: number;
@@ -160,6 +161,14 @@ marker.setTop(true);
 
 // $ExpectType boolean
 marker.getTop();
+
+// $ExpectType void
+marker.setShape();
+// $ExpectType void
+marker.setShape(markerShape);
+
+// $ExpectType MarkerShape | undefined
+marker.getShape();
 
 marker.on('click', event => {
     // $ExpectType number
