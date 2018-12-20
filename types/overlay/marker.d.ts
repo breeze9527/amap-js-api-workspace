@@ -33,7 +33,7 @@ declare namespace AMap {
         angle?: number;
         autoRotation?: boolean;
         animation?: MarkerAnimationName;
-        // shadow?: Icon // TODO
+        shadow?: Icon | string;
         title?: string;
         shape?: MarkerShape;
         label?: MarkerLabel;

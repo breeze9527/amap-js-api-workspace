@@ -5,12 +5,12 @@
     definition test
 -->
 
-- [ ] [基础类](https://lbs.amap.com/api/javascript-api/reference/core)
+- [x] [基础类](https://lbs.amap.com/api/javascript-api/reference/core)
     - [x] Pixel
     - [x] Size
     - [x] LngLat
     - [x] Bounds
-- [ ] [地图](https://lbs.amap.com/api/javascript-api/reference/map)
+- [x] [地图](https://lbs.amap.com/api/javascript-api/reference/map)
     - [x] Map
     - [x] View2D
     - [x] ArrayBounds
@@ -23,11 +23,11 @@
     - [ ] Object3D.MeshLine
     - [ ] Object3D.MeshAcceptLight
     - [ ] Object3D.Prism
-- [ ] [事件](https://lbs.amap.com/api/javascript-api/reference/event)
+- [x] [事件](https://lbs.amap.com/api/javascript-api/reference/event)
     - [x] event
     - [x] EventListener
     - [x] MapsEvent
-- [ ] [图层](https://lbs.amap.com/api/javascript-api/reference/layer)
+- [x] [图层](https://lbs.amap.com/api/javascript-api/reference/layer)
     - [x] TileLayer
     - [x] TileLayer.Satellite
     - [x] TileLayer.RoadNet
@@ -48,10 +48,9 @@
 - [ ] [覆盖物](https://lbs.amap.com/api/javascript-api/reference/overlay)
     - [x] Marker
     - [x] MarkerShape
-    - [ ] Icon
+    - [x] Icon
     - [ ] ElasticMarker
-    - [ ] ElasticMarker
-    - [ ] Text
+    - [x] Text
     - [ ] Polyline
     - [ ] Polygon
     - [ ] BezierCurve

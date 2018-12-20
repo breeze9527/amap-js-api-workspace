@@ -18,3 +18,4 @@
 /// <reference path="overlay/marker.d.ts" />
 /// <reference path="overlay/markerShape.d.ts" />
 /// <reference path="overlay/overlay.d.ts" />
+/// <reference path="overlay/text.d.ts" />

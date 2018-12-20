@@ -30,7 +30,7 @@ var marker = new AMap.Marker<ExtraData>({
     angle: 10,
     autoRotation: true,
     animation: 'AMAP_ANIMATION_BOUNCE',
-    // shadow
+    shadow: icon,
     title: '123',
     clickable: true,
     shape: markerShape,
@@ -105,7 +105,7 @@ marker.setIcon('icon uri');
 // $ExpectType void
 marker.setIcon(icon);
 
-// $ExpectType string | Icon
+// $ExpectType string | Icon | undefined
 marker.getIcon();
 
 // $ExpectType void
@@ -172,7 +172,7 @@ marker.setShadow(icon);
 // $ExpectType void
 marker.setShadow('shadow url');
 
-// $ExpectType Icon | undefined | string
+// $ExpectType string | Icon | undefined
 marker.getShadow();
 
 // $ExpectType void

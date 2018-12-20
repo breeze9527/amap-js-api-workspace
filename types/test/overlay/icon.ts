@@ -25,6 +25,6 @@ new AMap.Icon({
 icon.getImageSize();
 
 // $ExpectType void
-icon.getImageSize(size);
+icon.setImageSize(size);
 // $ExpectType void
-icon.getImageSize([1, 2]);
+icon.setImageSize([1, 2]);
