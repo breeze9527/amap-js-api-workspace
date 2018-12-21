@@ -1,34 +1,3 @@
-type MapsEventName =
-    'click' |
-    'dblclick' |
-    'mousemove' |
-    'mousewheel' |
-    'mouseover' |
-    'mouseout' |
-    'mouseup' |
-    'mousedown' |
-    'rightclick' |
-    'touchstart' |
-    'touchmove' |
-    'touchend';
-
-type HotspotEventName =
-    'hotspotclick' |
-    'hotspotover' |
-    'hotspotout';
-
-type PureEventName =
-    'mapmove' |
-    'movestart' |
-    'moveend' |
-    'zoomchange' |
-    'zoomstart' |
-    'zoomend' |
-    'dragstart' |
-    'dragging' |
-    'dragend' |
-    'resize';
-
 declare namespace AMap {
     type Lang = 'zh_cn' | 'en' | 'zh_en';
     type Feature = 'bg' | 'point' | 'road' | 'building';
@@ -104,12 +73,47 @@ declare namespace AMap {
         zoomEnable: boolean;
     }
 
-    type MapEventMap =
-        { [N in MapsEventName]: MapsEvent<N, Map> } &
-        { [N in HotspotEventName]: HotspotEvent<N> } &
-        { [N in PureEventName]: Event<N> };
+    type HotspotEvent<N extends string> = Event<N, {
+        lnglat: LngLat;
+        name: string;
+        id: string;
+        // internal
+        isIndoorPOI: boolean;
+    }>;
+    interface MapEventMap {
+        click: MapsEvent<'click', Map>;
+        dblclick: MapsEvent<'dblclick', Map>;
+        rightclick: MapsEvent<'rightclick', Map>;
+        rdblclick: MapsEvent<'rdblclick', Map>;
+        mouseup: MapsEvent<'mouseup', Map>;
+        mousedown: MapsEvent<'mousedown', Map>;
+        mousemove: MapsEvent<'mousemove', Map>;
+        mousewheel: MapsEvent<'mousewheel', Map>;
+        mouseover: MapsEvent<'mouseover', Map>;
+        mouseout: MapsEvent<'mouseout', Map>;
+        touchstart: MapsEvent<'touchstart', Map>;
+        touchmove: MapsEvent<'touchmove', Map>;
+        touchend: MapsEvent<'touchend', Map>;
+        contextmenu: MapsEvent<'contextmenu', Map>;
 
-    class Map extends EventEmitter<MapEventMap> {
+        hotspotclick: HotspotEvent<'hotspotclick'>;
+        hotspotover: HotspotEvent<'hotspotover'>;
+        hotspotout: HotspotEvent<'hotspotout'>;
+
+        complete: Event<'complete'>;
+        mapmove: Event<'mapmove'>;
+        movestart: Event<'movestart'>;
+        moveend: Event<'moveend'>;
+        zoomchange: Event<'zoomchange'>;
+        zoomstart: Event<'zoomstart'>;
+        zoomend: Event<'zoomend'>;
+        dragstart: Event<'dragstart'>;
+        dragging: Event<'dragging'>;
+        dragend: Event<'dragend'>;
+        resize: Event<'resize'>;
+    }
+
+    class Map extends EventEmitter {
         constructor(container: string | HTMLElement, opts?: MapOptions);
         poiOnAMAP(obj: { id: string; location?: LocationValue; name?: string }): void;
         detailOnAMAP(obj: { id: string; location?: LocationValue; name?: string }): void;
@@ -178,11 +182,4 @@ declare namespace AMap {
         setPitch(pitch: number): void;
         getPitch(): number;
     }
-    type HotspotEvent<N extends HotspotEventName> = Event<N, {
-        lnglat: LngLat;
-        name: string;
-        id: string;
-        // internal
-        isIndoorPOI: boolean;
-    }>;
 }

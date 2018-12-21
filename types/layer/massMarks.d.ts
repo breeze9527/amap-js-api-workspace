@@ -5,6 +5,23 @@ declare namespace AMap {
         size: Size;
         rotation?: number;
     }
+
+    type MassMarksUIEvent<N extends string, I> = Event<N, {
+        target: I;
+        data: I extends MassMarks<infer D> ? D : MassMarksData;
+    }>;
+
+    interface MassMarksEventMap<I> {
+        click: MassMarksUIEvent<'click', I>;
+        dblclick: MassMarksUIEvent<'dblclick', I>;
+        mousedown: MassMarksUIEvent<'mousedown', I>;
+        mouseup: MassMarksUIEvent<'mouseup', I>;
+        mouseover: MassMarksUIEvent<'mouseover', I>;
+        mouseout: MassMarksUIEvent<'mouseout', I>;
+        touchstart: MassMarksUIEvent<'touchstart', I>;
+        touchend: MassMarksUIEvent<'touchend', I>;
+    }
+
     interface MassMarksOptions extends LayerOptions {
         zIndex?: number;
         cursor?: string;

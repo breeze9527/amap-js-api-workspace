@@ -6,7 +6,7 @@ declare namespace AMap {
         draggable?: boolean;
     }
 
-    class Overlay<ExtraData = any, M = {}> extends EventEmitter<M> {
+    abstract class Overlay<ExtraData = any> extends EventEmitter {
         constructor(options?: OverlayOptions);
         show(): void;
         hide(): void;

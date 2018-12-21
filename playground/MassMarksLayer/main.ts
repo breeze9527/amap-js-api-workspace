@@ -34,8 +34,10 @@ var map = new AMap.Map('map', {
 var layerOption: AMap.LayerOptions = {
     map
 }
-
-var massMarksLayer = new AMap.MassMarks<{ lnglat: AMap.LocationValue }>(cities1, {
+interface MassMarksData {
+    lnglat: AMap.LocationValue;
+}
+var massMarksLayer = new AMap.MassMarks<MassMarksData>(cities1, {
     map,
 
     cursor: 'default',

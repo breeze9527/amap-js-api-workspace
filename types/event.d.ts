@@ -1,80 +1,76 @@
-/// <reference path="./util.d.ts" />
-
-type MergeEventMap<M> = (AsType<M> extends Record<string, AMap.Event> ? AsType<M> : {}) & {
-    complete: AMap.CompleteEvent;
-};
-
-type EventData<E> =
-    E extends AMap.Event ?
-    Exclude<keyof E, 'type'> extends never ? never // {type: xxx}
-    : E extends ({ value: infer V }) ?
-    Exclude<keyof E, 'type' | 'value'> extends never ?
-    ({ value: V } | V) // {type: xxx, value: xxx}
-    : Omit<E, 'type'> // {type: xxx, value: xxx, xxx?:xxx }
-    : Omit<E, 'type'> // {type: xxx, xxx?:xxx }
-    : any; // is not event
-
-type OmitPureEvent<M extends Record<string, AMap.Event>> = Omit<M, { [K in keyof M]: EventData<M[K]> extends never ? K : never }[keyof M]>;
-type PickPureEvent<M extends Record<string, AMap.Event>> = Omit<M, { [K in keyof M]: EventData<M[K]> extends never ? never : K }[keyof M]>;
-
-type InferEventMap<I> = I extends AMap.EventEmitter<infer M> ? M : {};
+type OmitEventEmitter<I> = {[K in Exclude<keyof I, keyof AMap.EventEmitter>]: I[K]};
+type ReferEventMap<I extends AMap.EventEmitter> =
+    I extends OmitEventEmitter<AMap.Map> ? AMap.MapEventMap :
+    I extends OmitEventEmitter<AMap.MassMarks> ? AMap.MassMarksEventMap<I> :
+    I extends OmitEventEmitter<AMap.TileLayer> ? AMap.TileLayerEventMap :
+    I extends OmitEventEmitter<AMap.Marker> ? AMap.MarkerEventMap<I> :
+    any;
+type OmitPureEventName<M extends Record<string, AMap.Event>> = { [K in keyof M]: AMap.InferEventData<M[K]> extends never ? never : K }[keyof M];
+type PickPureEventName<M extends Record<string, AMap.Event>> = { [K in keyof M]: AMap.InferEventData<M[K]> extends never ? K : never }[keyof M];
 
 declare namespace AMap {
-    type CompleteEvent = Event<'complete'>;
-
     type Event<N extends string = string, V = undefined> = { type: N } &
         (V extends HTMLElement ? { value: V }
             : V extends object ? V
             : V extends undefined ? {}
             : { value: V });
+    type MapsEvent<N extends string, I extends EventEmitter> = Event<N, {
+        lnglat: LngLat;
+        pixel: Pixel;
+        target: I
+    }>;
+    type InferEventData<E> =
+        E extends Event ?
+        Exclude<keyof E, 'type'> extends never ? never // {type}
+        : E extends ({ value: infer V }) ?
+        Exclude<keyof E, 'type' | 'value'> extends never ?
+        ({ value: V } | V) // {type, value} | value
+        : Omit<E, 'type'> // {type, value, extra? }
+        : Omit<E, 'type'> // {type, extra? }
+        : never; // is not event
 
-    abstract class EventEmitter<M = {}> {
-        on<N extends keyof MergeEventMap<M>, C = this>(
+    type MovingEvent = Event<'moving', {
+        passwdPath: LngLat[];
+    }>;
+
+    abstract class EventEmitter {
+        on<N extends keyof ReferEventMap<this>, C = this>(
             eventName: N,
-            handler: (this: C, event: MergeEventMap<M>[N]) => void,
+            handler: (this: C, event: ReferEventMap<this>[N]) => void,
             context?: C,
             once?: boolean,
             unshift?: boolean
         ): this;
         on<N extends string, D extends Record<string, any>, C = this>(
             eventName: N,
-            // tslint:disable-next-line: no-unnecessary-generics
+            // tslint:disable-next-line
             handler: (this: C, event: Event<N, D>) => void,
             context?: C,
             once?: boolean,
             unshift?: boolean
         ): this;
 
-        off<N extends keyof MergeEventMap<M>, C = this>(
+        off<N extends keyof ReferEventMap<this>, C = this>(
             eventName: N,
-            handler: ((this: C, event: MergeEventMap<M>[N]) => void) | 'mv',
+            handler: ((this: C, event: ReferEventMap<this>[N]) => void) | 'mv',
             context?: C
         ): this;
-        off<N extends string, C = this>(
+        off<N extends string, D extends Record<string, any>, C = this>(
             eventName: N,
-            handler: ((this: C, event: Event<N, { [k: string]: any }>) => void) | 'mv',
+            // tslint:disable-next-line
+            handler: ((this: C, event: Event<N, D>) => void) | 'mv',
             context?: C
         ): this;
 
-        emit<N extends keyof MergeEventMap<M>>(
+        emit<N extends OmitPureEventName<ReferEventMap<this>>>(
             eventName: N,
-            data: EventData<MergeEventMap<M>[N]>
+            data: ReferEventMap<this>[N]
         ): this;
-        emit<N extends keyof OmitPureEvent<MergeEventMap<M>>>(
-            eventName: N,
-            data: EventData<MergeEventMap<M>[N]>
-        ): this;
-        emit(eventName: keyof PickPureEvent<MergeEventMap<M>>): this;
+        emit(eventName: PickPureEventName<ReferEventMap<this>>): this;
         emit<N extends string>(
             eventName: N,
-            // data cannot be optional, if we do that, emitter.emit('click') will pass the lint
-            // but emitter.emit('customEvent') will throw an error
-            // and we can use emitter.emit('customEvent', null | undefined) instead
-            data: N extends keyof MergeEventMap<M> ? EventData<MergeEventMap<M>[N]> : any
+            data: N extends OmitPureEventName<ReferEventMap<this>> ? InferEventData<ReferEventMap<this>[N]> : any
         ): this;
-
-        // hack for help infer M out of EventEmitter
-        private __event_map_infer_hack: MergeEventMap<M>;
     }
 
     interface EventListener<T extends 0 | 1> {
@@ -90,36 +86,30 @@ declare namespace AMap {
             context?: C
         ): EventListener<0>;
 
-        function addListener<I extends EventEmitter, N extends keyof InferEventMap<I>, C = I>(
+        function addListener<I extends EventEmitter, N extends keyof ReferEventMap<I>, C = I>(
             instance: I,
             eventName: N,
-            handler: (this: C, event: InferEventMap<I>[N]) => void,
+            handler: (this: C, event: ReferEventMap<I>[N]) => void,
             context?: C
         ): EventListener<1>;
 
-        function addListenerOnce<I extends EventEmitter, N extends keyof InferEventMap<I>, C = I>(
+        function addListenerOnce<I extends EventEmitter, N extends keyof ReferEventMap<I>, C = I>(
             instance: I,
             eventName: N,
-            handler: (this: C, event: InferEventMap<I>[N]) => void,
+            handler: (this: C, event: ReferEventMap<I>[N]) => void,
             context?: C
         ): EventListener<1>;
+
         function removeListener(listener: EventListener<0 | 1>): void;
 
-        function trigger<I extends EventEmitter, N extends keyof OmitPureEvent<InferEventMap<I>>>(
+        function trigger<I extends EventEmitter, N extends keyof ReferEventMap<I>>(
             instance: I,
             eventName: N,
-            extArgs: EventData<InferEventMap<I>[N]>
+            data: InferEventData<ReferEventMap<I>[N]>
         ): void;
         function trigger<I extends EventEmitter>(
             instance: I,
-            eventName: keyof PickPureEvent<InferEventMap<I>> | string
+            eventName: PickPureEventName<ReferEventMap<I>>
         ): void;
     }
-
-    // events
-    type MapsEvent<N extends string, T> = Event<N, {
-        lnglat: LngLat;
-        pixel: Pixel;
-        target: T;
-    }>;
 }

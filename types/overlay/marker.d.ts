@@ -1,22 +1,31 @@
-type MarkerMapsEventName =
-    'click' | 'dblclick' | 'rightclick' |
-    'mousemove' | 'mouseover' | 'mouseout' | 'mousedown' | 'mouseup' |
-    'dragstart' | 'dragging' | 'dragend' |
-    'touchstart' | 'touchmove' | 'touchend';
-type MarkerPureEventName = 'moveend' | 'movealong';
-
 declare namespace AMap {
-    type MarkerMovingEvent = Event<'moving', { passedPath: LngLat[] }>;
-    type MarkerEventMap<I> =
-        { [K in MarkerMapsEventName]: MapsEvent<K, I> } &
-        { [K in MarkerPureEventName]: Event<K> } &
-        { moving: MarkerMovingEvent };
+    interface MarkerEventMap<I extends EventEmitter> {
+        click: MapsEvent<'click', I>;
+        dblclick: MapsEvent<'dblclick', I>;
+        rightclick: MapsEvent<'rightclick', I>;
+        mousemove: MapsEvent<'mousemove', I>;
+        mouseover: MapsEvent<'mouseover', I>;
+        mouseout: MapsEvent<'mouseout', I>;
+        mousedown: MapsEvent<'mousedown', I>;
+        mouseup: MapsEvent<'mouseup', I>;
+        dragstart: MapsEvent<'dragstart', I>;
+        dragging: MapsEvent<'dragging', I>;
+        dragend: MapsEvent<'dragend', I>;
+        moving: MovingEvent;
+        moveend: Event<'moveend'>;
+        movealong: Event<'movealong'>;
+        touchstart: MapsEvent<'touchstart', I>;
+        touchmove: MapsEvent<'touchmove', I>;
+        touchend: MapsEvent<'touchend', I>;
+    }
 
     type MarkerAnimationName = 'AMAP_ANIMATION_NONE' | 'AMAP_ANIMATION_DROP' | 'AMAP_ANIMATION_BOUNCE';
+
     interface MarkerLabel {
         content?: string;
         offset?: Pixel;
     }
+
     interface MarkerOptions<ExtraData = any> extends OverlayOptions<ExtraData> {
         map?: Map;
         position?: LocationValue;
@@ -43,7 +52,7 @@ declare namespace AMap {
         height?: number; // TODO
     }
 
-    class Marker<ExtraData = any> extends Overlay<ExtraData, MarkerEventMap<Marker<ExtraData>>> {
+    class Marker<ExtraData = any> extends Overlay<ExtraData> {
         constructor(options?: MarkerOptions<ExtraData>);
         markOnAMAP(obj?: { name?: string, position?: LocationValue }): void;
         getOffset(): Pixel;

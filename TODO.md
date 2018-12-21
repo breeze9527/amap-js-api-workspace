@@ -3,6 +3,8 @@
 <!--
     definition
     definition test
+
+    Polyline@mousemove
 -->
 
 - [x] [基础类](https://lbs.amap.com/api/javascript-api/reference/core)

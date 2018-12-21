@@ -41,7 +41,7 @@ tileLayer.setTileUrl((x, y, level) => {
 // Traffic
 
 // $ExpectType Traffic
-new AMap.TileLayer.Traffic();
+let trafficLayer = new AMap.TileLayer.Traffic();
 // $ExpectType Traffic
 new AMap.TileLayer.Traffic({});
 // $ExpectType Traffic
@@ -49,3 +49,12 @@ new AMap.TileLayer.Traffic({
     autoRefresh: true,
     interval: 180
 });
+
+// $ExpectType TileLayer
+tileLayer.on('complete', () => { });
+
+tileLayer.off('complete', () => { });
+
+tileLayer.emit('complete');
+
+trafficLayer.on('complete', () => { });

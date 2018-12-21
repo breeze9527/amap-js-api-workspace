@@ -2,6 +2,7 @@ declare namespace AMap {
     interface LayerOptions {
         map?: Map;
     }
+
     abstract class Layer extends EventEmitter {
         getContainer(): HTMLDivElement | undefined;
         getZooms(): [number, number];

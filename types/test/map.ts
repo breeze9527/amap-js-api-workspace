@@ -252,7 +252,7 @@ map.setPitch(1);
 // $ExpectType number
 map.getPitch();
 
-declare function dblClickHandler(this: AMap.Map, event: AMap.MapsEvent<'dblclick', AMap.Map>): void;
+declare function dblClickHandler(this: AMap.Map, event: AMap.MapEventMap['dblclick']): void;
 
 // $ExpectType Map
 map.on('click', function (event) {
@@ -297,6 +297,12 @@ map.on('custom', (event: AMap.Event<'custom', { test: string }>) => {
     // $ExpectType string
     event.test;
 });
+
+// type A = AMap.Event<'abc', Record<string, any>>;
+// type B = AMap.Event<'abc', { test: string }>;
+// var a: A;
+// var b: B;
+// b = a;
 
 // $ExpectType Map
 map.off('dblclick', dblClickHandler);

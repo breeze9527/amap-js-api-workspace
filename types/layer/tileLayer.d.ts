@@ -1,4 +1,8 @@
 declare namespace AMap {
+    interface TileLayerEventMap {
+        complete: Event<'complete'>;
+    }
+
     interface TileLayerOptions extends LayerOptions {
         tileSize?: number;
         tileUrl?: string;

@@ -1,34 +1,28 @@
 declare var div: HTMLDivElement;
 declare var input: HTMLInputElement;
+declare var lnglat: AMap.LngLat;
+declare var pixel: AMap.Pixel;
 
-interface FooEventMap {
-    test1: AMap.Event<'test1', string>;
-    test2: AMap.Event<'test2', { data: number }>;
-    test3: AMap.Event<'test3'>;
-}
-
-class Foo extends AMap.EventEmitter<FooEventMap> { }
-declare var foo: Foo;
-
-// $ExpectType Foo
-foo.on('complete', event => {
-    // $ExpectType "complete"
-    event.type;
-});
-foo.on('test1', event => {
-    // $ExpectType "test1"
+declare var map: AMap.Map;
+// $ExpectType Map
+map.on('hotspotclick', event => {
+    // $ExpectType "hotspotclick"
     event.type;
     // $ExpectType string
-    event.value;
+    event.id;
+    // $ExpectType LngLat
+    event.lnglat;
 });
-foo.on('test2', event => {
-    // $ExpectType "test2"
+map.on('click', event => {
+    // $ExpectType "click"
     event.type;
-    // $ExpectType number
-    event.data;
+    // $ExpectType Map
+    event.target;
+    // $ExpectType LngLat
+    event.lnglat;
 });
-foo.on('test3', event => {
-    // $ExpectType "test3"
+map.on('complete', event => {
+    // $ExpectType "complete"
     event.type;
     // $ExpectError
     event.value;
@@ -41,29 +35,35 @@ AMap.event.addDomListener(div, 'click', event => {
 });
 
 // $ExpectType EventListener<1>
-AMap.event.addListener(foo, 'test1', event => {
-    // $ExpectType "test1"
+AMap.event.addListener(map, 'hotspotclick', function (event) {
+    // $ExpectType "hotspotclick"
     event.type;
     // $ExpectType string
-    event.value;
-});
-AMap.event.addListener(foo, 'test1', function (event) {
-    // $ExpectType "test1"
-    event.type;
-    // $ExpectType string
-    event.value;
+    event.id;
+    // $ExpectType LngLat
+    event.lnglat;
     // $ExpectType number
     this.test;
 }, { test: 1 });
+AMap.event.addListener(map, 'click', event => {
+    // $ExpectType "click"
+    event.type;
+    // $ExpectType LngLat
+    event.lnglat;
+    // $ExpectType Map
+    event.target;
+});
 // $ExpectError
-AMap.event.addListener(foo, 'none', () => { });
+AMap.event.addListener(map, 'none', () => { });
 
 // $ExpectType EventListener<1>
-AMap.event.addListenerOnce(foo, 'test1', function (event) {
-    // $ExpectType "test1"
+AMap.event.addListenerOnce(map, 'hotspotclick', function (event) {
+    // $ExpectType "hotspotclick"
     event.type;
     // $ExpectType string
-    event.value;
+    event.id;
+    // $ExpectType LngLat
+    event.lnglat;
     // $ExpectType number
     this.test;
 }, { test: 1 });
@@ -73,27 +73,23 @@ declare var eventListener: AMap.EventListener<0>;
 AMap.event.removeListener(eventListener);
 
 // $ExpectType void
-AMap.event.trigger(foo, 'test1', {
-    value: 'extra'
+AMap.event.trigger(map, 'click', {
+    lnglat,
+    pixel,
+    target: map
 });
 // $ExpectType void
-AMap.event.trigger(foo, 'test2', {
-    data: 1
+AMap.event.trigger(map, 'hotspotclick', {
+    lnglat,
+    name: 'name',
+    id: 'id',
+    isIndoorPOI: true
 });
-
-var eventData1 = {
+AMap.event.trigger(map, 'hotspotclick', {
+    // $ExpectError
     data: 'data'
-};
-// $ExpectError
-AMap.event.trigger(foo, 'test2', eventData1);
-
-// var eventData2 = {
-//     value: 'data'
-// };
-// // $ExpectError
-// AMap.event.trigger(foo, 'test2', eventData2);
-
+});
 // $ExpectType void
-AMap.event.trigger(foo, 'test3');
+AMap.event.trigger(map, 'complete');
 // $ExpectError
-AMap.event.trigger(foo, 'test3', 'abc');
+AMap.event.trigger(map, 'none', 'abc');

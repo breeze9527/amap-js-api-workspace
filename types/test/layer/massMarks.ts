@@ -70,3 +70,17 @@ _customData.lnglat;
 
 // $ExpectType void
 massMarks.clear();
+
+massMarks.on('click', event => {
+    // $ExpectType "click"
+    event.type;
+
+    // $ExpectType CustomData
+    event.data;
+
+    // $ExpectType MassMarks<CustomData>
+    event.target;
+});
+
+// $ExpectError
+massMarks.on('complete');
