@@ -53,18 +53,16 @@
     - [x] Icon
     - [ ] ElasticMarker
     - [x] Text
-    - [ ] Polyline
-    - [ ] Polygon
-    - [ ] BezierCurve
-    - [ ] Circle
-    - [ ] CircleMarker
-    - [ ] Ellipse
-    - [ ] Rectangle
-    - [ ] OverlayGroup
-    - [ ] GeoJSON
-    - [ ] GroundImage
-    - [ ] ContextMenu
-    - [ ] event
+    - [x] Polyline
+    - [x] Polygon
+    - [x] BezierCurve
+    - [x] Circle
+    - [x] CircleMarker
+    - [x] Ellipse
+    - [x] Rectangle
+    - [x] OverlayGroup
+    - [x] GeoJSON
+    - [x] ContextMenu
 - [ ] [信息窗体](https://lbs.amap.com/api/javascript-api/reference/infowindow)
     - [ ] InfoWindow
     - [ ] AdvancedInfoWindow
