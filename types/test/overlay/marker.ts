@@ -75,7 +75,7 @@ marker.setClickable(true);
 // $ExpectType boolean
 marker.getClickable();
 
-// $ExpectType LngLat
+// $ExpectType LngLat | undefined
 marker.getPosition();
 
 // $ExpectType void
@@ -102,6 +102,9 @@ marker.getAngle();
 
 // $ExpectType void
 marker.setzIndex(100);
+
+// $ExpectType number
+marker.getzIndex();
 
 // $ExpectType void
 marker.setIcon('icon uri');

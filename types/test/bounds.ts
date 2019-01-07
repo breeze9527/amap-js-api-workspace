@@ -1,15 +1,15 @@
-declare var northEast: AMap.LngLat;
-declare var southWest: AMap.LngLat;
-declare var point: AMap.LngLat;
+import {
+    lnglat,
+    lnglatTuple
+} from './preset';
 
 // $ExpectType Bounds
-var bounds = new AMap.Bounds(southWest, northEast);
+const bounds = new AMap.Bounds(lnglat, lnglat);
 
 // $ExpectType boolean
-bounds.contains(point);
-
+bounds.contains(lnglat);
 // $ExpectType boolean
-bounds.contains([point.getLng(), point.getLat()]);
+bounds.contains(lnglatTuple);
 
 // $ExpectType LngLat
 bounds.getCenter();

@@ -1,6 +1,8 @@
-declare var size: AMap.Size;
-declare var pixel: AMap.Pixel;
-declare var icon: AMap.Icon;
+import {
+    size,
+    pixel,
+    icon
+} from '../preset';
 
 // $ExpectType Icon
 new AMap.Icon();

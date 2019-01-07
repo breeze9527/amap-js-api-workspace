@@ -53,7 +53,7 @@ polyline.setOptions({
     isOutline: true,
     borderWeight: 1,
     outlineColor: '#AA0000',
-    path: [lnglat1, lnglat2],
+    path: [lnglat, lnglat],
     strokeColor: '#0000AA',
     strokeOpacity: 0.5,
     strokeWeight: 10,

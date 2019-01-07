@@ -1,4 +1,4 @@
-declare var center: AMap.LngLat;
+import { lnglat } from './preset';
 
 // $ExpectType View2D
 new AMap.View2D();
@@ -14,8 +14,8 @@ new AMap.View2D({
 });
 
 // $ExpectType View2D
-var view2d = new AMap.View2D({
-    center
+const view2d = new AMap.View2D({
+    center: lnglat
 });
 
 // $ExpectType View2D

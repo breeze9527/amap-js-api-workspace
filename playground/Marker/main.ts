@@ -72,6 +72,8 @@ testWrapper(() => {
 
     test('Marker#setzIndex', marker.setzIndex(10));
 
+    test('Marker#getzIndex', marker.getzIndex());
+
     test('Marker#setIcon(string)', marker.setIcon('//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png'));
     test('Marker#setIcon(Icon)', marker.setIcon(icon));
 

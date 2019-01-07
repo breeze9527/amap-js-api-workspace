@@ -1,5 +1,11 @@
-var pixel = new AMap.Pixel(10, 20);
-var pixel2 = new AMap.Pixel(10, 20);
+import {
+    pixel
+} from './preset';
+
+// $ExpectType Pixel
+new AMap.Pixel(10, 20);
+// $ExpectType Pixel
+new AMap.Pixel(10, 20);
 
 // $ExpectType number
 pixel.getX();
@@ -8,7 +14,7 @@ pixel.getX();
 pixel.getY();
 
 // $ExpectType boolean
-pixel.equals(pixel2);
+pixel.equals(pixel);
 
 // $ExpectType string
 pixel.toString();

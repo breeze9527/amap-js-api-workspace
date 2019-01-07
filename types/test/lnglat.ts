@@ -1,13 +1,19 @@
-var lnglat = new AMap.LngLat(114, 22);
-var lnglat2 = new AMap.LngLat(113, 21);
+import {
+    lnglat
+} from './preset';
+
+// $ExpectType LngLat
+new AMap.LngLat(114, 22);
+// $ExpectType LngLat
+new AMap.LngLat(113, 21);
 
 // $ExpectType LngLat
 lnglat.offset(1, 2);
 
 // $ExpectType number
-lnglat.distance(lnglat2);
+lnglat.distance(lnglat);
 // $ExpectType number
-lnglat.distance([lnglat2]);
+lnglat.distance([lnglat]);
 
 // $ExpectType number
 lnglat.getLng();
@@ -16,20 +22,20 @@ lnglat.getLng();
 lnglat.getLat();
 
 // $ExpectType boolean
-lnglat.equals(lnglat2);
+lnglat.equals(lnglat);
 
 // $ExpectType string
 lnglat.toString();
 
 // $ExpectType LngLat
-lnglat.add(lnglat2);
+lnglat.add(lnglat);
 // $ExpectType LngLat
-lnglat.add(lnglat2, true);
+lnglat.add(lnglat, true);
 
 // $ExpectType LngLat
-lnglat.subtract(lnglat2);
+lnglat.subtract(lnglat);
 // $ExpectType LngLat
-lnglat.subtract(lnglat2, true);
+lnglat.subtract(lnglat, true);
 
 // $ExpectType LngLat
 lnglat.divideBy(1);

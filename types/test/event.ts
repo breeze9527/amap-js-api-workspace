@@ -1,9 +1,11 @@
+import {
+    lnglat,
+    pixel,
+    map
+} from './preset';
 declare var div: HTMLDivElement;
 declare var input: HTMLInputElement;
-declare var lnglat: AMap.LngLat;
-declare var pixel: AMap.Pixel;
 
-declare var map: AMap.Map;
 // $ExpectType Map
 map.on('hotspotclick', event => {
     // $ExpectType "hotspotclick"
@@ -68,7 +70,7 @@ AMap.event.addListenerOnce(map, 'hotspotclick', function (event) {
     this.test;
 }, { test: 1 });
 
-declare var eventListener: AMap.EventListener<0>;
+declare const eventListener: AMap.EventListener<0>;
 // $ExpectType void
 AMap.event.removeListener(eventListener);
 

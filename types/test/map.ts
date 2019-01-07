@@ -1,8 +1,12 @@
-declare var container: HTMLDivElement;
-declare var tileLayer: AMap.TileLayer;
-declare var bounds: AMap.Bounds;
-declare var center: AMap.LngLat;
-declare var pixel: AMap.Pixel;
+import {
+    lnglat,
+    bounds,
+    lnglatTuple,
+    pixel
+} from './preset';
+
+declare const container: HTMLDivElement;
+declare const tileLayer: AMap.TileLayer;
 
 // declare var indoorMap: AMap.IndoorMap
 
@@ -12,10 +16,10 @@ new AMap.Map('map');
 new AMap.Map(container);
 
 // $ExpectType Map
-var map = new AMap.Map(container, {});
+new AMap.Map(container, {});
 
 // $ExpectType Map
-var map2 = new AMap.Map(container, {
+const map = new AMap.Map(container, {
     layers: [tileLayer],
     zoom: 15,
     center: [1, 2],
@@ -86,7 +90,7 @@ map.getSize();
 map.getRotation();
 
 // $ExpectType MapStatus
-var mapStatus = map.getStatus();
+const mapStatus = map.getStatus();
 // $ExpectType boolean
 mapStatus.animateEnable;
 // $ExpectType boolean
@@ -133,12 +137,12 @@ map.setLabelzIndex(1);
 map.setLayers([tileLayer]);
 
 // $ExpectType void
-map.setCenter(center);
+map.setCenter(lnglat);
 // $ExpectType void
 map.setCenter([1, 2]);
 
 // $ExpectType void
-map.setZoomAndCenter(13, center);
+map.setZoomAndCenter(13, lnglat);
 // $ExpectType void
 map.setZoomAndCenter(13, [1, 2]);
 
@@ -197,7 +201,7 @@ map.zoomOut();
 // $ExpectType void
 map.panTo([1, 2]);
 // $ExpectType void
-map.panTo(center);
+map.panTo(lnglat);
 
 // $ExpectType void
 map.panBy(1, 2);
@@ -219,9 +223,9 @@ map.pixelToLngLat(pixel);
 map.pixelToLngLat(pixel, 1);
 
 // $ExpectType Pixel
-map.lnglatToPixel(center);
+map.lnglatToPixel(lnglat);
 // $ExpectType Pixel
-map.lnglatToPixel(center, 1);
+map.lnglatToPixel(lnglat, 1);
 
 // $ExpectType LngLat
 map.containerToLngLat(pixel);
@@ -298,12 +302,6 @@ map.on('custom', (event: AMap.Event<'custom', { test: string }>) => {
     event.test;
 });
 
-// type A = AMap.Event<'abc', Record<string, any>>;
-// type B = AMap.Event<'abc', { test: string }>;
-// var a: A;
-// var b: B;
-// b = a;
-
 // $ExpectType Map
 map.off('dblclick', dblClickHandler);
 // $ExpectError
@@ -316,7 +314,7 @@ map.off('click', 'mv');
 // $ExpectType Map
 map.emit('click', {
     target: map,
-    lnglat: center,
+    lnglat,
     pixel
 });
 // $ExpectError
@@ -325,7 +323,7 @@ map.emit('click');
 map.emit('complete');
 // $ExpectType Map
 map.emit('hotspotclick', {
-    lnglat: center,
+    lnglat,
     name: '123',
     id: '123',
     isIndoorPOI: true
