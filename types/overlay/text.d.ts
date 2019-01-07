@@ -4,7 +4,7 @@ declare namespace AMap {
         textAlign?: 'left' | 'right' | 'center';
         verticalAlign?: 'top' | 'middle' | 'bottom';
     }
-    class Text extends Marker {
+    class Text<ExtraData = any> extends Marker<ExtraData> {
         constructor(options?: TextOptions);
         getText(): string;
         setText(text: string): void;

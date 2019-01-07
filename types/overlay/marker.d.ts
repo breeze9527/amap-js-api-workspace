@@ -60,13 +60,14 @@ declare namespace AMap {
         getAnimation(): MarkerAnimationName;
         setClickable(cilckable: boolean): void;
         getClickable(): boolean;
-        getPosition(): LngLat;
+        getPosition(): LngLat | undefined;
         setPosition(position: LocationValue): void;
         setAngle(angle: number): void;
         setLabel(label?: MarkerLabel): void;
         getLabel(): MarkerLabel | undefined;
         getAngle(): number;
         setzIndex(index: number): void;
+        getzIndex(): number;
         setIcon(content: string | Icon): void;
         getIcon(): string | Icon | undefined;
         setDraggable(draggable: boolean): void;
