@@ -1,4 +1,10 @@
-declare var overlay: AMap.Overlay<{test: number}>;
+import {
+    map
+} from '../preset';
+interface ExtraData {
+    test: number;
+}
+declare const overlay: AMap.Overlay<ExtraData>;
 
 // $ExpectType void
 overlay.show();
@@ -9,8 +15,13 @@ overlay.hide();
 // $ExpectType Map | null
 overlay.getMap();
 
+// $ExpectType void
+overlay.setMap(map);
+// $ExpectType void
+overlay.setMap(null);
+
 // $ExpectError
 overlay.setExtData({ any: 123 });
 
-// $ExpectError number
-overlay.getExtData().test;
+// $ExpectError ExtraData
+overlay.getExtData();

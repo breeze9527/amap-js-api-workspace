@@ -53,5 +53,5 @@ function writeIndexFile(paths, version) {
 
 
 getFilePath('').then(dirs => {
-    writeIndexFile(dirs, '2.8');
+    writeIndexFile(dirs, '2.9');
 });

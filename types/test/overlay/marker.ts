@@ -1,5 +1,8 @@
-declare var map: AMap.Map;
-declare var lnglat: AMap.LngLat;
+import {
+    map,
+    lnglat
+} from '../preset';
+
 declare var pixel: AMap.Pixel;
 declare var domEle: HTMLElement;
 declare var markerShape: AMap.MarkerShape;
@@ -16,7 +19,7 @@ new AMap.Marker();
 // $ExpectType Marker<any>
 new AMap.Marker({});
 // $ExpectType Marker<ExtraData>
-var marker = new AMap.Marker<ExtraData>({
+const marker = new AMap.Marker<ExtraData>({
     map,
     position: lnglat,
     offset: pixel,
@@ -184,6 +187,6 @@ marker.setShape(markerShape);
 marker.getShape();
 
 marker.on('click', event => {
-    // $ExpectType number
-    event.target.getExtData().test;
+    // $ExpectType {} | ExtraData
+    event.target.getExtData();
 });

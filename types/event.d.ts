@@ -1,12 +1,16 @@
-type OmitEventEmitter<I> = {[K in Exclude<keyof I, keyof AMap.EventEmitter>]: I[K]};
+type OmitEventEmitter<I extends AMap.EventEmitter> = Omit<I, keyof AMap.EventEmitter>;
 type ReferEventMap<I extends AMap.EventEmitter> =
     I extends OmitEventEmitter<AMap.Map> ? AMap.MapEventMap :
     I extends OmitEventEmitter<AMap.MassMarks> ? AMap.MassMarksEventMap<I> :
     I extends OmitEventEmitter<AMap.TileLayer> ? AMap.TileLayerEventMap :
     I extends OmitEventEmitter<AMap.Marker> ? AMap.MarkerEventMap<I> :
+    I extends OmitEventEmitter<AMap.Circle> ? AMap.CircleEventMap<I> :
+    I extends OmitEventEmitter<AMap.Rectangle> ? AMap.RectangleEventMap<I> :
+    I extends OmitEventEmitter<AMap.ShapeOverlay> ? AMap.ShapeOverlayEventMap<I> :
+    I extends OmitEventEmitter<AMap.ContextMenu> ? AMap.ContextMenuEventMap<I> :
     any;
-type OmitPureEventName<M extends Record<string, AMap.Event>> = { [K in keyof M]: AMap.InferEventData<M[K]> extends never ? never : K }[keyof M];
-type PickPureEventName<M extends Record<string, AMap.Event>> = { [K in keyof M]: AMap.InferEventData<M[K]> extends never ? K : never }[keyof M];
+type OmitPureEventName<M> = { [K in keyof M]: AMap.InferEventData<M[K]> extends never ? never : K }[keyof M];
+type PickPureEventName<M> = { [K in keyof M]: AMap.InferEventData<M[K]> extends never ? K : never }[keyof M];
 
 declare namespace AMap {
     type Event<N extends string = string, V = undefined> = { type: N } &
@@ -14,7 +18,7 @@ declare namespace AMap {
             : V extends object ? V
             : V extends undefined ? {}
             : { value: V });
-    type MapsEvent<N extends string, I extends EventEmitter> = Event<N, {
+    type MapsEvent<N extends string, I> = Event<N, {
         lnglat: LngLat;
         pixel: Pixel;
         target: I

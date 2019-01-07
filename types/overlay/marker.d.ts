@@ -27,7 +27,6 @@ declare namespace AMap {
     }
 
     interface MarkerOptions<ExtraData = any> extends OverlayOptions<ExtraData> {
-        map?: Map;
         position?: LocationValue;
         offset?: Pixel;
         icon?: string; // | Icon; // TODO
