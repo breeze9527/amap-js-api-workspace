@@ -1,19 +1,19 @@
 testWrapper(() => {
-    var container = document.getElementById('map')!;
-    var tileLayer = new AMap.TileLayer();
-    var map = new AMap.Map(container, {
+    const container = document.getElementById('map')!;
+    const tileLayer = new AMap.TileLayer();
+    const map = new AMap.Map(container, {
         defaultLayer: tileLayer
     });
-    var mapCenter = map.getCenter();
-    var bounds = map.getBounds();
-    var mapStatus = map.getStatus();
-    var mapZoom = map.getZoom();
-    var mapCenterTuple: [number, number] = [mapCenter.getLng(), mapCenter.getLat()];
-    var mapCenterPixelPixel = map.lnglatToPixel(mapCenter);
-    var mapStyle = map.getMapStyle();
-    var mapPitch = map.getPitch();
-    var marker1 = new AMap.Marker({ content: 'marker1' });
-    var marker2 = new AMap.Marker({ content: 'marker2' });
+    const mapCenter = map.getCenter();
+    const bounds = map.getBounds();
+    const mapStatus = map.getStatus();
+    const mapZoom = map.getZoom();
+    const mapCenterTuple: [number, number] = [mapCenter.getLng(), mapCenter.getLat()];
+    const mapCenterPixelPixel = map.lnglatToPixel(mapCenter);
+    const mapStyle = map.getMapStyle();
+    const mapPitch = map.getPitch();
+    const marker1 = new AMap.Marker({ content: 'marker1' });
+    const marker2 = new AMap.Marker({ content: 'marker2' });
 
     test('Map#getZoom', mapZoom);
 
