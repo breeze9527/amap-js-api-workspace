@@ -12,7 +12,7 @@ overlay.show();
 // $ExpectType void
 overlay.hide();
 
-// $ExpectType Map | null
+// $ExpectType Map | null | undefined
 overlay.getMap();
 
 // $ExpectType void

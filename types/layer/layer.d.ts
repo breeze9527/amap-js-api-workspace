@@ -11,7 +11,7 @@ declare namespace AMap {
         show(): void;
         hide(): void;
         setMap(map?: Map | null): void;
-        getMap(): Map | undefined;
+        getMap(): Map | null | undefined;
         setzIndex(index: number): void;
         getzIndex(): number;
     }

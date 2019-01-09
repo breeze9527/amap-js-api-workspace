@@ -25,7 +25,7 @@ declare namespace AMap {
         constructor(options?: OverlayOptions);
         show(): void;
         hide(): void;
-        getMap(): Map | null;
+        getMap(): Map | null | undefined;
         setMap(map: Map | null): void;
         setExtData(extData: ExtraData): void;
         getExtData(): ExtraData | {};
