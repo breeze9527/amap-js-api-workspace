@@ -2,7 +2,9 @@ import {
     lnglat,
     bounds,
     lnglatTuple,
-    pixel
+    pixel,
+    ambientLight,
+    directionLight
 } from './preset';
 
 declare const container: HTMLDivElement;
@@ -50,6 +52,12 @@ const map = new AMap.Map(container, {
     preloadMode: true,
     mask: [[1, 2], [2, 3], [3, 4]]
 });
+
+map.AmbientLight = ambientLight;
+map.AmbientLight = undefined;
+
+map.DirectionLight = directionLight;
+map.DirectionLight = undefined;
 
 // $ExpectType number
 map.getZoom();
@@ -255,6 +263,33 @@ map.setDefaultLayer(tileLayer);
 map.setPitch(1);
 // $ExpectType number
 map.getPitch();
+
+// $ExpectType ViewMode
+map.getViewMode_();
+
+map.getObject3DByContainerPos(pixel);
+const containserPos = map.getObject3DByContainerPos(pixel, [layer], true);
+if (containserPos) {
+    // $ExpectType number
+    containserPos.index;
+    // $ExpectType any
+    containserPos.point;
+    // $ExpectType number
+    containserPos.distance;
+    // $ExpectType Object3D
+    containserPos.object;
+} else {
+    // $ExpectType null
+    containserPos;
+}
+
+// $ExpectType Pixel
+map.lngLatToGeodeticCoord(lnglat);
+// $ExpectType Pixel
+map.lngLatToGeodeticCoord(lnglatTuple);
+
+// $ExpectType LngLat
+map.geodeticCoordToLngLat(pixel);
 
 declare function dblClickHandler(this: AMap.Map, event: AMap.MapEventMap['dblclick']): void;
 

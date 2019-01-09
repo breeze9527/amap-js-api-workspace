@@ -17,7 +17,7 @@ declare namespace AMap {
 
         // internal
         visible?: boolean;
-        unit?: 'miter' | 'px';
+        unit?: 'meter' | 'px'; // 'might be typo'
     }
 
     type CircleGetOptionsResult<ExtraData = any> = Merge<PolygonGetOptionsResult<ExtraData>, {

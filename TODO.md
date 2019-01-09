@@ -17,14 +17,14 @@
     - [x] View2D
     - [x] ArrayBounds
 - [ ] [3D地图](https://lbs.amap.com/api/javascript-api/reference/maps-3d)
-    - [ ] Map
-    - [ ] Lights.AmbientLight
-    - [ ] Lights.DirectionLight
-    - [ ] Object3DLayer
-    - [ ] Object3D.Mesh
-    - [ ] Object3D.MeshLine
-    - [ ] Object3D.MeshAcceptLight
-    - [ ] Object3D.Prism
+    - [x] Map
+    - [x] Lights.AmbientLight
+    - [x] Lights.DirectionLight
+    - [x] Object3DLayer
+    - [x] Object3D.Mesh
+    - [x] Object3D.MeshLine
+    - [x] Object3D.MeshAcceptLight
+    - [x] Object3D.Prism
 - [x] [事件](https://lbs.amap.com/api/javascript-api/reference/event)
     - [x] event
     - [x] EventListener

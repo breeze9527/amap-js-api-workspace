@@ -1,6 +1,7 @@
 declare namespace AMap {
     type Lang = 'zh_cn' | 'en' | 'zh_en';
     type Feature = 'bg' | 'point' | 'road' | 'building';
+    type ViewMode = '2D' | '3D';
     type LocationValue = LngLat | [number, number];
     interface MapOptions {
         view?: View2D;
@@ -31,15 +32,17 @@ declare namespace AMap {
         mapStyle?: string;
         features?: Feature[] | 'all' | Feature;
         showBuildingBlock?: boolean;
-        viewMode?: '2D' | '3D';
+        viewMode?: ViewMode;
         pitch?: number;
         pitchEnable?: boolean;
         buildingAnimation?: boolean;
         skyColor?: string;
         preloadMode?: boolean;
         mask?: Array<[number, number]> | Array<Array<[number, number]>> | Array<Array<Array<[number, number]>>>;
+        maxPitch?: number;
+        rotation?: number;
 
-        // inner
+        // internal
         baseRender?: 'vw' | 'd' | 'dv' | 'v';
         overlayRender?: 'c' | 'd';
         showLabel?: boolean;
@@ -47,10 +50,8 @@ declare namespace AMap {
         logoUrl?: string;
         logoUrlRetina?: string;
         copyright?: string;
-        rotation?: number; // TODO
         turboMode?: boolean;
         workerMode?: boolean;
-        maxPitch?: number;
         // continuousZoomEnable?: boolean;
         // showFog: boolean;
         // yaw: number;
@@ -114,6 +115,8 @@ declare namespace AMap {
     }
 
     class Map extends EventEmitter {
+        AmbientLight: Lights.AmbientLight | undefined;
+        DirectionLight: Lights.DirectionLight | undefined;
         constructor(container: string | HTMLElement, opts?: MapOptions);
         poiOnAMAP(obj: { id: string; location?: LocationValue; name?: string }): void;
         detailOnAMAP(obj: { id: string; location?: LocationValue; name?: string }): void;
@@ -181,5 +184,14 @@ declare namespace AMap {
         setDefaultLayer(layer: TileLayer): void;
         setPitch(pitch: number): void;
         getPitch(): number;
+        getViewMode_(): ViewMode;
+        getObject3DByContainerPos(pixel: Pixel, layers?: Layer[], all?: boolean): {
+            index: number;
+            point: any; // TODO: Vector3
+            distance: number;
+            object: Object3D;
+        } | null;
+        lngLatToGeodeticCoord(lnglat: LocationValue): Pixel;
+        geodeticCoordToLngLat(pixel: Pixel): LngLat;
     }
 }
