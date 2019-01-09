@@ -16,6 +16,7 @@
 /// <reference path="layer/layer.d.ts" />
 /// <reference path="layer/layerGroup.d.ts" />
 /// <reference path="layer/massMarks.d.ts" />
+/// <reference path="layer/mediaLayer.d.ts" />
 /// <reference path="layer/object3DLayer.d.ts" />
 /// <reference path="layer/tileLayer.d.ts" />
 /// <reference path="lights/ambientLight.d.ts" />

@@ -39,11 +39,11 @@
     - [x] Heatmap
     - [x] LayerGroup
 - [ ] [自建图层](https://lbs.amap.com/api/javascript-api/reference/self-own-layers)
-    - [ ] TileLayer.Flexible
-    - [ ] ImageLayer
-    - [ ] CanvasLayer
-    - [ ] VideoLayer
-    - [ ] CustomLayer
+    - [x] TileLayer.Flexible
+    - [x] ImageLayer
+    - [x] CanvasLayer
+    - [x] VideoLayer
+    - [x] CustomLayer
 - [ ] [WMS/WMTS](https://lbs.amap.com/api/javascript-api/reference/wms)
     - [ ] TileLayer.WMS
     - [ ] TileLayer.WMTS
