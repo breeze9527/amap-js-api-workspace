@@ -11,6 +11,7 @@
 /// <reference path="size.d.ts" />
 /// <reference path="view2D.d.ts" />
 /// <reference path="layer/building.d.ts" />
+/// <reference path="layer/flexible.d.ts" />
 /// <reference path="layer/heatmap.d.ts" />
 /// <reference path="layer/layer.d.ts" />
 /// <reference path="layer/layerGroup.d.ts" />
