@@ -2,7 +2,6 @@ declare namespace AMap {
     type Lang = 'zh_cn' | 'en' | 'zh_en';
     type Feature = 'bg' | 'point' | 'road' | 'building';
     type ViewMode = '2D' | '3D';
-    type LocationValue = LngLat | [number, number];
     interface MapOptions {
         view?: View2D;
         layers?: Layer[];

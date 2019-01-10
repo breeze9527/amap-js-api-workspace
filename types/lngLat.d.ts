@@ -1,4 +1,5 @@
 declare namespace AMap {
+    type LocationValue = LngLat | [number, number];
     class LngLat {
         constructor(lng: number, lat: number, noAutofix?: boolean);
         offset(x: number, s: number): LngLat;

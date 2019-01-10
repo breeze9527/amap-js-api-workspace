@@ -10,3 +10,4 @@ export declare const icon: AMap.Icon;
 export declare const bounds: AMap.Bounds;
 export declare const ambientLight: AMap.Lights.AmbientLight;
 export declare const directionLight: AMap.Lights.DirectionLight;
+export declare const div: HTMLDivElement;

@@ -64,7 +64,7 @@
     - [x] GeoJSON
     - [x] ContextMenu
 - [ ] [信息窗体](https://lbs.amap.com/api/javascript-api/reference/infowindow)
-    - [ ] InfoWindow
+    - [x] InfoWindow
     - [ ] AdvancedInfoWindow
 - [ ] [坐标与地址](https://lbs.amap.com/api/javascript-api/reference/lnglat-to-address)
     - [ ] Geocoder

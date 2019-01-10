@@ -31,6 +31,7 @@
 /// <reference path="overlay/ellipse.d.ts" />
 /// <reference path="overlay/geoJSON.d.ts" />
 /// <reference path="overlay/icon.d.ts" />
+/// <reference path="overlay/infoWindow.d.ts" />
 /// <reference path="overlay/marker.d.ts" />
 /// <reference path="overlay/markerShape.d.ts" />
 /// <reference path="overlay/overlay.d.ts" />
