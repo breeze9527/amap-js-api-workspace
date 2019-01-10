@@ -41,6 +41,7 @@ declare namespace AMap {
         mask?: Array<[number, number]> | Array<Array<[number, number]>> | Array<Array<Array<[number, number]>>>;
         maxPitch?: number;
         rotation?: number;
+        forceVector?: boolean;
 
         // internal
         baseRender?: 'vw' | 'd' | 'dv' | 'v';

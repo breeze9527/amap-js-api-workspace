@@ -3,6 +3,7 @@ type ReferEventMap<I extends AMap.EventEmitter> =
     I extends OmitEventEmitter<AMap.Map> ? AMap.MapEventMap :
     I extends OmitEventEmitter<AMap.MassMarks> ? AMap.MassMarksEventMap<I> :
     I extends OmitEventEmitter<AMap.TileLayer> ? AMap.TileLayerEventMap :
+    I extends OmitEventEmitter<AMap.ElasticMarker> ? AMap.ElasticMarkerEventMap<I> :
     I extends OmitEventEmitter<AMap.Marker> ? AMap.MarkerEventMap<I> :
     I extends OmitEventEmitter<AMap.Circle> ? AMap.CircleEventMap<I> :
     I extends OmitEventEmitter<AMap.Rectangle> ? AMap.RectangleEventMap<I> :

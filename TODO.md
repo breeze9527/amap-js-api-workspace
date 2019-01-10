@@ -47,11 +47,11 @@
 - [x] [WMS/WMTS](https://lbs.amap.com/api/javascript-api/reference/wms)
     - [x] TileLayer.WMS
     - [x] TileLayer.WMTS
-- [ ] [覆盖物](https://lbs.amap.com/api/javascript-api/reference/overlay)
+- [x] [覆盖物](https://lbs.amap.com/api/javascript-api/reference/overlay)
     - [x] Marker
     - [x] MarkerShape
     - [x] Icon
-    - [ ] ElasticMarker
+    - [x] ElasticMarker
     - [x] Text
     - [x] Polyline
     - [x] Polygon

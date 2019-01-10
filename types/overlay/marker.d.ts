@@ -45,6 +45,7 @@ declare namespace AMap {
         title?: string;
         shape?: MarkerShape;
         label?: MarkerLabel;
+        zooms?: [number, number];
 
         // internal
         topWhenMouseOver?: boolean;

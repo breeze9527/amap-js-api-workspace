@@ -27,6 +27,7 @@
 /// <reference path="overlay/circle.d.ts" />
 /// <reference path="overlay/circleMarker.d.ts" />
 /// <reference path="overlay/contextMenu.d.ts" />
+/// <reference path="overlay/elasticMarker.d.ts" />
 /// <reference path="overlay/ellipse.d.ts" />
 /// <reference path="overlay/geoJSON.d.ts" />
 /// <reference path="overlay/icon.d.ts" />
