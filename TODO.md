@@ -16,7 +16,7 @@
     - [x] Map
     - [x] View2D
     - [x] ArrayBounds
-- [ ] [3D地图](https://lbs.amap.com/api/javascript-api/reference/maps-3d)
+- [x] [3D地图](https://lbs.amap.com/api/javascript-api/reference/maps-3d)
     - [x] Map
     - [x] Lights.AmbientLight
     - [x] Lights.DirectionLight
@@ -38,15 +38,15 @@
     - [x] MassMarks
     - [x] Heatmap
     - [x] LayerGroup
-- [ ] [自建图层](https://lbs.amap.com/api/javascript-api/reference/self-own-layers)
+- [x] [自建图层](https://lbs.amap.com/api/javascript-api/reference/self-own-layers)
     - [x] TileLayer.Flexible
     - [x] ImageLayer
     - [x] CanvasLayer
     - [x] VideoLayer
     - [x] CustomLayer
-- [ ] [WMS/WMTS](https://lbs.amap.com/api/javascript-api/reference/wms)
-    - [ ] TileLayer.WMS
-    - [ ] TileLayer.WMTS
+- [x] [WMS/WMTS](https://lbs.amap.com/api/javascript-api/reference/wms)
+    - [x] TileLayer.WMS
+    - [x] TileLayer.WMTS
 - [ ] [覆盖物](https://lbs.amap.com/api/javascript-api/reference/overlay)
     - [x] Marker
     - [x] MarkerShape
