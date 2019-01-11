@@ -70,7 +70,7 @@
     - [x] Geocoder
     - [x] convertFrom
 - [ ] [搜索服务](https://lbs.amap.com/api/javascript-api/reference/search)
-    - [ ] Autocomplete
+    - [x] Autocomplete
     - [ ] PlaceSearch
     - [ ] PlaceSearchLayer
     - [ ] DistrictSearch

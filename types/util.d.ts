@@ -12,8 +12,3 @@ type Merge<O, T> =
     { [K in Exclude<keyof O, keyof T | OptionalKey<O>>]-?: O[K]; } &
     { [K in Extract<Exclude<keyof O, keyof T>, OptionalKey<O>>]?: O[K]; } &
     T;
-
-interface A {
-    value: string;
-    test?: string;
-}
