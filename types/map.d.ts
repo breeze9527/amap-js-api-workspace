@@ -187,7 +187,7 @@ declare namespace AMap {
         getViewMode_(): ViewMode;
         getObject3DByContainerPos(pixel: Pixel, layers?: Layer[], all?: boolean): {
             index: number;
-            point: any; // TODO: Vector3
+            point: Vector3;
             distance: number;
             object: Object3D;
         } | null;

@@ -272,7 +272,7 @@ const containserPos = map.getObject3DByContainerPos(pixel, [layer], true);
 if (containserPos) {
     // $ExpectType number
     containserPos.index;
-    // $ExpectType any
+    // $ExpectType Vector3
     containserPos.point;
     // $ExpectType number
     containserPos.distance;
