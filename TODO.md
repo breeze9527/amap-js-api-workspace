@@ -63,9 +63,9 @@
     - [x] OverlayGroup
     - [x] GeoJSON
     - [x] ContextMenu
-- [ ] [信息窗体](https://lbs.amap.com/api/javascript-api/reference/infowindow)
+- [x] [信息窗体](https://lbs.amap.com/api/javascript-api/reference/infowindow)
     - [x] InfoWindow
-    - [ ] AdvancedInfoWindow
+    - [x] AdvancedInfoWindow
 - [x] [坐标与地址](https://lbs.amap.com/api/javascript-api/reference/lnglat-to-address)
     - [x] Geocoder
     - [x] convertFrom

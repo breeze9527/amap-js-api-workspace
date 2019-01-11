@@ -24,6 +24,7 @@
 /// <reference path="layer/wmts.d.ts" />
 /// <reference path="lights/ambientLight.d.ts" />
 /// <reference path="lights/directionLight.d.ts" />
+/// <reference path="overlay/advancedInfoWindow.d.ts" />
 /// <reference path="overlay/bezierCurve.d.ts" />
 /// <reference path="overlay/circle.d.ts" />
 /// <reference path="overlay/circleMarker.d.ts" />

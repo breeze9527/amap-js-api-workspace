@@ -17,7 +17,7 @@ declare namespace AMap {
         removeLayer(layer: L | L[]): this;
         removeLayers(layer: L | L[]): this;
         clearLayers(): this;
-        eachLayer<C = L>(iterator: (this: C, layer: L, index: number, list: L[]) => void, context?: C): void; // TODO deep test
+        eachLayer<C = L>(iterator: (this: C, layer: L, index: number, list: L[]) => void, context?: C): void;
 
         // overwrite
         setMap(map?: Map): this;

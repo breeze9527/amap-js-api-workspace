@@ -154,11 +154,11 @@ declare namespace AMap {
         clearLimitBounds(): void;
         setLang(lang: Lang): void;
         setRotation(rotation: number): void;
-        setStatus(status: Partial<MapStatus>): void; // TODO
+        setStatus(status: Partial<MapStatus>): void;
         setDefaultCursor(cursor: string): void;
         zoomIn(): void;
         zoomOut(): void;
-        panTo(position: LocationValue): void; // TODO
+        panTo(position: LocationValue): void;
         panBy(x: number, y: number): void;
         setFitView(
             overlayList?: Overlay | Overlay[],

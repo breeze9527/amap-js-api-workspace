@@ -29,7 +29,7 @@ declare namespace AMap {
     interface MarkerOptions<ExtraData = any> extends OverlayOptions<ExtraData> {
         position?: LocationValue;
         offset?: Pixel;
-        icon?: string; // | Icon; // TODO
+        icon?: string | Icon;
         content?: string | HTMLElement;
         topWhenClick?: boolean;
         bubble?: boolean;
@@ -49,7 +49,7 @@ declare namespace AMap {
 
         // internal
         topWhenMouseOver?: boolean;
-        height?: number; // TODO
+        height?: number;
     }
 
     class Marker<ExtraData = any> extends Overlay<ExtraData> {
