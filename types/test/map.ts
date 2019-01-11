@@ -253,7 +253,7 @@ map.setFeatures('all');
 // $ExpectType void
 map.setFeatures(['bg']);
 
-// $ExpectType "bg" | "point" | "road" | "building" | Feature[] | "all"
+// $ExpectType "all" | "bg" | "point" | "road" | "building" | Feature[]
 map.getFeatures();
 
 // $ExpectType void

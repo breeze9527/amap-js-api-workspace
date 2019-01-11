@@ -3,6 +3,7 @@
 /// <reference path="arrayBounds.d.ts" />
 /// <reference path="bounds.d.ts" />
 /// <reference path="event.d.ts" />
+/// <reference path="geoConvert.d.ts" />
 /// <reference path="geometry3D.d.ts" />
 /// <reference path="lngLat.d.ts" />
 /// <reference path="map.d.ts" />
