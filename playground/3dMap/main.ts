@@ -1,4 +1,4 @@
-testWrapper(() => {
+testPluginWrapper('Map3D', () => {
     const map = new AMap.Map('map', {
         viewMode: '3D',
         rotation: 20,
