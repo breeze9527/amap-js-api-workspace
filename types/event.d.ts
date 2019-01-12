@@ -13,6 +13,7 @@ type ReferEventMap<I extends AMap.EventEmitter> =
     I extends OmitEventEmitter<AMap.ContextMenu> ? AMap.ContextMenuEventMap<I> :
     I extends OmitEventEmitter<AMap.Geocoder> ? AMap.GeocoderEventMap :
     I extends OmitEventEmitter<AMap.Autocomplete> ? AMap.AutocompleteEventMap :
+    I extends OmitEventEmitter<AMap.PlaceSearch> ? AMap.PlaceSearchEventMap :
     any;
 type OmitPureEventName<M> = { [K in keyof M]: AMap.InferEventData<M[K]> extends never ? never : K }[keyof M];
 type PickPureEventName<M> = { [K in keyof M]: AMap.InferEventData<M[K]> extends never ? K : never }[keyof M];

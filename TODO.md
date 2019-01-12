@@ -71,7 +71,7 @@
     - [x] convertFrom
 - [ ] [搜索服务](https://lbs.amap.com/api/javascript-api/reference/search)
     - [x] Autocomplete
-    - [ ] PlaceSearch
+    - [x] PlaceSearch
     - [ ] PlaceSearchLayer
     - [ ] DistrictSearch
     - [ ] LineSearch
