@@ -44,4 +44,5 @@
 /// <reference path="overlay/rectangle.d.ts" />
 /// <reference path="overlay/text.d.ts" />
 /// <reference path="search/autocomplete.d.ts" />
+/// <reference path="search/districtSearch.d.ts" />
 /// <reference path="search/placeSearch.d.ts" />

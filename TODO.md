@@ -73,7 +73,7 @@
     - [x] Autocomplete
     - [x] PlaceSearch
     - [ ] PlaceSearchLayer
-    - [ ] DistrictSearch
+    - [x] DistrictSearch
     - [ ] LineSearch
     - [ ] StationSearch
     - [ ] events
