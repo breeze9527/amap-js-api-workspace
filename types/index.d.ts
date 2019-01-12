@@ -20,6 +20,7 @@
 /// <reference path="layer/massMarks.d.ts" />
 /// <reference path="layer/mediaLayer.d.ts" />
 /// <reference path="layer/object3DLayer.d.ts" />
+/// <reference path="layer/placeSearchLayer.d.ts" />
 /// <reference path="layer/tileLayer.d.ts" />
 /// <reference path="layer/wms.d.ts" />
 /// <reference path="layer/wmts.d.ts" />

@@ -72,7 +72,7 @@
 - [ ] [搜索服务](https://lbs.amap.com/api/javascript-api/reference/search)
     - [x] Autocomplete
     - [x] PlaceSearch
-    - [ ] PlaceSearchLayer
+    - [x] PlaceSearchLayer
     - [x] DistrictSearch
     - [x] LineSearch
     - [ ] StationSearch
