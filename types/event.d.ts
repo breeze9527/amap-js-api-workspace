@@ -15,6 +15,7 @@ type ReferEventMap<I extends AMap.EventEmitter> =
     I extends OmitEventEmitter<AMap.Autocomplete> ? AMap.AutocompleteEventMap :
     I extends OmitEventEmitter<AMap.PlaceSearch> ? AMap.PlaceSearchEventMap :
     I extends OmitEventEmitter<AMap.DistrictSearch> ? AMap.DistrictSearchEventMap :
+    I extends OmitEventEmitter<AMap.StationSearch> ? AMap.StationSearchEventMap :
     any;
 type OmitPureEventName<M> = { [K in keyof M]: AMap.InferEventData<M[K]> extends never ? never : K }[keyof M];
 type PickPureEventName<M> = { [K in keyof M]: AMap.InferEventData<M[K]> extends never ? K : never }[keyof M];

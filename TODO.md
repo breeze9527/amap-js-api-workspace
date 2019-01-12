@@ -74,7 +74,7 @@
     - [x] PlaceSearch
     - [ ] PlaceSearchLayer
     - [x] DistrictSearch
-    - [ ] LineSearch
+    - [x] LineSearch
     - [ ] StationSearch
     - [ ] events
 - [ ] [路径规划](https://lbs.amap.com/api/javascript-api/reference/route-search)
