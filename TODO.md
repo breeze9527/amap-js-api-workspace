@@ -69,14 +69,13 @@
 - [x] [坐标与地址](https://lbs.amap.com/api/javascript-api/reference/lnglat-to-address)
     - [x] Geocoder
     - [x] convertFrom
-- [ ] [搜索服务](https://lbs.amap.com/api/javascript-api/reference/search)
+- [x] [搜索服务](https://lbs.amap.com/api/javascript-api/reference/search)
     - [x] Autocomplete
     - [x] PlaceSearch
     - [x] PlaceSearchLayer
     - [x] DistrictSearch
     - [x] LineSearch
-    - [ ] StationSearch
-    - [ ] events
+    - [x] StationSearch
 - [ ] [路径规划](https://lbs.amap.com/api/javascript-api/reference/route-search)
     - [ ] Driving
     - [ ] TruckDriving

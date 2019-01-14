@@ -46,5 +46,6 @@
 /// <reference path="overlay/text.d.ts" />
 /// <reference path="search/autocomplete.d.ts" />
 /// <reference path="search/districtSearch.d.ts" />
+/// <reference path="search/lineSearch.d.ts" />
 /// <reference path="search/placeSearch.d.ts" />
 /// <reference path="search/stationSearch.d.ts" />
