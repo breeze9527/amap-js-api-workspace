@@ -22,7 +22,6 @@ testWrapper(() => {
 
     test('Buildings', new AMap.Buildings());
     test('Buildings(options)', buildings);
-    testLayer(buildings);
 
     // test('Buildings#setStyle', buildings.setStyle(style));
     test('Buildings#setStyle', buildings.setStyle({
