@@ -7,7 +7,7 @@ declare namespace AMap {
         bounds: Bounds;
         texture: string;
     }>;
-    interface RectangleEventMap<I> extends ShapeOverlayEventMap<I> {
+    interface RectangleEventMap<I = Rectangle> extends ShapeOverlayEventMap<I> {
         setBounds: Event<'setBounds'>;
     }
 

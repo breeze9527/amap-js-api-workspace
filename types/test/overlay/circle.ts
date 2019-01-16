@@ -128,21 +128,21 @@ circle.contains(lnglat);
 // $ExpectType boolean
 circle.contains(lnglatTuple);
 
-circle.on('click', event => {
+circle.on('click', (event: AMap.CircleEventMap<typeof circle>['click']) => {
     // $ExpectType "click"
     event.type;
     // $ExpectType Circle<ExtraData>
     event.target;
 });
 
-circle.on('setCenter', event => {
+circle.on('setCenter', (event: AMap.CircleEventMap<typeof circle>['setCenter']) => {
     // $ExpectType "setCenter"
     event.type;
     // $ExpectError
     event.target;
 });
 
-circle.on('change', event => {
+circle.on('change', (event: AMap.CircleEventMap<typeof circle>['change']) => {
     // $ExpectType "change"
     event.type;
     // $ExpectType Circle<ExtraData>

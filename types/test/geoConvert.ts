@@ -18,7 +18,7 @@ const geocoder = new AMap.Geocoder({
 
 // $ExpectType void
 geocoder.getLocation('address', (status, result) => {
-    // $ExpectType "complete" | "error" | "no_data"
+    // $ExpectType "error" | "complete" | "no_data"
     status;
     if (typeof result !== 'string') {
         const geocode = result.geocodes[0];
@@ -75,7 +75,7 @@ geocoder.setCity('city');
 
 // $ExpectType void
 geocoder.getAddress(lnglat, (status, result) => {
-    // $ExpectType "complete" | "error" | "no_data"
+    // $ExpectType "error" | "complete" | "no_data"
     status;
     if (typeof result !== 'string') {
         // $ExpectType string
@@ -178,14 +178,14 @@ geocoder.getAddress([lnglat, lnglat], (status, result) => {
     }
 });
 
-geocoder.on('error', event => {
+geocoder.on('error', (event: AMap.GeocoderEventMap['error']) => {
     // $ExpectType "error"
     event.type;
     // $ExpectType string
     event.info;
 });
 
-geocoder.on('complete', event => {
+geocoder.on('complete', (event: AMap.GeocoderEventMap['complete']) => {
     // $ExpectType "complete"
     event.type;
     if ('info' in event) {
@@ -214,7 +214,7 @@ geocoder.getAddress([lnglatTuple, lnglatTuple], () => { });
 declare const convertType: 'baidu' | 'mapbar' | 'gps' | null;
 // $ExpectType void
 AMap.convertFrom(lnglat, convertType, (status, result) => {
-    // $ExpectType "complete" | "error"
+    // $ExpectType "error" | "complete"
     status;
     if (typeof result !== 'string') {
         // $ExpectType string

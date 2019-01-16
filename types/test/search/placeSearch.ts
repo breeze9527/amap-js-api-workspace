@@ -30,7 +30,7 @@ new AMap.PlaceSearch({
 
 // $ExpectType void
 placeSearch.search('keyword', (status, result) => {
-    // $ExpectType "complete" | "error" | "no_data"
+    // $ExpectType "error" | "complete" | "no_data"
     status;
     // $ExpectType string | PlaceSearchResult
     result;
@@ -309,7 +309,7 @@ placeSearch.search('keyword', (status, result) => {
 
 // $ExpectType void
 placeSearch.searchNearBy('keyword', lnglat, 10, (status, result) => {
-    // $ExpectType "complete" | "error" | "no_data"
+    // $ExpectType "error" | "complete" | "no_data"
     status;
     // $ExpectType string | PlaceSearchResult
     result;
@@ -319,7 +319,7 @@ placeSearch.searchNearBy('keyword', lnglatTuple, 10, () => { });
 
 // $ExpectType void
 placeSearch.searchInBounds('keyword', bounds, (status, result) => {
-    // $ExpectType "complete" | "error" | "no_data"
+    // $ExpectType "error" | "complete" | "no_data"
     status;
     // $ExpectType string | PlaceSearchResult
     result;
@@ -329,7 +329,7 @@ placeSearch.searchInBounds('keyword', polygon, () => { });
 
 // $ExpectType void
 placeSearch.getDetails('id', (status, result) => {
-    // $ExpectType "complete" | "error" | "no_data"
+    // $ExpectType "error" | "complete" | "no_data"
     status;
     // $ExpectType string | PlaceSearchResult
     result;
@@ -399,7 +399,7 @@ placeSearch.open();
 // $ExpectType void
 placeSearch.close();
 
-placeSearch.on('complete', event => {
+placeSearch.on('complete', (event: AMap.PlaceSearchEventMap['complete']) => {
     // $ExpectType "complete"
     event.type;
     // $ExpectType string
@@ -412,7 +412,7 @@ placeSearch.on('complete', event => {
     event.cityList;
 });
 
-placeSearch.on('listElementClick', event => {
+placeSearch.on('listElementClick', (event: AMap.PlaceSearchEventMap['listElementClick']) => {
     // $ExpectType MouseEvent
     event.event;
     // $ExpectType string
@@ -425,7 +425,7 @@ placeSearch.on('listElementClick', event => {
     event.listElement;
 });
 
-placeSearch.on('markerClick', event => {
+placeSearch.on('markerClick', (event: AMap.PlaceSearchEventMap['markerClick']) => {
     const markerEvent = event.event;
     // $ExpectType Marker<any>
     markerEvent.target;

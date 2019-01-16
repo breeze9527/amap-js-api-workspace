@@ -14,7 +14,7 @@ const districtSearch = new AMap.DistrictSearch({
 
 // $ExpectType void
 districtSearch.search('keyword', (status, result) => {
-    // $ExpectType "complete" | "error" | "no_data"
+    // $ExpectType "error" | "complete" | "no_data"
     status;
     if (typeof result !== 'string') {
         // $ExpectType DistrictSearchResult
@@ -54,7 +54,7 @@ districtSearch.setSubdistrict(3);
 // $ExpectError
 districtSearch.setSubdistrict(4);
 
-districtSearch.on('complete', event => {
+districtSearch.on('complete', (event: AMap.DistrictSearchEventMap['complete']) => {
     // $ExpectType "complete"
     event.type;
     // $ExpectType string
@@ -63,7 +63,7 @@ districtSearch.on('complete', event => {
     event.districtList;
 });
 
-districtSearch.on('error', event => {
+districtSearch.on('error', (event: AMap.DistrictSearchEventMap['error']) => {
     // $ExpectType "error"
     event.type;
     // $ExpectType string

@@ -1,4 +1,9 @@
 declare namespace AMap {
+    interface CircleEventMap<I = Circle> extends ShapeOverlayEventMap<I> {
+        setCenter: Event<'setCenter'>;
+        setRadius: Event<'setRadius'>;
+    }
+
     interface CircleOptions<ExtraData = any> {
         map?: Map;
         zIndex?: number;
@@ -25,11 +30,6 @@ declare namespace AMap {
         center: LngLat;
         radius: number;
     }>;
-
-    interface CircleEventMap<I> extends ShapeOverlayEventMap<I> {
-        setCenter: Event<'setCenter'>;
-        setRadius: Event<'setRadius'>;
-    }
 
     class Circle<ExtraData = any> extends ShapeOverlay<ExtraData> {
         constructor(options?: CircleOptions<ExtraData>);

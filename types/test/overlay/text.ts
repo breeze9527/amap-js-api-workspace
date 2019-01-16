@@ -161,7 +161,7 @@ text.setExtData({test: 1});
 // $ExpectType {} | ExtraData
 text.getExtData();
 
-text.on('click', event => {
+text.on('click', (event: AMap.TextEventMap<typeof text>['click']) => {
     // $ExpectType "click"
     event.type;
     // $ExpectType Text<ExtraData>

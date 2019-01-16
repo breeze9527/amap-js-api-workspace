@@ -71,7 +71,7 @@ _customData.lnglat;
 // $ExpectType void
 massMarks.clear();
 
-massMarks.on('click', event => {
+massMarks.on('click', (event: AMap.MassMarksEventMap<typeof massMarks>['click']) => {
     // $ExpectType "click"
     event.type;
 
@@ -81,6 +81,3 @@ massMarks.on('click', event => {
     // $ExpectType MassMarks<CustomData>
     event.target;
 });
-
-// $ExpectError
-massMarks.on('complete');

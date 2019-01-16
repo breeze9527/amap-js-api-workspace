@@ -291,10 +291,13 @@ map.lngLatToGeodeticCoord(lnglatTuple);
 // $ExpectType LngLat
 map.geodeticCoordToLngLat(pixel);
 
+// $ExpectType void
+map.destroy();
+
 declare function dblClickHandler(this: AMap.Map, event: AMap.MapEventMap['dblclick']): void;
 
 // $ExpectType Map
-map.on('click', function (event) {
+map.on('click', (event: AMap.MapEventMap['click']) => {
     // $ExpectType "click"
     event.type;
     // $ExpectType Pixel
@@ -307,19 +310,14 @@ map.on('click', function (event) {
 // $ExpectType Map
 map.on('dblclick', dblClickHandler);
 // $ExpectType Map
-map.on('complete', event => {
+map.on('complete', (event: AMap.MapEventMap['complete']) => {
     // $ExpectType "complete"
     event.type;
     // $ExpectError
     event.value;
 });
 // $ExpectType Map
-map.on('click', function () {
-    // $ExpectType number
-    this.test;
-}, { test: 1 });
-// $ExpectType Map
-map.on('hotspotclick', event => {
+map.on('hotspotclick', (event: AMap.MapEventMap['hotspotclick']) => {
     // $ExpectType string
     event.id;
     // $ExpectType LngLat
@@ -339,10 +337,6 @@ map.on('custom', (event: AMap.Event<'custom', { test: string }>) => {
 
 // $ExpectType Map
 map.off('dblclick', dblClickHandler);
-// $ExpectError
-map.off('dblclick', dblClickHandler, { test: 1 });
-// $ExpectError
-map.off('click', dblClickHandler);
 // $ExpectType Map
 map.off('click', 'mv');
 
@@ -352,9 +346,7 @@ map.emit('click', {
     lnglat,
     pixel
 });
-// $ExpectError
-map.emit('click');
-// $ExpectType Map
+
 map.emit('complete');
 // $ExpectType Map
 map.emit('hotspotclick', {
@@ -369,8 +361,3 @@ map.emit('custom', {
 });
 // $ExpectType Map
 map.emit('custom', undefined);
-// $ExpectError
-map.emit('custom');
-
-// $ExpectType void
-map.destroy();

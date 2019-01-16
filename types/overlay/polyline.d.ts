@@ -1,4 +1,5 @@
 declare namespace AMap {
+    interface PolylineEventMap<I = Polyline> extends PathOverlayEventMap<I> { }
     interface PolylineGetOptionsResult<ExtraData = any> extends ShapeOverlayGetOptionsResult<ExtraData> {
         isOutline: boolean;
         outlineColor: string;

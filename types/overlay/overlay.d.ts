@@ -11,6 +11,13 @@ declare namespace AMap {
         mousedown: MapsEvent<'mousedown', I>;
         mouseup: MapsEvent<'mouseup', I>;
     }
+    interface ShapeOverlayEventMap<I = ShapeOverlay> extends OverlayEventMap<I> {
+        show: Event<'show', { target: I }>;
+        hide: Event<'hide', { target: I }>;
+        options: Event<'options'>;
+        change: Event<'change', { target: I }>;
+    }
+    interface PathOverlayEventMap<I = PathOverlay> extends ShapeOverlayEventMap<I> { }
 
     interface OverlayOptions<ExtraData = any> {
         map?: Map;
@@ -33,13 +40,6 @@ declare namespace AMap {
         // internal
         setHeight(height?: number | string): void;
         getHeight(): number | string;
-    }
-
-    interface ShapeOverlayEventMap<I> extends OverlayEventMap<I> {
-        show: Event<'show', { target: I }>;
-        hide: Event<'hide', { target: I }>;
-        options: Event<'options'>;
-        change: Event<'change', { target: I }>;
     }
 
     interface ShapeOverlayGetOptionsResult<ExtraData = any> {

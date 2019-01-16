@@ -14,7 +14,7 @@ new AMap.LineSearch({
 
 // $ExpectType void
 lineSearch.searchById('buslineId', (status, result) => {
-    // $ExpectType "complete" | "error" | "no_data"
+    // $ExpectType "error" | "complete" | "no_data"
     status;
     // $ExpectType string | LineSearchResult
     result;
@@ -83,7 +83,7 @@ lineSearch.searchById('buslineId', (status, result) => {
 });
 
 lineSearch.search('keyword', (status, result) => {
-    // $ExpectType "complete" | "error" | "no_data"
+    // $ExpectType "error" | "complete" | "no_data"
     status;
     // $ExpectType string | LineSearchResult
     result;
@@ -104,7 +104,7 @@ lineSearch.setCity('ctiy');
 // $ExpectType void
 lineSearch.setCity();
 
-lineSearch.on('complete', event => {
+lineSearch.on('complete', (event: AMap.LineSearchEventMap['complete']) => {
     // $ExpectType "complete"
     event.type;
     // $ExpectType string
@@ -113,7 +113,7 @@ lineSearch.on('complete', event => {
     event.lineInfo;
 });
 
-lineSearch.on('error', event => {
+lineSearch.on('error', (event: AMap.LineSearchEventMap['error']) => {
     // $ExpectType "error"
     event.type;
     // $ExpectType string

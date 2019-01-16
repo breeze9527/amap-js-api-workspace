@@ -12,7 +12,7 @@ const stationSearch = new AMap.StationSearch({
 });
 
 stationSearch.search('keyword', (status, result) => {
-    // $ExpectType "complete" | "error" | "no_data"
+    // $ExpectType "error" | "complete" | "no_data"
     status;
     if (typeof result !== 'string') {
         // $ExpectType string
@@ -56,7 +56,7 @@ stationSearch.search('keyword', (status, result) => {
 });
 
 stationSearch.searchById('id', (status, result) => {
-    // $ExpectType "complete" | "error" | "no_data"
+    // $ExpectType "error" | "complete" | "no_data"
     status;
     // $ExpectType string | StationSearchResult
     result;
@@ -77,22 +77,20 @@ stationSearch.setCity('city');
 // $ExpectType void
 stationSearch.setCity();
 
-stationSearch.on('complete', event => {
-    // $ExpectType "complete"
-    event.type;
-    // $ExpectType string
-    event.info;
-    // $ExpectType CityInfo[] | undefined
-    event.cityList;
-    // $ExpectType string[] | undefined
-    event.keywordList;
-    // $ExpectType StationInfo[]
-    event.stationInfo;
-});
+declare const completeEvent: AMap.StationSearchEventMap['complete'];
+// $ExpectType "complete"
+completeEvent.type;
+// $ExpectType string
+completeEvent.info;
+// $ExpectType CityInfo[] | undefined
+completeEvent.cityList;
+// $ExpectType string[] | undefined
+completeEvent.keywordList;
+// $ExpectType StationInfo[]
+completeEvent.stationInfo;
 
-stationSearch.on('error', event => {
-    // $ExpectType "error"
-    event.type;
-    // $ExpectType string
-    event.info;
-});
+declare const errorEvent: AMap.StationSearchEventMap['error'];
+// $ExpectType "error"
+errorEvent.type;
+// $ExpectType string
+errorEvent.info;

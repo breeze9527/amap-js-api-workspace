@@ -7,8 +7,8 @@ declare namespace AMap {
 
     interface ContextMenuEventMap<I> {
         items: Event<'items'>;
-        open: Event<'items', { target: I }>;
-        close: Event<'items', { target: I }>;
+        open: Event<'open', { target: I }>;
+        close: Event<'close', { target: I }>;
     }
 
     class ContextMenu<ExtraData = any> extends Overlay<ExtraData> {

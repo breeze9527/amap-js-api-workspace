@@ -1,4 +1,5 @@
 declare namespace AMap {
+    interface BezierCurveEventMap<I = BezierCurve> extends PolylineEventMap<I> { }
     type BezierCurveOptions<ExtraData = any> = Merge<PolylineOptions<ExtraData>, {
         // internal
         path: Array<Array<number | string | Array<string | number>>>;

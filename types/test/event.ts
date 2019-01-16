@@ -7,27 +7,13 @@ declare var div: HTMLDivElement;
 declare var input: HTMLInputElement;
 
 // $ExpectType Map
-map.on('hotspotclick', event => {
+map.on('hotspotclick', (event: AMap.MapEventMap['hotspotclick']) => {
     // $ExpectType "hotspotclick"
     event.type;
     // $ExpectType string
     event.id;
     // $ExpectType LngLat
     event.lnglat;
-});
-map.on('click', event => {
-    // $ExpectType "click"
-    event.type;
-    // $ExpectType Map
-    event.target;
-    // $ExpectType LngLat
-    event.lnglat;
-});
-map.on('complete', event => {
-    // $ExpectType "complete"
-    event.type;
-    // $ExpectError
-    event.value;
 });
 
 // $ExpectType EventListener<0>
@@ -37,7 +23,7 @@ AMap.event.addDomListener(div, 'click', event => {
 });
 
 // $ExpectType EventListener<1>
-AMap.event.addListener(map, 'hotspotclick', function (event) {
+AMap.event.addListener(map, 'hotspotclick', function (event: AMap.MapEventMap['hotspotclick']) {
     // $ExpectType "hotspotclick"
     event.type;
     // $ExpectType string
@@ -47,7 +33,7 @@ AMap.event.addListener(map, 'hotspotclick', function (event) {
     // $ExpectType number
     this.test;
 }, { test: 1 });
-AMap.event.addListener(map, 'click', event => {
+AMap.event.addListener(map, 'click', (event: AMap.MapEventMap['click']) => {
     // $ExpectType "click"
     event.type;
     // $ExpectType LngLat
@@ -55,11 +41,9 @@ AMap.event.addListener(map, 'click', event => {
     // $ExpectType Map
     event.target;
 });
-// $ExpectError
-AMap.event.addListener(map, 'none', () => { });
 
 // $ExpectType EventListener<1>
-AMap.event.addListenerOnce(map, 'hotspotclick', function (event) {
+AMap.event.addListenerOnce(map, 'hotspotclick', function (event: AMap.MapEventMap['hotspotclick']) {
     // $ExpectType "hotspotclick"
     event.type;
     // $ExpectType string
@@ -87,11 +71,5 @@ AMap.event.trigger(map, 'hotspotclick', {
     id: 'id',
     isIndoorPOI: true
 });
-AMap.event.trigger(map, 'hotspotclick', {
-    // $ExpectError
-    data: 'data'
-});
 // $ExpectType void
 AMap.event.trigger(map, 'complete');
-// $ExpectError
-AMap.event.trigger(map, 'none', 'abc');
