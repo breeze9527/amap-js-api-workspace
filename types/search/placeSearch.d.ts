@@ -159,7 +159,7 @@ declare namespace AMap {
             lastSelected: PlaceSearchSelectChangeEventData | PlaceSearchEventMap['markerClick'] | PlaceSearchEventMap['listElementClick'] | null;
         }>;
         listElementClick: PlaceSearchSelectChangeEvent<'listElementClick', MouseEvent>;
-        markerClick: PlaceSearchSelectChangeEvent<'markerClick', MarkerEventMap<Marker>['click']>;
+        markerClick: PlaceSearchSelectChangeEvent<'markerClick', MarkerEventMap['click']>;
         // internal
         renderComplete: Event<'renderComplete', {
             result: PlaceSearchSelectChangeEventData[];

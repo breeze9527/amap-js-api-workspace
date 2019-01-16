@@ -27,7 +27,7 @@ new AMap.Autocomplete({
 });
 
 autoComplete.search('keyword', (status, result) => {
-    // $ExpectType "complete" | "error" | "no_data"
+    // $ExpectType "error" | "complete" | "no_data"
     status;
     if (typeof result !== 'string') {
         // $ExpectType number
@@ -71,7 +71,7 @@ autoComplete.setCity('city');
 // $ExpectType void
 autoComplete.setCityLimit(false);
 
-autoComplete.on('complete', event => {
+autoComplete.on('complete', (event: AMap.AutocompleteEventMap['complete']) => {
     // $ExpectType "complete"
     event.type;
     // $ExpectType string
@@ -84,21 +84,21 @@ autoComplete.on('complete', event => {
     }
 });
 
-autoComplete.on('error', event => {
+autoComplete.on('error', (event: AMap.AutocompleteEventMap['error']) => {
     // $ExpectType "error"
     event.type;
     // $ExpectType string
     event.info;
 });
 
-autoComplete.on('select', event => {
+autoComplete.on('select', (event: AMap.AutocompleteEventMap['select']) => {
     // $ExpectType "select"
     event.type;
     // $ExpectType Tip
     event.tip;
 });
 
-autoComplete.on('choose', event => {
+autoComplete.on('choose', (event: AMap.AutocompleteEventMap['choose']) => {
     // $ExpectType "choose"
     event.type;
     // $ExpectType Tip

@@ -119,14 +119,14 @@ elasticMarker.setExtData({ test: 2 });
 // $ExpectType {} | ExtraData
 elasticMarker.getExtData();
 
-elasticMarker.on('click', event => {
+elasticMarker.on('click', (event: AMap.ElasticMarkerEventMap<typeof elasticMarker>['click']) => {
     // $ExpectType "click"
     event.type;
     // $ExpectType ElasticMarker<ExtraData>
     event.target;
 });
 
-elasticMarker.on('allLoaded', event => {
+elasticMarker.on('allLoaded', (event: AMap.ElasticMarkerEventMap<typeof elasticMarker>['allLoaded']) => {
     // $ExpectType "allLoaded"
     event.type;
     // $ExpectType ElasticMarker<ExtraData>

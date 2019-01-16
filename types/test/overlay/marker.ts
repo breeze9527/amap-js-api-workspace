@@ -189,7 +189,7 @@ marker.setShape(markerShape);
 // $ExpectType MarkerShape | undefined
 marker.getShape();
 
-marker.on('click', event => {
+marker.on('click', (event: AMap.MarkerEventMap<typeof marker>['click']) => {
     // $ExpectType {} | ExtraData
     event.target.getExtData();
 });

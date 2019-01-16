@@ -107,14 +107,14 @@ rectangle.contains(lnglat);
 // $ExpectType boolean
 rectangle.contains(lnglatTuple);
 
-rectangle.on('click', event => {
+rectangle.on('click', (event: AMap.RectangleEventMap<typeof rectangle>['click']) => {
     // $ExpectType "click"
     event.type;
     // $ExpectType Rectangle<ExtraData>
     event.target;
 });
 
-rectangle.on('setBounds', event => {
+rectangle.on('setBounds', (event: AMap.RectangleEventMap<typeof rectangle>['setBounds']) => {
     // $ExpectType "setBounds"
     event.type;
     // $ExpectError

@@ -1,4 +1,5 @@
 declare namespace AMap {
+    interface TextEventMap<I = Text> extends MarkerEventMap<I> { }
     interface TextOptions extends MarkerOptions {
         text?: string;
         textAlign?: 'left' | 'right' | 'center';

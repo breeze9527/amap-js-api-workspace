@@ -11,7 +11,7 @@ declare namespace AMap {
         data: I extends MassMarks<infer D> ? D : MassMarksData;
     }>;
 
-    interface MassMarksEventMap<I> {
+    interface MassMarksEventMap<I = MassMarks> {
         click: MassMarksUIEvent<'click', I>;
         dblclick: MassMarksUIEvent<'dblclick', I>;
         mousedown: MassMarksUIEvent<'mousedown', I>;

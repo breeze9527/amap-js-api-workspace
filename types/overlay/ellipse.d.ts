@@ -8,7 +8,7 @@ declare namespace AMap {
         radius: [number, number];
     }>;
 
-    interface EllipseEventMap<I> extends ShapeOverlayEventMap<I> {
+    interface EllipseEventMap<I = Ellipse> extends ShapeOverlayEventMap<I> {
         setPath: Event<'setPath'>;
         setCenter: Event<'setCenter'>;
     }

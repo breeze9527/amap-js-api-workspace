@@ -1,4 +1,5 @@
 declare namespace AMap {
+    interface PolygonEventMap<I = Polygon> extends PathOverlayEventMap<I> { }
     interface PolygonOptions<ExtraData = any> extends PathOverlayOptions<ExtraData> {
         path?: LocationValue[] | LocationValue[][];
         fillColor?: string;

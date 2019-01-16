@@ -1,5 +1,5 @@
 declare namespace AMap {
-    interface MarkerEventMap<I extends EventEmitter> {
+    interface MarkerEventMap<I = Marker> {
         click: MapsEvent<'click', I>;
         dblclick: MapsEvent<'dblclick', I>;
         rightclick: MapsEvent<'rightclick', I>;
@@ -11,7 +11,7 @@ declare namespace AMap {
         dragstart: MapsEvent<'dragstart', I>;
         dragging: MapsEvent<'dragging', I>;
         dragend: MapsEvent<'dragend', I>;
-        moving: MovingEvent;
+        moving: Event<'moving', { passwdPath: LngLat[]; }>;
         moveend: Event<'moveend'>;
         movealong: Event<'movealong'>;
         touchstart: MapsEvent<'touchstart', I>;

@@ -61,12 +61,12 @@ advancedInfoWindow.getPosition();
 // $ExpectType void
 advancedInfoWindow.clear();
 
-advancedInfoWindow.on('error', event => {
+advancedInfoWindow.on('error', (event: AMap.AdvancedInfoWindowEventMap<typeof advancedInfoWindow>['error']) => {
     // $ExpectType "error"
     event.type;
 });
 
-advancedInfoWindow.on('complete', event => {
+advancedInfoWindow.on('complete', (event: AMap.AdvancedInfoWindowEventMap<typeof advancedInfoWindow>['complete']) => {
     // $ExpectType "placesearch" | "driving" | "walking" | "transit"
     event.type;
     // $ExpectType string

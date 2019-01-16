@@ -1,5 +1,5 @@
 declare namespace AMap {
-    interface AdvancedInfoWindowEventMap<I> extends InfoWindowEventMap<I> {
+    interface AdvancedInfoWindowEventMap<I = AdvancedInfoWindow> extends InfoWindowEventMap<I> {
         complete: (
             Event<'placesearch', { info: string }> |
             Event<'driving', { info: string }> |
