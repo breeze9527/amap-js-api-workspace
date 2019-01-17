@@ -44,6 +44,7 @@
 /// <reference path="overlay/polyline.d.ts" />
 /// <reference path="overlay/rectangle.d.ts" />
 /// <reference path="overlay/text.d.ts" />
+/// <reference path="route/driving.d.ts" />
 /// <reference path="search/autocomplete.d.ts" />
 /// <reference path="search/districtSearch.d.ts" />
 /// <reference path="search/lineSearch.d.ts" />
