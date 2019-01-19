@@ -1,127 +1,129 @@
 declare namespace AMap {
-    interface DrivingEventMap {
-        complete: Event<'complete', DrivingResult | { info: string }>;
-        error: Event<'error', { info: string }>;
-    }
-
     enum DrivingPolicy {
         LEAST_TIME = 0,
         LEAST_FEE = 1,
         LEAST_DISTANCE = 2,
         REAL_TRAFFIC = 4
     }
-    interface DrivingOptions {
-        policy?: DrivingPolicy;
-        extensions?: 'base' | 'all';
-        ferry?: boolean;
-        map?: Map;
-        panel?: string | HTMLElement;
-        hideMarkers?: boolean;
-        showTraffic?: boolean;
-        province?: string;
-        number?: string;
-        isOutline?: boolean;
-        outlineColor?: string;
-        autoFitView?: boolean;
+    namespace Driving {
+        interface EventMap {
+            complete: Event<'complete', SearchResult | { info: string }>;
+            error: Event<'error', { info: string }>;
+        }
+        interface Options {
+            policy?: DrivingPolicy;
+            extensions?: 'base' | 'all';
+            ferry?: boolean;
+            map?: Map;
+            panel?: string | HTMLElement;
+            hideMarkers?: boolean;
+            showTraffic?: boolean;
+            province?: string;
+            number?: string;
+            isOutline?: boolean;
+            outlineColor?: string;
+            autoFitView?: boolean;
+        }
+        interface Options {
+            waypoints?: LocationValue[];
+        }
+        interface SearchPoint {
+            keyword: string;
+            city?: string;
+        }
+        interface TMCsPath {
+            path: LngLat[];
+            status: string;
+        }
+        interface StepBase {
+            start_location: LngLat;
+            end_location: LngLat;
+            instruction: string;
+            action: string;
+            assistant_action: string;
+            orientation: string;
+            road: string;
+            distance: number;
+            tolls: number;
+            toll_distance: number;
+            toll_road: string;
+            time: number;
+            path: LngLat[];
+        }
+        interface ViaCityDistrict {
+            name: string;
+            adcode: string;
+        }
+        interface ViaCity {
+            name: string;
+            citycode: string;
+            adcode: string;
+            districts: ViaCityDistrict[];
+        }
+        interface TMC {
+            lcode: string | never[];
+            distance: number;
+            status: string;
+            path: LngLat[];
+            polyline: string;
+        }
+        interface StepExt extends StepBase {
+            cities: ViaCity[];
+            tmcs: TMC[];
+            tmcsPaths: TMCsPath[];
+        }
+        interface Route {
+            distance: number;
+            time: number;
+            policy: string;
+            tolls: number;
+            tolls_distance: number;
+            steps: Array<StepBase | StepExt>;
+            restriction: 0 | 1;
+        }
+        interface Poi {
+            location: LngLat;
+            name: string;
+            type: 'start' | 'end' | 'waypoint';
+        }
+        interface SearchResultCommon {
+            info: string;
+            origin: LngLat;
+            destination: LngLat;
+            routes: Route[];
+            taxi_cost?: number;
+        }
+        interface SearchResultBase extends SearchResultCommon {
+            start: Poi;
+            end: Poi;
+            waypoints: Array<Poi & { isWaypoint: boolean }>;
+        }
+        interface SearchResultExt extends SearchResultCommon {
+            start: PlaceSearch.PoiExt;
+            end: PlaceSearch.PoiExt;
+            originName: string;
+            destinationName: string;
+            waypoints: Array<PlaceSearch.PoiExt & { isWaypoint: boolean }>;
+        }
+        type SearchResult = SearchResultBase | SearchResultExt;
+        type SearchStatus = 'error' | 'no_data' | 'complete';
     }
-    interface DrivingSearchOptions {
-        waypoints?: LocationValue[];
-    }
-    interface DrivingSearchPoint {
-        keyword: string;
-        city?: string;
-    }
-    interface TMCsPath {
-        path: LngLat[];
-        status: string;
-    }
-    interface DriveStepBase {
-        start_location: LngLat;
-        end_location: LngLat;
-        instruction: string;
-        action: string;
-        assistant_action: string;
-        orientation: string;
-        road: string;
-        distance: number;
-        tolls: number;
-        toll_distance: number;
-        toll_road: string;
-        time: number;
-        path: LngLat[];
-    }
-    interface ViaCityDistrict {
-        name: string;
-        adcode: string;
-    }
-    interface ViaCity {
-        name: string;
-        citycode: string;
-        adcode: string;
-        districts: ViaCityDistrict[];
-    }
-    interface TMC {
-        lcode: string | never[];
-        distance: number;
-        status: string;
-        path: LngLat[];
-        polyline: string;
-    }
-    interface DriveStepExt extends DriveStepBase {
-        cities: ViaCity[];
-        tmcs: TMC[];
-        tmcsPaths: TMCsPath[];
-    }
-    interface DriveRoute {
-        distance: number;
-        time: number;
-        policy: string;
-        tolls: number;
-        tolls_distance: number;
-        steps: Array<DriveStepBase | DriveStepExt>;
-        restriction: 0 | 1;
-    }
-    interface DrivePoi {
-        location: LngLat;
-        name: string;
-        type: 'start' | 'end' | 'waypoint';
-    }
-    interface DrivingResultCommon {
-        info: string;
-        origin: LngLat;
-        destination: LngLat;
-        routes: DriveRoute[];
-        taxi_cost?: number;
-    }
-    interface DrivingResultBase extends DrivingResultCommon {
-        start: DrivePoi;
-        end: DrivePoi;
-        waypoints: Array<DrivePoi & { isWaypoint: boolean }>;
-    }
-    interface DrivingResultExt extends DrivingResultCommon {
-        start: PlaceSearchPoiExt;
-        end: PlaceSearchPoiExt;
-        originName: string;
-        destinationName: string;
-        waypoints: Array<PlaceSearchPoiExt & { isWaypoint: boolean }>;
-    }
-    type DrivingResult = DrivingResultBase | DrivingResultExt;
     class Driving extends EventEmitter {
-        constructor(options?: DrivingOptions);
+        constructor(options?: Driving.Options);
         search(
             origin: LocationValue,
             destination: LocationValue,
-            opts?: DrivingSearchOptions,
-            callback?: (status: 'error' | 'no_data' | 'complete', result: string | DrivingResultBase) => void
+            opts?: Driving.Options,
+            callback?: (status: Driving.SearchStatus, result: string | Driving.SearchResultBase) => void
         ): void;
         search(
             origin: LocationValue,
             destination: LocationValue,
-            callback: (status: 'error' | 'no_data' | 'complete', result: string | DrivingResultBase) => void
+            callback?: (status: Driving.SearchStatus, result: string | Driving.SearchResultBase) => void
         ): void;
         search(
-            points: DrivingSearchPoint[],
-            callback?: (status: 'error' | 'no_data' | 'complete', result: string | DrivingResultExt) => void
+            points: Driving.SearchPoint[],
+            callback?: (status: Driving.SearchStatus, result: string | Driving.SearchResultExt) => void
         ): void;
         setPolicy(policy?: DrivingPolicy): void;
         setAvoidPolygons(path: LocationValue[][]): void;

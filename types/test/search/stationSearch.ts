@@ -12,7 +12,7 @@ const stationSearch = new AMap.StationSearch({
 });
 
 stationSearch.search('keyword', (status, result) => {
-    // $ExpectType "error" | "complete" | "no_data"
+    const temp: 'error' | 'complete' | 'no_data' = status;
     status;
     if (typeof result !== 'string') {
         // $ExpectType string
@@ -56,9 +56,8 @@ stationSearch.search('keyword', (status, result) => {
 });
 
 stationSearch.searchById('id', (status, result) => {
-    // $ExpectType "error" | "complete" | "no_data"
-    status;
-    // $ExpectType string | StationSearchResult
+    const temp: 'error' | 'complete' | 'no_data' = status;
+    // $ExpectType string | SearchResult
     result;
 });
 
@@ -77,7 +76,7 @@ stationSearch.setCity('city');
 // $ExpectType void
 stationSearch.setCity();
 
-declare const completeEvent: AMap.StationSearchEventMap['complete'];
+declare const completeEvent: AMap.StationSearch.EventMap['complete'];
 // $ExpectType "complete"
 completeEvent.type;
 // $ExpectType string
@@ -89,7 +88,7 @@ completeEvent.keywordList;
 // $ExpectType StationInfo[]
 completeEvent.stationInfo;
 
-declare const errorEvent: AMap.StationSearchEventMap['error'];
+declare const errorEvent: AMap.StationSearch.EventMap['error'];
 // $ExpectType "error"
 errorEvent.type;
 // $ExpectType string

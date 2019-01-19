@@ -66,7 +66,7 @@ marker.setOffset(pixel);
 // $ExpectType void
 marker.setAnimation('AMAP_ANIMATION_BOUNCE');
 
-// $ExpectType MarkerAnimationName
+// $ExpectType AnimationName
 marker.getAnimation();
 
 // $ExpectType void
@@ -94,7 +94,7 @@ marker.setLabel({
     offset: pixel
 });
 
-// $ExpectType MarkerLabel | undefined
+// $ExpectType Label | undefined
 marker.getLabel();
 
 // $ExpectType number
@@ -189,7 +189,7 @@ marker.setShape(markerShape);
 // $ExpectType MarkerShape | undefined
 marker.getShape();
 
-marker.on('click', (event: AMap.MarkerEventMap<typeof marker>['click']) => {
+marker.on('click', (event: AMap.Marker.EventMap<typeof marker>['click']) => {
     // $ExpectType {} | ExtraData
     event.target.getExtData();
 });

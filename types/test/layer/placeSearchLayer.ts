@@ -19,7 +19,7 @@ placeSearchLayer.setMap(null);
 // $ExpectType void
 placeSearchLayer.setMap(map);
 
-placeSearchLayer.on('click', (event: AMap.PlaceSearchLayerEventMap['click']) => {
+placeSearchLayer.on('click', (event: AMap.PlaceSearchLayer.EventMap['click']) => {
     // $ExpectType "click"
     event.type;
     // $ExpectType LngLat
@@ -31,7 +31,7 @@ placeSearchLayer.on('click', (event: AMap.PlaceSearchLayerEventMap['click']) => 
     content.name;
 });
 
-placeSearchLayer.on('mousemove', (event: AMap.PlaceSearchLayerEventMap['mousemove']) => {
+placeSearchLayer.on('mousemove', (event: AMap.PlaceSearchLayer.EventMap['mousemove']) => {
     // $ExpectType "mousemove"
     event.type;
     // $ExpectType LngLat
@@ -43,7 +43,7 @@ placeSearchLayer.on('mousemove', (event: AMap.PlaceSearchLayerEventMap['mousemov
     content.name;
 });
 
-placeSearchLayer.on('complete', (event: AMap.PlaceSearchLayerEventMap['complete']) => {
+placeSearchLayer.on('complete', (event: AMap.PlaceSearchLayer.EventMap['complete']) => {
     // $ExpectType "complete"
     event.type;
 });

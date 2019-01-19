@@ -66,7 +66,7 @@ text.setOffset(pixel);
 // $ExpectType void
 text.setAnimation('AMAP_ANIMATION_BOUNCE');
 
-// $ExpectType MarkerAnimationName
+// $ExpectType AnimationName
 text.getAnimation();
 
 // $ExpectType void
@@ -161,7 +161,7 @@ text.setExtData({test: 1});
 // $ExpectType {} | ExtraData
 text.getExtData();
 
-text.on('click', (event: AMap.TextEventMap<typeof text>['click']) => {
+text.on('click', (event: AMap.Text.EventMap<typeof text>['click']) => {
     // $ExpectType "click"
     event.type;
     // $ExpectType Text<ExtraData>

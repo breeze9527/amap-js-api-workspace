@@ -11,7 +11,7 @@ interface ExtraData {
     test: number;
 }
 
-const geoJSONObject: AMap.GeoJSONObject[] = [
+const geoJSONObject: AMap.GeoJSON.GeoJSONObject[] = [
     {
         type: 'Feature',
         properties: {},

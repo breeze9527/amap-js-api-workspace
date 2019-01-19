@@ -1,25 +1,27 @@
 declare namespace AMap {
-    interface InfoWindowEventMap<I> {
-        change: Event<'change', { target: I }>;
-        open: Event<'open', { target: I }>;
-        close: Event<'close', { target: I }>;
-    }
+    namespace InfoWindow {
+        interface EventMap<I> {
+            change: Event<'change', { target: I }>;
+            open: Event<'open', { target: I }>;
+            close: Event<'close', { target: I }>;
+        }
 
-    interface InfoWindowOptions<ExtraData = any> extends OverlayOptions<ExtraData> {
-        isCustom?: boolean;
-        autoMove?: boolean;
-        closeWhenClickMap?: boolean;
-        content?: string | HTMLElement;
-        size?: SizeValue;
-        offset?: Pixel;
-        position?: LocationValue;
-        showShadow?: boolean;
-        // internal
-        height?: number;
+        interface Options<ExtraData = any> extends Overlay.Options<ExtraData> {
+            isCustom?: boolean;
+            autoMove?: boolean;
+            closeWhenClickMap?: boolean;
+            content?: string | HTMLElement;
+            size?: SizeValue;
+            offset?: Pixel;
+            position?: LocationValue;
+            showShadow?: boolean;
+            // internal
+            height?: number;
+        }
     }
 
     class InfoWindow<ExtraData = any> extends Overlay<ExtraData> {
-        constructor(options?: InfoWindowOptions);
+        constructor(options?: InfoWindow.Options);
         open(map: Map, position?: LocationValue): void;
         close(): void;
         getIsOpen(): boolean;

@@ -97,7 +97,7 @@ map.getSize();
 // $ExpectType number
 map.getRotation();
 
-// $ExpectType MapStatus
+// $ExpectType Status
 const mapStatus = map.getStatus();
 // $ExpectType boolean
 mapStatus.animateEnable;
@@ -294,10 +294,10 @@ map.geodeticCoordToLngLat(pixel);
 // $ExpectType void
 map.destroy();
 
-declare function dblClickHandler(this: AMap.Map, event: AMap.MapEventMap['dblclick']): void;
+declare function dblClickHandler(this: AMap.Map, event: AMap.Map.EventMap['dblclick']): void;
 
 // $ExpectType Map
-map.on('click', (event: AMap.MapEventMap['click']) => {
+map.on('click', (event: AMap.Map.EventMap['click']) => {
     // $ExpectType "click"
     event.type;
     // $ExpectType Pixel
@@ -310,14 +310,14 @@ map.on('click', (event: AMap.MapEventMap['click']) => {
 // $ExpectType Map
 map.on('dblclick', dblClickHandler);
 // $ExpectType Map
-map.on('complete', (event: AMap.MapEventMap['complete']) => {
+map.on('complete', (event: AMap.Map.EventMap['complete']) => {
     // $ExpectType "complete"
     event.type;
     // $ExpectError
     event.value;
 });
 // $ExpectType Map
-map.on('hotspotclick', (event: AMap.MapEventMap['hotspotclick']) => {
+map.on('hotspotclick', (event: AMap.Map.EventMap['hotspotclick']) => {
     // $ExpectType string
     event.id;
     // $ExpectType LngLat

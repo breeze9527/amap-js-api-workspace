@@ -14,29 +14,31 @@ const districtSearch = new AMap.DistrictSearch({
 
 // $ExpectType void
 districtSearch.search('keyword', (status, result) => {
-    // $ExpectType "error" | "complete" | "no_data"
-    status;
+    const temp: 'error' | 'complete' | 'no_data' = status;
+    // $ExpectType string | SearchResult
+    result;
     if (typeof result !== 'string') {
-        // $ExpectType DistrictSearchResult
-        result;
         // $ExpectType string
         result.info;
-        // $ExpectType District
-        const district = result.districtList[0];
-        // $ExpectType string
-        district.adcode;
-        // $ExpectType LngLat[][] | undefined
-        district.boundaries;
-        // $ExpectType LngLat
-        district.center;
-        // $ExpectType string
-        district.citycode;
-        // $ExpectType District[] | undefined
-        district.districtList;
-        // $ExpectType DistrictLevel
-        district.level;
-        // $ExpectType string
-        district.name;
+        // $ExpectType District[]
+        result.districtList;
+        {
+            const district = result.districtList[0];
+            // $ExpectType string
+            district.adcode;
+            // $ExpectType LngLat[][] | undefined
+            district.boundaries;
+            // $ExpectType LngLat
+            district.center;
+            // $ExpectType string
+            district.citycode;
+            // $ExpectType District[] | undefined
+            district.districtList;
+            // $ExpectType Level
+            district.level;
+            // $ExpectType string
+            district.name;
+        }
     } else {
         // $ExpectType string
         result;
@@ -54,7 +56,7 @@ districtSearch.setSubdistrict(3);
 // $ExpectError
 districtSearch.setSubdistrict(4);
 
-districtSearch.on('complete', (event: AMap.DistrictSearchEventMap['complete']) => {
+districtSearch.on('complete', (event: AMap.DistrictSearch.EventMap['complete']) => {
     // $ExpectType "complete"
     event.type;
     // $ExpectType string
@@ -63,7 +65,7 @@ districtSearch.on('complete', (event: AMap.DistrictSearchEventMap['complete']) =
     event.districtList;
 });
 
-districtSearch.on('error', (event: AMap.DistrictSearchEventMap['error']) => {
+districtSearch.on('error', (event: AMap.DistrictSearch.EventMap['error']) => {
     // $ExpectType "error"
     event.type;
     // $ExpectType string

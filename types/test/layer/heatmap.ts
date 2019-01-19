@@ -83,5 +83,5 @@ heatmap.getMap();
 
 var heatmapDataSet = heatmap.getDataSet();
 
-// $ExpectType HeatmapData[]
+// $ExpectType Data[]
 heatmapDataSet.data;

@@ -31,12 +31,11 @@ driving.search(lnglatTuple, lnglatTuple);
 // $ExpectType void
 driving.search(lnglat, lnglat, { waypoints: [lnglat] });
 driving.search(lnglat, lnglat, { waypoints: [lnglat] }, (status, result) => {
-    // $ExpectType "error" | "complete" | "no_data"
-    status;
+    const temp: 'error' | 'complete' | 'no_data' = status;
     if (typeof result !== 'string') {
         // $ExpectType LngLat
         result.destination;
-        // $ExpectType DrivePoi
+        // $ExpectType Poi
         result.end;
         {
             const poi = result.end;
@@ -51,7 +50,7 @@ driving.search(lnglat, lnglat, { waypoints: [lnglat] }, (status, result) => {
         result.info;
         // $ExpectType LngLat
         result.origin;
-        // $ExpectType DriveRoute[]
+        // $ExpectType Route[]
         result.routes;
         {
             const route = result.routes[0];
@@ -61,7 +60,7 @@ driving.search(lnglat, lnglat, { waypoints: [lnglat] }, (status, result) => {
             route.policy;
             // $ExpectType 0 | 1
             route.restriction;
-            // $ExpectType (DriveStepBase | DriveStepExt)[]
+            // $ExpectType (StepBase | StepExt)[]
             route.steps;
             {
                 const step = route.steps[0];
@@ -145,11 +144,11 @@ driving.search(lnglat, lnglat, { waypoints: [lnglat] }, (status, result) => {
             // $ExpectType number
             route.tolls_distance;
         }
-        // $ExpectType DrivePoi
+        // $ExpectType Poi
         result.start;
         // $ExpectType number | undefined
         result.taxi_cost;
-        // $ExpectType (DrivePoi & { isWaypoint: boolean; })[]
+        // $ExpectType (Poi & { isWaypoint: boolean; })[]
         result.waypoints;
     } else {
         // $ExpectType string
@@ -157,20 +156,19 @@ driving.search(lnglat, lnglat, { waypoints: [lnglat] }, (status, result) => {
     }
 });
 driving.search([{ keyword: 'start' }, { keyword: 'end' }], (status, result) => {
-    // $ExpectType "error" | "complete" | "no_data"
-    status;
+    const temp: 'error' | 'complete' | 'no_data' = status;
     if (typeof result !== 'string') {
-        // $ExpectType DrivingResultExt
+        // $ExpectType SearchResultExt
         result;
         // $ExpectType string
         result.destinationName;
-        // $ExpectType PlaceSearchPoiExt
+        // $ExpectType PoiExt
         result.end;
         // $ExpectType string
         result.originName;
-        // $ExpectType PlaceSearchPoiExt
+        // $ExpectType PoiExt
         result.start;
-        // (PlaceSearchPoiExt & {isWaypoint: boolean})[]
+        // (PoiExt & {isWaypoint: boolean})[]
         result.waypoints;
     } else {
         // $ExpectType string
@@ -232,7 +230,7 @@ driving.searchOnAMAP({
 // $ExpectType void
 driving.setProvinceAndNumber('province', 'number');
 
-driving.on('complete', (event: AMap.DrivingEventMap['complete']) => {
+driving.on('complete', (event: AMap.Driving.EventMap['complete']) => {
     // $ExpectType "complete"
     event.type;
     // $ExpectType string
@@ -250,7 +248,7 @@ driving.on('complete', (event: AMap.DrivingEventMap['complete']) => {
         event.end;
         // $ExpectType LngLat
         event.origin;
-        // $ExpectType DriveRoute[]
+        // $ExpectType Route[]
         event.routes;
         event.start;
         // $ExpectType number | undefined

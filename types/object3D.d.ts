@@ -20,15 +20,16 @@ declare namespace AMap {
             readonly geometry: Geometry3D.Mesh & { readonly vertexNormals: number[] };
         }
 
-        interface PrismOptions {
-            path: LngLat[] | Pixel[] | Array<LngLat[] | Pixel[] | Array<[number, number]>>;
-            color: string | number[] | Array<string | number[]>;
-            height?: number;
-            color2?: string | number[] | Array<string | number[]>;
+        namespace Prism {
+            interface Options {
+                path: LngLat[] | Pixel[] | Array<LngLat[] | Pixel[] | Array<[number, number]>>;
+                color: string | number[] | Array<string | number[]>;
+                height?: number;
+                color2?: string | number[] | Array<string | number[]>;
+            }
         }
-
         class Prism extends MeshAcceptLights {
-            constructor(options: PrismOptions);
+            constructor(options: Prism.Options);
         }
 
         // tslint:disable-next-line
@@ -38,14 +39,16 @@ declare namespace AMap {
             readonly geometry: Geometry3D.Line;
         }
 
-        interface ThinLineOptions {
-            path: Array<[number, number]>;
-            color: string;
-            altitude?: number;
-            dashArray?: number[];
+        namespace ThinLine {
+            interface Options {
+                path: Array<[number, number]>;
+                color: string;
+                altitude?: number;
+                dashArray?: number[];
+            }
         }
         class ThinLine extends Line {
-            constructor(options: ThinLineOptions);
+            constructor(options: ThinLine.Options);
         }
 
         class Points extends Object3D {
@@ -58,20 +61,22 @@ declare namespace AMap {
             merge: boolean;
         }
 
-        type MeshLineOptions = {
-            width?: number;
-            height?: number | number[];
-            color?: string | number[];
-        } & ({
-            unit?: 'meter';
-            path: Array<[number, number]> | LngLat[];
-        } | {
-            unit: 'px';
-            path: Array<[number, number]> | Pixel[];
-        });
+        namespace MeshLine {
+            type Options = {
+                width?: number;
+                height?: number | number[];
+                color?: string | number[];
+            } & ({
+                unit?: 'meter';
+                path: Array<[number, number]> | LngLat[];
+            } | {
+                unit: 'px';
+                path: Array<[number, number]> | Pixel[];
+            });
+        }
         // inherit from WideLine
         class MeshLine extends Object3D {
-            constructor(options: MeshLineOptions);
+            constructor(options: MeshLine.Options);
             readonly geometry: Geometry3D & {
                 readonly vertexIndices: number[];
                 readonly directions: number[];

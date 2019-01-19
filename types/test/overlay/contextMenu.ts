@@ -36,12 +36,12 @@ contextMenu.open(map, lnglat);
 // $ExpectType void
 contextMenu.close();
 
-contextMenu.on('items', (event: AMap.ContextMenuEventMap<typeof contextMenu>['items']) => {
+contextMenu.on('items', (event: AMap.ContextMenu.EventMap<typeof contextMenu>['items']) => {
     // $ExpectType "items"
     event.type;
 });
 
-contextMenu.on('open', (event: AMap.ContextMenuEventMap<typeof contextMenu>['open']) => {
+contextMenu.on('open', (event: AMap.ContextMenu.EventMap<typeof contextMenu>['open']) => {
     // $ExpectType "open"
     event.type;
     // $ExpectType ContextMenu<ExtraData>

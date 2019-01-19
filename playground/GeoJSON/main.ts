@@ -9,7 +9,7 @@ testWrapper(() => {
         position: lnglat2
     });
 
-    const geoJSONObject: AMap.GeoJSONObject[] = [
+    const geoJSONObject: AMap.GeoJSON.GeoJSONObject[] = [
         {
             type: 'Feature',
             properties: {},

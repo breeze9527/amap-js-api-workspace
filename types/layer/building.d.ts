@@ -1,27 +1,30 @@
 declare namespace AMap {
-    interface BuildingsOptions extends LayerOptions {
-        zooms?: [number, number];
-        opacity?: number;
-        heightFactor?: number;
-        visible?: boolean;
-        zIndex?: number;
-        // inner
-        merge?: boolean;
-        sort?: boolean;
+    namespace Buildings {
+        interface Options extends Layer.Options {
+            zooms?: [number, number];
+            opacity?: number;
+            heightFactor?: number;
+            visible?: boolean;
+            zIndex?: number;
+            // inner
+            merge?: boolean;
+            sort?: boolean;
+        }
+        interface AreaStyle {
+            color1: string;
+            path: LocationValue[];
+            color2?: string;
+            visible?: boolean;
+            rejectTexture?: boolean;
+        }
+        interface Style {
+            hideWithoutStyle?: boolean;
+            areas: AreaStyle[];
+        }
     }
-    interface BuildingStyleArea {
-        color1: string;
-        path: LocationValue[];
-        color2?: string;
-        visible?: boolean;
-        rejectTexture?: boolean;
-    }
-    interface BuildingStyleSetting {
-        hideWithoutStyle?: boolean;
-        areas: BuildingStyleArea[];
-    }
+
     class Buildings extends Layer {
-        constructor(opts?: BuildingsOptions);
-        setStyle(style: BuildingStyleSetting): void;
+        constructor(opts?: Buildings.Options);
+        setStyle(style: Buildings.Style): void;
     }
 }

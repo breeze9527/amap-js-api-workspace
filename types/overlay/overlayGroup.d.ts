@@ -1,12 +1,12 @@
 type ReferOverlayOptions<O> =
-    O extends AMap.BezierCurve ? AMap.BezierCurveOptions
-    : O extends AMap.Polyline ? AMap.PolylineOptions<O>
-    : O extends AMap.Circle ? AMap.CircleOptions
-    : O extends AMap.Ellipse ? AMap.EllipseOptions
-    : O extends AMap.Polygon ? AMap.PolygonOptions
-    : O extends AMap.Text ? AMap.TextOptions
-    : O extends AMap.Marker ? AMap.MarkerOptions
-    : O extends AMap.Rectangle ? AMap.RectangleOptions
+    O extends AMap.BezierCurve ? AMap.BezierCurve.Options
+    : O extends AMap.Polyline ? AMap.Polyline.Options
+    : O extends AMap.Circle ? AMap.Circle.Options
+    : O extends AMap.Ellipse ? AMap.Ellipse.Options
+    : O extends AMap.Polygon ? AMap.Polygon.Options
+    : O extends AMap.Text ? AMap.Text.Options
+    : O extends AMap.Marker ? AMap.Marker.Options
+    : O extends AMap.Rectangle ? AMap.Rectangle.Options
     : any;
 
 declare namespace AMap {

@@ -16,7 +16,7 @@ var massMarksData1 = {
     lnglat
 };
 
-interface CustomData extends AMap.MassMarksData {
+interface CustomData extends AMap.MassMarks.Data {
     name: string;
     id: string;
 }
@@ -49,7 +49,7 @@ massMarks.setStyle(massMarksStyle1);
 // $ExpectType void
 massMarks.setStyle([massMarksStyle1]);
 
-// $ExpectType MassMarksStyle | MassMarksStyle[]
+// $ExpectType Style | Style[]
 massMarks.getStyle();
 
 // $ExpectType void
@@ -71,7 +71,7 @@ _customData.lnglat;
 // $ExpectType void
 massMarks.clear();
 
-massMarks.on('click', (event: AMap.MassMarksEventMap<typeof massMarks>['click']) => {
+massMarks.on('click', (event: AMap.MassMarks.EventMap<typeof massMarks>['click']) => {
     // $ExpectType "click"
     event.type;
 

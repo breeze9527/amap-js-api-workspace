@@ -1,9 +1,9 @@
 testWrapper(() => {
     const map = new AMap.Map('map');
-    const layerOption: AMap.LayerOptions = {
+    const layerOption: AMap.Layer.Options = {
         map
     }
-    const tileLayerOption: AMap.TileLayerOptions = {
+    const tileLayerOption: AMap.TileLayer.Options = {
         ...layerOption,
         zIndex: 10,
         opacity: 0.5,

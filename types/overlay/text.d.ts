@@ -1,12 +1,17 @@
 declare namespace AMap {
-    interface TextEventMap<I = Text> extends MarkerEventMap<I> { }
-    interface TextOptions extends MarkerOptions {
-        text?: string;
-        textAlign?: 'left' | 'right' | 'center';
-        verticalAlign?: 'top' | 'middle' | 'bottom';
+    namespace Text {
+        type TextAlign = 'left' | 'right' | 'center';
+        type VerticalAlign = 'top' | 'middle' | 'bottom';
+        interface EventMap<I = Text> extends Marker.EventMap<I> { }
+        interface Options extends Marker.Options {
+            text?: string;
+            textAlign?: TextAlign;
+            verticalAlign?: VerticalAlign;
+        }
     }
+
     class Text<ExtraData = any> extends Marker<ExtraData> {
-        constructor(options?: TextOptions);
+        constructor(options?: Text.Options);
         getText(): string;
         setText(text: string): void;
         setStyle(style: object): void;

@@ -1,9 +1,9 @@
 type InferLayerOption<L> =
-    L extends AMap.Buildings ? AMap.BuildingsOptions
-    : L extends AMap.Heatmap ? AMap.HeatmapOptions
-    : L extends AMap.MassMarks ? AMap.MassMarksOptions
-    : L extends AMap.TileLayer ? AMap.TileLayerOptions
-    : L extends AMap.TileLayer.Traffic ? AMap.TrafficTileLayerOptions
+    L extends AMap.Buildings ? AMap.Buildings.Options
+    : L extends AMap.Heatmap ? AMap.Heatmap.Options
+    : L extends AMap.MassMarks ? AMap.MassMarks.Options
+    : L extends AMap.TileLayer ? AMap.TileLayer.Options
+    : L extends AMap.TileLayer.Traffic ? AMap.TileLayer.Traffic.Options
     : {};
 
 declare namespace AMap {

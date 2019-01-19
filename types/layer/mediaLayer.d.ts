@@ -1,17 +1,19 @@
 declare namespace AMap {
-    interface MediaLayerOptions extends LayerOptions {
-        bounds?: Bounds;
-        visible?: boolean;
-        zooms?: [number, number];
-        opacity?: number;
+    namespace MediaLayer {
+        interface Options extends Layer.Options {
+            bounds?: Bounds;
+            visible?: boolean;
+            zooms?: [number, number];
+            opacity?: number;
+        }
     }
 
     abstract class MediaLayer<E extends HTMLElement> extends Layer {
-        constructor(options?: MediaLayerOptions);
+        constructor(options?: MediaLayer.Options);
         setBounds(bounds: Bounds): void;
         getBounds(): Bounds;
-        setOptions(options: Partial<MediaLayerOptions>): void;
-        getOptions(): Partial<MediaLayerOptions>;
+        setOptions(options: Partial<MediaLayer.Options>): void;
+        getOptions(): Partial<MediaLayer.Options>;
         getElement(): E | null;
     }
 

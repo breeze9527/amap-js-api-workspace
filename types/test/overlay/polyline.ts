@@ -131,7 +131,7 @@ polyline.setExtData({test: 1});
 // $ExpectType {} | ExtraData
 polyline.getExtData();
 
-polyline.on('click', (event: AMap.PolylineEventMap<typeof polyline>['click']) => {
+polyline.on('click', (event: AMap.Polyline.EventMap<typeof polyline>['click']) => {
     // $ExpectType "click"
     event.type;
     // $ExpectType Polyline<ExtraData>

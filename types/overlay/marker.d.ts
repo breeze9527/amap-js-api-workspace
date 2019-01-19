@@ -1,71 +1,71 @@
 declare namespace AMap {
-    interface MarkerEventMap<I = Marker> {
-        click: MapsEvent<'click', I>;
-        dblclick: MapsEvent<'dblclick', I>;
-        rightclick: MapsEvent<'rightclick', I>;
-        mousemove: MapsEvent<'mousemove', I>;
-        mouseover: MapsEvent<'mouseover', I>;
-        mouseout: MapsEvent<'mouseout', I>;
-        mousedown: MapsEvent<'mousedown', I>;
-        mouseup: MapsEvent<'mouseup', I>;
-        dragstart: MapsEvent<'dragstart', I>;
-        dragging: MapsEvent<'dragging', I>;
-        dragend: MapsEvent<'dragend', I>;
-        moving: Event<'moving', { passwdPath: LngLat[]; }>;
-        moveend: Event<'moveend'>;
-        movealong: Event<'movealong'>;
-        touchstart: MapsEvent<'touchstart', I>;
-        touchmove: MapsEvent<'touchmove', I>;
-        touchend: MapsEvent<'touchend', I>;
-    }
+    namespace Marker {
+        interface EventMap<I = Marker> {
+            click: MapsEvent<'click', I>;
+            dblclick: MapsEvent<'dblclick', I>;
+            rightclick: MapsEvent<'rightclick', I>;
+            mousemove: MapsEvent<'mousemove', I>;
+            mouseover: MapsEvent<'mouseover', I>;
+            mouseout: MapsEvent<'mouseout', I>;
+            mousedown: MapsEvent<'mousedown', I>;
+            mouseup: MapsEvent<'mouseup', I>;
+            dragstart: MapsEvent<'dragstart', I>;
+            dragging: MapsEvent<'dragging', I>;
+            dragend: MapsEvent<'dragend', I>;
+            moving: Event<'moving', { passwdPath: LngLat[]; }>;
+            moveend: Event<'moveend'>;
+            movealong: Event<'movealong'>;
+            touchstart: MapsEvent<'touchstart', I>;
+            touchmove: MapsEvent<'touchmove', I>;
+            touchend: MapsEvent<'touchend', I>;
+        }
 
-    type MarkerAnimationName = 'AMAP_ANIMATION_NONE' | 'AMAP_ANIMATION_DROP' | 'AMAP_ANIMATION_BOUNCE';
+        interface Label {
+            content?: string;
+            offset?: Pixel;
+        }
 
-    interface MarkerLabel {
-        content?: string;
-        offset?: Pixel;
-    }
+        interface Options<ExtraData = any> extends Overlay.Options<ExtraData> {
+            position?: LocationValue;
+            offset?: Pixel;
+            icon?: string | Icon;
+            content?: string | HTMLElement;
+            topWhenClick?: boolean;
+            bubble?: boolean;
+            draggable?: boolean;
+            raiseOnDrag?: boolean;
+            cursor?: string;
+            visible?: boolean;
+            zIndex?: number;
+            angle?: number;
+            autoRotation?: boolean;
+            animation?: AnimationName;
+            shadow?: Icon | string;
+            title?: string;
+            shape?: MarkerShape;
+            label?: Label;
+            zooms?: [number, number];
 
-    interface MarkerOptions<ExtraData = any> extends OverlayOptions<ExtraData> {
-        position?: LocationValue;
-        offset?: Pixel;
-        icon?: string | Icon;
-        content?: string | HTMLElement;
-        topWhenClick?: boolean;
-        bubble?: boolean;
-        draggable?: boolean;
-        raiseOnDrag?: boolean;
-        cursor?: string;
-        visible?: boolean;
-        zIndex?: number;
-        angle?: number;
-        autoRotation?: boolean;
-        animation?: MarkerAnimationName;
-        shadow?: Icon | string;
-        title?: string;
-        shape?: MarkerShape;
-        label?: MarkerLabel;
-        zooms?: [number, number];
-
-        // internal
-        topWhenMouseOver?: boolean;
-        height?: number;
+            // internal
+            topWhenMouseOver?: boolean;
+            height?: number;
+        }
     }
 
     class Marker<ExtraData = any> extends Overlay<ExtraData> {
-        constructor(options?: MarkerOptions<ExtraData>);
+        constructor(options?: Marker.Options<ExtraData>);
         markOnAMAP(obj?: { name?: string, position?: LocationValue }): void;
         getOffset(): Pixel;
         setOffset(offset: Pixel): void;
-        setAnimation(animate: MarkerAnimationName, prevent?: boolean): void;
-        getAnimation(): MarkerAnimationName;
+        setAnimation(animate: AnimationName, prevent?: boolean): void;
+        getAnimation(): AnimationName;
         setClickable(cilckable: boolean): void;
         getClickable(): boolean;
         getPosition(): LngLat | undefined;
         setPosition(position: LocationValue): void;
         setAngle(angle: number): void;
-        setLabel(label?: MarkerLabel): void;
-        getLabel(): MarkerLabel | undefined;
+        setLabel(label?: Marker.Label): void;
+        getLabel(): Marker.Label | undefined;
         getAngle(): number;
         setzIndex(index: number): void;
         getzIndex(): number;

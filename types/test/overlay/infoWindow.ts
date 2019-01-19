@@ -59,21 +59,21 @@ infoWindow.getPosition();
 // $ExpectType Size | undefined
 infoWindow.getSize();
 
-infoWindow.on('change', (event: AMap.InfoWindowEventMap<typeof infoWindow>['change']) => {
+infoWindow.on('change', (event: AMap.InfoWindow.EventMap<typeof infoWindow>['change']) => {
     // $ExpectType "change"
     event.type;
     // $ExpectType InfoWindow<ExtraData>
     event.target;
 });
 
-infoWindow.on('close', (event: AMap.InfoWindowEventMap<typeof infoWindow>['close']) => {
+infoWindow.on('close', (event: AMap.InfoWindow.EventMap<typeof infoWindow>['close']) => {
     // $ExpectType "close"
     event.type;
     // $ExpectType InfoWindow<ExtraData>
     event.target;
 });
 
-infoWindow.on('open', (event: AMap.InfoWindowEventMap<typeof infoWindow>['open']) => {
+infoWindow.on('open', (event: AMap.InfoWindow.EventMap<typeof infoWindow>['open']) => {
     // $ExpectType "open"
     event.type;
     // $ExpectType InfoWindow<ExtraData>

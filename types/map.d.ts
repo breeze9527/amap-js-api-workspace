@@ -1,123 +1,122 @@
 declare namespace AMap {
-    type Lang = 'zh_cn' | 'en' | 'zh_en';
-    type Feature = 'bg' | 'point' | 'road' | 'building';
-    type ViewMode = '2D' | '3D';
-    interface MapOptions {
-        view?: View2D;
-        layers?: Layer[];
-        zoom?: number;
-        center?: LocationValue;
-        labelzIndex?: number;
-        zooms?: [number, number];
-        lang?: Lang;
-        defaultCursor?: string;
-        crs?: 'EPSG3857' | 'EPSG3395' | 'EPSG4326';
-        animateEnable?: boolean;
-        isHotspot?: boolean;
-        defaultLayer?: TileLayer;
-        rotateEnable?: boolean;
-        resizeEnable?: boolean;
-        showIndoorMap?: boolean;
-        // indoorMap?: IndoorMap; // TODO;
-        expandZoomRange?: boolean;
-        dragEnable?: boolean;
-        zoomEnable?: boolean;
-        doubleClickZoom?: boolean;
-        keyboardEnable?: boolean;
-        jogEnable?: boolean;
-        scrollWheel?: boolean;
-        touchZoom?: boolean;
-        touchZoomCenter?: number;
-        mapStyle?: string;
-        features?: Feature[] | 'all' | Feature;
-        showBuildingBlock?: boolean;
-        viewMode?: ViewMode;
-        pitch?: number;
-        pitchEnable?: boolean;
-        buildingAnimation?: boolean;
-        skyColor?: string;
-        preloadMode?: boolean;
-        mask?: Array<[number, number]> | Array<Array<[number, number]>> | Array<Array<Array<[number, number]>>>;
-        maxPitch?: number;
-        rotation?: number;
-        forceVector?: boolean;
+    namespace Map {
+        type Feature = 'bg' | 'point' | 'road' | 'building';
+        type ViewMode = '2D' | '3D';
+        interface Options {
+            view?: View2D;
+            layers?: Layer[];
+            zoom?: number;
+            center?: LocationValue;
+            labelzIndex?: number;
+            zooms?: [number, number];
+            lang?: Lang;
+            defaultCursor?: string;
+            crs?: 'EPSG3857' | 'EPSG3395' | 'EPSG4326';
+            animateEnable?: boolean;
+            isHotspot?: boolean;
+            defaultLayer?: TileLayer;
+            rotateEnable?: boolean;
+            resizeEnable?: boolean;
+            showIndoorMap?: boolean;
+            // indoorMap?: IndoorMap; // TODO;
+            expandZoomRange?: boolean;
+            dragEnable?: boolean;
+            zoomEnable?: boolean;
+            doubleClickZoom?: boolean;
+            keyboardEnable?: boolean;
+            jogEnable?: boolean;
+            scrollWheel?: boolean;
+            touchZoom?: boolean;
+            touchZoomCenter?: number;
+            mapStyle?: string;
+            features?: Feature[] | 'all' | Feature;
+            showBuildingBlock?: boolean;
+            viewMode?: ViewMode;
+            pitch?: number;
+            pitchEnable?: boolean;
+            buildingAnimation?: boolean;
+            skyColor?: string;
+            preloadMode?: boolean;
+            mask?: Array<[number, number]> | Array<Array<[number, number]>> | Array<Array<Array<[number, number]>>>;
+            maxPitch?: number;
+            rotation?: number;
+            forceVector?: boolean;
 
-        // internal
-        baseRender?: 'vw' | 'd' | 'dv' | 'v';
-        overlayRender?: 'c' | 'd';
-        showLabel?: boolean;
-        gridMapForeign?: boolean;
-        logoUrl?: string;
-        logoUrlRetina?: string;
-        copyright?: string;
-        turboMode?: boolean;
-        workerMode?: boolean;
-        // continuousZoomEnable?: boolean;
-        // showFog: boolean;
-        // yaw: number;
-        // scale: number;
-        // detectRetina: number;
-    }
+            // internal
+            baseRender?: 'vw' | 'd' | 'dv' | 'v';
+            overlayRender?: 'c' | 'd';
+            showLabel?: boolean;
+            gridMapForeign?: boolean;
+            logoUrl?: string;
+            logoUrlRetina?: string;
+            copyright?: string;
+            turboMode?: boolean;
+            workerMode?: boolean;
+            // continuousZoomEnable?: boolean;
+            // showFog: boolean;
+            // yaw: number;
+            // scale: number;
+            // detectRetina: number;
+        }
+        interface Status {
+            animateEnable: boolean;
+            doubleClickZoom: boolean;
+            dragEnable: boolean;
+            isHotspot: boolean;
+            jogEnable: boolean;
+            keyboardEnable: boolean;
+            pitchEnable: boolean;
+            resizeEnable: boolean;
+            rotateEnable: boolean;
+            scrollWheel: boolean;
+            touchZoom: boolean;
+            zoomEnable: boolean;
+        }
+        type HotspotEvent<N extends string> = Event<N, {
+            lnglat: LngLat;
+            name: string;
+            id: string;
+            // internal
+            isIndoorPOI: boolean;
+        }>;
+        interface EventMap {
+            click: MapsEvent<'click', Map>;
+            dblclick: MapsEvent<'dblclick', Map>;
+            rightclick: MapsEvent<'rightclick', Map>;
+            rdblclick: MapsEvent<'rdblclick', Map>;
+            mouseup: MapsEvent<'mouseup', Map>;
+            mousedown: MapsEvent<'mousedown', Map>;
+            mousemove: MapsEvent<'mousemove', Map>;
+            mousewheel: MapsEvent<'mousewheel', Map>;
+            mouseover: MapsEvent<'mouseover', Map>;
+            mouseout: MapsEvent<'mouseout', Map>;
+            touchstart: MapsEvent<'touchstart', Map>;
+            touchmove: MapsEvent<'touchmove', Map>;
+            touchend: MapsEvent<'touchend', Map>;
+            contextmenu: MapsEvent<'contextmenu', Map>;
 
-    interface MapStatus {
-        animateEnable: boolean;
-        doubleClickZoom: boolean;
-        dragEnable: boolean;
-        isHotspot: boolean;
-        jogEnable: boolean;
-        keyboardEnable: boolean;
-        pitchEnable: boolean;
-        resizeEnable: boolean;
-        rotateEnable: boolean;
-        scrollWheel: boolean;
-        touchZoom: boolean;
-        zoomEnable: boolean;
-    }
+            hotspotclick: HotspotEvent<'hotspotclick'>;
+            hotspotover: HotspotEvent<'hotspotover'>;
+            hotspotout: HotspotEvent<'hotspotout'>;
 
-    type HotspotEvent<N extends string> = Event<N, {
-        lnglat: LngLat;
-        name: string;
-        id: string;
-        // internal
-        isIndoorPOI: boolean;
-    }>;
-    interface MapEventMap {
-        click: MapsEvent<'click', Map>;
-        dblclick: MapsEvent<'dblclick', Map>;
-        rightclick: MapsEvent<'rightclick', Map>;
-        rdblclick: MapsEvent<'rdblclick', Map>;
-        mouseup: MapsEvent<'mouseup', Map>;
-        mousedown: MapsEvent<'mousedown', Map>;
-        mousemove: MapsEvent<'mousemove', Map>;
-        mousewheel: MapsEvent<'mousewheel', Map>;
-        mouseover: MapsEvent<'mouseover', Map>;
-        mouseout: MapsEvent<'mouseout', Map>;
-        touchstart: MapsEvent<'touchstart', Map>;
-        touchmove: MapsEvent<'touchmove', Map>;
-        touchend: MapsEvent<'touchend', Map>;
-        contextmenu: MapsEvent<'contextmenu', Map>;
-
-        hotspotclick: HotspotEvent<'hotspotclick'>;
-        hotspotover: HotspotEvent<'hotspotover'>;
-        hotspotout: HotspotEvent<'hotspotout'>;
-
-        complete: Event<'complete'>;
-        mapmove: Event<'mapmove'>;
-        movestart: Event<'movestart'>;
-        moveend: Event<'moveend'>;
-        zoomchange: Event<'zoomchange'>;
-        zoomstart: Event<'zoomstart'>;
-        zoomend: Event<'zoomend'>;
-        dragstart: Event<'dragstart'>;
-        dragging: Event<'dragging'>;
-        dragend: Event<'dragend'>;
-        resize: Event<'resize'>;
+            complete: Event<'complete'>;
+            mapmove: Event<'mapmove'>;
+            movestart: Event<'movestart'>;
+            moveend: Event<'moveend'>;
+            zoomchange: Event<'zoomchange'>;
+            zoomstart: Event<'zoomstart'>;
+            zoomend: Event<'zoomend'>;
+            dragstart: Event<'dragstart'>;
+            dragging: Event<'dragging'>;
+            dragend: Event<'dragend'>;
+            resize: Event<'resize'>;
+        }
     }
 
     class Map extends EventEmitter {
-        AmbientLight: Lights.AmbientLight | undefined;
-        DirectionLight: Lights.DirectionLight | undefined;
-        constructor(container: string | HTMLElement, opts?: MapOptions);
+        AmbientLight?: Lights.AmbientLight;
+        DirectionLight?: Lights.DirectionLight;
+        constructor(container: string | HTMLElement, opts?: Map.Options);
         poiOnAMAP(obj: { id: string; location?: LocationValue; name?: string }): void;
         detailOnAMAP(obj: { id: string; location?: LocationValue; name?: string }): void;
         getZoom(): number;
@@ -136,7 +135,7 @@ declare namespace AMap {
         getLang(): Lang;
         getSize(): Size;
         getRotation(): number;
-        getStatus(): MapStatus;
+        getStatus(): Map.Status;
         getDefaultCursor(): string;
         getResolution(point?: LocationValue): number;
         getScale(dpi?: number): number;
@@ -154,7 +153,7 @@ declare namespace AMap {
         clearLimitBounds(): void;
         setLang(lang: Lang): void;
         setRotation(rotation: number): void;
-        setStatus(status: Partial<MapStatus>): void;
+        setStatus(status: Partial<Map.Status>): void;
         setDefaultCursor(cursor: string): void;
         zoomIn(): void;
         zoomOut(): void;
@@ -179,12 +178,12 @@ declare namespace AMap {
         lnglatTocontainer(lnglat: LocationValue): Pixel;
         setMapStyle(style: string): void;
         getMapStyle(): string;
-        setFeatures(feature: Feature | Feature[] | 'all'): void;
-        getFeatures(): Feature | Feature[] | 'all';
+        setFeatures(feature: Map.Feature | Map.Feature[] | 'all'): void;
+        getFeatures(): Map.Feature | Map.Feature[] | 'all';
         setDefaultLayer(layer: TileLayer): void;
         setPitch(pitch: number): void;
         getPitch(): number;
-        getViewMode_(): ViewMode;
+        getViewMode_(): Map.ViewMode;
         getObject3DByContainerPos(pixel: Pixel, layers?: Layer[], all?: boolean): {
             index: number;
             point: Vector3;

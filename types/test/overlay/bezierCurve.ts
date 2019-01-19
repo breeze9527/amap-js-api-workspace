@@ -131,7 +131,7 @@ bezierCurve.setExtData({ test: '123' });
 // $ExpectType {} | ExtraData
 bezierCurve.getExtData();
 
-bezierCurve.on('click', (event: AMap.BezierCurveEventMap<typeof bezierCurve>['click']) => {
+bezierCurve.on('click', (event: AMap.BezierCurve.EventMap<typeof bezierCurve>['click']) => {
     // $ExpectType "click"
     event.type;
     // $ExpectType LngLat
@@ -140,14 +140,14 @@ bezierCurve.on('click', (event: AMap.BezierCurveEventMap<typeof bezierCurve>['cl
     event.target;
 });
 
-bezierCurve.on('show', (event: AMap.BezierCurveEventMap<typeof bezierCurve>['show']) => {
+bezierCurve.on('show', (event: AMap.BezierCurve.EventMap<typeof bezierCurve>['show']) => {
     // $ExpectType "show"
     event.type;
     // $ExpectType BezierCurve<ExtraData>
     event.target;
 });
 
-bezierCurve.on('options', (event: AMap.BezierCurveEventMap<typeof bezierCurve>['options']) => {
+bezierCurve.on('options', (event: AMap.BezierCurve.EventMap<typeof bezierCurve>['options']) => {
     // $ExpectType "options"
     event.type;
     // $ExpectError

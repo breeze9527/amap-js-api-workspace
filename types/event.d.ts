@@ -1,15 +1,4 @@
 declare namespace AMap {
-    type Event<N extends string = string, V = undefined> = { type: N } &
-        (V extends HTMLElement ? { value: V }
-            : V extends object ? V
-            : V extends undefined ? {}
-            : { value: V });
-    type MapsEvent<N extends string, I> = Event<N, {
-        lnglat: LngLat;
-        pixel: Pixel;
-        target: I
-    }>;
-
     abstract class EventEmitter {
         on<E extends Event, C = this>(
             eventName: string,
@@ -30,11 +19,11 @@ declare namespace AMap {
         emit(eventName: string, data?: any): this;
     }
 
-    interface EventListener<T extends 0 | 1> {
-        type: T;
-    }
-
     namespace event {
+        interface EventListener<T extends 0 | 1> {
+            type: T;
+        }
+
         function addDomListener<N extends keyof HTMLElementTagNameMap, E extends keyof HTMLElementEventMap, C = HTMLElementTagNameMap[N]>(
             // tslint:disable-next-line: no-unnecessary-generics
             instance: HTMLElementTagNameMap[N],

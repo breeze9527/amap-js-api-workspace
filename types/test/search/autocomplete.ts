@@ -27,31 +27,33 @@ new AMap.Autocomplete({
 });
 
 autoComplete.search('keyword', (status, result) => {
-    // $ExpectType "error" | "complete" | "no_data"
-    status;
+    const temp: 'error' | 'complete' | 'no_data' = status;
     if (typeof result !== 'string') {
         // $ExpectType number
         result.count;
         // $ExpectType string
         result.info;
-
-        const tip = result.tips[0];
-        // $ExpectType string
-        tip.adcode;
-        // $ExpectType string
-        tip.address;
-        // $ExpectType any[]
-        tip.city;
-        // $ExpectType string
-        tip.district;
-        // $ExpectType string
-        tip.id;
-        // $ExpectType LngLat
-        tip.location;
-        // $ExpectType string
-        tip.name;
-        // $ExpectType string
-        tip.typecode;
+        // $ExpectType Tip[]
+        result.tips;
+        {
+            const tip = result.tips[0];
+            // $ExpectType string
+            tip.adcode;
+            // $ExpectType string
+            tip.address;
+            // $ExpectType any[]
+            tip.city;
+            // $ExpectType string
+            tip.district;
+            // $ExpectType string
+            tip.id;
+            // $ExpectType LngLat
+            tip.location;
+            // $ExpectType string
+            tip.name;
+            // $ExpectType string
+            tip.typecode;
+        }
     } else {
         // $ExpectType string
         result;
@@ -71,7 +73,7 @@ autoComplete.setCity('city');
 // $ExpectType void
 autoComplete.setCityLimit(false);
 
-autoComplete.on('complete', (event: AMap.AutocompleteEventMap['complete']) => {
+autoComplete.on('complete', (event: AMap.Autocomplete.EventMap['complete']) => {
     // $ExpectType "complete"
     event.type;
     // $ExpectType string
@@ -84,21 +86,21 @@ autoComplete.on('complete', (event: AMap.AutocompleteEventMap['complete']) => {
     }
 });
 
-autoComplete.on('error', (event: AMap.AutocompleteEventMap['error']) => {
+autoComplete.on('error', (event: AMap.Autocomplete.EventMap['error']) => {
     // $ExpectType "error"
     event.type;
     // $ExpectType string
     event.info;
 });
 
-autoComplete.on('select', (event: AMap.AutocompleteEventMap['select']) => {
+autoComplete.on('select', (event: AMap.Autocomplete.EventMap['select']) => {
     // $ExpectType "select"
     event.type;
     // $ExpectType Tip
     event.tip;
 });
 
-autoComplete.on('choose', (event: AMap.AutocompleteEventMap['choose']) => {
+autoComplete.on('choose', (event: AMap.Autocomplete.EventMap['choose']) => {
     // $ExpectType "choose"
     event.type;
     // $ExpectType Tip

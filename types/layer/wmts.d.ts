@@ -1,22 +1,25 @@
 declare namespace AMap {
     namespace TileLayer {
-        interface WMTSGetMapParams {
-            Version?: string;
-            Layer?: string;
-            Style?: string;
-            Format?: string;
+        namespace WMTS {
+            interface Params {
+                Version?: string;
+                Layer?: string;
+                Style?: string;
+                Format?: string;
+            }
+            interface Options extends Flexible.Options {
+                url: string;
+                params: Params;
+                blend?: boolean;
+            }
         }
-        interface WMTSOptions extends FlexibleOptions {
-            url: string;
-            params: WMTSGetMapParams;
-            blend?: boolean;
-        }
+
         class WMTS extends Flexible {
-            constructor(options: WMTSOptions);
+            constructor(options: WMTS.Options);
             setUrl(url: string): void;
             getUrl(): string;
-            setParams(params: WMTSGetMapParams): void;
-            getParams(): WMTSGetMapParams;
+            setParams(params: WMTS.Params): void;
+            getParams(): WMTS.Params;
         }
     }
 }

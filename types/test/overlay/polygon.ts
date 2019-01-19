@@ -116,7 +116,7 @@ polygon.contains(lnglat);
 // $ExpectType boolean
 polygon.contains(lnglatTuple);
 
-polygon.on('click', (event: AMap.PolygonEventMap<typeof polygon>['click']) => {
+polygon.on('click', (event: AMap.Polygon.EventMap<typeof polygon>['click']) => {
     // $ExpectType "click"
     event.type;
     // $ExpectType Polygon<ExtraData>

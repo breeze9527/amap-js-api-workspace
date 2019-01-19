@@ -1,19 +1,21 @@
 declare namespace AMap {
-    interface RectangleOptions<ExtraData = any> extends PolygonOptions<ExtraData> {
-        bounds?: Bounds;
-    }
-    type RectangleGetOptionsResult<ExtraData = any> = Merge<PolygonGetOptionsResult<ExtraData>, {
-        path: LngLat[];
-        bounds: Bounds;
-        texture: string;
-    }>;
-    interface RectangleEventMap<I = Rectangle> extends ShapeOverlayEventMap<I> {
-        setBounds: Event<'setBounds'>;
-    }
+    namespace Rectangle {
+        interface EventMap<I = Rectangle> extends Polygon.EventMap<I> {
+            setBounds: Event<'setBounds'>;
+        }
 
+        interface Options<ExtraData = any> extends Polygon.Options<ExtraData> {
+            bounds?: Bounds;
+        }
+        type GetOptionsResult<ExtraData = any> = Merge<Polygon.GetOptionsResult<ExtraData>, {
+            path: LngLat[];
+            bounds: Bounds;
+            texture: string;
+        }>;
+    }
     class Rectangle<ExtraData = any> extends Polygon<ExtraData> {
-        constructor(options?: RectangleOptions<ExtraData>);
+        constructor(options?: Rectangle.Options<ExtraData>);
         setBounds(bounds: Bounds, preventEvent?: boolean): void;
-        setOptions(options: Partial<RectangleOptions>): void;
+        setOptions(options: Partial<Rectangle.Options>): void;
     }
 }

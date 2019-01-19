@@ -1,19 +1,21 @@
 declare namespace AMap {
-    interface MarkerShapeCircleOptions {
-        type: 'circle';
-        coords: [number, number, number];
+    namespace MarkerShape {
+        interface CircleOptions {
+            type: 'circle';
+            coords: [number, number, number];
+        }
+        interface PolyOptions {
+            type: 'poly';
+            coords: number[];
+        }
+        interface RectOptions {
+            type: 'rect';
+            coords: [number, number, number, number];
+        }
+        type Options = CircleOptions | PolyOptions | RectOptions;
     }
-    interface MarkerShapePolyOptions {
-        type: 'poly';
-        coords: number[];
-    }
-    interface MarkerShapeRectOptions {
-        type: 'rect';
-        coords: [number, number, number, number];
-    }
-    type MarkerShapeOptions = MarkerShapeCircleOptions | MarkerShapePolyOptions | MarkerShapeRectOptions;
 
     class MarkerShape {
-        constructor(options: MarkerShapeOptions);
+        constructor(options: MarkerShape.Options);
     }
 }

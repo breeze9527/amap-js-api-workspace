@@ -30,14 +30,13 @@ new AMap.PlaceSearch({
 
 // $ExpectType void
 placeSearch.search('keyword', (status, result) => {
-    // $ExpectType "error" | "complete" | "no_data"
-    status;
-    // $ExpectType string | PlaceSearchResult
+    const temp: 'error' | 'complete' | 'no_data' = status;
+    // $ExpectType string | SearchResult
     result;
     if (typeof result !== 'string') {
         // $ExpectType string
         result.info;
-        // $ExpectType PlaceSearchPoiList
+        // $ExpectType PoiList
         result.poiList;
         // $ExpectType string[] | undefined
         result.keywordList;
@@ -98,7 +97,7 @@ placeSearch.search('keyword', (status, result) => {
                 indoorData.truefloor;
             }
             poi.pcode;
-            // $ExpectType PlaceSearchPoiPhoto[]
+            // $ExpectType PoiPhoto[]
             poi.photos;
             // $ExpectType string
             poi.pname;
@@ -142,7 +141,7 @@ placeSearch.search('keyword', (status, result) => {
                 groupbuy.ticket_address;
                 // $ExpectType string
                 groupbuy.ticket_tel;
-                // $ExpectType PlaceSearchPoiPhoto[]
+                // $ExpectType PoiPhoto[]
                 groupbuy.photos;
                 // $ExpectType string
                 groupbuy.url;
@@ -163,7 +162,7 @@ placeSearch.search('keyword', (status, result) => {
                 discount.end_time;
                 // $ExpectType number
                 discount.sold_num;
-                // $ExpectType PlaceSearchPoiPhoto[]
+                // $ExpectType PoiPhoto[]
                 discount.photos;
                 // $ExpectType string
                 discount.url;
@@ -185,7 +184,7 @@ placeSearch.search('keyword', (status, result) => {
                 cinema.opentime_GDF;
                 // $ExpectType string
                 cinema.opentime;
-                // $ExpectType PlaceSearchPoiPhoto[]
+                // $ExpectType PoiPhoto[]
                 cinema.photos;
             }
             if (poi.deep_type === 'DINING') {
@@ -227,7 +226,7 @@ placeSearch.search('keyword', (status, result) => {
                 dining.opentime;
                 // $ExpectType string
                 dining.addition;
-                // $ExpectType PlaceSearchPoiPhoto[]
+                // $ExpectType PoiPhoto[]
                 dining.photos;
             }
             if (poi.deep_type === 'SCENIC') {
@@ -257,7 +256,7 @@ placeSearch.search('keyword', (status, result) => {
                 scenic.opentime_GDF;
                 // $ExpectType string
                 scenic.opentime;
-                // $ExpectType PlaceSearchPoiPhoto[]
+                // $ExpectType PoiPhoto[]
                 scenic.photos;
             }
             if (poi.deep_type === 'HOTEL') {
@@ -285,7 +284,7 @@ placeSearch.search('keyword', (status, result) => {
                 hotel.addition;
                 // $ExpectType string
                 hotel.deep_src;
-                // $ExpectType PlaceSearchPoiPhoto[]
+                // $ExpectType PoiPhoto[]
                 hotel.photos;
             }
         }
@@ -309,9 +308,8 @@ placeSearch.search('keyword', (status, result) => {
 
 // $ExpectType void
 placeSearch.searchNearBy('keyword', lnglat, 10, (status, result) => {
-    // $ExpectType "error" | "complete" | "no_data"
-    status;
-    // $ExpectType string | PlaceSearchResult
+    const temp: 'error' | 'complete' | 'no_data' = status;
+    // $ExpectType string | SearchResult
     result;
 });
 // $ExpectType void
@@ -319,9 +317,8 @@ placeSearch.searchNearBy('keyword', lnglatTuple, 10, () => { });
 
 // $ExpectType void
 placeSearch.searchInBounds('keyword', bounds, (status, result) => {
-    // $ExpectType "error" | "complete" | "no_data"
-    status;
-    // $ExpectType string | PlaceSearchResult
+    const temp: 'error' | 'complete' | 'no_data' = status;
+    // $ExpectType string | SearchResult
     result;
 });
 // $ExpectType void
@@ -329,9 +326,8 @@ placeSearch.searchInBounds('keyword', polygon, () => { });
 
 // $ExpectType void
 placeSearch.getDetails('id', (status, result) => {
-    // $ExpectType "error" | "complete" | "no_data"
-    status;
-    // $ExpectType string | PlaceSearchResult
+    const temp: 'error' | 'complete' | 'no_data' = status;
+    // $ExpectType string | SearchResult
     result;
 });
 
@@ -399,12 +395,12 @@ placeSearch.open();
 // $ExpectType void
 placeSearch.close();
 
-placeSearch.on('complete', (event: AMap.PlaceSearchEventMap['complete']) => {
+placeSearch.on('complete', (event: AMap.PlaceSearch.EventMap['complete']) => {
     // $ExpectType "complete"
     event.type;
     // $ExpectType string
     event.info;
-    // $ExpectType PlaceSearchPoiList
+    // $ExpectType PoiList
     event.poiList;
     // $ExpectType string[] | undefined
     event.keywordList;
@@ -412,7 +408,7 @@ placeSearch.on('complete', (event: AMap.PlaceSearchEventMap['complete']) => {
     event.cityList;
 });
 
-placeSearch.on('listElementClick', (event: AMap.PlaceSearchEventMap['listElementClick']) => {
+placeSearch.on('listElementClick', (event: AMap.PlaceSearch.EventMap['listElementClick']) => {
     // $ExpectType MouseEvent
     event.event;
     // $ExpectType string
@@ -425,7 +421,7 @@ placeSearch.on('listElementClick', (event: AMap.PlaceSearchEventMap['listElement
     event.listElement;
 });
 
-placeSearch.on('markerClick', (event: AMap.PlaceSearchEventMap['markerClick']) => {
+placeSearch.on('markerClick', (event: AMap.PlaceSearch.EventMap['markerClick']) => {
     const markerEvent = event.event;
     // $ExpectType Marker<any>
     markerEvent.target;

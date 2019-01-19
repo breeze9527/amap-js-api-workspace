@@ -1,42 +1,46 @@
 declare namespace AMap {
-    interface AutocompleteEventMap {
-        complete: Event<'complete', AutocompleteResult | { info: string }>;
-        error: Event<'error', { info: string }>;
-        select: Event<'select', { tip: Tip }>;
-        choose: Event<'choose', { tip: Tip }>;
-    }
-    interface AutocompleteOptions {
-        type?: string;
-        city?: string;
-        datatype?: 'all' | 'bus' | 'poi' | 'busline';
-        citylimit?: boolean;
-        input?: string | HTMLInputElement;
-        output?: string | HTMLDivElement;
-        outPutDirAuto?: boolean;
-        // internal
-        closeResultOnScroll?: boolean;
-        lang?: Lang;
-    }
-    interface Tip {
-        name: string;
-        district: string;
-        adcode: string;
-        address: string;
-        city: any[];
-        id: string;
-        location: LngLat;
-        typecode: string;
-    }
-    interface AutocompleteResult {
-        info: string;
-        count: number;
-        tips: Tip[];
+    namespace Autocomplete {
+        interface EventMap {
+            complete: Event<'complete', SearchResult | { info: string }>;
+            error: Event<'error', { info: string }>;
+            select: Event<'select', { tip: Tip }>;
+            choose: Event<'choose', { tip: Tip }>;
+        }
+        type DataType = 'all' | 'bus' | 'poi' | 'busline';
+        interface Options {
+            type?: string;
+            city?: string;
+            datatype?: DataType;
+            citylimit?: boolean;
+            input?: string | HTMLInputElement;
+            output?: string | HTMLDivElement;
+            outPutDirAuto?: boolean;
+            // internal
+            closeResultOnScroll?: boolean;
+            lang?: Lang;
+        }
+        interface Tip {
+            name: string;
+            district: string;
+            adcode: string;
+            address: string;
+            city: any[];
+            id: string;
+            location: LngLat;
+            typecode: string;
+        }
+        interface SearchResult {
+            info: string;
+            count: number;
+            tips: Tip[];
+        }
+        type SearchStatus = 'complete' | 'error' | 'no_data';
     }
     class Autocomplete extends EventEmitter {
-        constructor(options?: AutocompleteOptions);
+        constructor(options?: Autocomplete.Options);
         search(
             keyword: string,
-            callback: (status: 'complete' | 'error' | 'no_data', result: AutocompleteResult | string) => void
+            callback: (status: Autocomplete.SearchStatus, result: Autocomplete.SearchResult | string) => void
         ): void;
         setType(type?: string): void;
         setCity(city?: string): void;

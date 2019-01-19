@@ -1,6 +1,8 @@
 declare namespace AMap {
-    interface LayerOptions {
-        map?: Map;
+    namespace Layer {
+        interface Options {
+            map?: Map;
+        }
     }
 
     abstract class Layer extends EventEmitter {

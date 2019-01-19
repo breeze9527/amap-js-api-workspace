@@ -6,7 +6,7 @@ interface City {
 declare const citys: City[];
 
 testWrapper(() => {
-    const style: AMap.MassMarksStyle[] = [
+    const style: AMap.MassMarks.Style[] = [
         {
             url: 'https://a.amap.com/jsapi_demos/static/images/mass0.png',
             anchor: new AMap.Pixel(6, 6),
@@ -32,7 +32,7 @@ testWrapper(() => {
     const map = new AMap.Map('map', {
         zoom: 5
     });
-    const layerOption: AMap.LayerOptions = {
+    const layerOption: AMap.Layer.Options = {
         map
     }
     interface MassMarksData {

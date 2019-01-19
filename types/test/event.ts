@@ -7,7 +7,7 @@ declare var div: HTMLDivElement;
 declare var input: HTMLInputElement;
 
 // $ExpectType Map
-map.on('hotspotclick', (event: AMap.MapEventMap['hotspotclick']) => {
+map.on('hotspotclick', (event: AMap.Map.EventMap['hotspotclick']) => {
     // $ExpectType "hotspotclick"
     event.type;
     // $ExpectType string
@@ -23,7 +23,7 @@ AMap.event.addDomListener(div, 'click', event => {
 });
 
 // $ExpectType EventListener<1>
-AMap.event.addListener(map, 'hotspotclick', function (event: AMap.MapEventMap['hotspotclick']) {
+AMap.event.addListener(map, 'hotspotclick', function (event: AMap.Map.EventMap['hotspotclick']) {
     // $ExpectType "hotspotclick"
     event.type;
     // $ExpectType string
@@ -33,7 +33,7 @@ AMap.event.addListener(map, 'hotspotclick', function (event: AMap.MapEventMap['h
     // $ExpectType number
     this.test;
 }, { test: 1 });
-AMap.event.addListener(map, 'click', (event: AMap.MapEventMap['click']) => {
+AMap.event.addListener(map, 'click', (event: AMap.Map.EventMap['click']) => {
     // $ExpectType "click"
     event.type;
     // $ExpectType LngLat
@@ -43,7 +43,7 @@ AMap.event.addListener(map, 'click', (event: AMap.MapEventMap['click']) => {
 });
 
 // $ExpectType EventListener<1>
-AMap.event.addListenerOnce(map, 'hotspotclick', function (event: AMap.MapEventMap['hotspotclick']) {
+AMap.event.addListenerOnce(map, 'hotspotclick', function (event: AMap.Map.EventMap['hotspotclick']) {
     // $ExpectType "hotspotclick"
     event.type;
     // $ExpectType string
@@ -54,7 +54,7 @@ AMap.event.addListenerOnce(map, 'hotspotclick', function (event: AMap.MapEventMa
     this.test;
 }, { test: 1 });
 
-declare const eventListener: AMap.EventListener<0>;
+declare const eventListener: AMap.event.EventListener<0>;
 // $ExpectType void
 AMap.event.removeListener(eventListener);
 
