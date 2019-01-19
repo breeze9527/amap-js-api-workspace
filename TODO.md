@@ -77,8 +77,8 @@
     - [x] LineSearch
     - [x] StationSearch
 - [ ] [路径规划](https://lbs.amap.com/api/javascript-api/reference/route-search)
-    - [ ] Driving
-    - [ ] TruckDriving
+    - [x] Driving
+    - [x] TruckDriving
     - [ ] Transfer
     - [ ] Walking
     - [ ] Riding

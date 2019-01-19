@@ -23,6 +23,8 @@ declare namespace AMap {
             isOutline?: boolean;
             outlineColor?: string;
             autoFitView?: boolean;
+            // internal
+            showDir?: boolean;
         }
         interface Options {
             waypoints?: LocationValue[];
@@ -35,7 +37,7 @@ declare namespace AMap {
             path: LngLat[];
             status: string;
         }
-        interface StepBase {
+        interface Step {
             start_location: LngLat;
             end_location: LngLat;
             instruction: string;
@@ -49,16 +51,19 @@ declare namespace AMap {
             toll_road: string;
             time: number;
             path: LngLat[];
+            cities?: City[];
+            tmcs?: TMC[];
+            tmcsPaths?: TMCsPath[];
         }
-        interface ViaCityDistrict {
+        interface District {
             name: string;
             adcode: string;
         }
-        interface ViaCity {
+        interface City {
             name: string;
             citycode: string;
             adcode: string;
-            districts: ViaCityDistrict[];
+            districts: District[];
         }
         interface TMC {
             lcode: string | never[];
@@ -67,18 +72,13 @@ declare namespace AMap {
             path: LngLat[];
             polyline: string;
         }
-        interface StepExt extends StepBase {
-            cities: ViaCity[];
-            tmcs: TMC[];
-            tmcsPaths: TMCsPath[];
-        }
         interface Route {
             distance: number;
             time: number;
             policy: string;
             tolls: number;
             tolls_distance: number;
-            steps: Array<StepBase | StepExt>;
+            steps: Step[];
             restriction: 0 | 1;
         }
         interface Poi {

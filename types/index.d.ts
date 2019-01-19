@@ -48,6 +48,7 @@
 /// <reference path="overlay/shapeOverlay.d.ts" />
 /// <reference path="overlay/text.d.ts" />
 /// <reference path="route/driving.d.ts" />
+/// <reference path="route/truckDriving.d.ts" />
 /// <reference path="search/autocomplete.d.ts" />
 /// <reference path="search/districtSearch.d.ts" />
 /// <reference path="search/lineSearch.d.ts" />
