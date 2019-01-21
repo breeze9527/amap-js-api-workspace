@@ -80,7 +80,7 @@
     - [x] Driving
     - [x] TruckDriving
     - [x] Transfer
-    - [ ] Walking
+    - [x] Walking
     - [ ] Riding
     - [ ] DragRoute
     - [ ] ArrivalRang

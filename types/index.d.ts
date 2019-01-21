@@ -50,6 +50,7 @@
 /// <reference path="route/driving.d.ts" />
 /// <reference path="route/transfer.d.ts" />
 /// <reference path="route/truckDriving.d.ts" />
+/// <reference path="route/walking.d.ts" />
 /// <reference path="search/autocomplete.d.ts" />
 /// <reference path="search/districtSearch.d.ts" />
 /// <reference path="search/lineSearch.d.ts" />
