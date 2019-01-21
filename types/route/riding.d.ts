@@ -1,11 +1,17 @@
 declare namespace AMap {
-    namespace Walking {
+    enum RidingPolicy {
+        DEFAULT = 0,
+        RECOMMENDED = 1,
+        FASTEST = 2
+    }
+    namespace Riding {
         interface EventMap {
-            error: Event<'error', { info: string }>;
             complete: Event<'complete', SearchResult>;
+            error: Event<'error', { info: string; }>;
         }
         interface Options {
             map?: Map;
+            policy?: RidingPolicy;
             panel?: string | HTMLElement;
             hideMarkers?: boolean;
             isOutline?: boolean;
@@ -17,22 +23,21 @@ declare namespace AMap {
         interface SearchPoint {
             keyword: string;
         }
-        interface Step {
+        interface Ride {
             start_location: LngLat;
             end_location: LngLat;
             instruction: string;
+            road: string;
+            orientation: string;
             distance: number;
             time: number;
             path: LngLat[];
             action: string;
-            assistant_action: string;
-            orientation: string;
-            road: string;
         }
         interface Route {
             distance: number;
             time: number;
-            steps: Step[];
+            rides: Ride[];
         }
         interface SearchResultCommon {
             info: string;
@@ -57,24 +62,24 @@ declare namespace AMap {
             destinationName: string;
         }
         type SearchResult = SearchResultBase | SearchResultExt;
-        type SearchStatus = 'complete' | 'no_data' | 'error';
+        type SearchStatus = 'complete' | 'error' | 'no_data';
     }
 
-    class Walking extends EventEmitter {
-        constructor(options?: Walking.Options);
+    class Riding extends EventEmitter {
+        constructor(options?: Riding.Options);
         search(
             origin: LocationValue,
             destination: LocationValue,
-            callback?: (status: Walking.SearchStatus, result: string | Walking.SearchResultBase) => void
+            callback?: (status: Riding.SearchStatus, result: Riding.SearchResultBase | string) => void
         ): void;
         search(
-            point: Walking.SearchPoint[],
-            callback?: (status: Walking.SearchStatus, result: string | Walking.SearchResultExt) => void
+            point: Riding.SearchPoint[],
+            callback?: (status: Riding.SearchStatus, result: Riding.SearchResultExt | string) => void
         ): void;
         clear(): void;
         // internal
+        setPolicy(policy: RidingPolicy): void;
         open(): void;
         close(): void;
-        searchOnAMAP(obj: { origin: LocationValue; originName?: string; destination: LocationValue; destinationName?: string; }): void;
     }
 }

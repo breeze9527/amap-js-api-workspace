@@ -81,7 +81,7 @@
     - [x] TruckDriving
     - [x] Transfer
     - [x] Walking
-    - [ ] Riding
+    - [x] Riding
     - [ ] DragRoute
     - [ ] ArrivalRang
 - [ ] [轨迹纠偏](https://lbs.amap.com/api/javascript-api/reference/grasproad)
