@@ -9,32 +9,6 @@ testPluginWrapper('AMap.TruckDriving', () => {
         { keyword: '深大地铁站' },
         { keyword: '羊台山森林公园' }
     ]
-    const points2 = [
-        { keyword: '华强北地铁站', city: '深圳' },
-        { keyword: '深大地铁站', city: '深圳' },
-        { keyword: '羊台山森林公园', city: '深圳' }
-    ]
-    const avoidPolygon1: Array<[number, number]> = [
-        [114.582615, 23.277503],
-        [114.774876, 23.080563],
-        [114.483738, 22.926344],
-        [114.316196, 23.128562]
-    ]
-    const avoidPolygon2: Array<[number, number]> = [
-        [113.912449, 23.103302],
-        [114.1926, 23.093196],
-        [114.217319, 22.84031],
-        [113.926182, 22.832716]
-    ]
-    const avoidPolygon3: Array<[number, number]> = [
-        [114.016132, 22.770683],
-        [114.103336, 22.766251],
-        [114.108143, 22.707356],
-        [114.004459, 22.694687]
-    ]
-    new AMap.Polygon({ map, path: avoidPolygon1, fillColor: 'red' });
-    new AMap.Polygon({ map, path: avoidPolygon2, fillColor: 'yellow' });
-    new AMap.Polygon({ map, path: avoidPolygon3, fillColor: 'purple' });
     const truckDriving = new AMap.TruckDriving({
         policy: 1,
         size: 2,

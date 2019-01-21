@@ -79,7 +79,7 @@
 - [ ] [路径规划](https://lbs.amap.com/api/javascript-api/reference/route-search)
     - [x] Driving
     - [x] TruckDriving
-    - [ ] Transfer
+    - [x] Transfer
     - [ ] Walking
     - [ ] Riding
     - [ ] DragRoute
