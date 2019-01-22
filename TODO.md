@@ -84,8 +84,8 @@
     - [x] Riding
     - [x] DragRoute
     - [x] ArrivalRang
-- [ ] [轨迹纠偏](https://lbs.amap.com/api/javascript-api/reference/grasproad)
-    - [ ] GraspRoad
+- [x] [轨迹纠偏](https://lbs.amap.com/api/javascript-api/reference/grasproad)
+    - [x] GraspRoad
 - [ ] [室内地图](https://lbs.amap.com/api/javascript-api/reference/indoormap)
     - [ ] IndoorMap
 - [ ] [地图控件](https://lbs.amap.com/api/javascript-api/reference/map-control)
