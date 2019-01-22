@@ -76,14 +76,14 @@
     - [x] DistrictSearch
     - [x] LineSearch
     - [x] StationSearch
-- [ ] [路径规划](https://lbs.amap.com/api/javascript-api/reference/route-search)
+- [x] [路径规划](https://lbs.amap.com/api/javascript-api/reference/route-search)
     - [x] Driving
     - [x] TruckDriving
     - [x] Transfer
     - [x] Walking
     - [x] Riding
     - [x] DragRoute
-    - [ ] ArrivalRang
+    - [x] ArrivalRang
 - [ ] [轨迹纠偏](https://lbs.amap.com/api/javascript-api/reference/grasproad)
     - [ ] GraspRoad
 - [ ] [室内地图](https://lbs.amap.com/api/javascript-api/reference/indoormap)
