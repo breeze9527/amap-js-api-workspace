@@ -47,6 +47,7 @@
 /// <reference path="overlay/rectangle.d.ts" />
 /// <reference path="overlay/shapeOverlay.d.ts" />
 /// <reference path="overlay/text.d.ts" />
+/// <reference path="route/dragRoute.d.ts" />
 /// <reference path="route/driving.d.ts" />
 /// <reference path="route/riding.d.ts" />
 /// <reference path="route/transfer.d.ts" />

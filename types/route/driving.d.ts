@@ -3,7 +3,13 @@ declare namespace AMap {
         LEAST_TIME = 0,
         LEAST_FEE = 1,
         LEAST_DISTANCE = 2,
-        REAL_TRAFFIC = 4
+        REAL_TRAFFIC = 4,
+        // form DragRoute
+        MULTI_POLICIES = 5,
+        HIGHWAY = 6,
+        FEE_HIGHWAY = 7,
+        FEE_TRAFFIC = 8,
+        TRAFFIC_HIGHWAY = 9
     }
     namespace Driving {
         interface EventMap {

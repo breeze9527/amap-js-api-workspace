@@ -82,7 +82,7 @@
     - [x] Transfer
     - [x] Walking
     - [x] Riding
-    - [ ] DragRoute
+    - [x] DragRoute
     - [ ] ArrivalRang
 - [ ] [轨迹纠偏](https://lbs.amap.com/api/javascript-api/reference/grasproad)
     - [ ] GraspRoad
