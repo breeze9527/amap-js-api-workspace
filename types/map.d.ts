@@ -18,7 +18,6 @@ declare namespace AMap {
             rotateEnable?: boolean;
             resizeEnable?: boolean;
             showIndoorMap?: boolean;
-            // indoorMap?: IndoorMap; // TODO;
             expandZoomRange?: boolean;
             dragEnable?: boolean;
             zoomEnable?: boolean;
