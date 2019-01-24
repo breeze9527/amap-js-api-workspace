@@ -86,8 +86,8 @@
     - [x] ArrivalRang
 - [x] [轨迹纠偏](https://lbs.amap.com/api/javascript-api/reference/grasproad)
     - [x] GraspRoad
-- [ ] [室内地图](https://lbs.amap.com/api/javascript-api/reference/indoormap)
-    - [ ] IndoorMap
+- [x] [室内地图](https://lbs.amap.com/api/javascript-api/reference/indoormap)
+    - [x] IndoorMap
 - [ ] [地图控件](https://lbs.amap.com/api/javascript-api/reference/map-control)
     - [ ] ControlBar
     - [ ] MapType

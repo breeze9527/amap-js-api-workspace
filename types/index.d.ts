@@ -7,6 +7,7 @@
 /// <reference path="geoConvert.d.ts" />
 /// <reference path="geometry3D.d.ts" />
 /// <reference path="graspRoad.d.ts" />
+/// <reference path="indoorMap.d.ts" />
 /// <reference path="lngLat.d.ts" />
 /// <reference path="map.d.ts" />
 /// <reference path="object3D.d.ts" />
