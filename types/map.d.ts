@@ -167,8 +167,8 @@ declare namespace AMap {
         clearMap(): void;
         destroy(): void;
         plugin(name: string | string[], callback: () => void): this;
-        // addControl(obj: Control): void; // TODO
-        // removeControl(obj: Control): void; // TODO
+        addControl(control: {}): void; // TODO
+        removeControl(control: {}): void; // TODO
         clearInfoWindow(): void;
         pixelToLngLat(pixel: Pixel, level?: number): LngLat;
         lnglatToPixel(lnglat: LocationValue, level?: number): Pixel;

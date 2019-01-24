@@ -88,12 +88,12 @@
     - [x] GraspRoad
 - [x] [室内地图](https://lbs.amap.com/api/javascript-api/reference/indoormap)
     - [x] IndoorMap
-- [ ] [地图控件](https://lbs.amap.com/api/javascript-api/reference/map-control)
-    - [ ] ControlBar
-    - [ ] MapType
-    - [ ] OverView
-    - [ ] Scale
-    - [ ] ToolBar
+- [x] [地图控件](https://lbs.amap.com/api/javascript-api/reference/map-control)
+    - [x] ControlBar
+    - [x] MapType
+    - [x] OverView
+    - [x] Scale
+    - [x] ToolBar
 - [ ] [定位](https://lbs.amap.com/api/javascript-api/reference/location)
     - [ ] Geolocation
     - [ ] CitySearch
