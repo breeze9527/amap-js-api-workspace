@@ -23,9 +23,9 @@ testPluginWrapper('AMap.Geocoder', () => {
         test('Geocoder@complete$event', event);
     }));
 
-    test('Geocoder#getLocation(name)', geocoder.getLocation('华强北', (status, data) => {
-        test('Geocoder#getLocation(华强北)$status', status);
-        test('Geocoder#getLocation(华强北)$data', data);
+    test('Geocoder#getLocation(name)', geocoder.getLocation('深圳湾科技生态园', (status, data) => {
+        test('Geocoder#getLocation(深圳湾科技生态园)$status', status);
+        test('Geocoder#getLocation(深圳湾科技生态园)$data', data);
     }));
     test('Geocoder#getLocation(name[])', geocoder.getLocation(['华强北', '华强北'], (status, data) => {
         test('Geocoder#getLocation(华强北[])$status', status);

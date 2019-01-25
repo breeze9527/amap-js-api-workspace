@@ -94,10 +94,9 @@
     - [x] OverView
     - [x] Scale
     - [x] ToolBar
-- [ ] [定位](https://lbs.amap.com/api/javascript-api/reference/location)
-    - [ ] Geolocation
-    - [ ] CitySearch
-    - [ ] events
+- [x] [定位](https://lbs.amap.com/api/javascript-api/reference/location)
+    - [x] Geolocation
+    - [x] CitySearch
 - [ ] [数学计算库](https://lbs.amap.com/api/javascript-api/reference/math)
     - [ ] GeometryUtil
 - [ ] [基础库](https://lbs.amap.com/api/javascript-api/reference/util)

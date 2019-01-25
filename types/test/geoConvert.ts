@@ -83,87 +83,104 @@ geocoder.getAddress(lnglat, (status, result) => {
 
         // $ExpectType ReGeocode
         const regeocode = result.regeocode;
+        // $ExpectType ReGeocodeAddressComponent
         const addressComponent = regeocode.addressComponent;
-        // $ExpectType string
-        addressComponent.adcode;
-        // $ExpectType string
-        addressComponent.building;
-        // $ExpectType string
-        addressComponent.buildingType;
-
-        const businessArea = addressComponent.businessAreas[0];
-        // $ExpectType string
-        businessArea.id;
-        // $ExpectType LngLat
-        businessArea.location;
-        // $ExpectType string
-        businessArea.name;
-        // $ExpectType string
-        addressComponent.city;
-        // $ExpectType string
-        addressComponent.citycode;
-        // $ExpectType string
-        addressComponent.district;
-        // $ExpectType string
-        addressComponent.neighborhood;
-        // $ExpectType string
-        addressComponent.neighborhoodType;
-        // $ExpectType string
-        addressComponent.province;
-        // $ExpectType string
-        addressComponent.street;
-        // $ExpectType string
-        addressComponent.streetNumber;
-
-        const cross = regeocode.crosses[0];
-        // $ExpectType string
-        cross.direction;
-        // $ExpectType number
-        cross.distance;
-        // $ExpectType string
-        cross.first_id;
-        // $ExpectType string
-        cross.first_name;
-        // $ExpectType LngLat
-        cross.location;
-        // $ExpectType string
-        cross.second_id;
-        // $ExpectType string
-        cross.second_name;
+        {
+            // $ExpectType string
+            addressComponent.adcode;
+            // $ExpectType string
+            addressComponent.building;
+            // $ExpectType string
+            addressComponent.buildingType;
+            // $ExpectType BuildingArea[]
+            addressComponent.businessAreas;
+            {
+                const businessArea = addressComponent.businessAreas[0];
+                // $ExpectType string
+                businessArea.id;
+                // $ExpectType LngLat
+                businessArea.location;
+                // $ExpectType string
+                businessArea.name;
+            }
+            // $ExpectType string
+            addressComponent.city;
+            // $ExpectType string
+            addressComponent.citycode;
+            // $ExpectType string
+            addressComponent.district;
+            // $ExpectType string
+            addressComponent.neighborhood;
+            // $ExpectType string
+            addressComponent.neighborhoodType;
+            // $ExpectType string
+            addressComponent.province;
+            // $ExpectType string
+            addressComponent.street;
+            // $ExpectType string
+            addressComponent.streetNumber;
+            // $ExpectType string
+            addressComponent.township;
+        }
+        // $ExpectType Cross[]
+        regeocode.crosses;
+        {
+            const cross = regeocode.crosses[0];
+            // $ExpectType string
+            cross.direction;
+            // $ExpectType number
+            cross.distance;
+            // $ExpectType string
+            cross.first_id;
+            // $ExpectType string
+            cross.first_name;
+            // $ExpectType LngLat
+            cross.location;
+            // $ExpectType string
+            cross.second_id;
+            // $ExpectType string
+            cross.second_name;
+        }
         // $ExpectType string
         regeocode.formattedAddress;
-
-        const poi = regeocode.pois[0];
-        // $ExpectType string
-        poi.address;
-        // $ExpectType string
-        poi.businessArea;
-        // $ExpectType string
-        poi.direction;
-        // $ExpectType number
-        poi.distance;
-        // $ExpectType string
-        poi.id;
-        // $ExpectType LngLat
-        poi.location;
-        // $ExpectType string
-        poi.name;
-        // $ExpectType string
-        poi.tel;
-        // $ExpectType string
-        poi.type;
-
-        const road = regeocode.roads[0];
-        // $ExpectType string
-        road.direction;
-        // $ExpectType number
-        road.distance;
-        // $ExpectType string
-        road.id;
-        // $ExpectType LngLat
-        road.location;
-        // $ExpectType string
-        road.name;
+        // $ExpectType ReGeocodePoi[]
+        regeocode.pois;
+        {
+            const poi = regeocode.pois[0];
+            // $ExpectType string
+            poi.address;
+            // $ExpectType string
+            poi.businessArea;
+            // $ExpectType string
+            poi.direction;
+            // $ExpectType number
+            poi.distance;
+            // $ExpectType string
+            poi.id;
+            // $ExpectType LngLat
+            poi.location;
+            // $ExpectType string
+            poi.name;
+            // $ExpectType string
+            poi.tel;
+            // $ExpectType string
+            poi.type;
+        }
+        // $ExpectType Road[]
+        regeocode.roads;
+        {
+            const road = regeocode.roads[0];
+            // $ExpectType string
+            road.direction;
+            // $ExpectType number
+            road.distance;
+            // $ExpectType string
+            road.id;
+            // $ExpectType LngLat
+            road.location;
+            // $ExpectType string
+            road.name;
+        }
     } else {
         // $ExpectType string
         result;

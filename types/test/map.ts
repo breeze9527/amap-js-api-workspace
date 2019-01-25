@@ -253,8 +253,7 @@ map.setFeatures('all');
 // $ExpectType void
 map.setFeatures(['bg']);
 
-// $ExpectType "all" | "bg" | "point" | "road" | "building" | Feature[]
-map.getFeatures();
+const feature: 'all' | 'bg' | 'point' | 'road' | 'building' | AMap.Map.Feature[] = map.getFeatures();
 
 // $ExpectType void
 map.setDefaultLayer(tileLayer);

@@ -2,6 +2,7 @@
 
 /// <reference path="arrayBounds.d.ts" />
 /// <reference path="bounds.d.ts" />
+/// <reference path="citySearch.d.ts" />
 /// <reference path="common.d.ts" />
 /// <reference path="event.d.ts" />
 /// <reference path="geoConvert.d.ts" />
@@ -16,6 +17,7 @@
 /// <reference path="vector3.d.ts" />
 /// <reference path="view2D.d.ts" />
 /// <reference path="control/controlBar.d.ts" />
+/// <reference path="control/geolocation.d.ts" />
 /// <reference path="control/mapType.d.ts" />
 /// <reference path="control/overView.d.ts" />
 /// <reference path="control/scale.d.ts" />
