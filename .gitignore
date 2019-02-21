@@ -1,3 +1,5 @@
-dist
+pg-dist
+type-dist
 node_modules
 types/index.d.ts
+*.log

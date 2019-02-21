@@ -38,15 +38,17 @@
     - [x] MassMarks
     - [x] Heatmap
     - [x] LayerGroup
+    - [ ] VectorLayer
 - [x] [自建图层](https://lbs.amap.com/api/javascript-api/reference/self-own-layers)
     - [x] TileLayer.Flexible
     - [x] ImageLayer
     - [x] CanvasLayer
     - [x] VideoLayer
-    - [x] CustomLayer
+    - [ ] CustomLayer
 - [x] [WMS/WMTS](https://lbs.amap.com/api/javascript-api/reference/wms)
     - [x] TileLayer.WMS
     - [x] TileLayer.WMTS
+    - [ ] TileLayer.google
 - [x] [覆盖物](https://lbs.amap.com/api/javascript-api/reference/overlay)
     - [x] Marker
     - [x] MarkerShape

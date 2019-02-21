@@ -5,10 +5,16 @@
             "dom"
         ],
         "strict": true,
-        "outDir": "./dist",
-        "noEmitOnError": true
+        "outDir": "./pg-dist",
+        "noEmitOnError": true,
+        "typeRoots": [
+            "./node_modules/@types",
+            "./types"
+        ]
     },
     "exclude": [
-        "./types/test/**/*.ts"
+        "./types/**/*.ts",
+        "./types/**/*.d.ts",
+        "./type-template"
     ]
 }

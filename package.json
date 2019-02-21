@@ -5,15 +5,20 @@
   "license": "MIT",
   "dependencies": {
     "@types/node": "^10.12.11",
-    "dtslint": "^0.3.0",
-    "typescript": "^3.2.1"
+    "dotenv": "^6.2.0",
+    "dtslint": "^0.4.8",
+    "fs-extra": "^7.0.1",
+    "typescript": "^3.3.3"
   },
   "types": "types",
   "scripts": {
-    "clean": "rm -rf ./dist ./types/index.d.ts",
+    "clean:pg": "rm -rf ./pg-dist",
+    "clean:type": "rm -rf ./type-dist",
+    "clean": "yarn clean:pg; yarn clean:type",
     "build:pg": "tsc --project ./tsconfig.json",
-    "pg": "yarn build:index & yarn build:pg & node script/build-playground",
-    "build:index": "node script/generate-index",
-    "lint": "dtslint types"
+    "pg": "yarn build:pg && node script/build-playground",
+    "update-index": "node script/update-index",
+    "lint": "dtslint",
+    "create-type": "node script/create-type"
   }
 }

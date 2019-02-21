@@ -1,9 +1,11 @@
+require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const CWD = process.cwd();
+const env = process.env;
 
-const SRC_DIR = path.join(CWD, './playground');
-const DIST_DIR = path.join(CWD, './dist');
+const SRC_DIR = path.join(CWD, env.PG_SRC_DIR);
+const DIST_DIR = path.join(CWD, env.PG_DIST_DIR);
 const VIEW_TEMPLATE = fs.readFileSync(path.join(SRC_DIR, './template.html'), { encoding: 'utf8' });
 const INDEX_TEMPLATE = fs.readFileSync(path.join(SRC_DIR, './index.html'), { encoding: 'utf8' });
 

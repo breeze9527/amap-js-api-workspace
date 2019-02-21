@@ -1,8 +1,7 @@
-interface ExtraData {
-    test: number;
-}
-declare const testEle: AMap.ElasticMarker<ExtraData>;
 testPluginWrapper('ElasticMarker', () => {
+    interface ExtraData {
+        test: number;
+    }
     const map = new AMap.Map('map', {
         zooms: [14, 20]
     });

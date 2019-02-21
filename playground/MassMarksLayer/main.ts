@@ -1,11 +1,10 @@
-interface City {
-    lnglat: [number, number];
-    name: string;
-    style: number;
-}
-declare const citys: City[];
-
 testWrapper(() => {
+    interface City {
+        lnglat: [number, number];
+        name: string;
+        style: number;
+    }
+    const citys: City[] = [];
     const style: AMap.MassMarks.Style[] = [
         {
             url: 'https://a.amap.com/jsapi_demos/static/images/mass0.png',
