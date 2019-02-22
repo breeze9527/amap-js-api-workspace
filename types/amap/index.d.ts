@@ -4,6 +4,7 @@
 /// <reference path="bounds.d.ts" />
 /// <reference path="common.d.ts" />
 /// <reference path="convert-from.d.ts" />
+/// <reference path="dom-util.d.ts" />
 /// <reference path="event.d.ts" />
 /// <reference path="geometry-util.d.ts" />
 /// <reference path="lngLat.d.ts" />

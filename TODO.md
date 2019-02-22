@@ -102,7 +102,7 @@
 - [x] [数学计算库](https://lbs.amap.com/api/javascript-api/reference/math)
     - [x] GeometryUtil
 - [ ] [基础库](https://lbs.amap.com/api/javascript-api/reference/util)
-    - [ ] DomUtil
+    - [x] DomUtil
     - [ ] Util
     - [ ] BrowserUtil
 - [ ] [工具类](https://lbs.amap.com/api/javascript-api/reference/plugin)
