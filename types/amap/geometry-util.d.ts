@@ -113,5 +113,10 @@ declare namespace AMap {
         ): boolean;
 
         function distanceToPolygon(point: LocationValue, polygon: LocationValue[]): number;
+
+        function triangulateShape(
+            shape1: LngLat[] | Pixel[] | [number, number];
+            shape2: LngLat[] | Pixel[] | [number, number];
+        ): number[];
     }
 }
