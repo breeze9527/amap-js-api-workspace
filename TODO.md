@@ -1,12 +1,5 @@
 # AMap type definitions
 
-<!--
-    definition
-    definition test
-
-    Polyline@mousemove
--->
-
 - [x] [基础类](https://lbs.amap.com/api/javascript-api/reference/core)
     - [x] Pixel
     - [x] Size
@@ -121,3 +114,16 @@
 - [ ] [其他服务](https://lbs.amap.com/api/javascript-api/reference/search_plugin)
     - [ ] RoadInfoSearch
     - [ ] Weather
+
+# 内部类型补充
+- [ ] AMap.plugin
+- [ ] AMap.v
+- [ ] AMap.PixelBounds
+- [ ] AMap.enableVector
+- [ ] AMap.Panorama
+- [ ] AMap.PanoramaMarker
+- [ ] AMap.PlaneGeometryUtil
+- [ ] AMap.User
+- [ ] AMap.BuryPoint
+- [ ] AMap.Http
+- [ ] AMap.service
