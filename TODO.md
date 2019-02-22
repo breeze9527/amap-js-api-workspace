@@ -103,7 +103,7 @@
     - [x] GeometryUtil
 - [ ] [基础库](https://lbs.amap.com/api/javascript-api/reference/util)
     - [x] DomUtil
-    - [ ] Util
+    - [x] Util
     - [ ] BrowserUtil
 - [ ] [工具类](https://lbs.amap.com/api/javascript-api/reference/plugin)
     - [ ] MouseTool

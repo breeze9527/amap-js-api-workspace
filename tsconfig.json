@@ -2,6 +2,7 @@
     "compilerOptions": {
         "lib": [
             "es6",
+            "es7",
             "dom"
         ],
         "strict": true,

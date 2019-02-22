@@ -11,6 +11,7 @@
 /// <reference path="map.d.ts" />
 /// <reference path="pixel.d.ts" />
 /// <reference path="size.d.ts" />
+/// <reference path="type-util.d.ts" />
 /// <reference path="util.d.ts" />
 /// <reference path="view2D.d.ts" />
 /// <reference path="layer/building.d.ts" />
