@@ -101,10 +101,10 @@
     - [x] CitySearch
 - [x] [数学计算库](https://lbs.amap.com/api/javascript-api/reference/math)
     - [x] GeometryUtil
-- [ ] [基础库](https://lbs.amap.com/api/javascript-api/reference/util)
+- [x] [基础库](https://lbs.amap.com/api/javascript-api/reference/util)
     - [x] DomUtil
     - [x] Util
-    - [ ] BrowserUtil
+    - [x] BrowserUtil
 - [ ] [工具类](https://lbs.amap.com/api/javascript-api/reference/plugin)
     - [ ] MouseTool
     - [ ] CircleEditor

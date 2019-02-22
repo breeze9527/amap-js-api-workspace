@@ -2,6 +2,7 @@
 
 /// <reference path="array-bounds.d.ts" />
 /// <reference path="bounds.d.ts" />
+/// <reference path="browser.d.ts" />
 /// <reference path="common.d.ts" />
 /// <reference path="convert-from.d.ts" />
 /// <reference path="dom-util.d.ts" />
