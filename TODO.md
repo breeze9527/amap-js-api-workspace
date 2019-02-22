@@ -99,8 +99,8 @@
 - [x] [定位](https://lbs.amap.com/api/javascript-api/reference/location)
     - [x] Geolocation
     - [x] CitySearch
-- [ ] [数学计算库](https://lbs.amap.com/api/javascript-api/reference/math)
-    - [ ] GeometryUtil
+- [x] [数学计算库](https://lbs.amap.com/api/javascript-api/reference/math)
+    - [x] GeometryUtil
 - [ ] [基础库](https://lbs.amap.com/api/javascript-api/reference/util)
     - [ ] DomUtil
     - [ ] Util

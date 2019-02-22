@@ -5,6 +5,7 @@
 /// <reference path="common.d.ts" />
 /// <reference path="convert-from.d.ts" />
 /// <reference path="event.d.ts" />
+/// <reference path="geometry-util.d.ts" />
 /// <reference path="lngLat.d.ts" />
 /// <reference path="map.d.ts" />
 /// <reference path="pixel.d.ts" />

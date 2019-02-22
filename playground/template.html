@@ -7,17 +7,20 @@
     <title>Test page %TITLE%</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        html,body{
+        html,
+        body {
             padding: 0;
             margin: 0;
         }
+
         #map {
             width: 800px;
             height: 600px;
             margin: 20px auto;
         }
     </style>
-    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.11&key=56818df3b7aa2992b250955987760108"></script>
+    <script type="text/javascript"
+        src="https://webapi.amap.com/maps?v=1.4.11&key=56818df3b7aa2992b250955987760108"></script>
 </head>
 
 <body>
@@ -68,6 +71,13 @@
                     testWrapper(test);
                 });
             });
+        }
+        function toTuple(lnglat) {
+            if (Array.isArray(lnglat)) {
+                return lnglat.map(toTuple);
+            } else {
+                return [lnglat.getLng(), lnglat.getLat()];
+            }
         }
     </script>
     <script type="text/javascript" src="./main.js"></script>
