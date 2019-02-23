@@ -1,12 +1,12 @@
 {
-  "name": "amap",
+  "name": "amap-js-api-workspace",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
     "@types/node": "^10.12.11",
     "dotenv": "^6.2.0",
-    "dtslint": "^0.4.8",
+    "dtslint": "latest",
     "fs-extra": "^7.0.1",
     "typescript": "^3.3.3"
   },
@@ -18,7 +18,8 @@
     "build:pg": "tsc --project ./tsconfig.json",
     "pg": "yarn build:pg && node script/build-playground",
     "update-index": "node script/update-index",
-    "lint": "dtslint",
-    "create-type": "node script/create-type"
+    "lint": "dtslint types",
+    "create-type": "node script/create-type",
+    "build:type": "node script/dist-type"
   }
 }

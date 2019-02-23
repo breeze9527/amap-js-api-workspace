@@ -207,9 +207,9 @@ dts-critic@^1.0.1:
     request-promise-native "^1.0.5"
     yargs "^12.0.5"
 
-dtslint@^0.4.8:
-  version "0.4.8"
-  resolved "http://registry.npm.taobao.org/dtslint/download/dtslint-0.4.8.tgz#b416926eec222adfea10369c7088cb4767627930"
+dtslint@latest:
+  version "0.5.0"
+  resolved "http://registry.npm.taobao.org/dtslint/download/dtslint-0.5.0.tgz#32d4aa111e0dd58f80ac6e75a28198474ca9e529"
   dependencies:
     definitelytyped-header-parser "^1.0.1"
     dts-critic "^1.0.1"
