@@ -11,6 +11,7 @@ const typesDir = path.join(cwd, env.TYPES_DIR);
 const coreTypeName = env.CORE_TYPE_NAME;
 const definitionName = env.TYPE_NAME;
 const REG_TYPE_REF = /^\s*\/\/\/<reference types="(\w+)"\s* \/>\s$/g;
+const REG_FILES_INCLUDE_EXT = /(\.d)?\.ts$/;
 
 const getHeaders = (version, authors, projectUrl) => {
     const versionStr = version.split('.').slice(0, 2).join('.');
@@ -55,7 +56,7 @@ async function updateTsConfig(basePath) {
         dirents.forEach(dirent => {
             const name = dirent.name;
             const typePath = subPath ? `${subPath}/${name}` : name;
-            if (dirent.isFile()) {
+            if (dirent.isFile() && REG_FILES_INCLUDE_EXT.test(name)) {
                 files.push(typePath);
             }
             if (dirent.isDirectory()) {
