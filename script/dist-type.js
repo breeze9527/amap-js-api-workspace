@@ -44,16 +44,32 @@ function getDistTypeName(typeName) {
     return typeName === coreTypeName ? definitionName : `${definitionName}-${typeName}`;
 }
 
-// async function updateTsConfig(tsconfigPath) {
-//     const tsconfigContent = await fse.readJSON(tsconfigPath);
-//     const compileOption = tsconfigContent.compilerOptions;
-//     delete compileOption.baseUrl;
-//     delete compileOption.typeRoots;
-//     delete compileOption.types;
-//     await fse.writeJson(tsconfigPath, tsconfigContent, {
-//         spaces: '    '
-//     });
-// }
+async function updateTsConfig(basePath) {
+    const tsconfigPath = path.join(basePath, 'tsconfig.json');
+    const tsconfigContent = await fse.readJSON(tsconfigPath);
+    const files = [];
+    const walk = async (subPath) => {
+        const targetPath = path.join(basePath, subPath);
+        const dirents = fs.readdirSync(targetPath, { withFileTypes: true });
+        const subDirs = [];
+        dirents.forEach(dirent => {
+            const name = dirent.name;
+            const typePath = subPath ? `${subPath}/${name}` : name;
+            if (dirent.isFile()) {
+                files.push(typePath);
+            }
+            if (dirent.isDirectory()) {
+                subDirs.push(typePath);
+            }
+        });
+        return Promise.all(subDirs.map(subDir => walk(subDir)));
+    }
+    await walk('');
+    tsconfigContent.files = files.sort();
+    await fse.writeJson(tsconfigPath, tsconfigContent, {
+        spaces: '    '
+    });
+}
 
 async function updateDefIndex(indexPath, meta) {
     const indexContent = await fsp.readFile(indexPath, 'utf8');
@@ -71,7 +87,7 @@ async function updateDefIndex(indexPath, meta) {
 async function updateTslintConfig(tslintConfigPath) {
     const tslintConfig = await fse.readJSON(tslintConfigPath);
     tslintConfig.extends = 'dtslint/dt.json';
-    await fse.writeJSON(tslintConfigPath, tslintConfig, {spaces: '    '});
+    await fse.writeJSON(tslintConfigPath, tslintConfig, { spaces: '    ' });
 }
 
 async function distType(typeName) {
@@ -93,7 +109,7 @@ async function distType(typeName) {
     await fsp.unlink(metaPath);
 
     await Promise.all([
-        // updateTsConfig(path.join(distPath, 'tsconfig.json')),
+        updateTsConfig(distPath),
         updateDefIndex(path.join(distPath, 'index.d.ts'), meta),
         updateTslintConfig(path.join(distPath, 'tslint.json'))
     ])
