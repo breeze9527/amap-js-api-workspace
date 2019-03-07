@@ -1,27 +1,24 @@
-import {
-    map
-} from '../preset';
-interface ExtraData {
+interface OverlayExtraData {
     test: number;
 }
-declare const overlay: AMap.Overlay<ExtraData>;
+declare const testOverlay: AMap.Overlay<OverlayExtraData>;
 
 // $ExpectType void
-overlay.show();
+testOverlay.show();
 
 // $ExpectType void
-overlay.hide();
+testOverlay.hide();
 
 // $ExpectType Map | null | undefined
-overlay.getMap();
+testOverlay.getMap();
 
 // $ExpectType void
-overlay.setMap(map);
+testOverlay.setMap(map);
 // $ExpectType void
-overlay.setMap(null);
+testOverlay.setMap(null);
 
 // $ExpectError
-overlay.setExtData({ any: 123 });
+testOverlay.setExtData({ any: 123 });
 
-// $ExpectError ExtraData
-overlay.getExtData();
+// $ExpectError OverlayExtraData
+testOverlay.getExtData();

@@ -1,25 +1,13 @@
-import {
-    lnglat,
-    bounds,
-    lnglatTuple,
-    pixel
-} from './preset';
-
-declare const container: HTMLDivElement;
-declare const tileLayer: AMap.TileLayer;
-
-// declare var indoorMap: AMap.IndoorMap
-
 // $ExpectType Map
 new AMap.Map('map');
 // $ExpectType Map
-new AMap.Map(container);
+new AMap.Map(div);
 
 // $ExpectType Map
-new AMap.Map(container, {});
+new AMap.Map(div, {});
 
 // $ExpectType Map
-const map = new AMap.Map(container, {
+const testMap = new AMap.Map(div, {
     layers: [tileLayer],
     zoom: 15,
     center: [1, 2],
@@ -52,18 +40,18 @@ const map = new AMap.Map(container, {
 });
 
 // $ExpectType number
-map.getZoom();
+testMap.getZoom();
 
 // $ExpectType Layer[]
-map.getLayers();
+testMap.getLayers();
 
 // $ExpectType LngLat
-map.getCenter();
+testMap.getCenter();
 
 // $ExpectType HTMLElement | null
-map.getContainer();
+testMap.getContainer();
 
-map.getCity(city => {
+testMap.getCity(city => {
     // $ExpectType string
     city.city;
     // $ExpectType string
@@ -75,22 +63,22 @@ map.getCity(city => {
 });
 
 // $ExpectType Bounds
-map.getBounds();
+testMap.getBounds();
 
 // $ExpectType number
-map.getLabelzIndex();
+testMap.getLabelzIndex();
 
 // $ExpectType Lang
-map.getLang();
+testMap.getLang();
 
 // $ExpectType Size
-map.getSize();
+testMap.getSize();
 
 // $ExpectType number
-map.getRotation();
+testMap.getRotation();
 
 // $ExpectType Status
-const mapStatus = map.getStatus();
+const mapStatus = testMap.getStatus();
 // $ExpectType boolean
 mapStatus.animateEnable;
 // $ExpectType boolean
@@ -117,37 +105,37 @@ mapStatus.touchZoom;
 mapStatus.zoomEnable;
 
 // $ExpectType string
-map.getDefaultCursor();
+testMap.getDefaultCursor();
 
 // $ExpectType number
-map.getResolution();
+testMap.getResolution();
 
 // $ExpectType number
-map.getScale();
+testMap.getScale();
 // $ExpectType number
-map.getScale(1);
+testMap.getScale(1);
 
 // $ExpectType void
-map.setZoom(1);
+testMap.setZoom(1);
 
 // $ExpectType void
-map.setLabelzIndex(1);
+testMap.setLabelzIndex(1);
 
 // $ExpectType void
-map.setLayers([tileLayer]);
+testMap.setLayers([tileLayer]);
 
 // $ExpectType void
-map.setCenter(lnglat);
+testMap.setCenter(lnglat);
 // $ExpectType void
-map.setCenter([1, 2]);
+testMap.setCenter([1, 2]);
 
 // $ExpectType void
-map.setZoomAndCenter(13, lnglat);
+testMap.setZoomAndCenter(13, lnglat);
 // $ExpectType void
-map.setZoomAndCenter(13, [1, 2]);
+testMap.setZoomAndCenter(13, [1, 2]);
 
 // $ExpectType void
-map.setCity('city', (coord, zoom) => {
+testMap.setCity('city', (coord, zoom) => {
     // $ExpectType string
     coord[0];
     // $ExpectType string
@@ -157,24 +145,24 @@ map.setCity('city', (coord, zoom) => {
 });
 
 // $ExpectType Bounds
-map.setBounds(bounds);
+testMap.setBounds(bounds);
 
 // $ExpectType void
-map.setLimitBounds(bounds);
+testMap.setLimitBounds(bounds);
 
 // $ExpectType void
-map.clearLimitBounds();
+testMap.clearLimitBounds();
 
 // $ExpectType void
-map.setLang('zh_cn');
+testMap.setLang('zh_cn');
 
 // $ExpectType void
-map.setRotation(1);
+testMap.setRotation(1);
 
 // $ExpectType void
-map.setStatus({});
+testMap.setStatus({});
 // $ExpectType void
-map.setStatus({
+testMap.setStatus({
     animateEnable: true,
     doubleClickZoom: true,
     dragEnable: true,
@@ -190,89 +178,89 @@ map.setStatus({
 });
 
 // $ExpectType void
-map.setDefaultCursor('default');
+testMap.setDefaultCursor('default');
 
 // $ExpectType void
-map.zoomIn();
+testMap.zoomIn();
 
 // $ExpectType void
-map.zoomOut();
+testMap.zoomOut();
 
 // $ExpectType void
-map.panTo([1, 2]);
+testMap.panTo([1, 2]);
 // $ExpectType void
-map.panTo(lnglat);
+testMap.panTo(lnglat);
 
 // $ExpectType void
-map.panBy(1, 2);
+testMap.panBy(1, 2);
 
 // $ExpectType void
-map.clearMap();
+testMap.clearMap();
 
 // $ExpectType Map
-map.plugin('plugin name', () => { });
+testMap.plugin('plugin name', () => { });
 // $ExpectType Map
-map.plugin(['plugin name'], () => { });
+testMap.plugin(['plugin name'], () => { });
 
 // $ExpectType void
-map.clearInfoWindow();
+testMap.clearInfoWindow();
 
 // $ExpectType LngLat
-map.pixelToLngLat(pixel);
+testMap.pixelToLngLat(pixel);
 // $ExpectType LngLat
-map.pixelToLngLat(pixel, 1);
+testMap.pixelToLngLat(pixel, 1);
 
 // $ExpectType Pixel
-map.lnglatToPixel(lnglat);
+testMap.lnglatToPixel(lnglat);
 // $ExpectType Pixel
-map.lnglatToPixel(lnglat, 1);
+testMap.lnglatToPixel(lnglat, 1);
 
 // $ExpectType LngLat
-map.containerToLngLat(pixel);
+testMap.containerToLngLat(pixel);
 
 // $ExpectType Pixel
-map.lngLatToContainer(lnglat);
+testMap.lngLatToContainer(lnglat);
 // $ExpectType Pixel
-map.lnglatTocontainer(lnglat);
+testMap.lnglatTocontainer(lnglat);
 
 // $ExpectType void
-map.setMapStyle('');
+testMap.setMapStyle('');
 // $ExpectType string
-map.getMapStyle();
+testMap.getMapStyle();
 
 // $ExpectType void
-map.setFeatures('all');
+testMap.setFeatures('all');
 // $ExpectType void
-map.setFeatures(['bg']);
+testMap.setFeatures(['bg']);
 
-const feature: 'all' | 'bg' | 'point' | 'road' | 'building' | AMap.Map.Feature[] = map.getFeatures();
-
-// $ExpectType void
-map.setDefaultLayer(tileLayer);
+const feature: 'all' | 'bg' | 'point' | 'road' | 'building' | AMap.Map.Feature[] = testMap.getFeatures();
 
 // $ExpectType void
-map.setPitch(1);
+testMap.setDefaultLayer(tileLayer);
+
+// $ExpectType void
+testMap.setPitch(1);
 // $ExpectType number
-map.getPitch();
+testMap.getPitch();
 
 // $ExpectType ViewMode
-map.getViewMode_();
+testMap.getViewMode_();
 
 // $ExpectType Pixel
-map.lngLatToGeodeticCoord(lnglat);
+testMap.lngLatToGeodeticCoord(lnglat);
 // $ExpectType Pixel
-map.lngLatToGeodeticCoord(lnglatTuple);
+testMap.lngLatToGeodeticCoord(lnglatTuple);
 
 // $ExpectType LngLat
-map.geodeticCoordToLngLat(pixel);
+testMap.geodeticCoordToLngLat(pixel);
 
 // $ExpectType void
-map.destroy();
+testMap.destroy();
 
 declare function dblClickHandler(this: AMap.Map, event: AMap.Map.EventMap['dblclick']): void;
 
 // $ExpectType Map
-map.on('click', (event: AMap.Map.EventMap['click']) => {
+testMap.on('click', (event: AMap.Map.EventMap['click']) => {
     // $ExpectType "click"
     event.type;
     // $ExpectType Pixel
@@ -283,16 +271,16 @@ map.on('click', (event: AMap.Map.EventMap['click']) => {
     event.target;
 });
 // $ExpectType Map
-map.on('dblclick', dblClickHandler);
+testMap.on('dblclick', dblClickHandler);
 // $ExpectType Map
-map.on('complete', (event: AMap.Map.EventMap['complete']) => {
+testMap.on('complete', (event: AMap.Map.EventMap['complete']) => {
     // $ExpectType "complete"
     event.type;
     // $ExpectError
     event.value;
 });
 // $ExpectType Map
-map.on('hotspotclick', (event: AMap.Map.EventMap['hotspotclick']) => {
+testMap.on('hotspotclick', (event: AMap.Map.EventMap['hotspotclick']) => {
     // $ExpectType string
     event.id;
     // $ExpectType LngLat
@@ -303,7 +291,7 @@ map.on('hotspotclick', (event: AMap.Map.EventMap['hotspotclick']) => {
     event.type;
 });
 // $ExpectType Map
-map.on('custom', (event: AMap.Event<'custom', { test: string }>) => {
+testMap.on('custom', (event: AMap.Event<'custom', { test: string }>) => {
     // $ExpectType "custom"
     event.type;
     // $ExpectType string
@@ -311,28 +299,28 @@ map.on('custom', (event: AMap.Event<'custom', { test: string }>) => {
 });
 
 // $ExpectType Map
-map.off('dblclick', dblClickHandler);
+testMap.off('dblclick', dblClickHandler);
 // $ExpectType Map
-map.off('click', 'mv');
+testMap.off('click', 'mv');
 
 // $ExpectType Map
-map.emit('click', {
-    target: map,
+testMap.emit('click', {
+    target: testMap,
     lnglat,
     pixel
 });
 
-map.emit('complete');
+testMap.emit('complete');
 // $ExpectType Map
-map.emit('hotspotclick', {
+testMap.emit('hotspotclick', {
     lnglat,
     name: '123',
     id: '123',
     isIndoorPOI: true
 });
 // $ExpectType Map
-map.emit('custom', {
+testMap.emit('custom', {
     test: 1
 });
 // $ExpectType Map
-map.emit('custom', undefined);
+testMap.emit('custom', undefined);

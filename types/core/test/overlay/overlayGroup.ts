@@ -1,55 +1,45 @@
-import {
-    map,
-    lnglat,
-    pixel,
-    circle,
-    marker,
-    markerShape,
-    icon
-} from '../preset';
-
 // $ExpectType OverlayGroup<Overlay<any>, any>
-const overlayGroup2 = new AMap.OverlayGroup();
+const testOverlayGroup2 = new AMap.OverlayGroup();
 // $ExpectType OverlayGroup<Marker<any>, any>
-new AMap.OverlayGroup<AMap.Marker, any>(marker);
+new AMap.OverlayGroup<AMap.Marker, any>(testMarker);
 // $ExpectType OverlayGroup<Marker<any>, any>
-const overlayGroup = new AMap.OverlayGroup<AMap.Marker>([marker]);
+const testOverlayGroup = new AMap.OverlayGroup<AMap.Marker>([testMarker]);
 
 // $ExpectType OverlayGroup<Marker<any>, any>
-overlayGroup.addOverlay(marker);
+testOverlayGroup.addOverlay(testMarker);
 // $ExpectType OverlayGroup<Marker<any>, any>
-overlayGroup.addOverlay([marker]);
+testOverlayGroup.addOverlay([testMarker]);
 // $ExpectError
-overlayGroup.addOverlay([circle]);
+testOverlayGroup.addOverlay([testCircle]);
 
 // $ExpectType OverlayGroup<Marker<any>, any>
-overlayGroup.addOverlays(marker);
+testOverlayGroup.addOverlays(testMarker);
 // $ExpectType OverlayGroup<Marker<any>, any>
-overlayGroup.addOverlays([marker]);
+testOverlayGroup.addOverlays([testMarker]);
 
 // $ExpectType Marker<any>[]
-overlayGroup.getOverlays();
+testOverlayGroup.getOverlays();
 
 // $ExpectType boolean
-overlayGroup.hasOverlay(marker);
+testOverlayGroup.hasOverlay(testMarker);
 // $ExpectType boolean
-overlayGroup.hasOverlay(o => o === marker);
+testOverlayGroup.hasOverlay(o => o === testMarker);
 
 // $ExpectType OverlayGroup<Marker<any>, any>
-overlayGroup.removeOverlay(marker);
+testOverlayGroup.removeOverlay(testMarker);
 // $ExpectType OverlayGroup<Marker<any>, any>
-overlayGroup.removeOverlay([marker]);
+testOverlayGroup.removeOverlay([testMarker]);
 
 // $ExpectType OverlayGroup<Marker<any>, any>
-overlayGroup.removeOverlays(marker);
+testOverlayGroup.removeOverlays(testMarker);
 // $ExpectType OverlayGroup<Marker<any>, any>
-overlayGroup.removeOverlays([marker]);
+testOverlayGroup.removeOverlays([testMarker]);
 
 // $ExpectType OverlayGroup<Marker<any>, any>
-overlayGroup.clearOverlays();
+testOverlayGroup.clearOverlays();
 
 // $ExpectType OverlayGroup<Marker<any>, any>
-overlayGroup.eachOverlay(function(overlay, index, overlays) {
+testOverlayGroup.eachOverlay(function(overlay, index, overlays) {
     // $ExpectType Marker<any>
     overlay;
     // $ExpectType number
@@ -61,16 +51,16 @@ overlayGroup.eachOverlay(function(overlay, index, overlays) {
 });
 
 // $ExpectType OverlayGroup<Marker<any>, any>
-overlayGroup.setMap(null);
+testOverlayGroup.setMap(null);
 // $ExpectType OverlayGroup<Marker<any>, any>
-overlayGroup.setMap(map);
+testOverlayGroup.setMap(map);
 
 // $ExpectType OverlayGroup<Overlay<any>, any>
-overlayGroup2.setOptions({
+testOverlayGroup2.setOptions({
     test: 1
 });
 // $ExpectType OverlayGroup<Marker<any>, any>
-overlayGroup.setOptions({
+testOverlayGroup.setOptions({
     map,
     position: lnglat,
     offset: pixel,
@@ -94,13 +84,12 @@ overlayGroup.setOptions({
 });
 
 // $ExpectType OverlayGroup<Marker<any>, any>
-overlayGroup.show();
+testOverlayGroup.show();
 
 // $ExpectType OverlayGroup<Marker<any>, any>
-overlayGroup.hide();
+testOverlayGroup.hide();
 
-type ClickEvent = AMap.MapsEvent<'click', AMap.Overlay>;
-overlayGroup.on('click', (event: ClickEvent) => {
+testOverlayGroup.on('click', (event: AMap.MapsEvent<'click', AMap.Overlay>) => {
     // $ExpectType "click"
     event.type;
     // $ExpectType Overlay<any>

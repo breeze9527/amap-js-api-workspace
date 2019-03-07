@@ -1,16 +1,14 @@
-import { size } from './preset';
-
 // $ExpectType Size
-new AMap.Size(10, 20);
+const testSize = new AMap.Size(10, 20);
 
 // $ExpectType number
-size.getHeight();
+testSize.getHeight();
 
 // $ExpectType number
-size.getWidth();
+testSize.getWidth();
 
 // $ExpectType string
-size.toString();
+testSize.toString();
 
 // $ExpectType boolean
-size.contains({ x: 10, y: 10 });
+testSize.contains({ x: 10, y: 10 });

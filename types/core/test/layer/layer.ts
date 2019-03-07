@@ -1,6 +1,3 @@
-declare var layer: AMap.Layer;
-declare var map: AMap.Map;
-
 // $ExpectError
 new AMap.Layer();
 

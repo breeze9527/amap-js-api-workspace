@@ -1,18 +1,12 @@
-import {
-    map,
-    lnglat,
-    lnglatTuple
-} from '../preset';
-
-interface ExtraData {
+interface CircleExtraData {
     test: number;
 }
 
 // $ExpectType Circle<any>
 new AMap.Circle();
 new AMap.Circle({});
-// $ExpectType Circle<ExtraData>
-const circle = new AMap.Circle<ExtraData>({
+// $ExpectType Circle<CircleExtraData>
+const testCircle = new AMap.Circle<CircleExtraData>({
     map,
     zIndex: 10,
     center: lnglat,
@@ -30,25 +24,25 @@ const circle = new AMap.Circle<ExtraData>({
 });
 
 // $ExpectType void
-circle.setCenter(lnglat);
+testCircle.setCenter(lnglat);
 // $ExpectType void
-circle.setCenter(lnglatTuple);
+testCircle.setCenter(lnglatTuple);
 
 // $ExpectType LngLat | undefined
-circle.getCenter();
+testCircle.getCenter();
 
 // $ExpectType Bounds | null
-circle.getBounds();
+testCircle.getBounds();
 
 // $ExpectType void
-circle.setRadius(100);
+testCircle.setRadius(100);
 
 // $ExpectType number
-circle.getRadius();
+testCircle.getRadius();
 
 // $ExpectType void
-circle.setOptions({});
-circle.setOptions({
+testCircle.setOptions({});
+testCircle.setOptions({
     map,
     zIndex: 10,
     center: lnglat,
@@ -65,86 +59,88 @@ circle.setOptions({
     strokeDasharray: [2, 4]
 });
 
-const options = circle.getOptions();
-// $ExpectType boolean | undefined
-options.bubble;
-// $ExpectType LngLat | undefined
-options.center;
-// $ExpectType boolean | undefined
-options.clickable;
-// $ExpectType {} | ExtraData | undefined
-options.extData;
-// $ExpectType string | undefined
-options.fillColor;
-// $ExpectType number | undefined
-options.fillOpacity;
-// $ExpectType "miter" | "round" | "bevel" | undefined
-options.lineJoin;
-// $ExpectType Map | undefined
-options.map;
-// $ExpectType LngLat[] | undefined
-options.path;
-// $ExpectType number | undefined
-options.radius;
-// $ExpectType string | undefined
-options.strokeColor;
-// $ExpectType number[] | undefined
-options.strokeDasharray;
-// $ExpectType number | undefined
-options.strokeOpacity;
-// $ExpectType "dashed" | "solid" | undefined
-options.strokeStyle;
-// $ExpectType number | undefined
-options.strokeWeight;
-// $ExpectType string | undefined
-options.texture;
-// $ExpectType number | undefined
-options.zIndex;
+{
+    const options = testCircle.getOptions();
+    // $ExpectType boolean | undefined
+    options.bubble;
+    // $ExpectType LngLat | undefined
+    options.center;
+    // $ExpectType boolean | undefined
+    options.clickable;
+    // $ExpectType {} | CircleExtraData | undefined
+    options.extData;
+    // $ExpectType string | undefined
+    options.fillColor;
+    // $ExpectType number | undefined
+    options.fillOpacity;
+    // $ExpectType "miter" | "round" | "bevel" | undefined
+    options.lineJoin;
+    // $ExpectType Map | undefined
+    options.map;
+    // $ExpectType LngLat[] | undefined
+    options.path;
+    // $ExpectType number | undefined
+    options.radius;
+    // $ExpectType string | undefined
+    options.strokeColor;
+    // $ExpectType number[] | undefined
+    options.strokeDasharray;
+    // $ExpectType number | undefined
+    options.strokeOpacity;
+    // $ExpectType "dashed" | "solid" | undefined
+    options.strokeStyle;
+    // $ExpectType number | undefined
+    options.strokeWeight;
+    // $ExpectType string | undefined
+    options.texture;
+    // $ExpectType number | undefined
+    options.zIndex;
+}
 
 // $ExpectType Bounds | null
-circle.getBounds();
+testCircle.getBounds();
 
 // $ExpectType void
-circle.hide();
+testCircle.hide();
 
 // $ExpectType void
-circle.show();
+testCircle.show();
 
 // $ExpectType void
-circle.setMap(null);
+testCircle.setMap(null);
 // $ExpectType void
-circle.setMap(map);
+testCircle.setMap(map);
 
 // $ExpectType void
-circle.setExtData({ test: 2 });
+testCircle.setExtData({ test: 2 });
 // $ExpectError
-circle.setExtData({ test: '1' });
+testCircle.setExtData({ test: '1' });
 
-// $ExpectType {} | ExtraData
-circle.getExtData();
+// $ExpectType {} | CircleExtraData
+testCircle.getExtData();
 
 // $ExpectType boolean
-circle.contains(lnglat);
+testCircle.contains(lnglat);
 // $ExpectType boolean
-circle.contains(lnglatTuple);
+testCircle.contains(lnglatTuple);
 
-circle.on('click', (event: AMap.Circle.EventMap<typeof circle>['click']) => {
+testCircle.on('click', (event: AMap.Circle.EventMap<typeof testCircle>['click']) => {
     // $ExpectType "click"
     event.type;
-    // $ExpectType Circle<ExtraData>
+    // $ExpectType Circle<CircleExtraData>
     event.target;
 });
 
-circle.on('setCenter', (event: AMap.Circle.EventMap<typeof circle>['setCenter']) => {
+testCircle.on('setCenter', (event: AMap.Circle.EventMap<typeof testCircle>['setCenter']) => {
     // $ExpectType "setCenter"
     event.type;
     // $ExpectError
     event.target;
 });
 
-circle.on('change', (event: AMap.Circle.EventMap<typeof circle>['change']) => {
+testCircle.on('change', (event: AMap.Circle.EventMap<typeof testCircle>['change']) => {
     // $ExpectType "change"
     event.type;
-    // $ExpectType Circle<ExtraData>
+    // $ExpectType Circle<CircleExtraData>
     event.target;
 });

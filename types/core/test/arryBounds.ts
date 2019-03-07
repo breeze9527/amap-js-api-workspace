@@ -1,18 +1,14 @@
-import {
-    lnglat
-} from './preset';
-
 // $ExpectType ArrayBounds
-const arrayBounds = new AMap.ArrayBounds([lnglat, lnglat, lnglat]);
+const testArrayBounds = new AMap.ArrayBounds([lnglat, lnglat, lnglat]);
 
 // $ExpectType LngLat[]
-arrayBounds.bounds;
+testArrayBounds.bounds;
 
 // $ExpectType boolean
-arrayBounds.contains(lnglat);
+testArrayBounds.contains(lnglat);
 
 // $ExpectType Bounds
-arrayBounds.toBounds();
+testArrayBounds.toBounds();
 
 // $ExpectType LngLat
-arrayBounds.getCenter();
+testArrayBounds.getCenter();

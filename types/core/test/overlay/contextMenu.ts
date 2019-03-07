@@ -1,48 +1,42 @@
-import {
-    map,
-    lnglat,
-    lnglatTuple
-} from '../preset';
-
-interface ExtraData {
+interface ContextMenuExtraData {
     test: number;
 }
 // $ExpectType ContextMenu<any>
 new AMap.ContextMenu();
 // $ExpectType ContextMenu<any>
 new AMap.ContextMenu({});
-// $ExpectType ContextMenu<ExtraData>
-const contextMenu = new AMap.ContextMenu<ExtraData>({
+// $ExpectType ContextMenu<ContextMenuExtraData>
+const testContextMenu = new AMap.ContextMenu<ContextMenuExtraData>({
     content: '<div>content</div>',
 });
 
 // $ExpectType void
-contextMenu.addItem('item', function () {
+testContextMenu.addItem('item', function() {
     // $ExpectType HTMLLIElement
     this;
 });
 // $ExpectType void
-contextMenu.addItem('item', () => { }, 1);
+testContextMenu.addItem('item', () => { }, 1);
 
 // $ExpectType void
-contextMenu.removeItem('item', () => {});
+testContextMenu.removeItem('item', () => {});
 
 // $ExpectType void
-contextMenu.open(map, lnglatTuple);
+testContextMenu.open(map, lnglatTuple);
 // $ExpectType void
-contextMenu.open(map, lnglat);
+testContextMenu.open(map, lnglat);
 
 // $ExpectType void
-contextMenu.close();
+testContextMenu.close();
 
-contextMenu.on('items', (event: AMap.ContextMenu.EventMap<typeof contextMenu>['items']) => {
+testContextMenu.on('items', (event: AMap.ContextMenu.EventMap<typeof testContextMenu>['items']) => {
     // $ExpectType "items"
     event.type;
 });
 
-contextMenu.on('open', (event: AMap.ContextMenu.EventMap<typeof contextMenu>['open']) => {
+testContextMenu.on('open', (event: AMap.ContextMenu.EventMap<typeof testContextMenu>['open']) => {
     // $ExpectType "open"
     event.type;
-    // $ExpectType ContextMenu<ExtraData>
+    // $ExpectType ContextMenu<ContextMenuExtraData>
     event.target;
 });

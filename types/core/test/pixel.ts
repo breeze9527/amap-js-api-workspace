@@ -1,42 +1,38 @@
-import {
-    pixel
-} from './preset';
-
 // $ExpectType Pixel
 new AMap.Pixel(10, 20);
 // $ExpectType Pixel
-new AMap.Pixel(10, 20);
+const testPixel = new AMap.Pixel(10, 20);
 
 // $ExpectType number
-pixel.getX();
+testPixel.getX();
 
 // $ExpectType number
-pixel.getY();
+testPixel.getY();
 
 // $ExpectType boolean
-pixel.equals(pixel);
+testPixel.equals(testPixel);
 
 // $ExpectType string
-pixel.toString();
+testPixel.toString();
 
 // $ExpectType Pixel
-pixel.add({ x: 1, y: 2 });
+testPixel.add({ x: 1, y: 2 });
 // $ExpectType Pixel
-pixel.add({ x: 1, y: 2 }, false);
+testPixel.add({ x: 1, y: 2 }, false);
 
 // $ExpectType Pixel
-pixel.round();
+testPixel.round();
 
 // $ExpectType Pixel
-pixel.floor();
+testPixel.floor();
 
 // $ExpectType number
-pixel.length();
+testPixel.length();
 
 // $ExpectType number | null
-pixel.direction();
+testPixel.direction();
 
 // $ExpectType Pixel
-pixel.toFixed();
+testPixel.toFixed();
 // $ExpectType Pixel
-pixel.toFixed(2);
+testPixel.toFixed(2);

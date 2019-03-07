@@ -1,5 +1,3 @@
-import { lnglat } from './preset';
-
 // $ExpectType View2D
 new AMap.View2D();
 // $ExpectType View2D
@@ -14,9 +12,9 @@ new AMap.View2D({
 });
 
 // $ExpectType View2D
-const view2d = new AMap.View2D({
+const testView2d = new AMap.View2D({
     center: lnglat
 });
 
 // $ExpectType View2D
-view2d.on('complete', () => { });
+testView2d.on('complete', () => { });

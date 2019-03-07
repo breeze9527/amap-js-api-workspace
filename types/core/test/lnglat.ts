@@ -1,48 +1,44 @@
-import {
-    lnglat
-} from './preset';
-
 // $ExpectType LngLat
 new AMap.LngLat(114, 22);
 // $ExpectType LngLat
-new AMap.LngLat(113, 21);
+const testLnglat = new AMap.LngLat(113, 21);
 
 // $ExpectType LngLat
-lnglat.offset(1, 2);
+testLnglat.offset(1, 2);
 
 // $ExpectType number
-lnglat.distance(lnglat);
+testLnglat.distance(testLnglat);
 // $ExpectType number
-lnglat.distance([lnglat]);
+testLnglat.distance([testLnglat]);
 
 // $ExpectType number
-lnglat.getLng();
+testLnglat.getLng();
 
 // $ExpectType number
-lnglat.getLat();
+testLnglat.getLat();
 
 // $ExpectType boolean
-lnglat.equals(lnglat);
+testLnglat.equals(testLnglat);
 
 // $ExpectType string
-lnglat.toString();
+testLnglat.toString();
 
 // $ExpectType LngLat
-lnglat.add(lnglat);
+testLnglat.add(testLnglat);
 // $ExpectType LngLat
-lnglat.add(lnglat, true);
+testLnglat.add(testLnglat, true);
 
 // $ExpectType LngLat
-lnglat.subtract(lnglat);
+testLnglat.subtract(testLnglat);
 // $ExpectType LngLat
-lnglat.subtract(lnglat, true);
+testLnglat.subtract(testLnglat, true);
 
 // $ExpectType LngLat
-lnglat.divideBy(1);
+testLnglat.divideBy(1);
 // $ExpectType LngLat
-lnglat.divideBy(1, true);
+testLnglat.divideBy(1, true);
 
 // $ExpectType LngLat
-lnglat.multiplyBy(1);
+testLnglat.multiplyBy(1);
 // $ExpectType LngLat
-lnglat.multiplyBy(1, true);
+testLnglat.multiplyBy(1, true);

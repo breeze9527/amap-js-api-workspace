@@ -1,9 +1,3 @@
-import {
-    size,
-    pixel,
-    icon
-} from '../preset';
-
 // $ExpectType Icon
 new AMap.Icon();
 // $ExpectType Icon
@@ -16,7 +10,7 @@ new AMap.Icon({
     imageSize: size
 });
 // $ExpectType Icon
-new AMap.Icon({
+const testIcon = new AMap.Icon({
     size: [1, 2],
     imageOffset: pixel,
     image: 'image uri',
@@ -24,9 +18,9 @@ new AMap.Icon({
 });
 
 // $ExpectType Size
-icon.getImageSize();
+testIcon.getImageSize();
 
 // $ExpectType void
-icon.setImageSize(size);
+testIcon.setImageSize(size);
 // $ExpectType void
-icon.setImageSize([1, 2]);
+testIcon.setImageSize([1, 2]);

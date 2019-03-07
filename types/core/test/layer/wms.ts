@@ -1,14 +1,10 @@
-import {
-    map
-} from '../preset';
-
 // $ExpectType WMS
 new AMap.TileLayer.WMS({
     url: 'url',
     params: {}
 });
 // $ExpectType WMS
-const wms = new AMap.TileLayer.WMS({
+const testWms = new AMap.TileLayer.WMS({
     url: 'url',
     blend: true,
     params: {
@@ -30,33 +26,33 @@ const wms = new AMap.TileLayer.WMS({
 });
 
 // $ExpectType void
-wms.setMap(map);
+testWms.setMap(map);
 // $ExpectType void
-wms.setMap(null);
+testWms.setMap(null);
 
 // $ExpectType Map | null | undefined
-wms.getMap();
+testWms.getMap();
 
 // $ExpectType void
-wms.show();
+testWms.show();
 
 // $ExpectType void
-wms.hide();
+testWms.hide();
 
 // $ExpectType void
-wms.setzIndex(10);
+testWms.setzIndex(10);
 
 // $ExpectType number
-wms.getzIndex();
+testWms.getzIndex();
 
 // $ExpectType void
-wms.setUrl('url');
+testWms.setUrl('url');
 
 // $ExpectType string
-wms.getUrl();
+testWms.getUrl();
 
 // $ExpectType void
-wms.setParams({
+testWms.setParams({
     VERSION: 'version',
     LAYERS: 'layers',
     STYLES: 'styles',
@@ -68,22 +64,24 @@ wms.setParams({
     ELEVATION: 'elevation'
 });
 
-const params = wms.getParams();
-// $ExpectType string | undefined
-params.VERSION;
-// $ExpectType string | undefined
-params.LAYERS;
-// $ExpectType string | undefined
-params.STYLES;
-// $ExpectType string | undefined
-params.FORMAT;
-// $ExpectType "TRUE" | "FALSE" | undefined
-params.TRANSPARENT;
-// $ExpectType string | undefined
-params.BGCOLOR;
-// $ExpectType string | undefined
-params.EXCEPTIONS;
-// $ExpectType string | undefined
-params.TIME;
-// $ExpectType string | undefined
-params.ELEVATION;
+{
+    const params = testWms.getParams();
+    // $ExpectType string | undefined
+    params.VERSION;
+    // $ExpectType string | undefined
+    params.LAYERS;
+    // $ExpectType string | undefined
+    params.STYLES;
+    // $ExpectType string | undefined
+    params.FORMAT;
+    // $ExpectType "TRUE" | "FALSE" | undefined
+    params.TRANSPARENT;
+    // $ExpectType string | undefined
+    params.BGCOLOR;
+    // $ExpectType string | undefined
+    params.EXCEPTIONS;
+    // $ExpectType string | undefined
+    params.TIME;
+    // $ExpectType string | undefined
+    params.ELEVATION;
+}

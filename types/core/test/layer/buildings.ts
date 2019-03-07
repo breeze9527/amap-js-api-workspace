@@ -1,12 +1,9 @@
-declare var map: AMap.Map;
-declare var lnglat: AMap.LngLat;
-
-// $ExpectType Buildings
-var buildings = new AMap.Buildings();
 // $ExpectType Buildings
 new AMap.Buildings();
 // $ExpectType Buildings
-new AMap.Buildings({
+new AMap.Buildings();
+// $ExpectType Buildings
+const testBuildings = new AMap.Buildings({
     zooms: [1, 18],
     opacity: 0.8,
     heightFactor: 1,
@@ -15,7 +12,7 @@ new AMap.Buildings({
     map
 });
 
-buildings.setStyle({
+testBuildings.setStyle({
     hideWithoutStyle: false,
     areas: [
         {

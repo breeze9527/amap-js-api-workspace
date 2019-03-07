@@ -1,8 +1,3 @@
-import {
-    lnglat,
-    lnglatTuple
-} from './preset';
-
 declare const convertType: 'baidu' | 'mapbar' | 'gps' | null;
 // $ExpectType void
 AMap.convertFrom(lnglat, convertType, (status, result) => {

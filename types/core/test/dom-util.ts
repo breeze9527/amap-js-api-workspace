@@ -1,47 +1,45 @@
-import { div } from './preset';
-
-const util = AMap.DomUtil;
+const domUtil = AMap.DomUtil;
 
 // $ExpectType Size
-util.getViewport(div);
+domUtil.getViewport(div);
 
 // $ExpectType Pixel
-util.getViewportOffset(div);
+domUtil.getViewportOffset(div);
 
 // $ExpectType HTMLDivElement
-util.create('div');
+domUtil.create('div');
 // $ExpectType HTMLAnchorElement
-util.create('a');
+domUtil.create('a');
 // $ExpectType HTMLDivElement
-util.create('div', div);
+domUtil.create('div', div);
 // $ExpectType HTMLDivElement
-util.create('div', div, 'className');
+domUtil.create('div', div, 'className');
 
 // $ExpectType void
-util.setClass(div);
+domUtil.setClass(div);
 // $ExpectType void
-util.setClass(div, 'className');
+domUtil.setClass(div, 'className');
 
 // $ExpectType boolean
-util.hasClass(div, 'className');
+domUtil.hasClass(div, 'className');
 
 // $ExpectType void
-util.removeClass(div, 'className');
+domUtil.removeClass(div, 'className');
 
 // $ExpectType void
-util.setOpacity(div, 1);
+domUtil.setOpacity(div, 1);
 
 // $ExpectType void
-util.rotate(div, 10);
+domUtil.rotate(div, 10);
 // $ExpectType void
-util.rotate(div, 10, { x: 10, y: 10 });
+domUtil.rotate(div, 10, { x: 10, y: 10 });
 
-const util2: typeof AMap.DomUtil = util.setCss(div, { textAlign: 'left' });
+const util2: typeof AMap.DomUtil = domUtil.setCss(div, { textAlign: 'left' });
 // $ExpectError
-util.setCss(div, { textAlign: 10 });
+domUtil.setCss(div, { textAlign: 10 });
 
 // $ExpectType void
-util.empty(div);
+domUtil.empty(div);
 
 // $ExpectType void
-util.remove(div);
+domUtil.remove(div);

@@ -1,13 +1,4 @@
-import {
-    map,
-    lnglatTuple
-} from '../preset';
-
-declare const marker: AMap.Marker;
-declare const polyline: AMap.Polyline;
-declare const polygon: AMap.Polygon;
-
-interface ExtraData {
+interface GeoJSONExtraData {
     test: number;
 }
 
@@ -34,29 +25,29 @@ const geoJSONObject: AMap.GeoJSON.GeoJSONObject[] = [
 new AMap.GeoJSON();
 // $ExpectType GeoJSON<any>
 new AMap.GeoJSON({});
-// $ExpectType GeoJSON<ExtraData>
-const geoJSON = new AMap.GeoJSON<ExtraData>({
+// $ExpectType GeoJSON<GeoJSONExtraData>
+const testGeoJSON = new AMap.GeoJSON<GeoJSONExtraData>({
     geoJSON: geoJSONObject,
     getMarker(obj, lnglat) {
         // $ExpectType GeoJSONObject
         obj;
         // $ExpectType LngLat
         lnglat;
-        return marker;
+        return testMarker;
     },
     getPolyline(obj, lnglats) {
         // $ExpectType GeoJSONObject
         obj;
         // $ExpectType LngLat[]
         lnglats;
-        return polyline;
+        return testPolyline;
     },
     getPolygon(obj, lnglats) {
         // $ExpectType GeoJSONObject
         obj;
         // $ExpectType LngLat[]
         lnglats;
-        return polygon;
+        return testPolygon;
     },
     coordsToLatLng(coord) {
         // $ExpectType LngLat
@@ -66,39 +57,38 @@ const geoJSON = new AMap.GeoJSON<ExtraData>({
 });
 
 // $ExpectType void
-geoJSON.importData(geoJSONObject);
+testGeoJSON.importData(geoJSONObject);
 
-// $ExpectType GeoJSON<ExtraData>
-geoJSON.removeOverlay(marker);
-// $ExpectType GeoJSON<ExtraData>
-geoJSON.removeOverlay([marker]);
+// $ExpectType GeoJSON<GeoJSONExtraData>
+testGeoJSON.removeOverlay(testMarker);
+// $ExpectType GeoJSON<GeoJSONExtraData>
+testGeoJSON.removeOverlay([testMarker]);
 
 // $ExpectType boolean
-geoJSON.hasOverlay(marker);
+testGeoJSON.hasOverlay(testMarker);
 // $ExpectType boolean
-geoJSON.hasOverlay(m => m === marker);
+testGeoJSON.hasOverlay(m => m === testMarker);
 
-// $ExpectType GeoJSON<ExtraData>
-geoJSON.addOverlay(marker);
-// $ExpectType GeoJSON<ExtraData>
-geoJSON.addOverlay([marker]);
+// $ExpectType GeoJSON<GeoJSONExtraData>
+testGeoJSON.addOverlay(testMarker);
+// $ExpectType GeoJSON<GeoJSONExtraData>
+testGeoJSON.addOverlay([testMarker]);
 
 // $ExpectType GeoJSONObject[]
-geoJSON.toGeoJSON();
+testGeoJSON.toGeoJSON();
 
-// $ExpectType GeoJSON<ExtraData>
-geoJSON.setMap(null);
-// $ExpectType GeoJSON<ExtraData>
-geoJSON.setMap(map);
+// $ExpectType GeoJSON<GeoJSONExtraData>
+testGeoJSON.setMap(null);
+// $ExpectType GeoJSON<GeoJSONExtraData>
+testGeoJSON.setMap(map);
 
-// $ExpectType GeoJSON<ExtraData>
-geoJSON.hide();
+// $ExpectType GeoJSON<GeoJSONExtraData>
+testGeoJSON.hide();
 
-// $ExpectType GeoJSON<ExtraData>
-geoJSON.show();
+// $ExpectType GeoJSON<GeoJSONExtraData>
+testGeoJSON.show();
 
-type ClickEvent = AMap.MapsEvent<'click', AMap.Overlay>;
-geoJSON.on('click', (event: ClickEvent) => {
+testGeoJSON.on('click', (event: AMap.MapsEvent<'click', AMap.Overlay>) => {
     // $ExpectType "click"
     event.type;
     // $ExpectType Overlay<any>

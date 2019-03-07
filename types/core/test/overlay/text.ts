@@ -1,13 +1,4 @@
-import {
-    map,
-    marker,
-    lnglat,
-    pixel,
-    lnglatTuple,
-    icon
-} from '../preset';
-
-interface ExtraData {
+interface TextExtraData {
     test: number;
 }
 
@@ -15,8 +6,8 @@ interface ExtraData {
 new AMap.Text();
 // $ExpectType Text<any>
 new AMap.Text({});
-// $ExpectType Text<ExtraData>
-const text = new AMap.Text<ExtraData>({
+// $ExpectType Text<TextExtraData>
+const testText = new AMap.Text<TextExtraData>({
     text: 'content',
     textAlign: 'center',
     verticalAlign: 'top',
@@ -40,130 +31,130 @@ const text = new AMap.Text<ExtraData>({
 });
 
 // $ExpectType string
-text.getText();
+testText.getText();
 
 // $ExpectType void
-text.setText('123');
+testText.setText('123');
 
 // $ExpectType void
-text.setStyle({
+testText.setStyle({
     background: 'red',
     width: '200px'
 });
 
 // $ExpectType void
-text.markOnAMAP({
+testText.markOnAMAP({
     name: '123',
     position: lnglatTuple
 });
 
 // $ExpectType Pixel
-text.getOffset();
+testText.getOffset();
 
 // $ExpectType void
-text.setOffset(pixel);
+testText.setOffset(pixel);
 
 // $ExpectType void
-text.setAnimation('AMAP_ANIMATION_BOUNCE');
+testText.setAnimation('AMAP_ANIMATION_BOUNCE');
 
 // $ExpectType AnimationName
-text.getAnimation();
+testText.getAnimation();
 
 // $ExpectType void
-text.setClickable(true);
+testText.setClickable(true);
 
 // $ExpectType boolean
-text.getClickable();
+testText.getClickable();
 
 // $ExpectType LngLat | undefined
-text.getPosition();
+testText.getPosition();
 
 // $ExpectType void
-text.setAngle(10);
+testText.setAngle(10);
 
 // $ExpectType number
-text.getAngle();
+testText.getAngle();
 
 // $ExpectType void
-text.setzIndex(1);
+testText.setzIndex(1);
 
 // $ExpectType number
-text.getzIndex();
+testText.getzIndex();
 
 // $ExpectType void
-text.setDraggable(true);
+testText.setDraggable(true);
 
 // $ExpectType boolean
-text.getDraggable();
+testText.getDraggable();
 
 // $ExpectType void
-text.hide();
+testText.hide();
 
 // $ExpectType void
-text.show();
+testText.show();
 
 // $ExpectType void
-text.setCursor('default');
+testText.setCursor('default');
 
 // $ExpectType void
-text.moveAlong([lnglat], 100);
+testText.moveAlong([lnglat], 100);
 
 // $ExpectType void
-text.moveAlong([lnglat], 100);
+testText.moveAlong([lnglat], 100);
 // $ExpectError
-text.moveAlong([[1, 2]], 100);
+testText.moveAlong([[1, 2]], 100);
 // $ExpectType void
-text.moveAlong([lnglat], 100, t => t, false);
+testText.moveAlong([lnglat], 100, t => t, false);
 
 // $ExpectType void
-text.moveTo(lnglat, 100);
+testText.moveTo(lnglat, 100);
 // $ExpectType void
-text.moveTo([1, 2], 100);
+testText.moveTo([1, 2], 100);
 // $ExpectType void
-text.moveTo([1, 2], 100, t => t);
+testText.moveTo([1, 2], 100, t => t);
 
 // $ExpectType void
-text.stopMove();
-
-// $ExpectType boolean
-text.pauseMove();
+testText.stopMove();
 
 // $ExpectType boolean
-text.resumeMove();
+testText.pauseMove();
+
+// $ExpectType boolean
+testText.resumeMove();
 
 // $ExpectType void
-text.setMap(map);
+testText.setMap(map);
 
 // $ExpectType void
-text.setTitle('title');
+testText.setTitle('title');
 // $ExpectError
-text.setTitle();
+testText.setTitle();
 
 // $ExpectType string | undefined
-text.getTitle();
+testText.getTitle();
 
 // $ExpectType void
-text.setTop(true);
+testText.setTop(true);
 
 // $ExpectType boolean
-text.getTop();
+testText.getTop();
 
 // $ExpectType void
-text.setShadow();
+testText.setShadow();
 // $ExpectType void
-text.setShadow(icon);
+testText.setShadow(icon);
 // $ExpectType void
-text.setShadow('shadow url');
+testText.setShadow('shadow url');
 
 // $ExpectType void
-text.setExtData({test: 1});
+testText.setExtData({test: 1});
 
-// $ExpectType {} | ExtraData
-text.getExtData();
+// $ExpectType {} | TextExtraData
+testText.getExtData();
 
-text.on('click', (event: AMap.Text.EventMap<typeof text>['click']) => {
+testText.on('click', (event: AMap.Text.EventMap<typeof testText>['click']) => {
     // $ExpectType "click"
     event.type;
-    // $ExpectType Text<ExtraData>
+    // $ExpectType Text<TextExtraData>
     event.target;
 });

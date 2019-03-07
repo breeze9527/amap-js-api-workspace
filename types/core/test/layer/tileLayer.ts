@@ -1,13 +1,11 @@
-declare var map: AMap.Map;
-
 // $ExpectType TileLayer
-var tileLayer = new AMap.TileLayer();
+new AMap.TileLayer();
 
 // $ExpectType TileLayer
 new AMap.TileLayer({});
 
 // $ExpectType TileLayer
-new AMap.TileLayer({
+const testTileLayer = new AMap.TileLayer({
     map,
     tileSize: 256,
     tileUrl: '',
@@ -20,15 +18,15 @@ new AMap.TileLayer({
 });
 
 // $ExpectType string[]
-tileLayer.getTiles();
+testTileLayer.getTiles();
 
 // $ExpectType void
-tileLayer.reload();
+testTileLayer.reload();
 
 // $ExpectType void
-tileLayer.setTileUrl('');
+testTileLayer.setTileUrl('');
 // $ExpectType void
-tileLayer.setTileUrl((x, y, level) => {
+testTileLayer.setTileUrl((x, y, level) => {
     // $ExpectType number
     x;
     // $ExpectType number
@@ -38,23 +36,19 @@ tileLayer.setTileUrl((x, y, level) => {
     return '';
 });
 
-// Traffic
+// $ExpectType TileLayer
+testTileLayer.on('complete', () => { });
+
+testTileLayer.off('complete', () => { });
+
+testTileLayer.emit('complete');
 
 // $ExpectType Traffic
-let trafficLayer = new AMap.TileLayer.Traffic();
-// $ExpectType Traffic
-new AMap.TileLayer.Traffic({});
+const testTrafficLayer = new AMap.TileLayer.Traffic({});
 // $ExpectType Traffic
 new AMap.TileLayer.Traffic({
     autoRefresh: true,
     interval: 180
 });
 
-// $ExpectType TileLayer
-tileLayer.on('complete', () => { });
-
-tileLayer.off('complete', () => { });
-
-tileLayer.emit('complete');
-
-trafficLayer.on('complete', () => { });
+testTrafficLayer.on('complete', () => { });

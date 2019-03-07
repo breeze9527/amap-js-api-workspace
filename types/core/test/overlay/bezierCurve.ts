@@ -1,13 +1,8 @@
-import {
-    map,
-    lnglat
-} from '../preset';
-
-interface ExtraData {
+interface BezierCurveExtraData {
     test: number;
 }
 
-const path = [
+const bezierCurvePath = [
     [1, 2, 3, 4],
     [1, 2, 3],
     [
@@ -21,10 +16,10 @@ const path = [
 new AMap.BezierCurve();
 // $ExpectError
 new AMap.BezierCurve({});
-// $ExpectType BezierCurve<ExtraData>
-const bezierCurve = new AMap.BezierCurve<ExtraData>({
+// $ExpectType BezierCurve<BezierCurveExtraData>
+const testBezierCurve = new AMap.BezierCurve<BezierCurveExtraData>({
     map,
-    path,
+    path: bezierCurvePath,
     strokeColor: '#FF0000',
     strokeOpacity: 0.6,
     strokeWeight: 10,
@@ -40,16 +35,16 @@ const bezierCurve = new AMap.BezierCurve<ExtraData>({
 });
 
 // $ExpectType void
-bezierCurve.setPath(path);
+testBezierCurve.setPath(bezierCurvePath);
 
 // $ExpectType void
-bezierCurve.setPath(path);
+testBezierCurve.setPath(bezierCurvePath);
 
 // $ExpectType void
-bezierCurve.setOptions({});
-bezierCurve.setOptions({
+testBezierCurve.setOptions({});
+testBezierCurve.setOptions({
     map,
-    path,
+    path: bezierCurvePath,
     strokeColor: '#FF0000',
     strokeOpacity: 0.6,
     strokeWeight: 10,
@@ -64,90 +59,92 @@ bezierCurve.setOptions({
     borderWeight: 2
 });
 
-const options = bezierCurve.getOptions();
+{
+    const options = testBezierCurve.getOptions();
 
-// $ExpectType number | undefined
-options.borderWeight;
-// $ExpectType boolean | undefined
-options.bubble;
-// $ExpectType boolean | undefined
-options.clickable;
-// $ExpectType string | undefined
-options.dirColor;
-// $ExpectType string | undefined
-options.dirImg;
-// $ExpectType {} | ExtraData | undefined
-options.extData;
-// $ExpectType boolean | undefined
-options.geodesic;
-// $ExpectType boolean | undefined
-options.isOutline;
-// $ExpectType "round" | "butt" | "square" | undefined
-options.lineCap;
-// $ExpectType "miter" | "round" | "bevel" | undefined
-options.lineJoin;
-// $ExpectType Map | undefined
-options.map;
-// $ExpectType string | undefined
-options.outlineColor;
-// $ExpectType (LngLat & { controlPoints: LngLat[]; })[] | undefined
-options.path;
-// $ExpectType boolean | undefined
-options.showDir;
-// $ExpectType string | undefined
-options.strokeColor;
-// $ExpectType number[] | undefined
-options.strokeDasharray;
-// $ExpectType number | undefined
-options.strokeOpacity;
-// $ExpectType "dashed" | "solid" | undefined
-options.strokeStyle;
-// $ExpectType number | undefined
-options.strokeWeight;
-// $ExpectType number | undefined
-options.zIndex;
+    // $ExpectType number | undefined
+    options.borderWeight;
+    // $ExpectType boolean | undefined
+    options.bubble;
+    // $ExpectType boolean | undefined
+    options.clickable;
+    // $ExpectType string | undefined
+    options.dirColor;
+    // $ExpectType string | undefined
+    options.dirImg;
+    // $ExpectType {} | BezierCurveExtraData | undefined
+    options.extData;
+    // $ExpectType boolean | undefined
+    options.geodesic;
+    // $ExpectType boolean | undefined
+    options.isOutline;
+    // $ExpectType "round" | "butt" | "square" | undefined
+    options.lineCap;
+    // $ExpectType "miter" | "round" | "bevel" | undefined
+    options.lineJoin;
+    // $ExpectType Map | undefined
+    options.map;
+    // $ExpectType string | undefined
+    options.outlineColor;
+    // $ExpectType (LngLat & { controlPoints: LngLat[]; })[] | undefined
+    options.path;
+    // $ExpectType boolean | undefined
+    options.showDir;
+    // $ExpectType string | undefined
+    options.strokeColor;
+    // $ExpectType number[] | undefined
+    options.strokeDasharray;
+    // $ExpectType number | undefined
+    options.strokeOpacity;
+    // $ExpectType "dashed" | "solid" | undefined
+    options.strokeStyle;
+    // $ExpectType number | undefined
+    options.strokeWeight;
+    // $ExpectType number | undefined
+    options.zIndex;
+}
 
 // $ExpectType number
-bezierCurve.getLength();
+testBezierCurve.getLength();
 
 // $ExpectType Bounds | null
-bezierCurve.getBounds();
+testBezierCurve.getBounds();
 
 // $ExpectType void
-bezierCurve.show();
+testBezierCurve.show();
 
 // $ExpectType void
-bezierCurve.hide();
+testBezierCurve.hide();
 
 // $ExpectType void
-bezierCurve.setMap(null);
-bezierCurve.setMap(map);
+testBezierCurve.setMap(null);
+testBezierCurve.setMap(map);
 
 // $ExpectType void
-bezierCurve.setExtData({ test: 1 });
+testBezierCurve.setExtData({ test: 1 });
 // $ExpectError
-bezierCurve.setExtData({ test: '123' });
+testBezierCurve.setExtData({ test: '123' });
 
-// $ExpectType {} | ExtraData
-bezierCurve.getExtData();
+// $ExpectType {} | BezierCurveExtraData
+testBezierCurve.getExtData();
 
-bezierCurve.on('click', (event: AMap.BezierCurve.EventMap<typeof bezierCurve>['click']) => {
+testBezierCurve.on('click', (event: AMap.BezierCurve.EventMap<typeof testBezierCurve>['click']) => {
     // $ExpectType "click"
     event.type;
     // $ExpectType LngLat
     event.lnglat;
-    // $ExpectType BezierCurve<ExtraData>
+    // $ExpectType BezierCurve<BezierCurveExtraData>
     event.target;
 });
 
-bezierCurve.on('show', (event: AMap.BezierCurve.EventMap<typeof bezierCurve>['show']) => {
+testBezierCurve.on('show', (event: AMap.BezierCurve.EventMap<typeof testBezierCurve>['show']) => {
     // $ExpectType "show"
     event.type;
-    // $ExpectType BezierCurve<ExtraData>
+    // $ExpectType BezierCurve<BezierCurveExtraData>
     event.target;
 });
 
-bezierCurve.on('options', (event: AMap.BezierCurve.EventMap<typeof bezierCurve>['options']) => {
+testBezierCurve.on('options', (event: AMap.BezierCurve.EventMap<typeof testBezierCurve>['options']) => {
     // $ExpectType "options"
     event.type;
     // $ExpectError

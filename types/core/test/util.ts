@@ -1,5 +1,3 @@
-import * as preset from './preset';
-
 const util = AMap.Util;
 
 // $ExpectType string
@@ -70,7 +68,7 @@ util.cancelIdleCallback(idleCallbackHandle);
 // $ExpectType number
 util.requestAnimFrame(() => { });
 // $ExpectType number
-const animFrameHandle = util.requestAnimFrame(function () {
+const animFrameHandle = util.requestAnimFrame(function() {
     // $ExpectType number
     this.test;
 }, { test: 1 });

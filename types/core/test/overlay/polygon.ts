@@ -1,22 +1,16 @@
-import {
-    map,
-    lnglat,
-    lnglatTuple
-} from '../preset';
-
-interface ExtraData {
+interface PolygonExtraData {
     test: number;
 }
 
-const path1 = [lnglatTuple, lnglatTuple, lnglatTuple, lnglatTuple, lnglatTuple];
-const path2 = [lnglat, lnglat, lnglat, lnglat, lnglat];
+const polygonPath1 = [lnglatTuple, lnglatTuple, lnglatTuple, lnglatTuple, lnglatTuple];
+const polygonPath2 = [lnglat, lnglat, lnglat, lnglat, lnglat];
 
 // $ExpectType Polygon<any>
 new AMap.Polygon();
 // $ExpectType Polygon<any>
 new AMap.Polygon({});
-// $ExpectType Polygon<ExtraData>
-const polygon = new AMap.Polygon<ExtraData>({
+// $ExpectType Polygon<PolygonExtraData>
+const testPolygon = new AMap.Polygon<PolygonExtraData>({
     map,
     zIndex: 10,
     bubble: true,
@@ -30,21 +24,21 @@ const polygon = new AMap.Polygon<ExtraData>({
     extData: { test: 1 },
     strokeStyle: 'dashed',
     strokeDasharray: [2, 4],
-    path: path1
+    path: polygonPath1
 });
 
 // $ExpectType void
-polygon.setPath(path1);
+testPolygon.setPath(polygonPath1);
 // $ExpectType void
-polygon.setPath(path2);
+testPolygon.setPath(polygonPath2);
 // $ExpectType void
-polygon.setPath([path1, path2]);
+testPolygon.setPath([polygonPath1, polygonPath2]);
 
 // $ExpectType LngLat[] | LngLat[][]
-polygon.getPath();
+testPolygon.getPath();
 
 // $ExpectType void
-polygon.setOptions({
+testPolygon.setOptions({
     map,
     zIndex: 10,
     bubble: true,
@@ -58,66 +52,68 @@ polygon.setOptions({
     extData: { test: 1 },
     strokeStyle: 'dashed',
     strokeDasharray: [4, 2],
-    path: [path2, path1]
+    path: [polygonPath2, polygonPath1]
 });
 
-const options = polygon.getOptions();
-// $ExpectType boolean | undefined
-options.bubble;
-// $ExpectType boolean | undefined
-options.clickable;
-// $ExpectType {} | ExtraData | undefined
-options.extData;
-// $ExpectType string | undefined
-options.fillColor;
-// $ExpectType number | undefined
-options.fillOpacity;
-// $ExpectType "miter" | "round" | "bevel" | undefined
-options.lineJoin;
-// $ExpectType Map | undefined
-options.map;
-// $ExpectType LngLat[] | LngLat[][] | undefined
-options.path;
-// $ExpectType string | undefined
-options.strokeColor;
-// $ExpectType number[] | undefined
-options.strokeDasharray;
-// $ExpectType number | undefined
-options.strokeOpacity;
-// $ExpectType "dashed" | "solid" | undefined
-options.strokeStyle;
-// $ExpectType number | undefined
-options.strokeWeight;
-// $ExpectType string | undefined
-options.texture;
-// $ExpectType number | undefined
-options.zIndex;
+{
+    const options = testPolygon.getOptions();
+    // $ExpectType boolean | undefined
+    options.bubble;
+    // $ExpectType boolean | undefined
+    options.clickable;
+    // $ExpectType {} | PolygonExtraData | undefined
+    options.extData;
+    // $ExpectType string | undefined
+    options.fillColor;
+    // $ExpectType number | undefined
+    options.fillOpacity;
+    // $ExpectType "miter" | "round" | "bevel" | undefined
+    options.lineJoin;
+    // $ExpectType Map | undefined
+    options.map;
+    // $ExpectType LngLat[] | LngLat[][] | undefined
+    options.path;
+    // $ExpectType string | undefined
+    options.strokeColor;
+    // $ExpectType number[] | undefined
+    options.strokeDasharray;
+    // $ExpectType number | undefined
+    options.strokeOpacity;
+    // $ExpectType "dashed" | "solid" | undefined
+    options.strokeStyle;
+    // $ExpectType number | undefined
+    options.strokeWeight;
+    // $ExpectType string | undefined
+    options.texture;
+    // $ExpectType number | undefined
+    options.zIndex;
+}
 
 // $ExpectType Bounds | null
-polygon.getBounds();
+testPolygon.getBounds();
 
 // $ExpectType number
-polygon.getArea();
+testPolygon.getArea();
 
 // $ExpectType void
-polygon.setMap(null);
+testPolygon.setMap(null);
 // $ExpectType void
-polygon.setMap(map);
+testPolygon.setMap(map);
 
 // $ExpectType void
-polygon.setExtData({ test: 1 });
+testPolygon.setExtData({ test: 1 });
 
-// $ExpectType {} | ExtraData
-polygon.getExtData();
+// $ExpectType {} | PolygonExtraData
+testPolygon.getExtData();
 
 // $ExpectType boolean
-polygon.contains(lnglat);
+testPolygon.contains(lnglat);
 // $ExpectType boolean
-polygon.contains(lnglatTuple);
+testPolygon.contains(lnglatTuple);
 
-polygon.on('click', (event: AMap.Polygon.EventMap<typeof polygon>['click']) => {
+testPolygon.on('click', (event: AMap.Polygon.EventMap<typeof testPolygon>['click']) => {
     // $ExpectType "click"
     event.type;
-    // $ExpectType Polygon<ExtraData>
+    // $ExpectType Polygon<PolygonExtraData>
     event.target;
 });

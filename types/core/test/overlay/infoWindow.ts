@@ -1,13 +1,4 @@
-import {
-    map,
-    lnglat,
-    size,
-    pixel,
-    div,
-    lnglatTuple
-} from '../preset';
-
-interface ExtraData {
+interface InfoWindowExtraData {
     test: number;
 }
 
@@ -15,8 +6,8 @@ interface ExtraData {
 new AMap.InfoWindow();
 // $ExpectType InfoWindow<any>
 new AMap.InfoWindow({});
-// $ExpectType InfoWindow<ExtraData>
-const infoWindow = new AMap.InfoWindow<ExtraData>({
+// $ExpectType InfoWindow<InfoWindowExtraData>
+const testInfoWindow = new AMap.InfoWindow<InfoWindowExtraData>({
     isCustom: false,
     autoMove: false,
     closeWhenClickMap: false,
@@ -28,54 +19,54 @@ const infoWindow = new AMap.InfoWindow<ExtraData>({
 });
 
 // $ExpectType void
-infoWindow.open(map);
+testInfoWindow.open(map);
 // $ExpectType void
-infoWindow.open(map, lnglat);
+testInfoWindow.open(map, lnglat);
 // $ExpectType void
-infoWindow.open(map, lnglatTuple);
+testInfoWindow.open(map, lnglatTuple);
 
 // $ExpectType void
-infoWindow.close();
+testInfoWindow.close();
 
 // $ExpectType boolean
-infoWindow.getIsOpen();
+testInfoWindow.getIsOpen();
 
 // $ExpectType void
-infoWindow.setContent('content');
+testInfoWindow.setContent('content');
 // $ExpectType void
-infoWindow.setContent(div);
+testInfoWindow.setContent(div);
 
 // $ExpectType string | HTMLElement | undefined
-infoWindow.getContent();
+testInfoWindow.getContent();
 
 // $ExpectType void
-infoWindow.setPosition(lnglat);
+testInfoWindow.setPosition(lnglat);
 // $ExpectType void
-infoWindow.setPosition(lnglatTuple);
+testInfoWindow.setPosition(lnglatTuple);
 
 // $ExpectType LngLat | undefined
-infoWindow.getPosition();
+testInfoWindow.getPosition();
 
 // $ExpectType Size | undefined
-infoWindow.getSize();
+testInfoWindow.getSize();
 
-infoWindow.on('change', (event: AMap.InfoWindow.EventMap<typeof infoWindow>['change']) => {
+testInfoWindow.on('change', (event: AMap.InfoWindow.EventMap<typeof testInfoWindow>['change']) => {
     // $ExpectType "change"
     event.type;
-    // $ExpectType InfoWindow<ExtraData>
+    // $ExpectType InfoWindow<InfoWindowExtraData>
     event.target;
 });
 
-infoWindow.on('close', (event: AMap.InfoWindow.EventMap<typeof infoWindow>['close']) => {
+testInfoWindow.on('close', (event: AMap.InfoWindow.EventMap<typeof testInfoWindow>['close']) => {
     // $ExpectType "close"
     event.type;
-    // $ExpectType InfoWindow<ExtraData>
+    // $ExpectType InfoWindow<InfoWindowExtraData>
     event.target;
 });
 
-infoWindow.on('open', (event: AMap.InfoWindow.EventMap<typeof infoWindow>['open']) => {
+testInfoWindow.on('open', (event: AMap.InfoWindow.EventMap<typeof testInfoWindow>['open']) => {
     // $ExpectType "open"
     event.type;
-    // $ExpectType InfoWindow<ExtraData>
+    // $ExpectType InfoWindow<InfoWindowExtraData>
     event.target;
 });

@@ -1,16 +1,9 @@
-import {
-    map
-} from '../preset';
-
-const img = document.createElement('img');
-const canvas = document.createElement('canvas');
-
 // $ExpectType Flexible
 new AMap.TileLayer.Flexible();
 // $ExpectType Flexible
 new AMap.TileLayer.Flexible({});
 // $ExpectType Flexible
-const flexible = new AMap.TileLayer.Flexible({
+const testFlexible = new AMap.TileLayer.Flexible({
     createTile(x, y, z, success, fail) {
         // $ExpectType number
         x;
@@ -19,9 +12,9 @@ const flexible = new AMap.TileLayer.Flexible({
         // $ExpectType number
         z;
         // $ExpectType void
-        success(img);
+        success(imgEle);
         // $ExpectType void
-        success(canvas);
+        success(canvasEle);
         // $ExpectType void
         fail();
     },
@@ -34,21 +27,21 @@ const flexible = new AMap.TileLayer.Flexible({
 });
 
 // $ExpectType void
-flexible.setMap(null);
+testFlexible.setMap(null);
 // $ExpectType void
-flexible.setMap(map);
+testFlexible.setMap(map);
 
 // $ExpectType Map | null | undefined
-flexible.getMap();
+testFlexible.getMap();
 
 // $ExpectType void
-flexible.show();
+testFlexible.show();
 
 // $ExpectType void
-flexible.hide();
+testFlexible.hide();
 
 // $ExpectType void
-flexible.setzIndex(10);
+testFlexible.setzIndex(10);
 
 // $ExpectType number
-flexible.getzIndex();
+testFlexible.getzIndex();

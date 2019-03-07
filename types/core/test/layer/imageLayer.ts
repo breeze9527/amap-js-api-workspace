@@ -1,8 +1,3 @@
-import {
-    map,
-    bounds
-} from '../preset';
-
 // $ExpectType ImageLayer
 new AMap.ImageLayer({
     map,
@@ -17,35 +12,35 @@ new AMap.ImageLayer();
 // $ExpectType ImageLayer
 new AMap.ImageLayer({});
 // $ExpectType ImageLayer
-const imageLayer = new AMap.ImageLayer({
+const testImageLayer = new AMap.ImageLayer({
     bounds
 });
 
 // $ExpectType void
-imageLayer.setMap(null);
+testImageLayer.setMap(null);
 // $ExpectType void
-imageLayer.setMap(map);
+testImageLayer.setMap(map);
 
 // $ExpectType Map | null | undefined
-imageLayer.getMap();
+testImageLayer.getMap();
 
 // $ExpectType void
-imageLayer.show();
+testImageLayer.show();
 
 // $ExpectType void
-imageLayer.hide();
+testImageLayer.hide();
 
 // $ExpectType number
-imageLayer.getzIndex();
+testImageLayer.getzIndex();
 
 // $ExpectType void
-imageLayer.setzIndex(10);
+testImageLayer.setzIndex(10);
 
 // $ExpectType HTMLImageElement | null
-imageLayer.getElement();
+testImageLayer.getElement();
 
 // $ExpectType void
-imageLayer.setImageUrl('url');
+testImageLayer.setImageUrl('url');
 
 // $ExpectType string | undefined
-imageLayer.getImageUrl();
+testImageLayer.getImageUrl();

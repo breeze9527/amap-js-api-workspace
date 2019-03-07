@@ -1,8 +1,3 @@
-import {
-    map,
-    bounds
-} from '../preset';
-
 // $ExpectType VideoLayer
 new AMap.VideoLayer({
     map,
@@ -17,35 +12,35 @@ new AMap.VideoLayer();
 // $ExpectType VideoLayer
 new AMap.VideoLayer({});
 // $ExpectType VideoLayer
-const videoLayer = new AMap.VideoLayer({
+const testVideoLayer = new AMap.VideoLayer({
     bounds
 });
 
 // $ExpectType void
-videoLayer.setMap(null);
+testVideoLayer.setMap(null);
 // $ExpectType void
-videoLayer.setMap(map);
+testVideoLayer.setMap(map);
 
 // $ExpectType Map | null | undefined
-videoLayer.getMap();
+testVideoLayer.getMap();
 
 // $ExpectType void
-videoLayer.show();
+testVideoLayer.show();
 
 // $ExpectType void
-videoLayer.hide();
+testVideoLayer.hide();
 
 // $ExpectType number
-videoLayer.getzIndex();
+testVideoLayer.getzIndex();
 
 // $ExpectType void
-videoLayer.setzIndex(10);
+testVideoLayer.setzIndex(10);
 
 // $ExpectType HTMLVideoElement | null
-videoLayer.getElement();
+testVideoLayer.getElement();
 
 // $ExpectType void
-videoLayer.setVideoUrl('url');
+testVideoLayer.setVideoUrl('url');
 
 // $ExpectType string | string[] | undefined
-videoLayer.getVideoUrl();
+testVideoLayer.getVideoUrl();

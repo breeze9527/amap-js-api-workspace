@@ -1,10 +1,3 @@
-import {
-    map,
-    bounds
-} from '../preset';
-
-declare const canvas: HTMLCanvasElement;
-
 // $ExpectType CanvasLayer
 new AMap.CanvasLayer({
     map,
@@ -19,35 +12,35 @@ new AMap.CanvasLayer();
 // $ExpectType CanvasLayer
 new AMap.CanvasLayer({});
 // $ExpectType CanvasLayer
-const canvasLayer = new AMap.CanvasLayer({
+const testCanvasLayer = new AMap.CanvasLayer({
     bounds
 });
 
 // $ExpectType void
-canvasLayer.setMap(null);
+testCanvasLayer.setMap(null);
 // $ExpectType void
-canvasLayer.setMap(map);
+testCanvasLayer.setMap(map);
 
 // $ExpectType Map | null | undefined
-canvasLayer.getMap();
+testCanvasLayer.getMap();
 
 // $ExpectType void
-canvasLayer.show();
+testCanvasLayer.show();
 
 // $ExpectType void
-canvasLayer.hide();
+testCanvasLayer.hide();
 
 // $ExpectType number
-canvasLayer.getzIndex();
+testCanvasLayer.getzIndex();
 
 // $ExpectType void
-canvasLayer.setzIndex(10);
+testCanvasLayer.setzIndex(10);
 
 // $ExpectType HTMLCanvasElement | null
-canvasLayer.getElement();
+testCanvasLayer.getElement();
 
 // $ExpectType void
-canvasLayer.setCanvas(canvas);
+testCanvasLayer.setCanvas(canvasEle);
 
 // $ExpectType HTMLCanvasElement | undefined
-canvasLayer.getCanvas();
+testCanvasLayer.getCanvas();

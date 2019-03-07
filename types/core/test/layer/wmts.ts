@@ -1,14 +1,10 @@
-import {
-    map
-} from '../preset';
-
 // $ExpectType WMTS
 new AMap.TileLayer.WMTS({
     url: 'url',
     params: {}
 });
 // $ExpectType WMTS
-const wmts = new AMap.TileLayer.WMTS({
+const testWmts = new AMap.TileLayer.WMTS({
     url: 'url',
     blend: true,
     tileSize: 256,
@@ -25,45 +21,47 @@ const wmts = new AMap.TileLayer.WMTS({
 });
 
 // $ExpectType void
-wmts.setMap(map);
+testWmts.setMap(map);
 // $ExpectType void
-wmts.setMap(null);
+testWmts.setMap(null);
 
 // $ExpectType Map | null | undefined
-wmts.getMap();
+testWmts.getMap();
 
 // $ExpectType void
-wmts.show();
+testWmts.show();
 
 // $ExpectType void
-wmts.hide();
+testWmts.hide();
 
 // $ExpectType void
-wmts.setzIndex(10);
+testWmts.setzIndex(10);
 
 // $ExpectType number
-wmts.getzIndex();
+testWmts.getzIndex();
 
 // $ExpectType void
-wmts.setUrl('url');
+testWmts.setUrl('url');
 
 // $ExpectType string
-wmts.getUrl();
+testWmts.getUrl();
 
 // $ExpectType void
-wmts.setParams({
+testWmts.setParams({
     Version: 'version',
     Layer: 'layers',
     Style: 'style',
     Format: 'format'
 });
 
-const params = wmts.getParams();
-// $ExpectType string | undefined
-params.Version;
-// $ExpectType string | undefined
-params.Layer;
-// $ExpectType string | undefined
-params.Style;
-// $ExpectType string | undefined
-params.Format;
+{
+    const params = testWmts.getParams();
+    // $ExpectType string | undefined
+    params.Version;
+    // $ExpectType string | undefined
+    params.Layer;
+    // $ExpectType string | undefined
+    params.Style;
+    // $ExpectType string | undefined
+    params.Format;
+}

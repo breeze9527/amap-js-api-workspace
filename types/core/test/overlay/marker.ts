@@ -1,25 +1,15 @@
-import {
-    map,
-    lnglat
-} from '../preset';
-
-declare var pixel: AMap.Pixel;
-declare var domEle: HTMLElement;
-declare var markerShape: AMap.MarkerShape;
-declare var icon: AMap.Icon;
-
-interface ExtraData {
+interface MarkerExtraData {
     test: number;
 }
 
-// $ExpectType Marker<ExtraData>
-new AMap.Marker<ExtraData>();
+// $ExpectType Marker<MarkerExtraData>
+new AMap.Marker<MarkerExtraData>();
 // $ExpectType Marker<any>
 new AMap.Marker();
 // $ExpectType Marker<any>
 new AMap.Marker({});
-// $ExpectType Marker<ExtraData>
-const marker = new AMap.Marker<ExtraData>({
+// $ExpectType Marker<MarkerExtraData>
+const testMarker = new AMap.Marker<MarkerExtraData>({
     map,
     position: lnglat,
     offset: pixel,
@@ -43,153 +33,153 @@ const marker = new AMap.Marker<ExtraData>({
 });
 
 // $ExpectType void
-marker.markOnAMAP({
+testMarker.markOnAMAP({
     name: '123',
     position: [1, 2]
 });
 // $ExpectType void
-marker.markOnAMAP();
+testMarker.markOnAMAP();
 // $ExpectType void
-marker.markOnAMAP({});
+testMarker.markOnAMAP({});
 // $ExpectType void
-marker.markOnAMAP({
+testMarker.markOnAMAP({
     position: [1, 2],
     name: '123'
 });
 
 // $ExpectType Pixel
-marker.getOffset();
+testMarker.getOffset();
 
 // $ExpectType void
-marker.setOffset(pixel);
+testMarker.setOffset(pixel);
 
 // $ExpectType void
-marker.setAnimation('AMAP_ANIMATION_BOUNCE');
+testMarker.setAnimation('AMAP_ANIMATION_BOUNCE');
 
 // $ExpectType AnimationName
-marker.getAnimation();
+testMarker.getAnimation();
 
 // $ExpectType void
-marker.setClickable(true);
+testMarker.setClickable(true);
 
 // $ExpectType boolean
-marker.getClickable();
+testMarker.getClickable();
 
 // $ExpectType LngLat | undefined
-marker.getPosition();
+testMarker.getPosition();
 
 // $ExpectType void
-marker.setPosition(lnglat);
+testMarker.setPosition(lnglat);
 
 // $ExpectType void
-marker.setAngle(0);
+testMarker.setAngle(0);
 
 // $ExpectType void
-marker.setLabel();
+testMarker.setLabel();
 // $ExpectType void
-marker.setLabel({});
+testMarker.setLabel({});
 // $ExpectType void
-marker.setLabel({
+testMarker.setLabel({
     content: 'label content',
     offset: pixel
 });
 
 // $ExpectType Label | undefined
-marker.getLabel();
+testMarker.getLabel();
 
 // $ExpectType number
-marker.getAngle();
+testMarker.getAngle();
 
 // $ExpectType void
-marker.setzIndex(100);
+testMarker.setzIndex(100);
 
 // $ExpectType number
-marker.getzIndex();
+testMarker.getzIndex();
 
 // $ExpectType void
-marker.setIcon('icon uri');
+testMarker.setIcon('icon uri');
 // $ExpectType void
-marker.setIcon(icon);
+testMarker.setIcon(icon);
 
 // $ExpectType string | Icon | undefined
-marker.getIcon();
+testMarker.getIcon();
 
 // $ExpectType void
-marker.setDraggable(true);
+testMarker.setDraggable(true);
 
 // $ExpectType boolean
-marker.getDraggable();
+testMarker.getDraggable();
 
 // $ExpectType void
-marker.setCursor('default');
+testMarker.setCursor('default');
 
 // $ExpectType void
-marker.setContent('content');
+testMarker.setContent('content');
 // $ExpectType void
-marker.setContent(domEle);
+testMarker.setContent(domEle);
 
 // $ExpectType string | HTMLElement
-marker.getContent();
+testMarker.getContent();
 
 // $ExpectType void
-marker.moveAlong([lnglat], 100);
+testMarker.moveAlong([lnglat], 100);
 // $ExpectError
-marker.moveAlong([[1, 2]], 100);
+testMarker.moveAlong([[1, 2]], 100);
 // $ExpectType void
-marker.moveAlong([lnglat], 100, t => t, false);
+testMarker.moveAlong([lnglat], 100, t => t, false);
 
 // $ExpectType void
-marker.moveTo(lnglat, 100);
+testMarker.moveTo(lnglat, 100);
 // $ExpectType void
-marker.moveTo([1, 2], 100);
+testMarker.moveTo([1, 2], 100);
 // $ExpectType void
-marker.moveTo([1, 2], 100, t => t);
+testMarker.moveTo([1, 2], 100, t => t);
 
 // $ExpectType void
-marker.stopMove();
+testMarker.stopMove();
 
 // $ExpectType boolean
-marker.pauseMove();
+testMarker.pauseMove();
 
 // $ExpectType boolean
-marker.resumeMove();
+testMarker.resumeMove();
 
 // $ExpectType void
-marker.setMap(map);
+testMarker.setMap(map);
 
 // $ExpectType void
-marker.setTitle('title');
+testMarker.setTitle('title');
 // $ExpectError
-marker.setTitle();
+testMarker.setTitle();
 
 // $ExpectType string | undefined
-marker.getTitle();
+testMarker.getTitle();
 
 // $ExpectType void
-marker.setTop(true);
+testMarker.setTop(true);
 
 // $ExpectType boolean
-marker.getTop();
+testMarker.getTop();
 
 // $ExpectType void
-marker.setShadow();
+testMarker.setShadow();
 // $ExpectType void
-marker.setShadow(icon);
+testMarker.setShadow(icon);
 // $ExpectType void
-marker.setShadow('shadow url');
+testMarker.setShadow('shadow url');
 
 // $ExpectType string | Icon | undefined
-marker.getShadow();
+testMarker.getShadow();
 
 // $ExpectType void
-marker.setShape();
+testMarker.setShape();
 // $ExpectType void
-marker.setShape(markerShape);
+testMarker.setShape(markerShape);
 
 // $ExpectType MarkerShape | undefined
-marker.getShape();
+testMarker.getShape();
 
-marker.on('click', (event: AMap.Marker.EventMap<typeof marker>['click']) => {
-    // $ExpectType {} | ExtraData
+testMarker.on('click', (event: AMap.Marker.EventMap<typeof testMarker>['click']) => {
+    // $ExpectType {} | MarkerExtraData
     event.target.getExtData();
 });

@@ -1,11 +1,4 @@
-import {
-    map,
-    lnglat,
-    bounds,
-    lnglatTuple
-} from '../preset';
-
-interface ExtraData {
+interface RectangleExtraData {
     test: number;
 }
 
@@ -13,8 +6,8 @@ interface ExtraData {
 new AMap.Rectangle();
 // $ExpectType Rectangle<any>
 new AMap.Rectangle({});
-// $ExpectType Rectangle<ExtraData>
-const rectangle = new AMap.Rectangle<ExtraData>({
+// $ExpectType Rectangle<RectangleExtraData>
+const testRectangle = new AMap.Rectangle<RectangleExtraData>({
     map,
     zIndex: 10,
     bounds,
@@ -31,15 +24,15 @@ const rectangle = new AMap.Rectangle<ExtraData>({
 });
 
 // $ExpectType Bounds | undefined
-rectangle.getBounds();
+testRectangle.getBounds();
 
 // $ExpectType void
-rectangle.setBounds(bounds);
+testRectangle.setBounds(bounds);
 
 // $ExpectType void
-rectangle.setOptions({});
+testRectangle.setOptions({});
 // $ExpectType void
-rectangle.setOptions({
+testRectangle.setOptions({
     map,
     zIndex: 10,
     bounds,
@@ -55,14 +48,15 @@ rectangle.setOptions({
     strokeDasharray: [1, 5]
 });
 
-const options = rectangle.getOptions();
+{
+const options = testRectangle.getOptions();
 // $ExpectType Bounds | undefined
 options.bounds;
 // $ExpectType boolean | undefined
 options.bubble;
 // $ExpectType boolean | undefined
 options.clickable;
-// $ExpectType {} | ExtraData | undefined
+// $ExpectType {} | RectangleExtraData | undefined
 options.extData;
 // $ExpectType string | undefined
 options.fillColor;
@@ -88,32 +82,33 @@ options.strokeWeight;
 options.texture;
 // $ExpectType number | undefined
 options.zIndex;
+}
 
 // $ExpectType void
-rectangle.hide();
+testRectangle.hide();
 
 // $ExpectType void
-rectangle.show();
+testRectangle.show();
 
 // $ExpectType void
-rectangle.setExtData({test: 2});
+testRectangle.setExtData({test: 2});
 
-// $ExpectType {} | ExtraData
-rectangle.getExtData();
+// $ExpectType {} | RectangleExtraData
+testRectangle.getExtData();
 
 // $ExpectType boolean
-rectangle.contains(lnglat);
+testRectangle.contains(lnglat);
 // $ExpectType boolean
-rectangle.contains(lnglatTuple);
+testRectangle.contains(lnglatTuple);
 
-rectangle.on('click', (event: AMap.Rectangle.EventMap<typeof rectangle>['click']) => {
+testRectangle.on('click', (event: AMap.Rectangle.EventMap<typeof testRectangle>['click']) => {
     // $ExpectType "click"
     event.type;
-    // $ExpectType Rectangle<ExtraData>
+    // $ExpectType Rectangle<RectangleExtraData>
     event.target;
 });
 
-rectangle.on('setBounds', (event: AMap.Rectangle.EventMap<typeof rectangle>['setBounds']) => {
+testRectangle.on('setBounds', (event: AMap.Rectangle.EventMap<typeof testRectangle>['setBounds']) => {
     // $ExpectType "setBounds"
     event.type;
     // $ExpectError

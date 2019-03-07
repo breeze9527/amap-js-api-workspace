@@ -3,27 +3,30 @@ declare const lnglat: AMap.LngLat;
 declare const size: AMap.Size;
 declare const lnglatTuple: [number, number];
 declare const pixel: AMap.Pixel;
-declare const marker: AMap.Marker;
-declare const circle: AMap.Circle;
 declare const markerShape: AMap.MarkerShape;
 declare const icon: AMap.Icon;
 declare const bounds: AMap.Bounds;
 declare const div: HTMLDivElement;
-declare const polygon: AMap.Polygon;
 declare const lang: AMap.Lang;
+declare const domEle: HTMLElement;
+declare const canvasEle: HTMLCanvasElement;
+declare const imgEle: HTMLImageElement;
 
-export {
-    map,
-    lnglat,
-    size,
-    lnglatTuple,
-    pixel,
-    marker,
-    circle,
-    markerShape,
-    icon,
-    bounds,
-    div,
-    polygon,
-    lang
-};
+declare const circle: AMap.Circle;
+declare const marker: AMap.Marker;
+declare const layer: AMap.Layer;
+declare const tileLayer: AMap.TileLayer;
+declare const massMarksLayer: AMap.MassMarks;
+
+// declare const videoLayer: AMap.VideoLayer;
+// declare const buildings: AMap.Buildings;
+// declare const canvasLayer: AMap.CanvasLayer;
+// declare const flexible: AMap.TileLayer.Flexible;
+// declare const imageLayer: AMap.ImageLayer;
+// declare const tileLayerGroup: AMap.LayerGroup<AMap.TileLayer>;
+// declare const layerGroup: AMap.LayerGroup;
+// declare const trafficLayer: AMap.TileLayer.Traffic;
+// declare const bezierCurve: AMap.BezierCurve;
+// declare const contextMenu: AMap.ContextMenu;
+// declare const polyline: AMap.Polyline;
+// declare const polygon: AMap.Polygon;

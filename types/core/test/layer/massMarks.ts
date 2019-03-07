@@ -1,26 +1,23 @@
-declare var pixel: AMap.Pixel;
-declare var size: AMap.Size;
-declare var lnglat: AMap.LngLat;
-var massMarksStyle1 = {
+const massMarksStyle1 = {
     anchor: pixel,
     url: '',
     size,
     rotation: 1
 };
-var massMarksStyle2 = {
+const massMarksStyle2 = {
     anchor: pixel,
     url: '',
     size
 };
-var massMarksData1 = {
+const massMarksData1 = {
     lnglat
 };
 
-interface CustomData extends AMap.MassMarks.Data {
+interface MassMarksCustomData extends AMap.MassMarks.Data {
     name: string;
     id: string;
 }
-var massMarksCustomData: CustomData = {
+const massMarksMassMarksCustomData: MassMarksCustomData = {
     lnglat: [1, 2],
     style: 1,
     name: '',
@@ -39,45 +36,45 @@ new AMap.MassMarks([massMarksData1], {
     style: [massMarksStyle1, massMarksStyle2]
 });
 
-// $ExpectType MassMarks<CustomData>
-var massMarks = new AMap.MassMarks<CustomData>([massMarksCustomData], {
+// $ExpectType MassMarks<MassMarksCustomData>
+const testMassMarks = new AMap.MassMarks<MassMarksCustomData>([massMarksMassMarksCustomData], {
     style: [massMarksStyle1, massMarksStyle2]
 });
 
 // $ExpectType void
-massMarks.setStyle(massMarksStyle1);
+testMassMarks.setStyle(massMarksStyle1);
 // $ExpectType void
-massMarks.setStyle([massMarksStyle1]);
+testMassMarks.setStyle([massMarksStyle1]);
 
 // $ExpectType Style | Style[]
-massMarks.getStyle();
+testMassMarks.getStyle();
 
 // $ExpectType void
-massMarks.setData('');
+testMassMarks.setData('');
 
 // $ExpectError
-massMarks.setData(massMarksData1);
+testMassMarks.setData(massMarksData1);
 // $ExpectError
-massMarks.setData(massMarksCustomData);
+testMassMarks.setData(massMarksMassMarksCustomData);
 
-var _customData = massMarks.getData()[0];
+const massMarksCustomData = testMassMarks.getData()[0];
 // $ExpectType string
-_customData.name;
+massMarksCustomData.name;
 // $ExpectType string
-_customData.id;
+massMarksCustomData.id;
 // $ExpectType LngLat
-_customData.lnglat;
+massMarksCustomData.lnglat;
 
 // $ExpectType void
-massMarks.clear();
+testMassMarks.clear();
 
-massMarks.on('click', (event: AMap.MassMarks.EventMap<typeof massMarks>['click']) => {
+testMassMarks.on('click', (event: AMap.MassMarks.EventMap<typeof testMassMarks>['click']) => {
     // $ExpectType "click"
     event.type;
 
-    // $ExpectType CustomData
+    // $ExpectType MassMarksCustomData
     event.data;
 
-    // $ExpectType MassMarks<CustomData>
+    // $ExpectType MassMarks<MassMarksCustomData>
     event.target;
 });

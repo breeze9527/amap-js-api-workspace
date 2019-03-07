@@ -1,30 +1,25 @@
-declare var map: AMap.Map;
-declare var tileLayer: AMap.TileLayer;
-declare var massMarksLayer: AMap.MassMarks;
-declare var layer: AMap.Layer;
-
 // $ExpectError
 new AMap.LayerGroup();
 
 // $ExpectType LayerGroup<TileLayer>
 new AMap.LayerGroup(tileLayer);
 // $ExpectType LayerGroup<TileLayer>
-new AMap.LayerGroup([tileLayer]);
-
-declare var layerGruop: AMap.LayerGroup<AMap.TileLayer>;
+const testTileLayerGroup = new AMap.LayerGroup([tileLayer]);
+// $ExpectType LayerGroup<any>
+const testAnyLauerGroup = new AMap.LayerGroup<any>([]);
 
 // $ExpectType LayerGroup<TileLayer>
-layerGruop.addLayer(tileLayer);
+testTileLayerGroup.addLayer(tileLayer);
 // $ExpectType LayerGroup<TileLayer>
-layerGruop.addLayer([tileLayer]);
+testTileLayerGroup.addLayer([tileLayer]);
 // $ExpectError
-layerGruop.addLayer(massMarksLayer);
+testTileLayerGroup.addLayer(massMarksLayer);
 
 // $ExpectType TileLayer[]
-layerGruop.getLayers();
+testTileLayerGroup.getLayers();
 
 // $ExpectType TileLayer | null
-layerGruop.getLayer(function (item, index, list) {
+testTileLayerGroup.getLayer(function(item, index, list) {
     // $ExpectType TileLayer
     item;
     // $ExpectType number
@@ -37,7 +32,7 @@ layerGruop.getLayer(function (item, index, list) {
     return true;
 });
 
-layerGruop.hasLayer(function (item, index, list) {
+testTileLayerGroup.hasLayer(function(item, index, list) {
     // $ExpectType TileLayer
     item;
     // $ExpectType number
@@ -49,17 +44,17 @@ layerGruop.hasLayer(function (item, index, list) {
 
     return true;
 });
-layerGruop.hasLayer(tileLayer);
+testTileLayerGroup.hasLayer(tileLayer);
 
 // $ExpectType LayerGroup<TileLayer>
-layerGruop.removeLayer(tileLayer);
+testTileLayerGroup.removeLayer(tileLayer);
 // $ExpectType LayerGroup<TileLayer>
-layerGruop.removeLayer([tileLayer]);
+testTileLayerGroup.removeLayer([tileLayer]);
 
 // $ExpectType LayerGroup<TileLayer>
-layerGruop.clearLayers();
+testTileLayerGroup.clearLayers();
 
-layerGruop.eachLayer(function (item, index, list) {
+testTileLayerGroup.eachLayer(function(item, index, list) {
     // $ExpectType TileLayer
     item;
     // $ExpectType number
@@ -69,7 +64,7 @@ layerGruop.eachLayer(function (item, index, list) {
     // $ExpectType TileLayer
     this;
 });
-layerGruop.eachLayer(function (item, index, list) {
+testTileLayerGroup.eachLayer(function(item, index, list) {
     // $ExpectType TileLayer
     item;
     // $ExpectType number
@@ -81,22 +76,22 @@ layerGruop.eachLayer(function (item, index, list) {
 }, { test: 1 });
 
 // $ExpectType LayerGroup<TileLayer>
-layerGruop.setMap(map);
+testTileLayerGroup.setMap(map);
 
 // $ExpectType LayerGroup<TileLayer>
-layerGruop.hide();
+testTileLayerGroup.hide();
 
 // $ExpectType LayerGroup<TileLayer>
-layerGruop.show();
+testTileLayerGroup.show();
 
 // $ExpectType LayerGroup<TileLayer>
-layerGruop.reload();
+testTileLayerGroup.reload();
 
 // $ExpectType LayerGroup<TileLayer>
-layerGruop.setOptions({});
+testTileLayerGroup.setOptions({});
 
 // $ExpectType LayerGroup<TileLayer>
-layerGruop.setOptions({
+testTileLayerGroup.setOptions({
     tileSize: 256
 });
 // layerGruop.setOptions({
@@ -104,12 +99,10 @@ layerGruop.setOptions({
 //     interval: 1
 // });
 
-declare var layerGroup2: AMap.LayerGroup;
+testAnyLauerGroup.addLayer(tileLayer);
 
-layerGroup2.addLayer(tileLayer);
+testAnyLauerGroup.addLayer(massMarksLayer);
 
-layerGroup2.addLayer(massMarksLayer);
-
-layerGroup2.setOptions({
+testAnyLauerGroup.setOptions({
     test: 1
 });

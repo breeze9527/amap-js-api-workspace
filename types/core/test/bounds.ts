@@ -1,30 +1,25 @@
-import {
-    lnglat,
-    lnglatTuple
-} from './preset';
-
 // $ExpectType Bounds
-const bounds = new AMap.Bounds(lnglat, lnglat);
+const testBounds = new AMap.Bounds(lnglat, lnglat);
 
 // $ExpectType boolean
-bounds.contains(lnglat);
+testBounds.contains(lnglat);
 // $ExpectType boolean
-bounds.contains(lnglatTuple);
+testBounds.contains(lnglatTuple);
 
 // $ExpectType LngLat
-bounds.getCenter();
+testBounds.getCenter();
 
 // $ExpectType LngLat
-bounds.getSouthWest();
+testBounds.getSouthWest();
 
 // $ExpectType LngLat
-bounds.getSouthEast();
+testBounds.getSouthEast();
 
 // $ExpectType LngLat
-bounds.getNorthEast();
+testBounds.getNorthEast();
 
 // $ExpectType LngLat
-bounds.getNorthWest();
+testBounds.getNorthWest();
 
 // $ExpectType string
-bounds.toString();
+testBounds.toString();
