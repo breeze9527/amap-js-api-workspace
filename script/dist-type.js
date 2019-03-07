@@ -16,7 +16,7 @@ const REG_FILES_INCLUDE_EXT = /(\.d)?\.ts$/;
 const getHeaders = (version, authors, projectUrl) => {
     const versionStr = version.split('.').slice(0, 2).join('.');
     const headers = [
-        `// Type definitions for non-npm package amap-js-sdk 1.4`,
+        `// Type definitions for non-npm package ${definitionName} ${versionStr}`,
         `// Project: ${projectUrl}`,
         ...authors.map((author, index) => {
             const prefix = '// Definitions by: ';
