@@ -1,7 +1,7 @@
 // TypeScript Version: 2.8
 
 /// <reference types="core" />
-/// <reference types="amap-place-search" />
+/// <reference types="place-search" />
 
 declare namespace AMap {
     enum TransferPolicy {

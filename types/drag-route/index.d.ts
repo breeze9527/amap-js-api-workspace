@@ -1,7 +1,7 @@
 // TypeScript Version: 2.8
 
 /// <reference types="core" />
-/// <reference types="amap-driving" />
+/// <reference types="driving" />
 
 declare namespace AMap {
     namespace DragRoute {
