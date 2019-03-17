@@ -16,6 +16,7 @@
     "exclude": [
         "./types/**/*.ts",
         "./types/**/*.d.ts",
-        "./type-template"
+        "./type-template",
+        "./type-dist"
     ]
 }
