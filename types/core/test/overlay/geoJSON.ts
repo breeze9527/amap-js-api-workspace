@@ -33,7 +33,7 @@ const testGeoJSON = new AMap.GeoJSON<GeoJSONExtraData>({
         obj;
         // $ExpectType LngLat
         lnglat;
-        return testMarker;
+        return marker;
     },
     getPolyline(obj, lnglats) {
         // $ExpectType GeoJSONObject
@@ -60,19 +60,19 @@ const testGeoJSON = new AMap.GeoJSON<GeoJSONExtraData>({
 testGeoJSON.importData(geoJSONObject);
 
 // $ExpectType GeoJSON<GeoJSONExtraData>
-testGeoJSON.removeOverlay(testMarker);
+testGeoJSON.removeOverlay(marker);
 // $ExpectType GeoJSON<GeoJSONExtraData>
-testGeoJSON.removeOverlay([testMarker]);
+testGeoJSON.removeOverlay([marker]);
 
 // $ExpectType boolean
-testGeoJSON.hasOverlay(testMarker);
+testGeoJSON.hasOverlay(marker);
 // $ExpectType boolean
-testGeoJSON.hasOverlay(m => m === testMarker);
+testGeoJSON.hasOverlay(m => m === marker);
 
 // $ExpectType GeoJSON<GeoJSONExtraData>
-testGeoJSON.addOverlay(testMarker);
+testGeoJSON.addOverlay(marker);
 // $ExpectType GeoJSON<GeoJSONExtraData>
-testGeoJSON.addOverlay([testMarker]);
+testGeoJSON.addOverlay([marker]);
 
 // $ExpectType GeoJSONObject[]
 testGeoJSON.toGeoJSON();

@@ -49,39 +49,39 @@ testRectangle.setOptions({
 });
 
 {
-const options = testRectangle.getOptions();
-// $ExpectType Bounds | undefined
-options.bounds;
-// $ExpectType boolean | undefined
-options.bubble;
-// $ExpectType boolean | undefined
-options.clickable;
-// $ExpectType {} | RectangleExtraData | undefined
-options.extData;
-// $ExpectType string | undefined
-options.fillColor;
-// $ExpectType number | undefined
-options.fillOpacity;
-// $ExpectType "miter" | "round" | "bevel" | undefined
-options.lineJoin;
-// $ExpectType Map | undefined
-options.map;
-// $ExpectType LngLat[] | undefined
-options.path;
-// $ExpectType string | undefined
-options.strokeColor;
-// $ExpectType number[] | undefined
-options.strokeDasharray;
-// $ExpectType number | undefined
-options.strokeOpacity;
-// $ExpectType "dashed" | "solid" | undefined
-options.strokeStyle;
-// $ExpectType number | undefined
-options.strokeWeight;
-// $ExpectType string | undefined
-options.texture;
-// $ExpectType number | undefined
-options.zIndex;
+    const options = testRectangle.getOptions();
+    // $ExpectType Bounds | undefined
+    options.bounds;
+    // $ExpectType boolean | undefined
+    options.bubble;
+    // $ExpectType boolean | undefined
+    options.clickable;
+    // $ExpectType {} | RectangleExtraData | undefined
+    options.extData;
+    // $ExpectType string | undefined
+    options.fillColor;
+    // $ExpectType number | undefined
+    options.fillOpacity;
+    // $ExpectType "miter" | "round" | "bevel" | undefined
+    options.lineJoin;
+    // $ExpectType Map | undefined
+    options.map;
+    // $ExpectType LngLat[] | undefined
+    options.path;
+    // $ExpectType string | undefined
+    options.strokeColor;
+    // $ExpectType number[] | undefined
+    options.strokeDasharray;
+    // $ExpectType number | undefined
+    options.strokeOpacity;
+    // $ExpectType "dashed" | "solid" | undefined
+    options.strokeStyle;
+    // $ExpectType number | undefined
+    options.strokeWeight;
+    // $ExpectType string | undefined
+    options.texture;
+    // $ExpectType number | undefined
+    options.zIndex;
 }
 
 // $ExpectType void

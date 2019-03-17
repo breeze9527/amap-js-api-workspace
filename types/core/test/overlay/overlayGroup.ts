@@ -1,39 +1,39 @@
 // $ExpectType OverlayGroup<Overlay<any>, any>
 const testOverlayGroup2 = new AMap.OverlayGroup();
 // $ExpectType OverlayGroup<Marker<any>, any>
-new AMap.OverlayGroup<AMap.Marker, any>(testMarker);
+new AMap.OverlayGroup<AMap.Marker, any>(marker);
 // $ExpectType OverlayGroup<Marker<any>, any>
-const testOverlayGroup = new AMap.OverlayGroup<AMap.Marker>([testMarker]);
+const testOverlayGroup = new AMap.OverlayGroup<AMap.Marker>([marker]);
 
 // $ExpectType OverlayGroup<Marker<any>, any>
-testOverlayGroup.addOverlay(testMarker);
+testOverlayGroup.addOverlay(marker);
 // $ExpectType OverlayGroup<Marker<any>, any>
-testOverlayGroup.addOverlay([testMarker]);
+testOverlayGroup.addOverlay([marker]);
 // $ExpectError
 testOverlayGroup.addOverlay([testCircle]);
 
 // $ExpectType OverlayGroup<Marker<any>, any>
-testOverlayGroup.addOverlays(testMarker);
+testOverlayGroup.addOverlays(marker);
 // $ExpectType OverlayGroup<Marker<any>, any>
-testOverlayGroup.addOverlays([testMarker]);
+testOverlayGroup.addOverlays([marker]);
 
 // $ExpectType Marker<any>[]
 testOverlayGroup.getOverlays();
 
 // $ExpectType boolean
-testOverlayGroup.hasOverlay(testMarker);
+testOverlayGroup.hasOverlay(marker);
 // $ExpectType boolean
-testOverlayGroup.hasOverlay(o => o === testMarker);
+testOverlayGroup.hasOverlay(o => o === marker);
 
 // $ExpectType OverlayGroup<Marker<any>, any>
-testOverlayGroup.removeOverlay(testMarker);
+testOverlayGroup.removeOverlay(marker);
 // $ExpectType OverlayGroup<Marker<any>, any>
-testOverlayGroup.removeOverlay([testMarker]);
+testOverlayGroup.removeOverlay([marker]);
 
 // $ExpectType OverlayGroup<Marker<any>, any>
-testOverlayGroup.removeOverlays(testMarker);
+testOverlayGroup.removeOverlays(marker);
 // $ExpectType OverlayGroup<Marker<any>, any>
-testOverlayGroup.removeOverlays([testMarker]);
+testOverlayGroup.removeOverlays([marker]);
 
 // $ExpectType OverlayGroup<Marker<any>, any>
 testOverlayGroup.clearOverlays();

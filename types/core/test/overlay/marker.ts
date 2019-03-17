@@ -9,7 +9,7 @@ new AMap.Marker();
 // $ExpectType Marker<any>
 new AMap.Marker({});
 // $ExpectType Marker<MarkerExtraData>
-const testMarker = new AMap.Marker<MarkerExtraData>({
+export const testMarker = new AMap.Marker<MarkerExtraData>({
     map,
     position: lnglat,
     offset: pixel,
