@@ -24,7 +24,7 @@ testPluginWrapper('Map3D', () => {
     });
     prism.transparent = true;
     const object3dLayer = new AMap.Object3DLayer({ map });
-    // object3dLayer.add(prism);
+    object3dLayer.add(prism);
 
     return {
         map,

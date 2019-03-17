@@ -16,12 +16,12 @@ const {
     TEST_DIR,
     TEST_PRESET_FILENAME
 } = env;
-const REG_TYPE_REF = /^\s*\/\/\/<reference types="(\w+)"\s* \/>\s$/g;
+const REG_TYPE_REF = /^\/\/\/\s*<reference types="(\w+)"\s* \/>/gm;
 
-const getHeaders = (version, authors, projectUrl) => {
+const getHeaders = (typeName, version, authors, projectUrl) => {
     const versionStr = version.split('.').slice(0, 2).join('.');
     const headers = [
-        `// Type definitions for non-npm package ${DEFINITION_NAME} ${versionStr}`,
+        `// Type definitions for non-npm package ${typeName} ${versionStr}`,
         `// Project: ${projectUrl}`,
         ...authors.map((author, index) => {
             const prefix = '// Definitions by: ';
@@ -84,16 +84,18 @@ async function updateTsConfig(typeDistPath, distTypeName) {
     });
 }
 
-async function updateDefIndex(distPath, meta) {
+async function updateDefIndex(typeDistPath, distTypeName, meta) {
+    const distPath = path.join(typeDistPath, distTypeName);
     const indexPath = path.join(distPath, 'index.d.ts');
     const indexContent = await fsp.readFile(indexPath, 'utf8');
     const header = getHeaders(
+        distTypeName,
         meta.amapVersion || AMAP_VERSION,
         meta.authors,
         meta.project || DEFAULT_PROJECT_ADDRESS
     );
-    const newContent = indexContent.replace(REG_TYPE_REF, (matchedStr, typeName) => {
-        return getDistTypeName(typeName);
+    const newContent = indexContent.replace(REG_TYPE_REF, (matchedStr, depTypeName) => {
+        return `/// <reference types="${getDistTypeName(depTypeName)}" />` ;
     });
     await fsp.writeFile(indexPath, `${header}\n${newContent}`);
 }
@@ -115,13 +117,13 @@ async function mergeTestFiles(distPath, distTypeName) {
     }
     const testContents = await Promise.all(testFiles.map(async (filePath) => {
         const fileContent = await fsp.readFile(path.join(basePath, filePath), 'utf8');
-        const fileHeader = [
+        return [
             '/**',
             ` * ${filePath}`,
             ' */',
-            ''
+            '',
+            fileContent
         ].join('\n');
-        return fileHeader + '\n' + fileContent;
     }));
     await fse.emptyDir(basePath);
     await Promise.all([
@@ -151,7 +153,7 @@ async function distType(typeName) {
 
     await Promise.all([
         updateTsConfig(typeDistPath, distTypeName),
-        updateDefIndex(distPath, meta),
+        updateDefIndex(typeDistPath, distTypeName, meta),
         updateTslintConfig(distPath),
         mergeTestFiles(distPath, distTypeName)
     ])
