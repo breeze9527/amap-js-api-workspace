@@ -1,58 +1,56 @@
 // $ExpectType MeshAcceptLights
-const meshAcceptLights = new AMap.Object3D.MeshAcceptLights();
+const testMeshAcceptLights = new AMap.Object3D.MeshAcceptLights();
 
 // $ExpectError
-meshAcceptLights.geometry = geometry;
-
-// $ExpectType number[]
-meshAcceptLights.geometry.vertices;
-// $ExpectError
-meshAcceptLights.geometry.vertices = [];
-meshAcceptLights.geometry.vertices.shift();
+testMeshAcceptLights.geometry = geometry;
 
 // $ExpectType number[]
-meshAcceptLights.geometry.vertexColors;
+testMeshAcceptLights.geometry.vertices;
 // $ExpectError
-meshAcceptLights.geometry.vertexColors = [];
-meshAcceptLights.geometry.vertexColors.shift();
+testMeshAcceptLights.geometry.vertices = [];
+testMeshAcceptLights.geometry.vertices.shift();
 
 // $ExpectType number[]
-meshAcceptLights.geometry.vertexUVs;
+testMeshAcceptLights.geometry.vertexColors;
 // $ExpectError
-meshAcceptLights.geometry.vertexUVs = [];
-meshAcceptLights.geometry.vertexUVs.shift();
+testMeshAcceptLights.geometry.vertexColors = [];
+testMeshAcceptLights.geometry.vertexColors.shift();
 
 // $ExpectType number[]
-meshAcceptLights.geometry.faces;
+testMeshAcceptLights.geometry.vertexUVs;
 // $ExpectError
-meshAcceptLights.geometry.faces = [];
-meshAcceptLights.geometry.faces.shift();
+testMeshAcceptLights.geometry.vertexUVs = [];
+testMeshAcceptLights.geometry.vertexUVs.shift();
 
 // $ExpectType number[]
-meshAcceptLights.geometry.textureIndices;
+testMeshAcceptLights.geometry.faces;
 // $ExpectError
-meshAcceptLights.geometry.textureIndices = [];
-meshAcceptLights.geometry.textureIndices.shift();
+testMeshAcceptLights.geometry.faces = [];
+testMeshAcceptLights.geometry.faces.shift();
 
 // $ExpectType number[]
-meshAcceptLights.geometry.vertexNormals;
+testMeshAcceptLights.geometry.textureIndices;
 // $ExpectError
-meshAcceptLights.geometry.vertexNormals = [];
-meshAcceptLights.geometry.vertexNormals.shift();
+testMeshAcceptLights.geometry.textureIndices = [];
+testMeshAcceptLights.geometry.textureIndices.shift();
+
+// $ExpectType number[]
+testMeshAcceptLights.geometry.vertexNormals;
+// $ExpectError
+testMeshAcceptLights.geometry.vertexNormals = [];
+testMeshAcceptLights.geometry.vertexNormals.shift();
 
 // $ExpectType (string | HTMLCanvasElement)[]
-meshAcceptLights.textures;
+testMeshAcceptLights.textures;
 
 // $ExpectType boolean
-meshAcceptLights.needUpdate;
+testMeshAcceptLights.needUpdate;
 
 // $ExpectType boolean
-meshAcceptLights.transparent;
+testMeshAcceptLights.transparent;
 
 // $ExpectType boolean
-meshAcceptLights.DEPTH_TEST;
+testMeshAcceptLights.DEPTH_TEST;
 
 // $ExpectType void
-meshAcceptLights.reDraw();
-
-export default meshAcceptLights;
+testMeshAcceptLights.reDraw();

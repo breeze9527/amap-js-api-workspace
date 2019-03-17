@@ -1,11 +1,3 @@
-import {
-    map,
-    ambientLight,
-    directionLight,
-    pixel,
-    layer
-} from './preset';
-
 // $ExpectType Object3DResult | null
 map.getObject3DByContainerPos(pixel);
 

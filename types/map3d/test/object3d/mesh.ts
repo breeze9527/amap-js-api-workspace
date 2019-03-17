@@ -1,54 +1,50 @@
-declare const geometry: AMap.Geometry3D.Mesh;
-
 // $ExpectType Mesh
-const mesh = new AMap.Object3D.Mesh();
+const testMesh = new AMap.Object3D.Mesh();
 
 // $ExpectError
-mesh.geometry = geometry;
-
-// $ExpectType number[]
-mesh.geometry.vertices;
-// $ExpectError
-mesh.geometry.vertices = [];
-mesh.geometry.vertices.shift();
+testMesh.geometry = geometry;
 
 // $ExpectType number[]
-mesh.geometry.vertexColors;
+testMesh.geometry.vertices;
 // $ExpectError
-mesh.geometry.vertexColors = [];
-mesh.geometry.vertexColors.shift();
+testMesh.geometry.vertices = [];
+testMesh.geometry.vertices.shift();
 
 // $ExpectType number[]
-mesh.geometry.vertexUVs;
+testMesh.geometry.vertexColors;
 // $ExpectError
-mesh.geometry.vertexUVs = [];
-mesh.geometry.vertexUVs.shift();
+testMesh.geometry.vertexColors = [];
+testMesh.geometry.vertexColors.shift();
 
 // $ExpectType number[]
-mesh.geometry.faces;
+testMesh.geometry.vertexUVs;
 // $ExpectError
-mesh.geometry.faces = [];
-mesh.geometry.faces.shift();
+testMesh.geometry.vertexUVs = [];
+testMesh.geometry.vertexUVs.shift();
 
 // $ExpectType number[]
-mesh.geometry.textureIndices;
+testMesh.geometry.faces;
 // $ExpectError
-mesh.geometry.textureIndices = [];
-mesh.geometry.textureIndices.shift();
+testMesh.geometry.faces = [];
+testMesh.geometry.faces.shift();
+
+// $ExpectType number[]
+testMesh.geometry.textureIndices;
+// $ExpectError
+testMesh.geometry.textureIndices = [];
+testMesh.geometry.textureIndices.shift();
 
 // $ExpectType (string | HTMLCanvasElement)[]
-mesh.textures;
+testMesh.textures;
 
 // $ExpectType boolean
-mesh.needUpdate;
+testMesh.needUpdate;
 
 // $ExpectType boolean
-mesh.transparent;
+testMesh.transparent;
 
 // $ExpectType boolean
-mesh.DEPTH_TEST;
+testMesh.DEPTH_TEST;
 
 // $ExpectType void
-mesh.reDraw();
-
-export default mesh;
+testMesh.reDraw();

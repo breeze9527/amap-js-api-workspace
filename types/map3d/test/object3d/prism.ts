@@ -1,9 +1,3 @@
-import {
-    lnglat,
-    lnglatTuple,
-    pixel
-} from '../preset';
-
 // $ExpectError
 new AMap.Object3D.Prism();
 // $ExpectError

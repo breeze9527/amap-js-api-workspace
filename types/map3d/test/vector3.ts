@@ -1,43 +1,41 @@
 // $ExpectType Vector3
-const vector = new AMap.Vector3([1, 2, 3]);
+const testVector = new AMap.Vector3([1, 2, 3]);
 // $ExpectType Vector3
-new AMap.Vector3(vector);
+new AMap.Vector3(testVector);
 
 // $ExpectType [number, number, number]
-vector.elements;
+testVector.elements;
 
 // $ExpectType void
-vector.set(1, 2, 3);
+testVector.set(1, 2, 3);
 
 // $ExpectType number
-vector.dot();
+testVector.dot();
 
 // $ExpectType Vector3
-vector.clone();
+testVector.clone();
 
 // $ExpectType Vector3
-vector.add(vector);
+testVector.add(testVector);
 // $ExpectType Vector3
-vector.add([1, 2, 3]);
+testVector.add([1, 2, 3]);
 
 // $ExpectType Vector3
-vector.sub(vector);
+testVector.sub(testVector);
 // $ExpectType Vector3
-vector.sub([1, 2, 3]);
+testVector.sub([1, 2, 3]);
 
 // $ExpectType Vector3
-vector.addVectors(vector, vector);
+testVector.addVectors(testVector, testVector);
 
 // $ExpectType Vector3
-vector.subVectors(vector, vector);
+testVector.subVectors(testVector, testVector);
 
 // $ExpectType Vector3
-vector.crossVectors(vector, vector);
+testVector.crossVectors(testVector, testVector);
 
 // $ExpectType Vector3
-vector.normalize();
+testVector.normalize();
 
 // $ExpectType number
-vector.length();
-
-export default vector;
+testVector.length();

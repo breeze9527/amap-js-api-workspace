@@ -1,15 +1,9 @@
-import {
-    lnglat,
-    lnglatTuple,
-    pixel
-} from '../preset';
-
 // $ExpectError
 new AMap.Object3D.MeshLine();
 // $ExpectError
 new AMap.Object3D.MeshLine({});
 // $ExpectType MeshLine
-const meshLine = new AMap.Object3D.MeshLine({
+const testMeshLine = new AMap.Object3D.MeshLine({
     path: [lnglat],
     width: 1,
     height: 1,
@@ -46,62 +40,62 @@ new AMap.Object3D.MeshLine({
 });
 
 // $ExpectType number[]
-meshLine.geometry.vertices;
+testMeshLine.geometry.vertices;
 // $ExpectError
-meshLine.geometry.vertices = [];
-meshLine.geometry.vertices.shift();
+testMeshLine.geometry.vertices = [];
+testMeshLine.geometry.vertices.shift();
 
 // $ExpectType number[]
-meshLine.geometry.vertexUVs;
+testMeshLine.geometry.vertexUVs;
 // $ExpectError
-meshLine.geometry.vertexUVs = [];
-meshLine.geometry.vertexUVs.shift();
+testMeshLine.geometry.vertexUVs = [];
+testMeshLine.geometry.vertexUVs.shift();
 
 // $ExpectType number[]
-meshLine.geometry.vertexColors;
+testMeshLine.geometry.vertexColors;
 // $ExpectError
-meshLine.geometry.vertexColors = [];
-meshLine.geometry.vertexColors.shift();
+testMeshLine.geometry.vertexColors = [];
+testMeshLine.geometry.vertexColors.shift();
 
 // $ExpectType number[]
-meshLine.geometry.vertexColors;
+testMeshLine.geometry.vertexColors;
 // $ExpectError
-meshLine.geometry.vertexColors = [];
-meshLine.geometry.vertexColors.shift();
+testMeshLine.geometry.vertexColors = [];
+testMeshLine.geometry.vertexColors.shift();
 
 // $ExpectType number[]
-meshLine.geometry.vertexIndices;
+testMeshLine.geometry.vertexIndices;
 // $ExpectError
-meshLine.geometry.vertexIndices = [];
-meshLine.geometry.vertexIndices.shift();
+testMeshLine.geometry.vertexIndices = [];
+testMeshLine.geometry.vertexIndices.shift();
 
 // $ExpectType number[]
-meshLine.geometry.directions;
+testMeshLine.geometry.directions;
 // $ExpectError
-meshLine.geometry.directions = [];
-meshLine.geometry.directions.shift();
+testMeshLine.geometry.directions = [];
+testMeshLine.geometry.directions.shift();
 
 // $ExpectType number[]
-meshLine.geometry.textureIndices;
+testMeshLine.geometry.textureIndices;
 // $ExpectError
-meshLine.geometry.textureIndices = [];
-meshLine.geometry.textureIndices.shift();
+testMeshLine.geometry.textureIndices = [];
+testMeshLine.geometry.textureIndices.shift();
 
 // $ExpectType number
-meshLine.width;
+testMeshLine.width;
 
 // $ExpectType void
-meshLine.setPath([lnglat]);
+testMeshLine.setPath([lnglat]);
 // $ExpectType void
-meshLine.setPath([lnglatTuple]);
+testMeshLine.setPath([lnglatTuple]);
 // $ExpectType void
-meshLine.setPath([pixel]);
+testMeshLine.setPath([pixel]);
 
 // $ExpectType void
-meshLine.setWidth(10);
+testMeshLine.setWidth(10);
 
 // $ExpectType void
-meshLine.setHeight(10);
+testMeshLine.setHeight(10);
 
 // $ExpectType void
-meshLine.setColor('red');
+testMeshLine.setColor('red');
