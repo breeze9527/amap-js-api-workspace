@@ -33,18 +33,27 @@ const getHeaders = (typeName, version, authors, projectUrl) => {
     return headers.join('\n');
 }
 
-function validateSrc(srcPath) {
-    const checkFileExist = fileName => {
+function validateSrc(srcPath, typeName) {
+    const checkFound = fileName => {
         const filePath = path.join(srcPath, fileName);
-        if (!fs.existsSync(filePath)) {
-            throw new Error(`${filePath} not found`);
+        return fs.existsSync(filePath);
+    }
+    const validateFileExist = fileName => {
+        if (Array.isArray(fileName)) {
+            if (fileName.every(name => !checkFound(name))) {
+                throw new Error(`${fileName.join(',')} not found`);
+            }
+        } else {
+            if (!checkFound(fileName)) {
+                throw new Error(`${fileName} not found`);
+            }
         }
     }
-    checkFileExist('tsconfig.json');
-    checkFileExist('test');
-    checkFileExist('tslint.json');
-    checkFileExist('index.d.ts');
-    checkFileExist('meta.json');
+    validateFileExist('tsconfig.json');
+    validateFileExist(['test', `${typeName}-tests.ts`]);
+    validateFileExist('tslint.json');
+    validateFileExist('index.d.ts');
+    validateFileExist('meta.json');
 }
 
 function getDistTypeName(typeName) {
@@ -95,7 +104,7 @@ async function updateDefIndex(typeDistPath, distTypeName, meta) {
         meta.project || DEFAULT_PROJECT_ADDRESS
     );
     const newContent = indexContent.replace(REG_TYPE_REF, (matchedStr, depTypeName) => {
-        return `/// <reference types="${getDistTypeName(depTypeName)}" />` ;
+        return `/// <reference types="${getDistTypeName(depTypeName)}" />`;
     });
     await fsp.writeFile(indexPath, `${header}\n${newContent}`);
 }
@@ -132,12 +141,20 @@ async function mergeTestFiles(distPath, distTypeName) {
     ]);
 }
 
+async function distTestFile(distPath, typeName, distTypeName) {
+    if (typeName === distTypeName) {
+        return Promise.resolve();
+    } else {
+        return fsp.rename(path.join(distPath, `${typeName}-tests.ts`), path.join(distPath, `${distTypeName}-tests.ts`))
+    }
+}
+
 async function distType(typeName) {
     const srcPath = path.join(typesDir, typeName);
     const distTypeName = getDistTypeName(typeName);
     const distPath = path.join(typeDistPath, distTypeName);
     // validate
-    validateSrc(srcPath);
+    validateSrc(srcPath, typeName);
     // clean
     if (fs.existsSync(distPath)) {
         await fse.emptyDir(distPath);
@@ -155,7 +172,7 @@ async function distType(typeName) {
         updateTsConfig(typeDistPath, distTypeName),
         updateDefIndex(typeDistPath, distTypeName, meta),
         updateTslintConfig(distPath),
-        mergeTestFiles(distPath, distTypeName)
+        fs.existsSync(path.join(distPath, TEST_DIR)) ? mergeTestFiles(distPath, distTypeName) : distTestFile(distPath, typeName, distTypeName)
     ])
 }
 

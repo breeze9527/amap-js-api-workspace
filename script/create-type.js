@@ -35,8 +35,8 @@ async function createType(typeName, deps) {
         fsp.copyFile(path.join(templatePath, 'tsconfig.json'), path.join(targetPath, 'tsconfig.json')),
         // index.d.ts
         fsp.writeFile(path.join(targetPath, 'index.d.ts'), newContent.join('\n')),
-        // test.ts
-        fsp.writeFile(path.join(targetPath, `${typeName}-test.ts`), ''),
+        // tests.ts
+        fsp.writeFile(path.join(targetPath, `${typeName}-tests.ts`), ''),
         // tslint.json
         fsp.copyFile(path.join(templatePath, 'tslint.json'), path.join(targetPath, 'tslint.json')),
         // meta.json
