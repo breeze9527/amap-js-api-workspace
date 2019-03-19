@@ -11,11 +11,10 @@ function toKebabCase(str) {
     });
 }
 
-async function createType(typeName, pathName, deps) {
+async function createType(typeName, deps) {
     console.log(`Create type: ${typeName}`);
-    console.log(`path: ${pathName}`);
     await fse.ensureDir(templatePath);
-    const targetPath = path.join(typesPath, pathName);
+    const targetPath = path.join(typesPath, typeName);
     if (fs.existsSync(targetPath)) {
         console.error(`path: ${targetPath} already exist`);
         return;
@@ -37,9 +36,11 @@ async function createType(typeName, pathName, deps) {
         // index.d.ts
         fsp.writeFile(path.join(targetPath, 'index.d.ts'), newContent.join('\n')),
         // test.ts
-        fsp.writeFile(path.join(targetPath, `${pathName}-test.ts`), ''),
+        fsp.writeFile(path.join(targetPath, `${typeName}-test.ts`), ''),
         // tslint.json
         fsp.copyFile(path.join(templatePath, 'tslint.json'), path.join(targetPath, 'tslint.json')),
+        // meta.json
+        fsp.copyFile(path.join(templatePath, 'meta.json'), path.join(targetPath, 'meta.json'))
     ]);
     console.log('Create complete');
 }
@@ -50,19 +51,15 @@ const templatePath = path.join(cwd, env.TYPE_TEMPLATE_DIR);
 const typesPath = path.join(cwd, env.TYPES_DIR);
 const [name, ...args] = process.argv.slice(2);
 const argList = {
-    dep: [],
-    path: null
+    dep: []
 }
 let curArgFlag;
 args.forEach(item => {
     // flag
     if (item[0] === '-') {
         switch (item.substr(1)) {
-            case 'd':
+            case 'D':
                 curArgFlag = 'dep';
-                break;
-            case 'p':
-                curArgFlag = 'path';
                 break;
         }
     } else if (curArgFlag && argList.hasOwnProperty(curArgFlag)) {
@@ -79,4 +76,4 @@ if (!name) {
     throw new Error('missing param: name');
 }
 
-createType(name, argList.path || name, argList.dep)
+createType(name, argList.dep)

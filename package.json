@@ -14,7 +14,6 @@
   "scripts": {
     "clean:pg": "rm -rf ./pg-dist",
     "clean:type": "rm -rf ./type-dist",
-    "clean": "yarn clean:pg; yarn clean:type",
     "build:pg": "tsc --project ./tsconfig.json",
     "pg": "yarn build:pg && node script/build-playground",
     "update-index": "node script/update-index",
