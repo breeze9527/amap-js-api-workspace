@@ -20,7 +20,7 @@ yarn create-type name [-D dependencies]
 执行新建脚本后会在types目录新建一个新的目录，-D可以添加依赖引用到`index.d.ts`中。
 
 生成目录中会有一个`meta.json`文件，用于配置编译结果，结构如下：
-```json
+```javascript
 {
     "authors": [                // 用于输出index.d.ts头部注释作者行
         {
