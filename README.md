@@ -49,5 +49,5 @@ yarn build:type typeName    # 编译指定模块并输出
 ## 清理
 ```shell
 yarn clean:pg               # 删除demo输出
-yarn clean:dist             # 删除dist输出
+yarn clean:dist             # 删除type输出
 ```
