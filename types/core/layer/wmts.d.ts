@@ -26,7 +26,7 @@ declare namespace AMap {
         class WMTS extends Flexible {
             /**
              * WMTS图层
-             * @param options 图层选项 
+             * @param options 图层选项
              */
             constructor(options: WMTS.Options);
             /**

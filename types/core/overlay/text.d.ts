@@ -20,7 +20,7 @@ declare namespace AMap {
     class Text<ExtraData = any> extends Marker<ExtraData> {
         /**
          * 纯文本标记
-         * @param options 选项 
+         * @param options 选项
          */
         constructor(options?: Text.Options);
         /**

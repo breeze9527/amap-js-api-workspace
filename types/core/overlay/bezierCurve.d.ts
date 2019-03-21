@@ -21,7 +21,7 @@ declare namespace AMap {
     class BezierCurve<ExtraData = any> extends Polyline<ExtraData> {
         /**
          * 贝瑟尔曲线
-         * @param options 覆盖物选项 
+         * @param options 覆盖物选项
          */
         constructor(options: BezierCurve.Options<ExtraData>);
         /**

@@ -81,7 +81,7 @@ declare namespace AMap {
     class Polyline<ExtraData = any> extends PathOverlay<ExtraData> {
         /**
          * 折线
-         * @param options 选项 
+         * @param options 选项
          */
         constructor(options?: BezierCurve.Options<ExtraData> | Polyline.Options<ExtraData>);
         /**

@@ -494,7 +494,7 @@ declare namespace AMap {
         addControl(control: {}): void; // TODO
         /**
          * 移除控件
-         * @param control 控件 
+         * @param control 控件
          */
         removeControl(control: {}): void; // TODO
         /**
@@ -520,12 +520,12 @@ declare namespace AMap {
         containerToLngLat(pixel: Pixel): LngLat;
         /**
          * 地图经纬度坐标转为地图容器像素坐标
-         * @param lnglat 经纬度坐标 
+         * @param lnglat 经纬度坐标
          */
         lngLatToContainer(lnglat: LocationValue): Pixel;
         /**
          * 地图经纬度坐标转为地图容器像素坐标
-         * @param lnglat 经纬度坐标 
+         * @param lnglat 经纬度坐标
          */
         lnglatTocontainer(lnglat: LocationValue): Pixel;
         /**

@@ -13,7 +13,7 @@ declare namespace AMap {
     class OverlayGroup<O extends Overlay = Overlay, ExtraData = any> extends Overlay<ExtraData> {
         /**
          * 覆盖物集合
-         * @param overlays 
+         * @param overlays 覆盖物
          */
         constructor(overlays?: O | O[]);
         /**
@@ -23,7 +23,7 @@ declare namespace AMap {
         addOverlay(overlay: O | O[]): this;
         /**
          * 	添加覆盖物数组到集合中，不支持添加重复的覆盖物
-         * @param overlay 
+         * @param overlay 覆盖物数组
          */
         addOverlays(overlay: O | O[]): this;
         /**

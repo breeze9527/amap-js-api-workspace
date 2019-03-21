@@ -36,7 +36,7 @@ declare namespace AMap {
     class Circle<ExtraData = any> extends ShapeOverlay<ExtraData> {
         /**
          * 圆形覆盖物
-         * @param options 覆盖物选项 
+         * @param options 覆盖物选项
          */
         constructor(options?: Circle.Options<ExtraData>);
         /**

@@ -48,7 +48,7 @@ declare namespace AMap {
             line2: LocationValue[]
         ): boolean;
         /**
-         * 判断线段和多个环是否相交 
+         * 判断线段和多个环是否相交
          */
         function doesSegmentPolygonIntersect(
             point1: LocationValue,
@@ -102,7 +102,7 @@ declare namespace AMap {
         function makesureAntiClockwise(path: Array<[number, number]>): Array<[number, number]>;
         /**
          * 计算P2P3上距离P1最近的点
-         * @param point1 P1 
+         * @param point1 P1
          * @param point2 P2
          * @param point3 P3
          */
@@ -168,7 +168,7 @@ declare namespace AMap {
         /**
          * 判断P是否在多个ring的边上
          * @param point 点P
-         * @param polygon
+         * @param polygon 多边形
          * @param tolerance 误差范围
          */
         function isPointOnPolygon(

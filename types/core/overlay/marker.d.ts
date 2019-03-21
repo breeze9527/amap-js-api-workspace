@@ -200,7 +200,7 @@ declare namespace AMap {
         getDraggable(): boolean;
         /**
          * 设置鼠标悬停时的光标
-         * @param cursor 
+         * @param cursor 光标
          */
         setCursor(cursor: string): void;
         /**

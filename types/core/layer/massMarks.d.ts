@@ -84,7 +84,7 @@ declare namespace AMap {
         getStyle(): MassMarks.Style | MassMarks.Style[];
         /**
          * 设置数据集
-         * @param data 
+         * @param data 数据集
          */
         setData(data: D[] | string): void;
         /**

@@ -25,7 +25,7 @@ declare namespace AMap {
     class Rectangle<ExtraData = any> extends Polygon<ExtraData> {
         /**
          * 矩形
-         * @param options 选项 
+         * @param options 选项
          */
         constructor(options?: Rectangle.Options<ExtraData>);
         /**
