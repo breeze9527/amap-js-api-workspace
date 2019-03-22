@@ -44,7 +44,7 @@ yarn pg                     # 编译demo并更新pg-dist/index.html
 yarn build:type typeName    # 编译指定模块并输出
 ```
 `build:type`指令输出的文件能直接复制到[DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)项目中，
-经过测试即可发布提交MR发布。
+经过测试即可发布提交PR发布。
 
 ## 清理
 ```shell
