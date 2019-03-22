@@ -28,7 +28,7 @@ yarn create-type name [-D dependencies]
             "github": "url"
         }
     ],
-    "project": "project url"    // 用于输出index.d.ts头部注释作者行
+    "project": "project url"    // 用于输出index.d.ts头部注释项目地址
 }
 ```
 
