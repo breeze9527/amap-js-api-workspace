@@ -127,6 +127,9 @@ declare namespace AMap {
              */
             id: string;
             status: 0;
+            /**
+             * 建筑信息
+             */
             building: Building;
         }
         interface SearchErrorResult {
