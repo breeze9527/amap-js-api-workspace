@@ -8,11 +8,11 @@ new AMap.Text();
 new AMap.Text({});
 // $ExpectType Text<TextExtraData>
 const testText = new AMap.Text<TextExtraData>({
-    text: 'content',
     textAlign: 'center',
     verticalAlign: 'top',
     map,
     position: lnglat,
+    anchor: 'bottom-center',
     offset: pixel,
     topWhenClick: true,
     bubble: true,
@@ -27,8 +27,22 @@ const testText = new AMap.Text<TextExtraData>({
     shadow: 'https://webapi.amap.com/theme/v1.3/markers/0.png',
     title: 'title',
     clickable: true,
-    extData: { test: 1 }
+    extData: { test: 1 },
 });
+
+const testTextAnchor = testText.getAnchor();
+if (testTextAnchor) {
+    // $ExpectType Anchor
+    testTextAnchor;
+} else {
+    // $ExpectType undefined
+    testTextAnchor;
+}
+
+// $ExpectType void
+testText.setAnchor(testTextAnchor);
+// $ExpectType void
+testText.setAnchor();
 
 // $ExpectType string
 testText.getText();
@@ -147,7 +161,7 @@ testText.setShadow(icon);
 testText.setShadow('shadow url');
 
 // $ExpectType void
-testText.setExtData({test: 1});
+testText.setExtData({ test: 1 });
 
 // $ExpectType {} | TextExtraData
 testText.getExtData();

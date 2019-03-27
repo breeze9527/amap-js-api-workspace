@@ -17,6 +17,7 @@ const advancedInfoWindow = new AMap.AdvancedInfoWindow<ExtraData>({
     closeWhenClickMap: true,
     content: '123',
     offset: new AMap.Pixel(1, 2),
+    anchor: 'bottom-center',
     panel: div,
     searchRadius: 4000,
     placeSearch: true,
@@ -55,6 +56,20 @@ advancedInfoWindow.setPosition(lnglatTuple);
 
 // $ExpectType LngLat | undefined
 advancedInfoWindow.getPosition();
+
+const testAdvancedInfoWindowAnchor = advancedInfoWindow.getAnchor();
+if (testAdvancedInfoWindowAnchor !== undefined) {
+    // $ExpectType Anchor
+    testAdvancedInfoWindowAnchor;
+} else {
+    // $ExpectType undefined
+    testAdvancedInfoWindowAnchor;
+}
+
+// $ExpectType void
+advancedInfoWindow.setAnchor();
+// $ExpectType void
+advancedInfoWindow.setAnchor(testAdvancedInfoWindowAnchor);
 
 // $ExpectType void
 advancedInfoWindow.clear();

@@ -19,10 +19,18 @@ fs.readdir(DIST_DIR, (err, dirs) => {
         if (fs.existsSync(extraHTMLPath)) {
             extraHTML = fs.readFileSync(extraHTMLPath, { encoding: 'utf8' });
         }
-        const htmlContent = VIEW_TEMPLATE
-            .replace('%TITLE%', dir)
-            .replace('%EXTRA_HTML_REPLACE%', extraHTML);
-
+        const htmlContent = VIEW_TEMPLATE.replace(/%([A-Z_]+)%/g, (matched, token) => {
+            switch (token) {
+                case 'TITLE':
+                    return dir;
+                case 'EXTRA_HTML_REPLACE':
+                    return extraHTML;
+                case 'AMAP_VERSION':
+                    return env.AMAP_VERSION;
+                default:
+                    return matched;
+            }
+        });
         fs.writeFile(path.join(DIST_DIR, dir, 'index.html'), htmlContent, () => { });
     });
 

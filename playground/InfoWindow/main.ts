@@ -58,6 +58,11 @@ testWrapper(() => {
 
     test('InfoWindow#setPosition', infoWindow.setPosition(lnglat));
 
+    test('InfoWindow#setAnchor()', infoWindow.setAnchor());
+    test('InfoWindow#setAnchor(Anchor)', infoWindow.setAnchor('bottom-center'));
+
+    test('InfoWindow#getAnchor()', infoWindow.getAnchor());
+
     test('InfoWindow#setSize(Size)', infoWindow.setSize(new AMap.Size(100, 100)));
     test('InfoWindow#setSize([number, number])', infoWindow.setSize([100, 100]));
 

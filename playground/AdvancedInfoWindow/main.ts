@@ -46,6 +46,11 @@ testPluginWrapper('AMap.AdvancedInfoWindow', () => {
 
     test('AdvancedInfoWindow#getPosition', advancedInfoWindow.getPosition());
 
+    test('AdvancedInfoWindow#setAnchor()', advancedInfoWindow.setAnchor());
+    test('AdvancedInfoWindow#setAnchor(Anchor)', advancedInfoWindow.setAnchor('bottom-center'));
+
+    test('AdvancedInfoWindow#getAnchor()', advancedInfoWindow.getAnchor());
+
     test('AdvancedInfoWindow#clear', advancedInfoWindow.clear());
 
     return {

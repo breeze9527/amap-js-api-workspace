@@ -76,6 +76,11 @@ testPluginWrapper('ElasticMarker', () => {
 
     test('ElasticMarker#getPosition', elasticMarker.getPosition());
 
+    test('ElasticMarker#setAnchor()', elasticMarker.setAnchor());
+    test('ElasticMarker#setAnchor(Anchor)', elasticMarker.setAnchor('bottom-center'));
+
+    test('ElasticMarker#getAnchor()', elasticMarker.getAnchor());
+
     test('ElasticMarker#setzIndex', elasticMarker.setzIndex(10));
 
     test('ElasticMarker#setzIndex', elasticMarker.getzIndex());

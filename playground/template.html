@@ -20,12 +20,14 @@
         }
     </style>
     <script type="text/javascript"
-        src="https://webapi.amap.com/maps?v=1.4.11&key=56818df3b7aa2992b250955987760108"></script>
+        src="https://webapi.amap.com/maps?v=%AMAP_VERSION%&key=56818df3b7aa2992b250955987760108"></script>
 </head>
 
 <body>
     <div id="map"></div>
+
     %EXTRA_HTML_REPLACE%
+
     <script>
         function test(name, value) {
             console.log(`[Test ${name}]:\t `, value);

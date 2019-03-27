@@ -13,6 +13,7 @@ testWrapper(() => {
         map,
         position,
         offset,
+        anchor: 'bottom-center',
         topWhenClick: true,
         bubble: true,
         draggable: true,
@@ -41,6 +42,11 @@ testWrapper(() => {
         background: 'red',
         width: '200px'
     }));
+
+    test('Text#setAnchor()', text.setAnchor());
+    test('Text#setAnchor(Anchor)', text.setAnchor('bottom-center'));
+
+    test('Text#getAnchor()', text.getAnchor());
 
     return {
         map,

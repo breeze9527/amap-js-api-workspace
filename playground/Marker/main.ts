@@ -17,6 +17,7 @@ testWrapper(() => {
     const marker = new AMap.Marker({
         map,
         position,
+        anchor: 'bottom-center',
         offset,
         icon: '123',
         content: div,
@@ -41,6 +42,11 @@ testWrapper(() => {
     test('new Marker(options)', marker);
 
     testOverlay(marker, { map });
+
+    test('Marker#setAnchor()', marker.setAnchor());
+    test('Marker#setAnchor(Anchor)', marker.setAnchor('bottom-center'));
+
+    test('Marker#getAnchor', marker.getAnchor());
 
     test('Marker#getOffset', marker.getOffset());
 

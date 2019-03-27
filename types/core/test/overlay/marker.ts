@@ -12,6 +12,7 @@ new AMap.Marker({});
 export const testMarker = new AMap.Marker<MarkerExtraData>({
     map,
     position: lnglat,
+    anchor: 'bottom-center',
     offset: pixel,
     icon: 'iconUrl',
     content: 'htmlString',
@@ -46,6 +47,20 @@ testMarker.markOnAMAP({
     position: [1, 2],
     name: '123'
 });
+
+const testMarkerAnchor = testMarker.getAnchor();
+if (testMarkerAnchor) {
+    // $ExpectType Anchor
+    testMarkerAnchor;
+} else {
+    // $ExpectType undefined
+    testMarkerAnchor;
+}
+
+// $ExpectType void
+testMarker.setAnchor(testMarkerAnchor);
+// $ExpectType void
+testMarker.setAnchor();
 
 // $ExpectType Pixel
 testMarker.getOffset();

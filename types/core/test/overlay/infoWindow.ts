@@ -13,6 +13,7 @@ const testInfoWindow = new AMap.InfoWindow<InfoWindowExtraData>({
     closeWhenClickMap: false,
     content: 'content',
     size: [100, 100],
+    anchor: 'bottom-center',
     offset: new AMap.Pixel(10, 10),
     position: lnglat,
     showShadow: true
@@ -46,6 +47,20 @@ testInfoWindow.setPosition(lnglatTuple);
 
 // $ExpectType LngLat | undefined
 testInfoWindow.getPosition();
+
+const testInfoWindowAnchor = testInfoWindow.getAnchor();
+if (testInfoWindowAnchor !== undefined) {
+    // $ExpectType Anchor
+    testInfoWindowAnchor;
+} else {
+    // $ExpectType undefined
+    testInfoWindowAnchor;
+}
+
+// $ExpectType void
+testInfoWindow.setAnchor();
+// $ExpectType void
+testInfoWindow.setAnchor(testInfoWindowAnchor);
 
 // $ExpectType Size | undefined
 testInfoWindow.getSize();
