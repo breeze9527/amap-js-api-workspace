@@ -19,7 +19,7 @@
 - [ ] 地图类型切换(map-type)
 - [x] 3D地图(map3d) - [amap-js-api-map3d](https://www.npmjs.com/package/@types/amap-js-api-map3d)
 - [ ] 地图鹰眼(overview)
-- [ ] 地点搜索服务(place-search)
+- [x] 地点搜索服务(place-search)
 - [ ] 麻点图(place-search-layer)
 - [ ] 骑行路径规划(riding)
 - [ ] 地图比例尺(scale)
