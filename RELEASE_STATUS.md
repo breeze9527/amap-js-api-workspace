@@ -10,7 +10,7 @@
 - [ ] 拖拽导航(drag-route)
 - [ ] 驾车路线规划(driving)
 - [ ] 灵活点标记(elastic-marker)
-- [ ] 地理编码与逆地理编码(geocoder)
+- [x] 地理编码与逆地理编码(geocoder)
 - [ ] 定位(geolocation)
 - [ ] 轨迹纠偏服务(grasp-road)
 - [ ] 热力图(heatmap)
