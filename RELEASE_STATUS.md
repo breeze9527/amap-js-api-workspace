@@ -2,7 +2,7 @@
 
 - [ ] 高级信息窗体(advanced-info-window)
 - [ ] 公交到达圈(arrival-range)
-- [ ] 输入提示(autocomplete)
+- [x] 输入提示(autocomplete)
 - [ ] 城市查询(city-search)
 - [ ] 地图控制(control-bar)
 - [x] 核心类(core) - [amap-js-api](https://www.npmjs.com/package/@types/amap-js-api)
