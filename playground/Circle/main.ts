@@ -14,7 +14,7 @@ testWrapper(() => {
         cursor: 'pointer',
         radius: 1000,
         strokeColor: '#FF0000',
-        strokeOpcity: 0.8,
+        strokeOpacity: 0.8,
         strokeWeight: 3,
         fillColor: '#00FF00',
         fillOpacity: 0.5,
@@ -27,19 +27,19 @@ testWrapper(() => {
     test('new Circle({})', new AMap.Circle({}));
     test('new Circle(options)', circle);
 
-    test('Circle@click', circle.on('click', event => {
+    test('Circle@click', circle.on('click', (event: AMap.Circle.EventMap['click']) => {
         test('Circle@click$event', event);
     }));
 
-    test('Circle@change', circle.on('change', event => {
+    test('Circle@change', circle.on('change', (event: AMap.Circle.EventMap['change']) => {
         test('Circle@change$event', event);
     }));
 
-    test('Circle@options', circle.on('options', event => {
+    test('Circle@options', circle.on('options', (event: AMap.Circle.EventMap['options']) => {
         test('Circle@options$event', event);
     }));
 
-    test('Circle@setCenter', circle.on('setCenter', event => {
+    test('Circle@setCenter', circle.on('setCenter', (event: AMap.Circle.EventMap['setCenter']) => {
         test('Circle@setCenter$event', event);
     }));
 
@@ -64,7 +64,7 @@ testWrapper(() => {
         cursor: 'pointer',
         radius: 10000,
         strokeColor: '#FF0000',
-        strokeOpcity: 0.8,
+        strokeOpacity: 0.8,
         strokeWeight: 3,
         fillColor: '#00FF00',
         fillOpacity: 0.5,
