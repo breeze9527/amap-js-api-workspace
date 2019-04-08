@@ -1,5 +1,15 @@
 // $ExpectType Bounds
 const testBounds = new AMap.Bounds(lnglat, lnglat);
+// $ExpectType Bounds
+new AMap.Bounds();
+// $ExpectError
+new AMap.Bounds([0, 0, 0]);
+// $ExpectType Bounds
+new AMap.Bounds([0, 0, 0, 0]);
+// $ExpectType Bounds
+new AMap.Bounds(lnglatTuple, lnglatTuple);
+// $ExpectType Bounds
+new AMap.Bounds(0, 0, 0, 0);
 
 // $ExpectType boolean
 testBounds.contains(lnglat);
