@@ -3,7 +3,7 @@ declare namespace AMap {
     type LocationValue = LngLat | [number, number];
     type Lang = 'zh_cn' | 'en' | 'zh_en';
 
-    type Event<N extends string = string, V = undefined> = { type: N } &
+    type Event<N extends string = string, V = any> = { type: N } &
         (V extends HTMLElement ? { value: V }
             : V extends object ? V
             : V extends undefined ? {}
