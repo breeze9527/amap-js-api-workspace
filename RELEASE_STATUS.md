@@ -11,7 +11,7 @@
 - [ ] 驾车路线规划(driving)
 - [ ] 灵活点标记(elastic-marker)
 - [x] 地理编码与逆地理编码(geocoder)
-- [ ] 定位(geolocation)
+- [x] 定位(geolocation)
 - [ ] 轨迹纠偏服务(grasp-road)
 - [ ] 热力图(heatmap)
 - [x] 室内地图(indoor-map) - [amap-js-api-indoor-map](https://www.npmjs.com/package/@types/amap-js-api-indoor-map)
