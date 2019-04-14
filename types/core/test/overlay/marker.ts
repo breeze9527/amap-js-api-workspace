@@ -28,6 +28,11 @@ export const testMarker = new AMap.Marker<MarkerExtraData>({
     title: '123',
     clickable: true,
     shape: markerShape,
+    label: {
+        content: 'label',
+        offset: pixel,
+        direction: 'left'
+    },
     extData: {
         test: 123
     }
@@ -96,11 +101,29 @@ testMarker.setLabel({});
 // $ExpectType void
 testMarker.setLabel({
     content: 'label content',
-    offset: pixel
+    offset: pixel,
+    direction: 'top'
 });
 
-// $ExpectType Label | undefined
-testMarker.getLabel();
+{
+    const testMarkerLabel = testMarker.getLabel();
+    if (testMarkerLabel !== undefined) {
+        // $ExpectType Label
+        testMarkerLabel;
+
+        // $ExpectType string | undefined
+        testMarkerLabel.content;
+
+        // $ExpectType Pixel | undefined
+        testMarkerLabel.offset;
+
+        type TempLabelDirection = 'top' | 'right' | 'bottom' | 'left' | 'center' | undefined;
+        const tempLabelDirection: TempLabelDirection = testMarkerLabel.direction;
+    } else {
+        // $ExpectType undefined
+        testMarkerLabel;
+    }
+}
 
 // $ExpectType number
 testMarker.getAngle();

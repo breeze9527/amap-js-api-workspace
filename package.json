@@ -6,7 +6,7 @@
   "dependencies": {
     "@types/node": "^10.12.11",
     "dotenv": "^6.2.0",
-    "dtslint": "latest",
+    "dtslint": "0.6.1",
     "fs-extra": "^7.0.1",
     "typescript": "^3.3.3"
   },

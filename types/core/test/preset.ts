@@ -17,6 +17,7 @@ declare const marker: AMap.Marker;
 declare const layer: AMap.Layer;
 declare const tileLayer: AMap.TileLayer;
 declare const massMarksLayer: AMap.MassMarks;
+declare const labelMarker: AMap.LabelMarker;
 
 // declare const videoLayer: AMap.VideoLayer;
 // declare const buildings: AMap.Buildings;
