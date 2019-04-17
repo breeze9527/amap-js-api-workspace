@@ -3,7 +3,7 @@
 - [ ] 高级信息窗体(advanced-info-window)
 - [ ] 公交到达圈(arrival-range)
 - [x] 输入提示(autocomplete) - [amap-js-api-autocomplete](https://www.npmjs.com/package/@types/amap-js-api-autocomplete)
-- [ ] 城市查询(city-search)
+- [x] 城市查询(city-search) - [amap-js-api-city-search](https://www.npmjs.com/package/@types/amap-js-api-city-search)
 - [ ] 地图控制(control-bar)
 - [x] 核心类(core) - [amap-js-api](https://www.npmjs.com/package/@types/amap-js-api)
 - [ ] 行政区查询(district-search)
