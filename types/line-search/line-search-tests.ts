@@ -77,6 +77,12 @@ lineSearch.searchById('buslineId', (status, result) => {
                 busstop.sequence;
             }
         }
+
+        // $ExpectType any[] | undefined
+        result.cityList;
+
+        // $ExpectType any[] | undefined
+        result.keywordList;
     }
 });
 
