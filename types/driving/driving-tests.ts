@@ -48,7 +48,7 @@ driving.search(lnglat, lnglat, { waypoints: [lnglat] }, (status, result) => {
         result.info;
         // $ExpectType LngLat
         result.origin;
-        // $ExpectType Route[]
+        // $ExpectType DriveRoute[]
         result.routes;
         {
             const route = result.routes[0];
@@ -58,7 +58,7 @@ driving.search(lnglat, lnglat, { waypoints: [lnglat] }, (status, result) => {
             route.policy;
             // $ExpectType 0 | 1
             route.restriction;
-            // $ExpectType Step[]
+            // $ExpectType DriveStep[]
             route.steps;
             {
                 const step = route.steps[0];
@@ -88,7 +88,7 @@ driving.search(lnglat, lnglat, { waypoints: [lnglat] }, (status, result) => {
                 step.toll_road;
                 // $ExpectType number
                 step.tolls;
-                // $ExpectType City[] | undefined
+                // $ExpectType ViaCity[] | undefined
                 step.cities;
                 if (step.cities) {
                     const city = step.cities[0];
@@ -244,7 +244,7 @@ driving.on('complete', (event: AMap.Driving.EventMap['complete']) => {
         event.end;
         // $ExpectType LngLat
         event.origin;
-        // $ExpectType Route[]
+        // $ExpectType DriveRoute[]
         event.routes;
         event.start;
         // $ExpectType number | undefined
