@@ -1,7 +1,7 @@
 # 发布状态
 
 - [ ] 高级信息窗体(advanced-info-window)
-- [x] 公交到达圈(arrival-range)
+- [x] 公交到达圈(arrival-range) - [amap-js-api-arrival-range](https://www.npmjs.com/package/@types/amap-js-api-arrival-range)
 - [x] 输入提示(autocomplete) - [amap-js-api-autocomplete](https://www.npmjs.com/package/@types/amap-js-api-autocomplete)
 - [x] 城市查询(city-search) - [amap-js-api-city-search](https://www.npmjs.com/package/@types/amap-js-api-city-search)
 - [x] 地图控制(control-bar)
