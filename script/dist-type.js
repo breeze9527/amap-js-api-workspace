@@ -16,7 +16,7 @@ const {
     TEST_DIR,
     TEST_PRESET_FILENAME
 } = env;
-const REG_TYPE_REF = /^\/\/\/\s*<reference types="(\w+)"\s* \/>/gm;
+const REG_TYPE_REF = /^\/\/\/\s*<reference types="([^"]+)"\s* \/>/gm;
 
 const getHeaders = (typeName, version, authors, projectUrl) => {
     const versionStr = version.split('.').slice(0, 2).join('.');
