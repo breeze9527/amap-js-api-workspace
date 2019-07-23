@@ -2,11 +2,11 @@ declare const map: AMap.Map;
 declare const lnglat: AMap.LngLat;
 declare const lnglatTuple: [number, number];
 
-// $ExpectType
+// $ExpectType Riding
 new AMap.Riding();
-// $ExpectType
+// $ExpectType Riding
 new AMap.Riding({});
-// $ExpectType
+// $ExpectType Riding
 const riding = new AMap.Riding({
     map,
     policy: AMap.RidingPolicy.FASTEST,
@@ -44,13 +44,13 @@ riding.search(lnglat, lnglat, (status, result) => {
         result.info;
         // $ExpectType LngLat
         result.origin;
-        // $ExpectType Route[]
+        // $ExpectType RideRoute[]
         result.routes;
         {
             const route = result.routes[0];
             // $ExpectType number
             route.distance;
-            // $ExpectType Ride[]
+            // $ExpectType RideStep[]
             route.rides;
             {
                 const ride = route.rides[0];
@@ -104,7 +104,7 @@ riding.search([{ keyword: 'origin' }, { keyword: 'destination' }], (status, resu
         result.origin;
         // $ExpectType string
         result.originName;
-        // $ExpectType Route[]
+        // $ExpectType RideRoute[]
         result.routes;
         // $ExpectType PoiExt
         result.start;
@@ -133,7 +133,7 @@ riding.on('complete', (event: AMap.Riding.EventMap['complete']) => {
     event.info;
     // $ExpectType LngLat
     event.origin;
-    // $ExpectType Route[]
+    // $ExpectType RideRoute[]
     event.routes;
     // $ExpectType "complete"
     event.type;
