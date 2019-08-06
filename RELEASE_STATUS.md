@@ -13,7 +13,7 @@
 - [x] 地理编码与逆地理编码(geocoder) - [amap-js-api-geocoder](https://www.npmjs.com/package/@types/amap-js-api-geocoder)
 - [x] 定位(geolocation) - [amap-js-api-geolocation](https://www.npmjs.com/package/@types/amap-js-api-geolocation)
 - [ ] 轨迹纠偏服务(grasp-road)
-- [x] 热力图(heatmap) [amap-js-api-heatmap](https://www.npmjs.com/package/@types/amap-js-api-heatmap)
+- [x] 热力图(heatmap) - [amap-js-api-heatmap](https://www.npmjs.com/package/@types/amap-js-api-heatmap)
 - [x] 室内地图(indoor-map) - [amap-js-api-indoor-map](https://www.npmjs.com/package/@types/amap-js-api-indoor-map)
 - [x] 公交路线(line-search) - [amap-js-api-line-search](https://www.npmjs.com/package/@types/amap-js-api-line-search)
 - [x] 地图类型切换(map-type) - [amap-js-api-map-type](https://www.npmjs.com/package/@types/amap-js-api-map-type)
