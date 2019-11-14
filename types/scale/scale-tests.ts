@@ -12,6 +12,21 @@ const scale = new AMap.Scale({
     offset: pixel
 });
 
+// $ExpectType Pixel
+scale.offset;
+
+// $ExpectType boolean
+scale.visible;
+
+// $ExpectType Position
+scale.position;
+
+// $ExpectType void
+scale.show();
+
+// $ExpectType void
+scale.hide();
+
 scale.on('show', (event: AMap.Scale.EventMap['show']) => {
     // $ExpectType "show"
     event.type;
