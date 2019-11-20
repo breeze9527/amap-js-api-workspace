@@ -4,7 +4,7 @@
 - [x] 公交到达圈(arrival-range) - [amap-js-api-arrival-range](https://www.npmjs.com/package/@types/amap-js-api-arrival-range)
 - [x] 输入提示(autocomplete) - [amap-js-api-autocomplete](https://www.npmjs.com/package/@types/amap-js-api-autocomplete)
 - [x] 城市查询(city-search) - [amap-js-api-city-search](https://www.npmjs.com/package/@types/amap-js-api-city-search)
-- [x] 地图控制(control-bar) - [amap-js-api-city-search](https://www.npmjs.com/package/@types/amap-js-api-control-bar)
+- [x] 地图控制(control-bar) - [amap-js-api-control-bar](https://www.npmjs.com/package/@types/amap-js-api-control-bar)
 - [x] 核心类(core) - [amap-js-api](https://www.npmjs.com/package/@types/amap-js-api)
 - [x] 行政区查询(district-search) - [amap-js-api-district-search](https://www.npmjs.com/package/@types/amap-js-api-district-search)
 - [ ] 拖拽导航(drag-route)
