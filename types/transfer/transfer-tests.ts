@@ -50,7 +50,7 @@ transfer.search(lnglat, lnglat, (status, result) => {
         result.info;
         // $ExpectType LngLat
         result.origin;
-        // $ExpectType Plan[]
+        // $ExpectType TransferPlan[]
         result.plans;
         {
             const plan = result.plans[0];
@@ -145,7 +145,7 @@ transfer.search(lnglat, lnglat, (status, result) => {
                     // $ExpectType RailwayDetails
                     const railwayDetails = segments.transit;
                     {
-                        // $ExpectType RailwayStop
+                        // $ExpectType RailStop
                         const arrivalStop = railwayDetails.arrival_stop;
                         {
                             // $ExpectType string
@@ -161,7 +161,7 @@ transfer.search(lnglat, lnglat, (status, result) => {
                             // $ExpectType number
                             arrivalStop.time;
                         }
-                        // $ExpectType RailwayStop
+                        // $ExpectType RailStop
                         railwayDetails.departure_stop;
                         // $ExpectType number
                         railwayDetails.distance;
@@ -169,7 +169,7 @@ transfer.search(lnglat, lnglat, (status, result) => {
                         railwayDetails.id;
                         // $ExpectType string
                         railwayDetails.name;
-                        // $ExpectType RailwaySpace[]
+                        // $ExpectType Space[]
                         railwayDetails.spaces;
                         {
                             const space = railwayDetails.spaces[0];
@@ -186,7 +186,7 @@ transfer.search(lnglat, lnglat, (status, result) => {
                         railwayDetails.type;
 
                         if ('alters' in railwayDetails) {
-                            // $ExpectType RailwayAlter[]
+                            // $ExpectType Alter[]
                             railwayDetails.alters;
                             {
                                 const alter = railwayDetails.alters[0];
@@ -198,7 +198,7 @@ transfer.search(lnglat, lnglat, (status, result) => {
                             railwayDetails.alters;
                             // $ExpectType number
                             railwayDetails.via_num;
-                            // $ExpectType RailwayViaStop[]
+                            // $ExpectType ViaStop[]
                             railwayDetails.via_stops;
                             {
                                 const viaStop = railwayDetails.via_stops[0];
@@ -255,7 +255,7 @@ transfer.search(lnglat, lnglat, (status, result) => {
                             // $ExpectType string
                             line.type;
                         }
-                        // $ExpectType TransitStop
+                        // $ExpectType Stop
                         const offStation = transitDetail.off_station;
                         {
                             // $ExpectType string
@@ -267,13 +267,13 @@ transfer.search(lnglat, lnglat, (status, result) => {
                             // $ExpectType TransitSegment | undefined
                             offStation.segment;
                         }
-                        // $ExpectType TransitStop
+                        // $ExpectType Stop
                         transitDetail.on_station;
                         // $ExpectType LngLat[]
                         transitDetail.path;
                         // $ExpectType number
                         transitDetail.via_num;
-                        // $ExpectType TransitStop[]
+                        // $ExpectType Stop[]
                         transitDetail.via_stops;
                         {
                             const viaStop = transitDetail.via_stops[0];
@@ -343,7 +343,7 @@ transfer.on('complete', (event: AMap.Transfer.EventMap['complete']) => {
         event.destination;
         // $ExpectType number
         event.taxi_cost;
-        // $ExpectType Plan[]
+        // $ExpectType TransferPlan[]
         event.plans;
     }
     if ('originName' in event) {
