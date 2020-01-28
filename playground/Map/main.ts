@@ -155,6 +155,12 @@ testWrapper(() => {
         test('Map@click$hotspotclick', event);
     }));
 
+    test('AMap.plugin', AMap.plugin);
+    test('AMap.service', AMap.plugin);
+    test('AMap.plugin(\'AMap.Transfer\')', AMap.plugin('AMap.Transfer', () => {
+        test('AMap.Transfer loaded');
+    }));
+
     return {
         map,
         marker1,
