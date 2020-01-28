@@ -25,7 +25,7 @@
 - [x] 地图比例尺(scale) - [amap-js-api-scale](https://www.npmjs.com/package/@types/amap-js-api-scale)
 - [x] 公交站点查询(station-search) - [amap-js-api-station-search](https://www.npmjs.com/package/@types/amap-js-api-station-search)
 - [x] 地图工具条(tool-bar) - [amap-js-api-tool-bar](https://www.npmjs.com/package/@types/amap-js-api-tool-bar)
-- [ ] 公交换乘(transfer)
+- [x] 公交换乘(transfer)
 - [ ] 货车路线规划(truck-driving)
 - [ ] 步行导航(walking)
 - [ ] 道路及道路交叉口查询服务(RoadInfoSearch)
