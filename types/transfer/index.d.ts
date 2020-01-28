@@ -336,7 +336,7 @@ declare namespace AMap {
              */
             name: string;
             /**
-             * 线路车次号 
+             * 线路车次号
              */
             trip: string;
             /**
