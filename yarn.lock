@@ -39,11 +39,7 @@ ansi-styles@^3.2.1:
 
 argparse@^1.0.7:
   version "1.0.10"
-<<<<<<< HEAD
-  resolved "https://registry.yarnpkg.com/argparse/-/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911"
-=======
   resolved "https://registry.npm.taobao.org/argparse/download/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911"
->>>>>>> Upgrade dependencies version
   dependencies:
     sprintf-js "~1.0.2"
 
@@ -246,11 +242,7 @@ escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
 
 esprima@^4.0.0:
   version "4.0.1"
-<<<<<<< HEAD
-  resolved "https://registry.yarnpkg.com/esprima/-/esprima-4.0.1.tgz#13b04cdb3e6c5d19df91ab6987a8695619b0aa71"
-=======
   resolved "https://registry.npm.taobao.org/esprima/download/esprima-4.0.1.tgz#13b04cdb3e6c5d19df91ab6987a8695619b0aa71"
->>>>>>> Upgrade dependencies version
 
 esutils@^2.0.2:
   version "2.0.3"
@@ -433,11 +425,7 @@ js-tokens@^3.0.2:
 
 js-yaml@^3.7.0:
   version "3.13.1"
-<<<<<<< HEAD
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
-=======
   resolved "https://registry.npm.taobao.org/js-yaml/download/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
->>>>>>> Upgrade dependencies version
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
@@ -607,8 +595,8 @@ path-key@^2.0.0, path-key@^2.0.1:
   resolved "https://registry.npm.taobao.org/path-key/download/path-key-2.0.1.tgz#411cadb574c5a140d3a4b1910d40d80cc9f40b40"
 
 path-parse@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.npm.taobao.org/path-parse/download/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
 
 performance-now@^2.1.0:
   version "2.1.0"
@@ -708,11 +696,7 @@ signal-exit@^3.0.0:
 
 sprintf-js@~1.0.2:
   version "1.0.3"
-<<<<<<< HEAD
-  resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
-=======
   resolved "https://registry.npm.taobao.org/sprintf-js/download/sprintf-js-1.0.3.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fsprintf-js%2Fdownload%2Fsprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
->>>>>>> Upgrade dependencies version
 
 sshpk@^1.7.0:
   version "1.16.1"
